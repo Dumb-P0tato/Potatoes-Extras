@@ -2973,7 +2973,6 @@ def abbrev_addons(t_c, r_c, cluster, x, rel, r):
                 )
             )
         ):
-        print("abbrev addon failed")
         return False
 
 def cat_dict_check(abbrev, cluster, x, rel, r, text, cat_dict):
@@ -3000,6 +2999,9 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
     abbrevs = {}
 
     # heres AALLLL the conditions for certain abbrevs to be valid
+    # a lot of these conditions end up being redundant because of the initial cat choices
+    # but Oh Well
+
     your_crush = False if (
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
@@ -3555,8 +3557,9 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.shunned != 0
     ) else True
 
-    # Grief cat
-    # d_c can no longer be a random starclan cat
+    # Dead cat
+    # If t_C is grieving, it will be their grief cat regardless of residence
+    # If not, a random starclan cat
     d_c = False if (
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
@@ -3596,7 +3599,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
     ) else True
 
     # now the abbrevs dict!
-    # make sure to add new abbrevs here, or they won't attempt to get replaced at all in the text
+    # make sure to add new abbrevs here, or they won't get replaced!!!
     abbrevs = {
         "your_crush": your_crush,
         "their_crush": their_crush,
