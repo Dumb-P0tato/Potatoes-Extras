@@ -2994,7 +2994,8 @@ def cat_dict_check(abbrev, cluster, x, rel, r, text, cat_dict):
     return text, in_dict
 
 def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
-    """ Checks the requirements for each random cat abbrev """
+    """ Checks the requirements for each random cat abbrev.
+        Returns a dict of all valid abbrevs """
     alive_cats = get_alive_cats(Cat)
     abbrevs = {}
 
@@ -3767,7 +3768,7 @@ def adjust_txt(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                     cat_choices = [i for i in Cat.all_cats_list if i.dead is True]
                 elif abbrev_string in ["d_c"]:
                     cat_choices = (
-                        cat.illnesses['grief stricken'].get("grief_cat") if "grief stricken" in cat.illnesses else
+                        cat.illnesses['grief stricken'].get("grief_cat") if "grief stricken" in cat.illnesses and cat.illnesses['grief stricken']["grief cat"] else
                         [i for i in Cat.all_cats_list if i.dead and not i.outside and not i.df]
                     )
                 else:
@@ -3795,7 +3796,6 @@ def adjust_txt(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                     print(abbrev_bool, addon_check)
                     alive_cat = choice(cat_choices)
                     new_abbrevs = lifegen_abbrevs(Cat, text, you, cat, alive_cat, cat_dict)
-                    print("counter:", counter)
                     for string, value in new_abbrevs.items():
                         if string == abbrev_string:
                             new_abbrev_string = string
