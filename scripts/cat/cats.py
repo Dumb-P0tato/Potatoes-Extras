@@ -3214,6 +3214,33 @@ class Cat:
                 )
 
     @staticmethod
+    def elder_story(elder, cat, chosen_story=""):
+        output = "Elder story results go here!!!<br>"
+        # elder influence:
+        # SPEAKER, CLEVER, COOPERATIVE ?, INSIGHTFUL, MEDIATOR, STORY, LORE
+        # also their relationship with the chosen cat
+
+        if elder.ID in cat.relationships:
+            relationship = cat.relationships[elder.ID]
+        else:
+            relationship = cat.create_one_relationship(elder)
+        
+        old_faith = cat.faith
+
+        if chosen_story == "starclan":
+            cat.faith += 1
+        elif chosen_story == "darkforest":
+            cat.faith -= 1
+
+        output += f"<br> Elder: {elder.name}"
+        output += f"<br> Cat: {cat.name}"
+        output += f"<br>Story type: {chosen_story}"
+
+        output += f"<br>Faith change: {str(old_faith + cat.faith)}"
+
+        return output
+
+    @staticmethod
     def mediate_relationship(mediator, cat1, cat2, allow_romantic, sabotage=False):
         # Gather some important info
 

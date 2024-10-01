@@ -35,6 +35,7 @@ from .SwitchClanScreen import SwitchClanScreen
 from .WarriorDenScreen import WarriorDenScreen
 from .GiftScreen import GiftScreen
 from .NewLifeScreen import NewLifeScreen
+from .ElderStoryScreen import ElderStoryScreen
 
 # ---------------------------------------------------------------------------- #
 #                                  UI RULES                                    #
@@ -103,4 +104,5 @@ moonplace_screen = MoonplaceScreen("moonplace screen")
 gift_screen = GiftScreen("gift screen")
 new_life_screen = NewLifeScreen("new life screen")
 patrol_screen = PatrolScreen('patrol screen')
+elder_screen = ElderStoryScreen('elder story screen')
 
