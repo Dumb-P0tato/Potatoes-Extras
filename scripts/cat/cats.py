@@ -3222,8 +3222,38 @@ class Cat:
 
         if elder.ID in cat.relationships:
             relationship = cat.relationships[elder.ID]
+            stranger = False
         else:
             relationship = cat.create_one_relationship(elder)
+            stranger = True
+
+        comfort = relationship.comfortable
+        trust = relationship.trust
+        platonic_like = relationship.platonic_like
+        romantic_love = relationship.romantic_love
+        dislike = relationship.dislike
+        jealousy = relationship.jealousy
+        respect = relationship.admiration
+
+        if not stranger:
+            fail_chance = (
+                comfort +
+                trust +
+                platonic_like +
+                romantic_love +
+                respect -
+                jealousy -
+                dislike
+                )
+        else:
+            fail_chance = 10
+
+        if fail_chance < 1:
+            fail_chance = 1
+        # change this up obviously. not just relationships
+        
+        print("fail chance:", fail_chance, stranger)
+
         
         old_faith = cat.faith
 
