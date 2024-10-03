@@ -23,7 +23,7 @@ from scripts.utility import (
     unpack_rel_block,
     event_text_adjust,
     gather_cat_objects,
-    adjust_txt,
+    lifegen_text_adjust,
     create_new_cat_block
 )
 from scripts.game_structure.game_essentials import game
@@ -230,7 +230,7 @@ class PatrolOutcome:
         results = [self._handle_new_cats(patrol)]
 
         # lifegen random abbrev processing!
-        lifegen_abbrev_text = adjust_txt(Cat, self.text, patrol.patrol_leader, patrol.patrol_cat_dict, r_c_allowed=False, o_c_allowed=False)
+        lifegen_abbrev_text = lifegen_text_adjust(Cat, self.text, patrol.patrol_leader, patrol.patrol_cat_dict, r_c_allowed=False, o_c_allowed=False)
 
         text = lifegen_abbrev_text
         if lifegen_abbrev_text == "":

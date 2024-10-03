@@ -14,31 +14,21 @@ from collections import Counter
 import ujson
 import re
 
-from scripts.cat.cats import Cat, cat_class
 from scripts.clan import Clan
 from scripts.clan import HERBS
 from scripts.clan_resources.freshkill import FRESHKILL_ACTIVE, FRESHKILL_EVENT_ACTIVE
-from scripts.conditions import medical_cats_condition_fulfilled, get_amount_cat_for_one_medic
-from scripts.events_module.relation_events import Relation_Events
-from scripts.events_module.condition_events import Condition_Events
 from scripts.cat.pelts import Pelt
 #from scripts.events_module.disaster_events import DisasterEvents
-from scripts.events_module.outsider_events import OutsiderEvents
 from scripts.event_class import Single_Event
-from scripts.game_structure.game_essentials import game
 from scripts.cat_relations.relationship import Relationship
-from scripts.utility import change_clan_relations, change_clan_reputation, get_cluster, ceremony_text_adjust, get_current_season, adjust_list_text, ongoing_event_text_adjust, event_text_adjust, create_new_cat, pronoun_repl, get_alive_status_cats, get_alive_cats, get_cats_same_age, adjust_txt
-from scripts.events_module.generate_events import GenerateEvents
+from scripts.utility import change_clan_relations, change_clan_reputation, get_cluster, ceremony_text_adjust, get_current_season, adjust_list_text, ongoing_event_text_adjust, event_text_adjust, create_new_cat, pronoun_repl, get_alive_status_cats, get_alive_cats, get_cats_same_age, lifegen_text_adjust
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES
 from scripts.cat.history import History
 from scripts.cat.names import Name
-from scripts.clan import HERBS
-from scripts.clan_resources.freshkill import FRESHKILL_EVENT_ACTIVE
 from scripts.conditions import (
     medical_cats_condition_fulfilled,
     get_amount_cat_for_one_medic,
 )
-from scripts.event_class import Single_Event
 from scripts.events_module.condition_events import Condition_Events
 from scripts.events_module.generate_events import GenerateEvents, generate_events
 from scripts.events_module.handle_short_events import handle_short_events
@@ -1047,7 +1037,7 @@ class Events:
 
     def process_text(self, text):
         self.cat_dict.clear()
-        text = adjust_txt(Cat, text, game.clan.your_cat, self.cat_dict, r_c_allowed=True, o_c_allowed=True)
+        text = lifegen_text_adjust(Cat, text, game.clan.your_cat, self.cat_dict, r_c_allowed=True, o_c_allowed=True)
 
         process_text_dict = self.cat_dict.copy()
         for abbrev in process_text_dict.keys():

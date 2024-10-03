@@ -7,7 +7,7 @@ from scripts.utility import scale
 
 from .Screens import Screens
 
-from scripts.utility import generate_sprite, get_cluster, pronoun_repl, adjust_txt
+from scripts.utility import generate_sprite, get_cluster, pronoun_repl, lifegen_text_adjust
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.game_structure.ui_elements import UIImageButton
@@ -1657,7 +1657,7 @@ class TalkScreen(Screens):
     def get_adjusted_txt(self, text, cat):
         you = game.clan.your_cat
         for i in range(len(text)):
-            text[i] = adjust_txt(Cat, text[i], cat, self.cat_dict, r_c_allowed=True, o_c_allowed=True)
+            text[i] = lifegen_text_adjust(Cat, text[i], cat, self.cat_dict, r_c_allowed=True, o_c_allowed=True)
             if text[i] == "":
                 return ""
 

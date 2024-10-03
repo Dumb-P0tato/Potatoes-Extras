@@ -2996,12 +2996,9 @@ def cat_dict_check(abbrev, cluster, x, rel, r, text, cat_dict):
 def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
     """ Checks the requirements for each random cat abbrev.
         Returns a dict of all valid abbrevs """
-    alive_cats = get_alive_cats(Cat)
     abbrevs = {}
 
     # heres AALLLL the conditions for certain abbrevs to be valid
-    # a lot of these conditions end up being redundant because of the initial cat choices
-    # but Oh Well
 
     your_crush = False if (
         chosen_cat.ID == you.ID or
@@ -3667,7 +3664,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
     return abbrevs
 
 other_dict = {}   
-def adjust_txt(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
+def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
     """ Adjusts dialogue text by replacing abbreviations with cat names
     :param Cat Cat: Cat class
     :param list text: The text being processed 
@@ -3725,21 +3722,21 @@ def adjust_txt(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
 
                 # Grab the right selection of cats to narrow down the options before the counter starts
                 if abbrev_string in ["r_w", "r_w1", "r_w2", "r_w3", "rsh_w"]:
-                    cat_choices = (get_alive_status_cats(Cat, ["warrior"]))
+                    cat_choices = get_alive_status_cats(Cat, ["warrior"])
                 elif abbrev_string in ["r_a", "rsh_a"]:
-                    cat_choices = (get_alive_status_cats(Cat, ["apprentice"]))
+                    cat_choices = get_alive_status_cats(Cat, ["apprentice"])
                 elif abbrev_string in ["r_m", "rsh_m"]:
-                    cat_choices = (get_alive_status_cats(Cat, ["medicine cat", "medicine cat apprentice"]))
+                    cat_choices = get_alive_status_cats(Cat, ["medicine cat", "medicine cat apprentice"])
                 elif abbrev_string in ["r_d", "rsh_d"]:
-                    cat_choices = (get_alive_status_cats(Cat, ["mediator", "mediator apprentice"]))
+                    cat_choices = get_alive_status_cats(Cat, ["mediator", "mediator apprentice"])
                 elif abbrev_string in ["r_q", "rsh_q"]:
-                    cat_choices = (get_alive_status_cats(Cat, ["queen", "queen's apprentice"]))
+                    cat_choices = get_alive_status_cats(Cat, ["queen", "queen's apprentice"])
                 elif abbrev_string in ["r_e", "rsh_e"]:
-                    cat_choices = (get_alive_status_cats(Cat, ["elder"]))
+                    cat_choices = get_alive_status_cats(Cat, ["elder"])
                 elif abbrev_string in ["d_n", "sh_d"]:
-                    cat_choices.append(Cat.fetch_cat(game.clan.deputy))
+                    cat_choices = get_alive_status_cats(Cat, ["deputy"])
                 elif abbrev_string in ["l_n", "sh_l"]:
-                    cat_choices.append(Cat.fetch_cat(game.clan.leader))
+                    cat_choices = get_alive_status_cats(Cat, ["leader"])
                 elif abbrev_string in ["t_k", "t_kk", "t_ka"]:
                     for cat_id in cat.inheritance.get_children():
                         cat_choices.append(Cat.fetch_cat(cat_id))
@@ -3768,7 +3765,8 @@ def adjust_txt(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                     cat_choices = [i for i in Cat.all_cats_list if i.dead is True]
                 elif abbrev_string in ["d_c"]:
                     cat_choices = (
-                        cat.illnesses['grief stricken'].get("grief_cat") if "grief stricken" in cat.illnesses and cat.illnesses['grief stricken']["grief cat"] else
+                        cat.illnesses['grief stricken'].get("grief_cat") if
+                        ("grief stricken" in cat.illnesses and cat.illnesses['grief stricken']["grief cat"]) else
                         [i for i in Cat.all_cats_list if i.dead and not i.outside and not i.df]
                     )
                 else:
