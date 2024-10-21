@@ -32,7 +32,6 @@ from itertools import combinations
 from scripts.patrol.patrol_event import PatrolEvent
 from scripts.patrol.patrol_outcome import PatrolOutcome
 from scripts.cat.cats import Cat
-from scripts.special_dates import get_special_date, contains_special_date_tag
 from scripts.utility import change_clan_relations, change_clan_reputation, get_cluster, ceremony_text_adjust, \
     get_current_season, adjust_list_text, ongoing_event_text_adjust, event_text_adjust, create_new_cat
 
@@ -644,13 +643,21 @@ class Patrol:
                         other_cat = self.patrol_cats[1]
                         
                         if not other_cat.joined_df:
-                            if "fellowtrainee" in patrol.tags: 
+                            if "fellowtrainee" in patrol.tags:
                                 continue
                         
                         else:
                             if "fellowtrainee" not in patrol.tags:
                                 continue
-                elif game.switches["patrol_category"] == "date":
+                else:
+                    if "shunned" in patrol.tags:
+                        if game.clan.your_cat.shunned == 0:
+                            continue
+                    
+                    if "shunned" not in patrol.tags and "df" not in patrol.tags:
+                        if game.clan.your_cat.shunned > 0:
+                            continue
+                if game.switches["patrol_category"] == "date":
                     if "df" in patrol.tags:
                         if len(self.patrol_cats) > 1:
                             other_cat = self.patrol_cats[1]
@@ -660,14 +667,6 @@ class Patrol:
 
                 if "bloodthirsty_only" in patrol.tags:
                     if Cat.all_cats.get(game.clan.your_cat.mentor).personality.trait != "bloodthirsty":
-                        continue
-
-                if "shunned" in patrol.tags:
-                    if game.clan.your_cat.shunned == 0:
-                        continue
-                
-                if "shunned" not in patrol.tags and "df" not in patrol.tags:
-                    if game.clan.your_cat.shunned > 0:
                         continue
 
                 # this is testing every piece of text in the patrol
@@ -696,7 +695,7 @@ class Patrol:
                     test_runs[i] = lifegen_text_adjust(Cat, str(i), self.patrol_leader, self.patrol_cat_dict, r_c_allowed=False, o_c_allowed=False)
                     if test_runs[i] == "":
                         skip = True
-                        print("Lifegen abbrev repl failed: Skipping", patrol.patrol_id)
+                        # print("Lifegen abbrev repl failed: Skipping", patrol.patrol_id)
                         break
                     # else:
                     #     print(i)
