@@ -34,9 +34,9 @@
             "silly"
         ],
         [
-            "I went on a hunting patrol with plike_r_w the other day and found THE cutest mouse I think I've ever seen. It had big, innocent eyes and it was snacking on a blackberry!",
-            "It was large, so plike_r_w wanted to catch it for c_nClan, but I couldn't bear to see it killed.",
-            "I, ah, ended up scaring it off to save it from being caught. That... really didn't make plike_r_w happy at all. But it was worth it! You should've seen the little thing!"
+            "I went on a hunting patrol with plike-r_w the other day and found THE cutest mouse I think I've ever seen. It had big, innocent eyes and it was snacking on a blackberry!",
+            "It was large, so plike-r_w wanted to catch it for c_nClan, but I couldn't bear to see it killed.",
+            "I, ah, ended up scaring it off to save it from being caught. That... really didn't make plike-r_w happy at all. But it was worth it! You should've seen the little thing!"
         ]
     ],
     "introspective_comf_2": [
@@ -148,8 +148,8 @@
         [
             "Hi y_c.",
             "[You notice that t_c is sitting, muscles bunched up and tail flicking irritably.]",
-            "What's wrong? Oh, I got into a fight with r_w_assertive. {PRONOUN/r_w_assertive/subject}{VERB/r_w_assertive/'re/'s} an utter mousebrain. {PRONOUN/r_w_assertive/subject/CAP} tried to get me to cross the Clan border after a rabbit! It's utterly ridiculous.",
-            "We can't be running across the border, there'd be no point in it being there otherwise! We need to be respectful of our borders, and I can't believe {PRONOUN/r_w_assertive/subject} {VERB/r_w_assertive/don't/doesn't} see that.",
+            "What's wrong? Oh, I got into a fight with r_w-assertive. {PRONOUN/r_w-assertive/subject}{VERB/r_w-assertive/'re/'s} an utter mousebrain. {PRONOUN/r_w-assertive/subject/CAP} tried to get me to cross the Clan border after a rabbit! It's utterly ridiculous.",
+            "We can't be running across the border, there'd be no point in it being there otherwise! We need to be respectful of our borders, and I can't believe {PRONOUN/r_w-assertive/subject} {VERB/r_w-assertive/don't/doesn't} see that.",
             "... Sorry for yelling at you like that, y_c. I appreciate you listening to me. Thank you."
         ]
     ],
@@ -1539,7 +1539,7 @@
         [
             "[As you mew out {PRONOUN/t_c/poss} name, {PRONOUN/t_c/subject} {VERB/t_c/seem/seems} to jolt, startled.]",
             "Oh, hello there, y_c! I didn't see you.",
-            "I was given today off, so I'm using it to help decorate the camp with plike_r_c. Would you like to help me?"
+            "I was given today off, so I'm using it to help decorate the camp with plike-r_c. Would you like to help me?"
         ]
     ],
     "sweet_apprentice_16": [
@@ -1729,10 +1729,10 @@
         ],
         [
             "y_c! I've been looking for you! I've been thinking all day about this... I've been begging for a cat to bounce ideas off of.",
-            "So, I think I wanna do something funny to plike_r_c. Like a prank. {PRONOUN/plike_r_c/subject/CAP}{VERB/plike_r_c/'ve/'s} been having a rough time recently and I wanna do something funny to cheer {PRONOUN/plike_r_c/object} up.",
-            "But I don't have the slightest clue what I wanna do... everything I can think of either hasn't worked or would just upset {PRONOUN/plike_r_c/object} further.",
-            "I wanted to put a frog pet in {PRONOUN/plike_r_c/poss} den, since I love looking for cool frogs, but couldn't find one {PRONOUN/plike_r_c/subject} would like.",
-            "Then, I tried looking for flowers to give {PRONOUN/plike_r_c/object}, but apparently the ones I found were called foxgloves, and they're really dangerous.",
+            "So, I think I wanna do something funny to plike-r_c. Like a prank. {PRONOUN/plike-r_c/subject/CAP}{VERB/plike-r_c/'ve/'s} been having a rough time recently and I wanna do something funny to cheer {PRONOUN/plike-r_c/object} up.",
+            "But I don't have the slightest clue what I wanna do... everything I can think of either hasn't worked or would just upset {PRONOUN/plike-r_c/object} further.",
+            "I wanted to put a frog pet in {PRONOUN/plike-r_c/poss} den, since I love looking for cool frogs, but couldn't find one {PRONOUN/plike-r_c/subject} would like.",
+            "Then, I tried looking for flowers to give {PRONOUN/plike-r_c/object}, but apparently the ones I found were called foxgloves, and they're really dangerous.",
             "PLEASE tell me if you think of something! I think I've thought so hard about this I could probably consider myself a, uh... what are the thinky cats called again? I know there's a name, come on...",
             "...Like the ones who come up with really big ideas that fundamentally change how their Clan operates? Like that one cat from o_cClan? Please? It's a real thing, it's on the tip of my jaw, I swear!"
         ]
@@ -1747,8 +1747,8 @@
             "[You enter camp after an utterly boring border patrol and see this apprentice's mortifying attempt at a greeting through what seems like hysterical laughter.]",
             "y_c! HAH! You just missed- *giggle* You just missed the FUNNIEST thing I've ever seen!",
             "There was- there was a frog on the leader's den, and- hahaHAHAHA- and then it- and then it- oh my goodness, the frog- it did-",
-            "IT DID A BACKFLIP AND- It landed on r_c_upstanding's HEAD!",
-            "[Indeed, r_c_upstanding is all the way across the camp, refusing to look over at the apprentice laughing over {PRONOUN/r_c_upstanding/poss} embarrassing stunt only a few fox-tails away. You can feel the red-hot fur on {PRONOUN/r_c_upstanding/poss} pelt even from here.]"
+            "IT DID A BACKFLIP AND- It landed on r_c-upstanding's HEAD!",
+            "[Indeed, r_c-upstanding is all the way across the camp, refusing to look over at the apprentice laughing over {PRONOUN/r_c-upstanding/poss} embarrassing stunt only a few fox-tails away. You can feel the red-hot fur on {PRONOUN/r_c-upstanding/poss} pelt even from here.]"
         ]
     ],
     "silly_app_gift": [
@@ -1760,7 +1760,7 @@
             "they_hearing"
         ],
         [
-            "y_c! I made something cool, do you think plike_r_c would like it? I made it with a thick water reed and some rocks.",
+            "y_c! I made something cool, do you think plike-r_c would like it? I made it with a thick water reed and some rocks.",
             "It's sort of like an, uh... Like, you can tilt it, and it makes a cool noise.",
             "Here, try it. Just pick it up with your jaws and tilt your head around.",
             "[You do as t_c orders. When you tilt the reed, you hear many pebbles hitting its walls in a way that sounds like the pitter-patter of rain, then resting against the tightly-shut ends.",
@@ -3424,9 +3424,9 @@
             "they_blind"
         ],
         [
-            "y_c? I heard dislike_r_a saying that you go easy on me...",
-            "That's not true, right? I might not be as good as {PRONOUN/dislike_r_a/object}, but I really want to feel like I deserve to pass my assessments... and eventually get my warrior name...",
-            "[You assure t_c that dislike_r_a doesn't know what {PRONOUN/dislike_r_a/subject}{VERB/dislike_r_a/'re/'s} talking about, and that you treat {PRONOUN/t_c/object} like you'd treat any other apprentice. t_c looks relieved.]"
+            "y_c? I heard dislike-r_a saying that you go easy on me...",
+            "That's not true, right? I might not be as good as {PRONOUN/dislike-r_a/object}, but I really want to feel like I deserve to pass my assessments... and eventually get my warrior name...",
+            "[You assure t_c that dislike-r_a doesn't know what {PRONOUN/dislike-r_a/subject}{VERB/dislike-r_a/'re/'s} talking about, and that you treat {PRONOUN/t_c/object} like you'd treat any other apprentice. t_c looks relieved.]"
         ]
     ],
     "neurotic_yougrieving_SQ2": [
@@ -3440,7 +3440,7 @@
         ],
         [
             "Um, y_c... I promise I'm not trying to get out of training, or anything like that, but please rest until you feel ready.",
-            "I'll go join... uh... plike_r_w for the day, I guess?"
+            "I'll go join... uh... plike-r_w for the day, I guess?"
         ]
     ],
     "raspylungs_J3": [

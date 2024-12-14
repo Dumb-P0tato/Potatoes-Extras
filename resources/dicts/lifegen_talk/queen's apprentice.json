@@ -1137,9 +1137,9 @@
             "they_blind"
         ],
         [
-            "r_k_unlawful said {PRONOUN/r_k_unlawful/subject} didn't have to listen to me, because I'm basically still a kit too...",
-            "I didn't know what to say. {PRONOUN/r_k_unlawful/subject}{VERB/r_k_unlawful/'re/'s} kind of right. I'm not that much older than {PRONOUN/r_k_unlawful/object}, and I have no idea what I'm doing.",
-            "I guess I just... hoped {PRONOUN/r_k_unlawful/subject}'d still respect me? That sounds stupid when I say it out loud."
+            "r_k-unlawful said {PRONOUN/r_k-unlawful/subject} didn't have to listen to me, because I'm basically still a kit too...",
+            "I didn't know what to say. {PRONOUN/r_k-unlawful/subject}{VERB/r_k-unlawful/'re/'s} kind of right. I'm not that much older than {PRONOUN/r_k-unlawful/object}, and I have no idea what I'm doing.",
+            "I guess I just... hoped {PRONOUN/r_k-unlawful/subject}'d still respect me? That sounds stupid when I say it out loud."
         ]
     ]
 }

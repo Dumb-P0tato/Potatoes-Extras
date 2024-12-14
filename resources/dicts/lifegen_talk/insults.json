@@ -526,7 +526,7 @@
         ],
         [
             "Huh? Is that really true?",
-            "Who else agrees with you? Did neutral_r_c tell you to say that?",
+            "Who else agrees with you? Did neutral-r_c tell you to say that?",
             "[t_c rushes off in a panic.]"
         ]
     ],
@@ -942,7 +942,7 @@
             "they_not_kit"
         ],
         [
-            "...You're lucky that plike_r_c is here. Otherwise, I don't think you'd want to know what I would do to you."
+            "...You're lucky that plike-r_c is here. Otherwise, I don't think you'd want to know what I would do to you."
         ]
     ],
     "unlawful_insult_3": [

@@ -37,6 +37,8 @@ from scripts.game_structure.windows import SaveError
 from scripts.game_structure.windows import RetireScreen, DeputyScreen, NameKitsWindow, PickPath
 from enum import Enum, auto
 
+from scripts.game_structure.game_essentials import game
+
 class BirthType(Enum):
     NO_PARENTS = "birth_no_parents"
     ONE_PARENT = "birth_one_parent"
@@ -62,7 +64,7 @@ from scripts.utility import (
     unpack_rel_block,
     pronoun_repl,
     create_new_cat,
-    adjust_txt,
+    lifegen_text_adjust,
     get_cluster
 )
 

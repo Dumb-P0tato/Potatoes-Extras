@@ -114,9 +114,9 @@
             "you_blind"
         ],
         [
-            "I went on a hunting patrol with neutral_r_w the other day and found THE cutest mouse I think I've ever seen. It had big, innocent eyes and it was snacking on a blackberry!",
-            "It was large, so neutral_r_w wanted to catch it for c_nClan, but I couldn't bear to see it killed.",
-            "I, ah, ended up scaring it off to save it from being caught. That... really didn't make neutral_r_w happy at all. But it was worth it! You should've seen the little thing!"
+            "I went on a hunting patrol with neutral-r_w the other day and found THE cutest mouse I think I've ever seen. It had big, innocent eyes and it was snacking on a blackberry!",
+            "It was large, so neutral-r_w wanted to catch it for c_nClan, but I couldn't bear to see it killed.",
+            "I, ah, ended up scaring it off to save it from being caught. That... really didn't make neutral-r_w happy at all. But it was worth it! You should've seen the little thing!"
         ]
     ],
     "introspective_comf_2": [
@@ -1549,9 +1549,9 @@
             "you_blind"
         ],
         [
-            "Recently I've been thinking about the best way to talk to neutral_r_c.",
+            "Recently I've been thinking about the best way to talk to neutral-r_c.",
             "We'll say hi to each other now and then, but I can never say anything to get the conversation going.",
-            "Hmm... Maybe I'll ask {PRONOUN/neutral_r_c/object} to try climbing the big oak with me!"
+            "Hmm... Maybe I'll ask {PRONOUN/neutral-r_c/object} to try climbing the big oak with me!"
         ]
     ],
     "unabashed_deputy2": [
@@ -1849,7 +1849,7 @@
         ],
         [
             "Oh, hi y_c! I had a question for you, actually.",
-            "Well... is it mean to send r_w_brooding on a border patrol if I know {PRONOUN/r_w/subject} {VERB/t_c/don't/doesn't} like them?",
+            "Well... is it mean to send r_w-brooding on a border patrol if I know {PRONOUN/r_w/subject} {VERB/t_c/don't/doesn't} like them?",
             "{PRONOUN/r_w/subject/CAP} told me I was as helpful as a Twoleg kit chasing prey, and I'm feeling extra petty today."
         ]
     ],
@@ -2128,7 +2128,7 @@
         ],
         [
             "Oh, y_c, you need someone to go herb-gathering with you? I'm free right now, so I can go if you'd like.",
-            "I know I'm the deputy, but l_n and plike_r_w told me to take today off from deputy duties as a gift.",
+            "I know I'm the deputy, but l_n and plike-r_w told me to take today off from deputy duties as a gift.",
             "I want to pay that kindness forward, so I'm happy to help!"
         ]
     ],
@@ -2601,8 +2601,8 @@
             "Hm? Oh, hi, y_c.",
             "[As you approach, you notice what {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} looking at. There's a small, fuzzy caterpillar in the starry grass.]",
             "You know who this caterpillar reminds me of?",
-            "r_w_upstanding. Its fuzz looks just like {PRONOUN/r_w_upstanding/poss} pelt.",
-            "{PRONOUN/r_w_upstanding/subject/CAP} {VERB/r_w_upstanding/were/was} always so great at dawn patrols. Always woke up on time, never late...",
+            "r_w_upstanding. Its fuzz looks just like {PRONOUN/r_w-upstanding/poss} pelt.",
+            "{PRONOUN/r_w-upstanding/subject/CAP} {VERB/r_w-upstanding/were/was} always so great at dawn patrols. Always woke up on time, never late...",
             "Maybe this little guy is out for the caterpillar border patrol, haha!",
             "[You remark that t_c can't seem to unplug from {PRONOUN/t_c/poss} work, even now that {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} in StarClan. You tell {PRONOUN/t_c/object} {PRONOUN/t_c/subject} should relax.]",
             "... But what if I don't want to?"

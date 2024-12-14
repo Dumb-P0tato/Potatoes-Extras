@@ -2920,14 +2920,14 @@ def add_to_cat_dict(abbrev, cluster, x, rel, r, abbrev_cat, text, cat_dict):
     """ Adds a cat to the dict, assigning them to their abbrev to be reused in later text. """
 
     if cluster and rel:
-        cat_dict[f"{r}_{abbrev}_{x}"] = abbrev_cat
-        text = re.sub(fr'(?<!\/){r}_{abbrev}_{x}(?!\/)', str(abbrev_cat.name), text)
+        cat_dict[f"{r}-{abbrev}-{x}"] = abbrev_cat
+        text = re.sub(fr'(?<!\/){r}-{abbrev}-{x}(?!\/)', str(abbrev_cat.name), text)
     elif cluster and not rel:
-        cat_dict[f"{abbrev}_{x}"] = abbrev_cat
-        text = re.sub(fr'(?<!\/){abbrev}_{x}(?!\/)', str(abbrev_cat.name), text)
+        cat_dict[f"{abbrev}-{x}"] = abbrev_cat
+        text = re.sub(fr'(?<!\/){abbrev}-{x}(?!\/)', str(abbrev_cat.name), text)
     elif rel and not cluster:
-        cat_dict[f"{r}_{abbrev}"] = abbrev_cat
-        text = re.sub(fr'(?<!\/){r}_{abbrev}(?!\/)', str(abbrev_cat.name), text)
+        cat_dict[f"{r}-{abbrev}"] = abbrev_cat
+        text = re.sub(fr'(?<!\/){r}-{abbrev}(?!\/)', str(abbrev_cat.name), text)
     else:
         cat_dict[f"{abbrev}"] = abbrev_cat
         text = re.sub(fr'(?<!\/){abbrev}(?!\/)', str(abbrev_cat.name), text)
@@ -3698,22 +3698,26 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 continue
             if abbrev_string == "t_k" and ("t_ka" in text or "t_kk" in text):
                 continue
+            if abbrev_string == "t_p" and ("t_p_negative" in text or "t_p_positive" in text):
+                continue
 
             # find cluster and rel addons if theyre there
             cluster = False
             rel = False
-            match = re.search(fr'{abbrev_string}(\w+)', text)
+            match = re.search(fr'{abbrev_string}\-(\w+)', text)
             if match:
-                x = match.group(1).strip("_")
+                x = match.group(1)
                 cluster = True
             else:
                 x = ""
-            match2 = re.search(fr'(\w+){abbrev_string}', text)
+            match2 = re.search(fr'(\w+)\-{abbrev_string}', text)
             if match2:
-                r = match2.group(1).strip("_")
+                r = match2.group(1)
                 rel = True
             else:
                 r = ""
+
+            print("hey", cluster, x, rel, r)
 
             # Check if the abbrev is already in use
             text, in_dict = cat_dict_check(abbrev_string, cluster, x, rel, r, text, cat_dict)
@@ -3790,8 +3794,8 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 addon_check = abbrev_addons(cat, alive_cat, cluster, x, rel, r)
                 counter = 0
                 while abbrev_bool is False or addon_check is False:
-                    print(r, "|", abbrev_string, "|", x, ": skipping", alive_cat.name)
-                    print(abbrev_bool, addon_check)
+                    # print(r, "|", abbrev_string, "|", x, ": skipping", alive_cat.name)
+                    # print(abbrev_bool, addon_check)
                     alive_cat = choice(cat_choices)
                     new_abbrevs = lifegen_abbrevs(Cat, text, you, cat, alive_cat, cat_dict)
                     for string, value in new_abbrevs.items():

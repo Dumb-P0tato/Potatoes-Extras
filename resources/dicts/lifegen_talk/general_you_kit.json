@@ -606,7 +606,7 @@
         ],
         [
             "Peek-a-boo!",
-            "Oh! Oh! Look, plike_r_c. y_c is purring!"
+            "Oh! Oh! Look, plike-r_c. y_c is purring!"
         ]
     ],
     "you_kitten_7": [
@@ -1199,7 +1199,7 @@
             "What is it? Can't you see that I'm busy?",
             "You want to ... play a game with me?",
             "Hmph. I haven't 'played' since I was in the nursery. Do yourself a favor and find someone who has nothing better to do.",
-            "Like neutral_r_c."
+            "Like neutral-r_c."
         ]
     ],
     "brooding_kitten5": [
@@ -1608,7 +1608,7 @@
         ],
         [
             "Oh! Uh, hi, y_c!",
-            "Sorry, I can't play right now ... I'm a bit busy. Maybe plike_r_c can help you out?"
+            "Sorry, I can't play right now ... I'm a bit busy. Maybe plike-r_c can help you out?"
         ]
     ],
     "neurotic_tokit1": [
@@ -1962,7 +1962,7 @@
             "they_warrior"
         ],
         [
-            "Look how tiny {PRONOUN/y_c/subject} {VERB/y_c/are/is}, plike_r_c!",
+            "Look how tiny {PRONOUN/y_c/subject} {VERB/y_c/are/is}, plike-r_c!",
             "Give {PRONOUN/y_c/object} a few moons, and {PRONOUN/y_c/subject}'ll be exploring the territory with wide-eyed wonder, just like we did when we were young."
         ]
     ],
@@ -2097,7 +2097,7 @@
         [
             "[t_c looks solemn as {PRONOUN/t_c/subject} {VERB/t_c/stand/stands} over you.]",
             "I vow to protect and guide this young one, to help them understand the importance of loyalty and courage in the life of a Clan cat.",
-            "[Behind {PRONOUN/t_c/object}, r_w_cool can't help but snicker at {PRONOUN/t_c/poss} dramatic oath.]"
+            "[Behind {PRONOUN/t_c/object}, r_w-cool can't help but snicker at {PRONOUN/t_c/poss} dramatic oath.]"
         ]
     ],
     "upstanding_newborn4": [
@@ -4282,7 +4282,7 @@
         ],
         [
             "[You try to sign to t_c that {PRONOUN/t_c/subject} {VERB/t_c/have/has} some grass stuck in {PRONOUN/t_c/poss} fur.]",
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/don't/doesn't} quite understand what you're saying, so plike_r_c translates. t_c shakes the grass out, embarrassed.]"
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/don't/doesn't} quite understand what you're saying, so plike-r_c translates. t_c shakes the grass out, embarrassed.]"
         ]
     ],
     "shunned_sc_kit_H1": [
@@ -4616,7 +4616,7 @@
         [
             "only_you_deaf",
             "from_parent",
-            "min_plike_20",
+            "min_plike-20",
             "any",
             "they_blind"
         ],
@@ -5374,7 +5374,7 @@
         [
             "You made up a new game? Okay, what are the rules?",
             "We, uh, hide and jump out and try to scare each other?",
-            "...I think I'll pass on that one, y_c, sorry. Have you tried asking r_c_assertive?"
+            "...I think I'll pass on that one, y_c, sorry. Have you tried asking r_c-assertive?"
         ]
     ],
     "youdeaf_R711": [

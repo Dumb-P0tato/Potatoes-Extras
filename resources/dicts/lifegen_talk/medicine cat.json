@@ -533,10 +533,10 @@
         ],
         [
             "[t_c is using the medicine den as {PRONOUN/t_c/poss} own personal hangout space again.]",
-            "[{PRONOUN/t_c/subject/CAP} and plike_r_w splay out over the herb stores, chatting and gossiping about all the other cats in the Clan.]",
+            "[{PRONOUN/t_c/subject/CAP} and plike-r_w splay out over the herb stores, chatting and gossiping about all the other cats in the Clan.]",
             "[You interrupt their conversation, scolding t_c that {PRONOUN/t_c/subject} {VERB/t_c/need/needs} to take {PRONOUN/t_c/poss} duties more seriously.]",
-            "Aw, c'mon, y_c. plike_r_w was feeling a little faint today. I'm just <i>observing</i> {PRONOUN/plike_r_w/object} to make sure {PRONOUN/plike_r_w/subject}{VERB/plike_r_a/'re/'s} okay.",
-            "plike_r_w nods along, rolling {PRONOUN/plike_r_w/poss} eyes back into {PRONOUN/plike_r_w/poss} head in a dramatic fainting motion. t_c stifles a laugh, and you stalk off with a huff. They still act like a couple of apprentices!]"
+            "Aw, c'mon, y_c. plike-r_w was feeling a little faint today. I'm just <i>observing</i> {PRONOUN/plike-r_w/object} to make sure {PRONOUN/plike-r_w/subject}{VERB/plike-r_a/'re/'s} okay.",
+            "plike-r_w nods along, rolling {PRONOUN/plike-r_w/poss} eyes back into {PRONOUN/plike-r_w/poss} head in a dramatic fainting motion. t_c stifles a laugh, and you stalk off with a huff. They still act like a couple of apprentices!]"
         ]
     ],
     "assertivemedapp_3": [
@@ -2138,7 +2138,7 @@
             "you_blind"
         ],
         [
-            "r_w_upstanding says {PRONOUN/r_w_upstanding/subject} collected some juniper berries while {PRONOUN/r_w_upstanding/subject} {VERB/r_w_upstanding/was/were} on patrol today. Could you check the berries before I add them to the herb stores?",
+            "r_w_upstanding says {PRONOUN/r_w-upstanding/subject} collected some juniper berries while {PRONOUN/r_w-upstanding/subject} {VERB/r_w-upstanding/was/were} on patrol today. Could you check the berries before I add them to the herb stores?",
             "Without seeing the bush they're from, I'm a lot less confident that I can confirm they're actually juniper."
         ]
     ],
@@ -2153,8 +2153,8 @@
             "you_blind"
         ],
         [
-            "neutral_r_w_sweet offered to help me sort the medicine stores earlier today. I appreciated it, but I wasn't sure I trusted {PRONOUN/neutral_r_w_sweet/object} to help since {PRONOUN/neutral_r_w_sweet/subject}{VERB/neutral_r_w_sweet/'re/'s} not exactly familiar with herbs, so I said I was okay.",
-            "Let me know if I hurt {PRONOUN/neutral_r_w_sweet/poss} feelings, please? {PRONOUN/neutral_r_w_sweet/subject/CAP}{VERB/neutral_r_w_sweet/'re/'s} too nice to tell me directly."
+            "neutral-r_w_sweet offered to help me sort the medicine stores earlier today. I appreciated it, but I wasn't sure I trusted {PRONOUN/neutral-r_w_sweet/object} to help since {PRONOUN/neutral-r_w_sweet/subject}{VERB/neutral-r_w_sweet/'re/'s} not exactly familiar with herbs, so I said I was okay.",
+            "Let me know if I hurt {PRONOUN/neutral-r_w_sweet/poss} feelings, please? {PRONOUN/neutral-r_w_sweet/subject/CAP}{VERB/neutral-r_w_sweet/'re/'s} too nice to tell me directly."
         ]
     ],
     "neurotic_medcat_SQ9": [
@@ -2261,9 +2261,9 @@
         ],
         [
             "[When you bring some herbs over to t_c, {PRONOUN/t_c/subject} {VERB/t_c/lift/lifts} {PRONOUN/t_c/poss} head and {VERB/t_c/blink/blinks} blearily. {PRONOUN/t_c/subject/CAP} {VERB/t_c/lean/leans} away when {PRONOUN/t_c/subject} {VERB/t_c/realize/realizes} what you're carrying.]",
-            "Wait, y_c, don't waste those on me. Give them to plove_r_s first, <i>please</i>. I don't want to be the reason {PRONOUN/plove_r_s/subject} {VERB/plove_r_s/don't/doesn't} get better.",
-            "[You assure t_c that you have enough herbs for both {PRONOUN/t_c/object} and plove_r_s, and that {PRONOUN/t_c/subject} {VERB/t_c/deserve/deserves} treatment as much as any cat.]",
-            "[t_c relents, but keeps {PRONOUN/t_c/poss} eyes on plove_r_s's sleeping form.]"
+            "Wait, y_c, don't waste those on me. Give them to plove-r_s first, <i>please</i>. I don't want to be the reason {PRONOUN/plove-r_s/subject} {VERB/plove-r_s/don't/doesn't} get better.",
+            "[You assure t_c that you have enough herbs for both {PRONOUN/t_c/object} and plove-r_s, and that {PRONOUN/t_c/subject} {VERB/t_c/deserve/deserves} treatment as much as any cat.]",
+            "[t_c relents, but keeps {PRONOUN/t_c/poss} eyes on plove-r_s's sleeping form.]"
         ]
     ],
     "neurotic_sc_to_sc_SQ1": [

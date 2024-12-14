@@ -893,10 +893,10 @@
         ],
         [
             "[t_c is using the medicine den as {PRONOUN/t_c/poss} own personal hangout space again.]",
-            "[{PRONOUN/t_c/subject/CAP} and plike_r_a splay out over the herb stores, chatting and gossiping about all the other cats in the Clan.]",
+            "[{PRONOUN/t_c/subject/CAP} and plike-r_a splay out over the herb stores, chatting and gossiping about all the other cats in the Clan.]",
             "[You interrupt their conversation, scolding t_c that {PRONOUN/t_c/subject} {VERB/t_c/need/needs} to take {PRONOUN/t_c/poss} duties more seriously.]",
-            "Aw, c'mon, y_c. plike_r_a was feeling a little faint today. I'm just <i>observing</i> {PRONOUN/plike_r_a/object} to make sure {PRONOUN/plike_r_a/subject}{VERB/plike_r_a/'re/'s} okay.",
-            "[plike_r_a nods along, rolling {PRONOUN/plike_r_a/poss} eyes back into {PRONOUN/plike_r_a/poss} head in a dramatic fainting motion. t_c stifles a laugh, and you stalk off with a huff. Apprentices!]"
+            "Aw, c'mon, y_c. plike-r_a was feeling a little faint today. I'm just <i>observing</i> {PRONOUN/plike-r_a/object} to make sure {PRONOUN/plike-r_a/subject}{VERB/plike-r_a/'re/'s} okay.",
+            "[plike-r_a nods along, rolling {PRONOUN/plike-r_a/poss} eyes back into {PRONOUN/plike-r_a/poss} head in a dramatic fainting motion. t_c stifles a laugh, and you stalk off with a huff. Apprentices!]"
         ]
     ],
     "cool_medcat_AJ2": [

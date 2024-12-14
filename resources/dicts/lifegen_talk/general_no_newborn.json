@@ -1154,13 +1154,13 @@
             "cool"
         ],
         [
-            "If you've come to talk about the whole situation with plike_r_w, just relax. I've got it under control.",
-            "{PRONOUN/plike_r_w/subject/CAP} might seem like {PRONOUN/plike_r_w/subject} {VERB/plike_r_w/hate/hates} me now, but it's only a matter of time until {PRONOUN/plike_r_w/subject} {VERB/plike_r_w/get/gets} so sick of not having me around that {PRONOUN/plike_r_w/subject} {VERB/plike_r_w/crawl/crawls} right back, squealing an apology.",
-            "... Huh? The last time you saw {PRONOUN/plike_r_w/object}, {PRONOUN/plike_r_w/subject} seemed perfectly happy?",
+            "If you've come to talk about the whole situation with plike-r_w, just relax. I've got it under control.",
+            "{PRONOUN/plike-r_w/subject/CAP} might seem like {PRONOUN/plike-r_w/subject} {VERB/plike-r_w/hate/hates} me now, but it's only a matter of time until {PRONOUN/plike-r_w/subject} {VERB/plike-r_w/get/gets} so sick of not having me around that {PRONOUN/plike-r_w/subject} {VERB/plike-r_w/crawl/crawls} right back, squealing an apology.",
+            "... Huh? The last time you saw {PRONOUN/plike-r_w/object}, {PRONOUN/plike-r_w/subject} seemed perfectly happy?",
             "But ... No, that can't be right.",
             "How can anyone be okay without me in their life? It just doesn't make any sense!",
             "N-Not like I actually care, or anything.",
-            "Hm ... On second thought, maybe I do need to talk to {PRONOUN/plike_r_w/object}.",
+            "Hm ... On second thought, maybe I do need to talk to {PRONOUN/plike-r_w/object}.",
             "Thanks for the heads up, y_c."
         ]
     ],
@@ -3086,8 +3086,8 @@
             "min_trust_15"
         ],
         [
-            "Oh, StarClan, did r_m_brooding call yet another patient a mousebrain? *Sigh* They sure tend to do that a lot ...",
-            "Try not to take it too personally, y_c. I know their methods may seem ... unorthodox, but r_m_brooding really isn't a bad cat. They just want to keep everyone safe.",
+            "Oh, StarClan, did r_m-brooding call yet another patient a mousebrain? *Sigh* They sure tend to do that a lot ...",
+            "Try not to take it too personally, y_c. I know their methods may seem ... unorthodox, but r_m-brooding really isn't a bad cat. They just want to keep everyone safe.",
             "And if scaring cats stiff out of the medicine den is what it takes ... Well, then that's just what they'll do."
         ]
     ],
@@ -3099,8 +3099,8 @@
             "min_trust_15"
         ],
         [
-            "Oh, StarClan, did r_d_brooding call yet another Clanmate a mousebrain? *Sigh* They sure tend to do that a lot ...",
-            "Try not to take it too personally, y_c. I know their methods may seem ... unorthodox, but r_d_brooding really isn't a bad cat. They just want to keep everyone safe.",
+            "Oh, StarClan, did r_d-brooding call yet another Clanmate a mousebrain? *Sigh* They sure tend to do that a lot ...",
+            "Try not to take it too personally, y_c. I know their methods may seem ... unorthodox, but r_d-brooding really isn't a bad cat. They just want to keep everyone safe.",
             "And if scaring cats stiff into confronting their problems is what it takes ... Well, then that's just what they'll do."
         ]
     ],
@@ -3112,8 +3112,8 @@
             "min_trust_15"
         ],
         [
-            "Oh, StarClan, did r_q_brooding chase you out of the nursery again? *Sigh* They sure tend to do that a lot ...",
-            "Try not to take it too personally, y_c. I know their methods may seem ... unorthodox, but r_q_brooding really isn't a bad Queen. They just want to keep everyone safe.",
+            "Oh, StarClan, did r_q-brooding chase you out of the nursery again? *Sigh* They sure tend to do that a lot ...",
+            "Try not to take it too personally, y_c. I know their methods may seem ... unorthodox, but r_q-brooding really isn't a bad Queen. They just want to keep everyone safe.",
             "And if scaring cats stiff into leaving the kits alone is what it takes ... Well, then that's just what they'll do."
         ]
     ],
@@ -3127,9 +3127,9 @@
             "they_blind"
         ],
         [
-            "It's really hard to tell whether neutral_tm_n_brooding thinks I'm doing a good job or not.",
+            "It's really hard to tell whether neutral-tm_n_brooding thinks I'm doing a good job or not.",
             "I think they've complimented me... once? But I asked if I was a bad apprentice, and they said I was fine?",
-            "*sigh* It's so hard to read them. Sometimes I wish they were more like r_c_unabashed. For good or bad, I always know what r_c_unabashed's thinking!"
+            "*sigh* It's so hard to read them. Sometimes I wish they were more like r_c-unabashed. For good or bad, I always know what r_c-unabashed's thinking!"
         ]
     ],
     "about_cool_AJ": [
@@ -3142,7 +3142,7 @@
             "min_trust_15"
         ],
         [
-            "Y'know, r_m_cool's a decent healer and all, but if you ask me, their real talent is how they deal with their patients.",
+            "Y'know, r_m-cool's a decent healer and all, but if you ask me, their real talent is how they deal with their patients.",
             "I swear, the cat's got a silver tongue ... They could probably talk a fox into eating deathberries and get it to thank them on the way out!",
             "I wonder why they didn't choose to become a mediator? They're certainly skilled enough to!"
         ]
@@ -3157,9 +3157,9 @@
             "min_trust_15"
         ],
         [
-            "Y'know, r_w_cool's a decent hunter and fighter and all, but if you ask me, {PRONOUN/r_w_cool/poss} real talent is how {PRONOUN/r_w_cool/subject} {VERB/r_w_cool/deal/deals} with {PRONOUN/r_w_cool/poss} Clanmates.",
-            "I swear, the cat's got a silver tongue ... {PRONOUN/r_w_cool/subject/CAP} could probably talk a mouse into {PRONOUN/r_w_cool/poss} claws and get it to thank {PRONOUN/r_w_cool/object} on the way out!",
-            "I wonder why {PRONOUN/r_w_cool/subject} didn't choose to become a mediator? {PRONOUN/r_w_cool/subject/CAP}{VERB/r_w_cool/'re/'s} certainly skilled enough to!"
+            "Y'know, r_w-cool's a decent hunter and fighter and all, but if you ask me, {PRONOUN/r_w-cool/poss} real talent is how {PRONOUN/r_w-cool/subject} {VERB/r_w-cool/deal/deals} with {PRONOUN/r_w-cool/poss} Clanmates.",
+            "I swear, the cat's got a silver tongue ... {PRONOUN/r_w-cool/subject/CAP} could probably talk a mouse into {PRONOUN/r_w-cool/poss} claws and get it to thank {PRONOUN/r_w-cool/object} on the way out!",
+            "I wonder why {PRONOUN/r_w-cool/subject} didn't choose to become a mediator? {PRONOUN/r_w-cool/subject/CAP}{VERB/r_w-cool/'re/'s} certainly skilled enough to!"
         ]
     ],
     "about_cool_SQ1": [
@@ -3174,10 +3174,10 @@
             "you_blind"
         ],
         [
-            "dislike_r_w_cool spontaneously decided to challenge r_a to a tree-climbing contest this morning! As if we weren't in the middle of a border patrol!",
-            "But r_a went along with it, of course, because dislike_r_w_cool is dislike_r_w_cool and <i>everyone</i> listens to them...",
+            "dislike-r_w-cool spontaneously decided to challenge r_a to a tree-climbing contest this morning! As if we weren't in the middle of a border patrol!",
+            "But r_a went along with it, of course, because dislike-r_w-cool is dislike-r_w-cool and <i>everyone</i> listens to them...",
             "Ugh! It held up the patrol, and we were close enough to the o_cClan border that some o_cClan cat probably saw them messing around.",
-            "dislike_r_w_cool never represents our Clan well."
+            "dislike-r_w-cool never represents our Clan well."
         ]
     ],
     "youdeaf_R97": [
@@ -3227,7 +3227,7 @@
             "min_platonic_25"
         ],
         [
-            "dislike_rsh_c_cool's finally got {PRONOUN/dislike_rsh_c_cool/self} into a situation {PRONOUN/dislike_rsh_c_cool/subject} can't smooth-talk {PRONOUN/dislike_rsh_c_cool/poss} way out of.",
+            "dislike-rsh_c_cool's finally got {PRONOUN/dislike-rsh_c-cool/self} into a situation {PRONOUN/dislike-rsh_c-cool/subject} can't smooth-talk {PRONOUN/dislike-rsh_c-cool/poss} way out of.",
             "Finally. I never thought I'd see the day."
         ]
     ],
@@ -3239,8 +3239,8 @@
             "they_deaf"
         ],
         [
-            "[t_c sits at the edge of camp, carefully grooming {PRONOUN/t_c/poss} fur and sneaking glances at r_w_cool.]",
-            "[You understand why: r_w_cool always looks so effortlessly put-together!]"
+            "[t_c sits at the edge of camp, carefully grooming {PRONOUN/t_c/poss} fur and sneaking glances at r_w-cool.]",
+            "[You understand why: r_w-cool always looks so effortlessly put-together!]"
         ]
     ],
     "about_upstanding_AJ": [
@@ -3257,8 +3257,8 @@
         ],
         [
             "Grrah! If r_w_upstanding corrects my hunting stance <i>one</i> more time on patrol, I am going to lose it!!!",
-            "Who {VERB/r_w_upstanding/do/does} {PRONOUN/r_w_upstanding/subject} think {PRONOUN/r_w_upstanding/subject} {VERB/r_w_upstanding/are/is}, the deputy or something? When did l_n suddenly declare {PRONOUN/r_w_upstanding/object} StarClan's special chosen warrior, superior to all?",
-            "Next time, I'll tell {PRONOUN/r_w_upstanding/object} directly to {PRONOUN/r_w_upstanding/poss} face to shove off. {PRONOUN/r_w_upstanding/subject/CAP} {VERB/r_w_upstanding/need/needs} to be humbled -- In fact, it's probably long overdue!"
+            "Who {VERB/r_w-upstanding/do/does} {PRONOUN/r_w-upstanding/subject} think {PRONOUN/r_w-upstanding/subject} {VERB/r_w-upstanding/are/is}, the deputy or something? When did l_n suddenly declare {PRONOUN/r_w-upstanding/object} StarClan's special chosen warrior, superior to all?",
+            "Next time, I'll tell {PRONOUN/r_w-upstanding/object} directly to {PRONOUN/r_w-upstanding/poss} face to shove off. {PRONOUN/r_w-upstanding/subject/CAP} {VERB/r_w-upstanding/need/needs} to be humbled -- In fact, it's probably long overdue!"
         ]
     ],
     "about_upstanding_AJ1": [
@@ -3270,9 +3270,9 @@
             "min_platonic_25"
         ],
         [
-            "r_w_upstanding's been helping me with my training these past few days, but I can't tell if {PRONOUN/r_w_upstanding/subject}{VERB/r_w_upstanding/'re/'s} doing it to be nice, or just to get l_n to notice {PRONOUN/r_w_upstanding/object}.",
-            "I hope I don't sound ungrateful, or anything. {PRONOUN/r_w_upstanding/subject/CAP}{VERB/r_w_upstanding/'re/'s} really skilled, and {PRONOUN/r_w_upstanding/subject}{VERB/r_w_upstanding/'ve/'s} helped me improve a lot, but ...",
-            "I don't necessarily want to just be a stepping stone on {PRONOUN/r_w_upstanding/poss} way to leader, either. If that makes any sense."
+            "r_w_upstanding's been helping me with my training these past few days, but I can't tell if {PRONOUN/r_w-upstanding/subject}{VERB/r_w-upstanding/'re/'s} doing it to be nice, or just to get l_n to notice {PRONOUN/r_w-upstanding/object}.",
+            "I hope I don't sound ungrateful, or anything. {PRONOUN/r_w-upstanding/subject/CAP}{VERB/r_w-upstanding/'re/'s} really skilled, and {PRONOUN/r_w-upstanding/subject}{VERB/r_w-upstanding/'ve/'s} helped me improve a lot, but ...",
+            "I don't necessarily want to just be a stepping stone on {PRONOUN/r_w-upstanding/poss} way to leader, either. If that makes any sense."
         ]
     ],
     "about_upstanding_SQ1": [
@@ -3286,8 +3286,8 @@
             "you_blind"
         ],
         [
-            "neutral_r_k_upstanding keeps telling on me! I'm not even doing anything wrong, promise!",
-            "y_c... you should help me get {PRONOUN/neutral_r_k_upstanding/object} back."
+            "neutral-r_k_upstanding keeps telling on me! I'm not even doing anything wrong, promise!",
+            "y_c... you should help me get {PRONOUN/neutral-r_k-upstanding/object} back."
         ]
     ],
     "about_introspective_AJ": [
@@ -3300,9 +3300,9 @@
             "min_platonic_25"
         ],
         [
-            "You ever notice how plike_r_c_introspective doesn't say much, but when {PRONOUN/plike_r_c_introspective/subject} {VERB/plike_r_c_introspective/do/does}, it's, like, the smartest thing you've ever heard?",
-            "I swear, {PRONOUN/plike_r_c_introspective/subject}{VERB/plike_r_c_introspective/'re/'s} like a StarClan cat reincarnated, {PRONOUN/plike_r_c_introspective/subject}{VERB/plike_r_c_introspective/'re/'s} so wise. If I had a brain like that, I wouldn't be able to stand living in this Clan, every other cat would seem so mouse-brained!",
-            "Maybe that's why {PRONOUN/plike_r_c_introspective/subject}{VERB/plike_r_c_introspective/'re/'s} by {PRONOUN/plike_r_c_introspective/self} so often ... {PRONOUN/plike_r_c_introspective/subject/CAP} just can't stand all of the chatter."
+            "You ever notice how plike-r_c-introspective doesn't say much, but when {PRONOUN/plike-r_c-introspective/subject} {VERB/plike-r_c-introspective/do/does}, it's, like, the smartest thing you've ever heard?",
+            "I swear, {PRONOUN/plike-r_c-introspective/subject}{VERB/plike-r_c-introspective/'re/'s} like a StarClan cat reincarnated, {PRONOUN/plike-r_c-introspective/subject}{VERB/plike-r_c-introspective/'re/'s} so wise. If I had a brain like that, I wouldn't be able to stand living in this Clan, every other cat would seem so mouse-brained!",
+            "Maybe that's why {PRONOUN/plike-r_c-introspective/subject}{VERB/plike-r_c-introspective/'re/'s} by {PRONOUN/plike-r_c-introspective/self} so often ... {PRONOUN/plike-r_c-introspective/subject/CAP} just can't stand all of the chatter."
         ]
     ],
     "about_introspective_SQ1": [
@@ -3315,8 +3315,8 @@
         ],
         [
             "[t_c looks especially sleepy this morning. {PRONOUN/t_c/subject/CAP} {VERB/t_c/roll/rolls} {PRONOUN/t_c/poss} eyes when you ask how {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} doing.]",
-            "Real tired, and you know why? I got up in the middle of the night to make dirt, and when I was heading back, neutral_r_w_introspective called me over to look at the stars.",
-            "And then {PRONOUN/neutral_r_w_introspective/subject} kept talking about StarClan, and the moon, and comets, and {PRONOUN/neutral_r_w_introspective/poss} thoughts about our place in the world...",
+            "Real tired, and you know why? I got up in the middle of the night to make dirt, and when I was heading back, neutral-r_w-introspective called me over to look at the stars.",
+            "And then {PRONOUN/neutral-r_w-introspective/subject} kept talking about StarClan, and the moon, and comets, and {PRONOUN/neutral-r_w-introspective/poss} thoughts about our place in the world...",
             "Like, I know you have <i>so many</i> deep thoughts, but maybe keep them to yourself?"
         ]
     ],
@@ -3327,9 +3327,9 @@
             "platonic_like"
         ],
         [
-            "I love going on patrol with plove_r_w_introspective.",
-            "{PRONOUN/plove_r_w_introspective/subject/CAP} {VERB/plove_r_w_introspective/notice/notices} every little detail! Every flower, every interesting bug, every mushroom...",
-            "{PRONOUN/plove_r_w_introspective/subject/CAP} {VERB/plove_r_w_introspective/point/points} everything out, and {VERB/plove_r_w_introspective/describe/describes} things so uniquely, and {VERB/plove_r_w_introspective/think/thinks} so <i>deeply</i>. It makes me see the world in a whole new way!"
+            "I love going on patrol with plove-r_w-introspective.",
+            "{PRONOUN/plove-r_w-introspective/subject/CAP} {VERB/plove-r_w-introspective/notice/notices} every little detail! Every flower, every interesting bug, every mushroom...",
+            "{PRONOUN/plove-r_w-introspective/subject/CAP} {VERB/plove-r_w-introspective/point/points} everything out, and {VERB/plove-r_w-introspective/describe/describes} things so uniquely, and {VERB/plove-r_w-introspective/think/thinks} so <i>deeply</i>. It makes me see the world in a whole new way!"
         ]
     ],
     "about_introspective_SQ3": [
@@ -3345,8 +3345,8 @@
             "you_blind"
         ],
         [
-            "neutral_r_c_introspective was staring at a flower for like, an hour this morning.",
-            "{PRONOUN/neutral_r_c_introspective/subject/CAP} said something about how it was a reminder of the world's cycles, and how life always returns, and all that...",
+            "neutral-r_c-introspective was staring at a flower for like, an hour this morning.",
+            "{PRONOUN/neutral-r_c-introspective/subject/CAP} said something about how it was a reminder of the world's cycles, and how life always returns, and all that...",
             "I'm not sure, y_c. Sometimes a flower's just a flower, you know?"
         ]
     ],
@@ -3361,8 +3361,8 @@
             "you_blind"
         ],
         [
-            "neutral_r_c_introspective was talking about the choices we make, and how those can lead to us walking completely different paths...",
-            "{PRONOUN/neutral_r_c_introspective/subject/CAP} {VERB/neutral_r_c_introspective/were/was} talking generally, of course, but it made me wonder if {PRONOUN/neutral_r_c_introspective/subject} {VERB/neutral_r_c_introspective/were/was} subtly questioning my life choices.",
+            "neutral-r_c-introspective was talking about the choices we make, and how those can lead to us walking completely different paths...",
+            "{PRONOUN/neutral-r_c-introspective/subject/CAP} {VERB/neutral-r_c-introspective/were/was} talking generally, of course, but it made me wonder if {PRONOUN/neutral-r_c-introspective/subject} {VERB/neutral-r_c-introspective/were/was} subtly questioning my life choices.",
             "...It did make me think about my decisions, though. And I've made mistakes, of course, but I...  I think I've done an okay job. Right?"
         ]
     ],
@@ -3379,10 +3379,10 @@
             "min_trust_15"
         ],
         [
-            "StarClan, neutral_r_w_neurotic messed up my patrol <i>again!</i>",
-            "I don't get it! {PRONOUN/neutral_r_w_neurotic/subject/CAP} {VERB/neutral_r_w_neurotic/were/was} a whisker length away from that bird! Why not just pounce on it?",
+            "StarClan, neutral-r_w_neurotic messed up my patrol <i>again!</i>",
+            "I don't get it! {PRONOUN/neutral-r_w_neurotic/subject/CAP} {VERB/neutral-r_w_neurotic/were/was} a whisker length away from that bird! Why not just pounce on it?",
             "The whole 'scaredy nervous' routine might have been cute for a while, but once it starts interfering with Clan business, that's where I draw the line.",
-            "neutral_r_w_neurotic had better toughen up, quick, or get back to the nursery."
+            "neutral-r_w_neurotic had better toughen up, quick, or get back to the nursery."
         ]
     ],
     "about_neurotic_SQ1": [
@@ -3395,12 +3395,12 @@
             "platonic_like"
         ],
         [
-            "I don't really think plike_r_w1_neurotic and I work well together.",
+            "I don't really think plike-r_w1_neurotic and I work well together.",
             "I like them well enough! It's just... well, yesterday we were on a hunting patrol together, just the two of us. I thought I saw a shadow in a bush, and I pointed it out.",
-            "Someone like r_w2_stable would tell me it's nothing, or go take a look, right? But plike_r_w1_neurotic kind of freaked out, and that made me even <i>more</i> nervous, and that made <i>them</i> more nervous, and...",
+            "Someone like r_w2_stable would tell me it's nothing, or go take a look, right? But plike-r_w1_neurotic kind of freaked out, and that made me even <i>more</i> nervous, and that made <i>them</i> more nervous, and...",
             "[t_c chuckles, then sighs.]",
             "So of course, we were both super spooked for the rest of the patrol. We came back early because neither of us was catching anything.",
-            "A-anyways. I hope plike_r_w1_neurotic doesn't hold that against me. We haven't had a chance to talk since then."
+            "A-anyways. I hope plike-r_w1_neurotic doesn't hold that against me. We haven't had a chance to talk since then."
         ]
     ],
     "about_neurotic_SQ2": [
@@ -3410,7 +3410,7 @@
             "platonic_like"
         ],
         [
-            "I refuse to believe that plove_rsh_c_neurotic would murder someone.",
+            "I refuse to believe that plove-rsh_c_neurotic would murder someone.",
             "They've always been so concerned about what the Clan thinks... so worried about doing something wrong...",
             "It <i>had</i> to have been an accident."
         ]
@@ -3430,7 +3430,7 @@
             "you_blind"
         ],
         [
-            "dislike_r_a_neurotic is so... jumpy. We're not kits anymore, for StarClan's sake!",
+            "dislike-r_a_neurotic is so... jumpy. We're not kits anymore, for StarClan's sake!",
             "The next time they wake me up by squeaking at some odd-shaped shadow, I'm going to <i>snap.</i>"
         ]
     ],
@@ -3450,7 +3450,7 @@
             "connected"
         ],
         [
-            "Just as expected, dislike_r_a_neurotic woke me up last night. Something about a shadow looking like a snake?",
+            "Just as expected, dislike-r_a_neurotic woke me up last night. Something about a shadow looking like a snake?",
             "I told them they had to stop yelping at every little thing, and they started crying. And it was impossible to not feel a little bad at that, but also they wake me up almost every other night?",
             "I can't believe I have to share a den with them."
         ]
@@ -3467,7 +3467,7 @@
             "you_blind"
         ],
         [
-            "StarClan, dislike_r_w_neurotic spent a full half-hour this morning reminding me to be careful. Stay away from the Thunderpath, don't investigate strange scents alone...'",
+            "StarClan, dislike-r_w_neurotic spent a full half-hour this morning reminding me to be careful. Stay away from the Thunderpath, don't investigate strange scents alone...'",
             "I know what I'm doing, thank you very much! <i>I'm</i> not the one who got spooked last week and jumped straight into a thorn bush!"
         ]
     ],
@@ -3515,7 +3515,7 @@
         [
             "Sure, dislike_l_n_neurotic is doing a passable job right now, but don't tell me you think they wouldn't fall to pieces in an emergency.",
             "They jump at their own shadow, like, daily! There's no way they could hold themselves together if something really bad happened.",
-            "I guess that's why plike_d_n is here."
+            "I guess that's why plike-d_n is here."
         ]
     ],
     "about_neurotic_SQ8": [
@@ -3823,7 +3823,7 @@
         [
             "they_grieving",
             "grievingyou",
-            "min_plike_20",
+            "min_plike-20",
             "any",
             "they_deaf",
             "you_deaf"
@@ -3837,7 +3837,7 @@
             "they_grieving",
             "they_dead",
             "grievingyou",
-            "min_plike_20",
+            "min_plike-20",
             "any",
             "they_deaf",
             "you_deaf"
@@ -3851,7 +3851,7 @@
             "you_grieving",
             "grievingthem",
             "any",
-            "min_plike_20",
+            "min_plike-20",
             "they_deaf",
             "only_you_deaf"
         ],
@@ -3866,7 +3866,7 @@
             "they_dead",
             "grievingthem",
             "any",
-            "min_plike_20",
+            "min_plike-20",
             "they_deaf",
             "only_you_deaf"
         ],
