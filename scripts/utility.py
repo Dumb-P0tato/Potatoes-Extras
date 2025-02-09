@@ -3952,10 +3952,10 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                     cat_choices = [i for i in Cat.all_cats_list if i.dead is True]
                 elif abbrev_string in ["d_c"]:
                     cat_choices = (
-                        cat.illnesses['grief stricken'].get("grief_cat") if
-                        ("grief stricken" in cat.illnesses and cat.illnesses['grief stricken']["grief cat"]) else
-                        [i for i in Cat.all_cats_list if i.dead and not i.outside and not i.df]
+                        cat.illnesses['grief stricken'].get("grief_cat")
                     )
+                elif abbrev_string in ["g_c"]:
+                    cat_choices = [i for i in Cat.all_cats_list if i.dead and not i.outside and not i.df]
                 else:
                     cat_choices = alive_cats
 
