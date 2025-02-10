@@ -478,7 +478,7 @@ class TalkScreen(Screens):
 
             #the text for dialogue choices
             option = pygame_gui.elements.UITextBox(str(text),
-                                                            ui_scale(pygame.Rect((435, 430 + y_pos), (270, 30))),
+                                                            ui_scale(pygame.Rect((435, 428 + y_pos), (270, 35))),
                                                             object_id="#text_box_30_horizleft",
                                                             manager=MANAGER)
             self.text_choices[c] = option
@@ -725,6 +725,7 @@ class TalkScreen(Screens):
                 and f"you_{your_status}" not in tags
                 and f"you_{(your_status).replace(' ', '_')}" not in tags
                 and "young elder" not in tags
+                and "you_young_elder" not in tags
                 and "no_kit" not in tags
                 and "you_any" not in tags
                 and "they_app" not in tags
@@ -736,9 +737,16 @@ class TalkScreen(Screens):
                 continue
             elif "young elder" in tags and cat.status == 'elder' and cat.moons >= 100:
                 continue
+            elif "you_young_elder" in tags and you.status == 'elder' and you.moons >= 100:
+                continue
             elif "no_kit" in tags and (you.status in ['kitten', 'newborn'] or cat.status in ['kitten', 'newborn']):
                 continue
             elif "newborn" in tags and "kitten" not in tags and you.moons != 0:
+                continue
+
+            if f"they_not_{cat.status.replace(' ', '')}" in tags:
+                continue
+            if f"you_not_{game.clan.your_cat.status.replace(' ', '')}" in tags:
                 continue
 
             if "they_adult" in tags and cat.status in [
@@ -1211,6 +1219,52 @@ class TalkScreen(Screens):
                         fam = True
                 if not fam:
                     continue
+
+            # MURDER STUFF
+            if game.clan.murdered != {}:
+                # accomplice
+                if cat.ID == game.clan.murdered["accomplice"][0]:
+                    if "accomplice_agreed" in tags and game.clan.murdered["accomplice"][1] is False:
+                        continue
+                    elif "accomplice_refused" in tags and game.clan.murdered["accomplice"][1] is True:
+                        continue
+                
+                    if "not_accomplice" in tags:
+                        continue
+                else:
+                    if any(t in tags for t in ["accomplice", "accomplice_refused", "accomplice_agreed"]):
+                        continue
+                
+                # victim
+                if cat.ID == game.clan.murdered["victim"][0]:
+                    if "murder_victim" in tags and cat.ID != game.clan.murdered["victim"]:
+                        continue
+                    elif "not_murder_victim" in tags and cat.ID == game.clan.murdered["victim"]:
+                        continue
+                
+                # success/fail
+                if "murder_success" in tags and game.clan.murdered["success"] is False:
+                    continue
+                if "murder_fail" in tags and game.clan.murdered["success"] is True:
+                    continue
+
+                # discovered
+                if "murder_discovered" in tags and game.clan.murdered["discovered"] is False:
+                    continue
+                if "murder_not_discovered" in tags and game.clan.murdered["discovered"] is True:
+                    continue
+
+
+                if any(tag in tags for tag in [
+                    "accomplice_agreed", "accomplice_refused",
+                    "accomplice", "murder_victim",
+                    "not_murder_victim", "murder_success",
+                    "murder_fail"
+                    ]):
+                    if game.clan.murdered["murderer"] != game.clan.your_cat.ID:
+                        continue
+            
+            # ---
 
 
             if "non-related" in tags:

@@ -147,7 +147,7 @@ class Clan:
         self.game_mode = game_mode
         self.pregnancy_data = {}
         self.inheritance = {}
-        self.murdered = False
+        self.murdered = {}
         self.exile_return = False
         self.affair = False
         self.achievements = []
@@ -1332,13 +1332,16 @@ class Clan:
             game.clan.your_cat = Cat.all_cats[clan_data["your_cat"]]
 
         if "murdered" in clan_data:
-            game.clan.murdered = clan_data["murdered"]
+            if isinstance(clan_data["murdered"], bool):
+                game.clan.murdered = {}
+            else:
+                game.clan.murdered = clan_data["murdered"]
 
         if "affair" in clan_data:
-            game.clan.murdered = clan_data["affair"]
+            game.clan.affair = clan_data["affair"]
 
         if "exile_return" in clan_data:
-            game.clan.murdered = clan_data["exile_return"]
+            game.clan.exile_return = clan_data["exile_return"]
         
         game.switches["error_message"] = "Error loading ---clan.json. Check achievements"
         if "achievements" in clan_data:
@@ -1375,7 +1378,7 @@ class Clan:
                 other_clan_meds = []
                 for other_clan_med in c:
                     other_clan_med = other_clan_med.split(",")
-                    n = Name(status = other_clan_med[2], prefix = other_clan_med[0], suffix = other_clan_med[1])
+                    n = Name(prefix = other_clan_med[0], suffix = other_clan_med[1])
                     other_clan_meds.append(n)
                 other_med.append(other_clan_meds)
             game.switches["other_med"] = other_med
@@ -1452,11 +1455,12 @@ class Clan:
                             except ValueError:
                                 print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
 
-                if not c.pelt.inventory:
-                    c.pelt.inventory = []
-                for acc in acc_list:
-                    if acc not in c.pelt.inventory:
-                        c.pelt.inventory.append(acc)
+                # if not c.pelt.inventory:
+                #     c.pelt.inventory = []
+                # for acc in acc_list:
+                #     if acc not in c.pelt.inventory:
+                #         c.pelt.inventory.append(acc)
+                return acc_list
 
     def load_clan_settings(self):
         if os.path.exists(

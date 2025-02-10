@@ -3968,7 +3968,11 @@ class Cat:
             and check_cat.outside == self.outside
             and check_cat.df == self.df
             and not check_cat.faded
+            and check_cat.moons >= 0
         ]
+        if game.clan.demon in sorted_specific_list:
+            sorted_specific_list.remove(game.clan.demon)
+            sorted_specific_list.insert(0, game.clan.demon)
 
         if status is not None:
             sorted_specific_list = [
