@@ -4495,7 +4495,7 @@
         ],
         [
             "[In the middle of the night, t_c wakes all of c_nClan with a fur-raising screech.]",
-            "d_c!!!",
+            "tg_c!!!",
             "Where ... What ...",
             "Uh ...",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/look/looks} around at {PRONOUN/t_c/poss} Clanmates guiltily. There's no need to explain. Everycat knows what happened.]",
@@ -24291,5 +24291,49 @@
             "It's tg_c. {PRONOUN/tg_c/subject/CAP}{VERB/tg_c/'re/'s} dead. I can't even concentrate on my training, I loved {PRONOUN/tg_c/object} so much...",
             "[Despite being a 'cold' Dark Forest cat, your heart still aches for t_c.]"
         ]
-    ]
+    ],
+    "testdialogue": {
+        "tags": [
+            "any"
+        ],
+        "intro": [
+            "I picked some flowers today! Do you want a yellow one, or a pink one?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Pink",
+                "next_scene": "pink"
+            },
+            "choice2": {
+                "text": "Yellow",
+                "next_scene": "yellow"
+            }
+        },
+        "intro_rel_changes": {
+            "cats_to": ["y_c"],
+            "cats_from": ["t_c"],
+            "values": {
+                "platonic": 5,
+                "dislike": -5,
+                "comfort": 5
+            },
+            "mutual": true
+        },
+        "pink": [
+            "Pink! Good choice! Here you go!"
+        ],
+        "pink_inventory_changes": {
+            "cats_to": ["y_c"],
+            "accessory": ["BULB PINK", "PINK POPPY"],
+            "addition": "choice"
+        },
+        "yellow": [
+            "Yellow! Good choice! Here you go!"
+        ],
+        "yellow_inventory_changes": {
+            "cats_to": ["y_c"],
+            "accessory": ["BULB YELLOW", "YELLOWWISTERIA"],
+            "addition": "choice"
+        }
+    }
 }

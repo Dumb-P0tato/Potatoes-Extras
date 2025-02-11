@@ -20,7 +20,12 @@ from scripts.housekeeping.version import VERSION_NAME
 from scripts.special_dates import get_special_date, contains_special_date_tag
 # pylint: disable=consider-using-dict-items
 # pylint: disable=consider-using-enumerate
-from scripts.utility import get_text_box_theme, ui_scale, ui_scale_blit, ui_scale_offset, get_current_season, ui_scale_dimensions
+from scripts.utility import (
+    ui_scale,
+    get_current_season,
+    ui_scale_dimensions,
+    change_relationship_values
+    )
 from scripts.game_structure.screen_settings import MANAGER
 from ..ui.generate_box import get_box, BoxStyles
 from ..ui.generate_button import ButtonStyles, get_button_dict
@@ -448,6 +453,13 @@ class TalkScreen(Screens):
         self.current_scene = "intro"
         self.possible_texts = texts_list
         self.chosen_text_key = texts_chosen_key
+
+        if f"{self.current_scene}_rel_changes" in self.possible_texts[self.chosen_text_key]:
+            self.rel_changes(self.the_cat, self.possible_texts, self.chosen_text_key)
+
+        if f"{self.current_scene}_inventory_changes" in self.possible_texts[self.chosen_text_key]:
+            self.inventory_changes(self.the_cat, self.possible_texts, self.chosen_text_key)
+
         return chosen_text_intro
 
     def create_choice_buttons(self):
@@ -501,6 +513,104 @@ class TalkScreen(Screens):
         self.text_index = 0
         self.frame_index = 0
         self.created_choice_buttons = False
+
+        if f"{self.current_scene}_rel_changes" in self.possible_texts[self.chosen_text_key]:
+            self.rel_changes(self.the_cat, self.possible_texts, self.chosen_text_key)
+        
+        if f"{self.current_scene}_inventory_changes" in self.possible_texts[self.chosen_text_key]:
+            self.inventory_changes(self.the_cat, self.possible_texts, self.chosen_text_key)
+
+    def rel_changes(self, cat, texts_list, texts_chosen_key):
+        rel_block = texts_list[texts_chosen_key][f"{self.current_scene}_rel_changes"]
+
+        if game.clan.your_cat.ID not in cat.relationships:
+            cat.create_one_relationship(game.clan.your_cat)
+            if cat.ID not in game.clan.your_cat.relationships:
+                game.clan.your_cat.create_one_relationship(cat)
+
+        cats_to = []
+        for kitty in rel_block["cats_to"]:
+            if kitty == "y_c":
+                cats_to.append(game.clan.your_cat)
+            elif kitty == "t_c":
+                cats_to.append(cat)
+            else:
+                cats_to.append(self.cat_dict[kitty])
+
+        cats_from = []
+        for kitty in rel_block["cats_from"]:
+            if kitty == "y_c":
+                cats_from.append(game.clan.your_cat)
+            elif kitty == "t_c":
+                cats_from.append(cat)
+            else:
+                cats_from.append(self.cat_dict[kitty])
+
+        romantic_value = rel_block["values"]["romantic"] if "romantic" in rel_block["values"] else 0
+        platonic_value = rel_block["values"]["platonic"] if "platonic" in rel_block["values"] else 0
+        dislike_value = rel_block["values"]["dislike"] if "dislike" in rel_block["values"] else 0
+        respect_value = rel_block["values"]["respect"] if "respect" in rel_block["values"] else 0
+        comfort_value = rel_block["values"]["comfort"] if "comfort" in rel_block["values"] else 0
+        jealousy_value = rel_block["values"]["jealousy"] if "jealousy" in rel_block["values"] else 0
+        trust_value = rel_block["values"]["trust"] if "trust" in rel_block["values"] else 0
+
+        change_relationship_values(
+            cats_to,
+            cats_from,
+            romantic_value,
+            platonic_value,
+            dislike_value,
+            respect_value,
+            comfort_value,
+            jealousy_value,
+            trust_value,
+            log=None
+        )
+
+        if rel_block["mutual"]:
+            change_relationship_values(
+                cats_to,
+                cats_from,
+                romantic_value,
+                platonic_value,
+                dislike_value,
+                respect_value,
+                comfort_value,
+                jealousy_value,
+                trust_value,
+                log=None
+            )
+
+    def inventory_changes(self, cat, texts_list, texts_chosen_key):
+        """
+        Adds accessories to inventory from dialogue
+        """
+        inv_block = texts_list[texts_chosen_key][f"{self.current_scene}_inventory_changes"]
+
+        cats_to = []
+        for kitty in inv_block["cats_to"]:
+            if kitty == "y_c":
+                cats_to.append(game.clan.your_cat)
+            elif kitty == "t_c":
+                cats_to.append(cat)
+            else:
+                cats_to.append(self.cat_dict[kitty])
+
+        accessories = inv_block["accessory"]
+
+        if inv_block["addition"] == "choice":
+            for kitty in cats_to:
+                acc = choice(accessories)
+                if acc not in kitty.pelt.inventory:
+                    kitty.pelt.inventory.append(acc)
+        elif inv_block["addition"] == "all":
+            for kitty in cats_to:
+                for acc in accessories:
+                    if acc not in kitty.pelt.inventory:
+                        kitty.pelt.inventory.append(acc)
+        else:
+            print("Invalid 'addition' string for dialogue inventory block.")
+
 
 
     def load_texts(self, cat):
@@ -719,23 +829,23 @@ class TalkScreen(Screens):
             else:
                 your_status = game.clan.your_cat.status
 
-            if (
-                your_status not in tags
-                and "any" not in tags
-                and f"you_{your_status}" not in tags
-                and f"you_{(your_status).replace(' ', '_')}" not in tags
-                and "young elder" not in tags
-                and "you_young_elder" not in tags
-                and "no_kit" not in tags
-                and "you_any" not in tags
-                and "they_app" not in tags
-                and "you_app" not in tags
-                and "they_adult" not in tags
-                and "they_not_kit" not in tags
-                and "you_adult" not in tags
-                ):
-                continue
-            elif "young elder" in tags and cat.status == 'elder' and cat.moons >= 100:
+            # if (
+            #     your_status not in tags
+            #     and "any" not in tags
+            #     and f"you_{your_status}" not in tags
+            #     and f"you_{(your_status).replace(' ', '_')}" not in tags
+            #     and "young elder" not in tags
+            #     and "you_young_elder" not in tags
+            #     and "no_kit" not in tags
+            #     and "you_any" not in tags
+            #     and "they_app" not in tags
+            #     and "you_app" not in tags
+            #     and "they_adult" not in tags
+            #     and "they_not_kit" not in tags
+            #     and "you_adult" not in tags
+            #     ):
+            #     continue
+            if "young elder" in tags and cat.status == 'elder' and cat.moons >= 100:
                 continue
             elif "you_young_elder" in tags and you.status == 'elder' and you.moons >= 100:
                 continue

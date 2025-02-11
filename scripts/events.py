@@ -28,6 +28,7 @@ from scripts.conditions import (
     medical_cats_condition_fulfilled,
     get_amount_cat_for_one_medic,
 )
+from scripts.game_structure.game_essentials import game
 from scripts.events_module.generate_events import GenerateEvents, generate_events
 from scripts.clan_resources.freshkill import FreshkillPile, Nutrition
 from scripts.events_module.short.condition_events import Condition_Events
@@ -1135,6 +1136,7 @@ class Events:
                 current_event = self.process_text(event)
 
                 while current_event == "":
+                    print("Chosen event returned empty. Rerolling")
                     event = random.choice(possible_events)
                     current_event = self.process_text(event)
 

@@ -1480,7 +1480,7 @@ def gather_cat_objects(
             if index < len(event.new_cats):
                 out_set.update(event.new_cats[index])
         else:
-            print(f"WARNING: Unsupported abbreviation {abbr}")
+            print(f"WARNING: Unsupported ClanGen abbreviation {abbr}")
 
     # LIFEGEN ABBREVS ------------------------
     try:
@@ -3150,7 +3150,6 @@ def abbrev_addons(t_c, r_c, cluster, x, rel, r):
                 )
             )
         ):
-        # print("abbrev addon failed")
         return False
 
 def cat_dict_check(abbrev, cluster, x, rel, r, text, cat_dict):
@@ -3171,7 +3170,6 @@ def cat_dict_check(abbrev, cluster, x, rel, r, text, cat_dict):
             else:
                 text = re.sub(fr'(?<!\/){abbrev}(?!\/)', str(cat_dict[f"{abbrev}"].name), text)
     except KeyError:
-        # print("WARNING: Keyerror with", abbrev, ".")
         text = ""
         # returning an empty string to reroll for dialogue
     return text, in_dict
@@ -3779,6 +3777,19 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID != game.clan.focus_cat
     ) else True
 
+    # grief cats
+    tg_c = False if (
+        "grief stricken" not in cat.illnesses or 
+        "grief stricken" in cat.illnesses and "grief_cat" not in cat.illnesses["grief stricken"] or
+        chosen_cat.ID != cat.illnesses["grief stricken"]["grief_cat"]
+    ) else True
+
+    yg_c = False if (
+        "grief stricken" not in you.illnesses or 
+        "grief stricken" in you.illnesses and "grief_cat" not in you.illnesses["grief stricken"] or
+        chosen_cat.ID != you.illnesses["grief stricken"]["grief_cat"]
+    ) else True
+
     # now the abbrevs dict!
     # make sure to add new abbrevs here, or they won't get replaced!!!
     abbrevs = {
@@ -3841,7 +3852,9 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         "rdf_c": rdf_c,
         "l_c": l_c,
         "e_c": e_c,
-        "fc_c": fc_c
+        "fc_c": fc_c,
+        "tg_c": tg_c,
+        "yg_c": yg_c
     }
 
     return abbrevs
@@ -3900,8 +3913,6 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
             else:
                 r = ""
 
-            print("hey", cluster, x, rel, r)
-
             # Check if the abbrev is already in use
             text, in_dict = cat_dict_check(abbrev_string, cluster, x, rel, r, text, cat_dict)
             if in_dict is False:
@@ -3951,18 +3962,25 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 elif abbrev_string in ["rdf_c"]:
                     cat_choices = [i for i in Cat.all_cats_list if i.dead is True]
                 elif abbrev_string in ["d_c"]:
-                    cat_choices = (
-                        cat.illnesses['grief stricken'].get("grief_cat")
-                    )
-                elif abbrev_string in ["g_c"]:
                     cat_choices = [i for i in Cat.all_cats_list if i.dead and not i.outside and not i.df]
+                elif abbrev_string in ["tg_c"]:
+                    cat_choices = (
+                        [Cat.fetch_cat(cat.illnesses['grief stricken']["grief_cat"])]
+                    ) if "grief stricken" in cat.illnesses else []
+                elif abbrev_string in ["yg_c"]:
+                    cat_choices = (
+                        [Cat.fetch_cat(game.clan.your_cat.illnesses['grief stricken']["grief_cat"])]
+                    ) if "grief stricken" in game.clan.your_cat.illnesses else []
                 else:
+                    print("Unknown LifeGen abbrev:", abbrev_string)
                     cat_choices = alive_cats
+
+                if cat_choices is None:
+                    cat_choices = [] # whatever
 
                 try:
                     alive_cat = choice(cat_choices)
                 except IndexError:
-                    print("Empty sequence for", abbrev_string)
                     return ""
 
                 new_abbrevs = lifegen_abbrevs(Cat, text, you, cat, alive_cat, cat_dict)
@@ -3977,8 +3995,6 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 addon_check = abbrev_addons(cat, alive_cat, cluster, x, rel, r)
                 counter = 0
                 while abbrev_bool is False or addon_check is False:
-                    # print(r, "|", abbrev_string, "|", x, ": skipping", alive_cat.name)
-                    # print(abbrev_bool, addon_check)
                     alive_cat = choice(cat_choices)
                     new_abbrevs = lifegen_abbrevs(Cat, text, you, cat, alive_cat, cat_dict)
                     for string, value in new_abbrevs.items():
