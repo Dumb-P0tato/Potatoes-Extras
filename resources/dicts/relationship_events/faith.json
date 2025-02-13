@@ -1,41 +1,46 @@
 [
     {
-        "event_id": "faith_J1",
+        "event_id": "twocat_sc_J1",
         "faith_effect": 0.5,
         "interactions": [
             "m_c and r_c watch the stars together.",
             "m_c tells r_c a story about StarClan."
         ],
         "m_c": {
-            "min_max_faith": [0, 9]
+            "min_max_faith": [0, 9],
+            "affected": true
         },
         "r_c": {
-            "min_max_faith": [-2, 2]
+            "min_max_faith": [-2, 2],
+            "affected": true
         }
     },
     {
-        "event_id": "faith_J2",
+        "event_id": "solo_df_young_J1",
         "faith_effect": -0.5,
         "interactions": [
             "m_c had a scary nightmare about the Dark Forest.",
             "m_c has been seeing scary shadows."
         ],
         "m_c": {
-            "min_max_faith": [-9, 9]
+            "min_max_faith": [-9, 9],
+            "age": ["kitten", "adolescent"],
+            "affected": true
         }
     },
     {
-        "event_id": "faith_J3",
+        "event_id": "sc_medcat_J1",
         "faith_effect": 0.5,
         "season": ["greenleaf"],
         "interactions": [
             "m_c prayed for some rain to water the herbs, and it came!",
             "m_c thanks StarClan for leading {PRONOUN/m_c/object} towards a brand new herb patch.",
-            "m_c hopes StarClan is proud of {PRONOUN/m_c/object.}"
+            "m_c hopes StarClan is proud of {PRONOUN/m_c/poss} work."
         ],
         "m_c": {
             "min_max_faith": [2, 9],
-            "status": ["medicine cat", "medicine cat apprentice"]
+            "status": ["medicine cat", "medicine cat apprentice"],
+            "affected": true
         }
     },
     {
@@ -48,7 +53,8 @@
             "m_c finds a strangely sparkly feather in {PRONOUN/m_c/poss} nest and wonders if it's a sign."
         ],
         "m_c": {
-            "min_max_faith": [-2, 2]
+            "min_max_faith": [-2, 2],
+            "affected": true
         }
     },
     {
@@ -56,10 +62,45 @@
         "faith_effect": -0.5,
         "interactions": [
             "m_c considers if somewhere darker than StarClan might hold the answers {PRONOUN/m_c/subject} {VERB/m_c/seek/seeks}.",
-            "m_c finds more comfort in the darkness than {PRONOUN/m_c/subject} used to."
+            "m_c finds more comfort in the darkness than {PRONOUN/m_c/subject} used to.",
+            "m_c is hearing strange, malicious voices in {PRONOUN/m_c/poss} dreams."
         ],
         "m_c": {
-            "min_max_faith": [-2, 0]
+            "min_max_faith": [-2, 0],
+            "affected": true
+        }
+    },
+    {
+        "event_id": "twocat_df_J1",
+        "faith_effect": -0.5,
+        "interactions": [
+            "m_c and r_c have a heated argument about faith. In the end, m_c is able to slightly sway r_c away from StarClan.",
+            "m_c tells r_c about {PRONOUN/m_c/poss} disdain for StarClan."
+        ],
+        "m_c": {
+            "min_max_faith": [-9, -2],
+            "cluster": ["assertive"],
+            "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
+            "affected": true
+        },
+        "r_c": {
+            "min_max_faith": [2, 9],
+            "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
+            "affected": true
+        }
+    },
+    {
+        "event_id": "twocat_df_J2",
+        "faith_effect": [-0.5],
+        "interactions": [
+            "m_c has a dream about the Dark Forest after speaking with r_c."
+        ],
+        "m_c": {
+            "min_max_faith": [0, 5],
+            "affected": true
+        },
+        "r_c": {
+            "min_max_faith": [-9, -3]
         }
     }
 ]
