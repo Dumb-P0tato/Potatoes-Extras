@@ -2403,6 +2403,9 @@ class Events:
         self.mediator_events(cat)
 
        
+        # LIFEGEN: faith events
+        if not int(random.random() * 5):
+            self.generate_faith_events(cat)
 
         # handle nutrition amount
         # (CARE: the cats have to be fed before this happens - should be handled in "one_moon" function)
@@ -4002,6 +4005,24 @@ class Events:
                     text = f"The Clan takes a vote and agrees they feel unsafe around {cat.name}. {cat.name} is exiled."
 
             game.cur_events_list.insert(0, Single_Event(text, ["alert", "misc"], involved_cats))
+
+    def generate_faith_events(self, cat):
+        """ yay """
+        if (
+            cat.outside or
+            cat.dead or
+            cat.moons < 1
+        ):
+            return
+        
+        random_cat = get_random_moon_cat(Cat, main_cat=cat)
+
+        handle_short_events.handle_event(event_type="faith",
+                                            main_cat=cat,
+                                            random_cat=random_cat,
+                                            sub_type=[],
+                                            freshkill_pile=game.clan.freshkill_pile)
+        
 
     def coming_out(self, cat):
         """turnin' the kitties trans..."""

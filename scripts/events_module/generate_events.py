@@ -3,6 +3,7 @@
 import random
 
 import ujson
+from copy import deepcopy
 
 from scripts.events_module.ongoing.ongoing_event import OngoingEvent
 from scripts.events_module.short.short_event import ShortEvent
@@ -11,6 +12,7 @@ from scripts.utility import (
     filter_relationship_type,
     get_living_clan_cat_count,
     get_alive_status_cats,
+    get_cluster
 )
 
 resource_directory = "resources/dicts/events/"
@@ -98,59 +100,79 @@ class GenerateEvents:
 
     @staticmethod
     def generate_short_events(event_triggered, biome):
-        file_path = f"{resource_directory}{event_triggered}/{biome}.json"
+        # LG
+        faith_event = False
+        if event_triggered != "faith":
+            file_path = f"{resource_directory}{event_triggered}/{biome}.json"
+        else:
+            faith_event = True
+            file_path = "resources/dicts/relationship_events/faith.json"
+        # ---
 
-        try:
-            if file_path in GenerateEvents.loaded_events:
-                return GenerateEvents.loaded_events[file_path]
-            else:
-                events_dict = GenerateEvents.get_short_event_dicts(file_path)
+        # try:
+        if file_path in GenerateEvents.loaded_events:
+            return GenerateEvents.loaded_events[file_path]
+        else:
+            events_dict = GenerateEvents.get_short_event_dicts(file_path)
 
-                event_list = []
-                if not events_dict:
-                    return event_list
-                for event in events_dict:
-                    event_text = event["event_text"] if "event_text" in event else None
-                    if not event_text:
-                        event_text = (
-                            event["death_text"] if "death_text" in event else None
-                        )
-
-                    if not event_text:
-                        print(
-                            f"WARNING: some events resources which are used in generate_events have no 'event_text'."
-                        )
-                    event = ShortEvent(
-                        event_id=event["event_id"] if "event_id" in event else "",
-                        location=event["location"] if "location" in event else ["any"],
-                        season=event["season"] if "season" in event else ["any"],
-                        sub_type=event["sub_type"] if "sub_type" in event else [],
-                        tags=event["tags"] if "tags" in event else [],
-                        weight=event["weight"] if "weight" in event else 20,
-                        text=event_text,
-                        new_accessory=event["new_accessory"]
-                        if "new_accessory" in event
-                        else [],
-                        m_c=event["m_c"] if "m_c" in event else {},
-                        r_c=event["r_c"] if "r_c" in event else {},
-                        new_cat=event["new_cat"] if "new_cat" in event else [],
-                        injury=event["injury"] if "injury" in event else [],
-                        history=event["history"] if "history" in event else [],
-                        relationships=event["relationships"]
-                        if "relationships" in event
-                        else [],
-                        outsider=event["outsider"] if "outsider" in event else {},
-                        other_clan=event["other_clan"] if "other_clan" in event else {},
-                        supplies=event["supplies"] if "supplies" in event else [],
-                        new_gender=event["new_gender"] if "new_gender" in event else []
-                    )
-                    event_list.append(event)
-
-                # Add to loaded events.
-                GenerateEvents.loaded_events[file_path] = event_list
+            event_list = []
+            if not events_dict:
                 return event_list
-        except:
-            print(f"WARNING: {file_path} was not found, check short event generation")
+            
+            new_events_dict = []
+            if faith_event:
+                # this sucks so bad but
+                # i have to go through the dicts with multiple interactions and dseperate them here into different events
+                for faith_event in events_dict:
+                    for count, text in enumerate(faith_event["interactions"], start=1):
+                        new_event = deepcopy(faith_event)
+                        new_event["event_text"] = [text]
+                        new_event["event_id"] = f"{count}faith_{faith_event['event_id']}"
+                        new_events_dict.append(new_event)
+
+            for event in new_events_dict:
+                event_text = event["event_text"] if "event_text" in event else None
+                if not event_text:
+                    event_text = (
+                        event["death_text"] if "death_text" in event else None
+                    )
+
+                if not event_text:
+                    print(
+                        f"WARNING: some events resources which are used in generate_events have no 'event_text'."
+                    )
+                event = ShortEvent(
+                    event_id=event["event_id"] if "event_id" in event else "",
+                    location=event["location"] if "location" in event else ["any"],
+                    faith_effect=event["faith_effect"] if "faith_effect" in event else 0,
+                    season=event["season"] if "season" in event else ["any"],
+                    sub_type=event["sub_type"] if "sub_type" in event else [],
+                    tags=event["tags"] if "tags" in event else [],
+                    weight=event["weight"] if "weight" in event else 20,
+                    text=event_text,
+                    new_accessory=event["new_accessory"]
+                    if "new_accessory" in event
+                    else [],
+                    m_c=event["m_c"] if "m_c" in event else {},
+                    r_c=event["r_c"] if "r_c" in event else {},
+                    new_cat=event["new_cat"] if "new_cat" in event else [],
+                    injury=event["injury"] if "injury" in event else [],
+                    history=event["history"] if "history" in event else [],
+                    relationships=event["relationships"]
+                    if "relationships" in event
+                    else [],
+                    outsider=event["outsider"] if "outsider" in event else {},
+                    other_clan=event["other_clan"] if "other_clan" in event else {},
+                    supplies=event["supplies"] if "supplies" in event else [],
+                    new_gender=event["new_gender"] if "new_gender" in event else []
+                )
+                event_list.append(event)
+
+            # Add to loaded events.
+            GenerateEvents.loaded_events[file_path] = event_list
+            return event_list
+        # except:
+        #     print(f"WARNING: {file_path} was not found, check short event generation")
 
     @staticmethod
     def generate_ongoing_events(event_type, biome, specific_event=None):
@@ -423,6 +445,18 @@ class GenerateEvents:
                     ):
                         continue
 
+                # FAITH EVENT STUFF
+                if "min_max_faith" in event.m_c:
+                    if cat.faith < event.m_c["min_max_faith"][0]:
+                        continue
+                    if cat.faith > event.m_c["min_max_faith"][1]:
+                        continue
+                if event.r_c and random_cat and "min_max_faith" in event.r_c:
+                    if random_cat.faith < event.r_c["min_max_faith"][0]:
+                        continue
+                    if random_cat.faith > event.r_c["min_max_faith"][1]:
+                        continue
+
                 # check cat trait and skill
                 if (
                     int(random.random() * trait_skill_bypass) or prevent_bypass
@@ -431,6 +465,17 @@ class GenerateEvents:
                     if event.m_c["trait"]:
                         if cat.personality.trait in event.m_c["trait"]:
                             has_trait = True
+                    
+                    # LG
+                    has_cluster = False
+                    if "cluster" in event.m_c and event.m_c["cluster"]:
+                        cluster1, cluster2 = get_cluster(cat.personality.trait)
+                        if (
+                            cluster1 in event.m_c["cluster"] or
+                            cluster2 in event.m_c["cluster"]
+                            ):
+                            has_cluster = True
+                    #  ---
 
                     has_skill = False
                     if event.m_c["skill"]:
@@ -455,6 +500,10 @@ class GenerateEvents:
                             continue
                     elif event.m_c["skill"]:
                         if not has_skill:
+                            continue
+
+                    if  "cluster" in event.m_c and event.m_c["cluster"]:
+                        if not has_cluster:
                             continue
 
                     # check cat negate trait and skill
@@ -524,6 +573,17 @@ class GenerateEvents:
                         if random_cat.personality.trait in event.r_c["trait"]:
                             has_trait = True
 
+                    # LG
+                    has_cluster = False
+                    if  "cluster" in event.r_c and event.r_c["cluster"]:
+                        cluster1, cluster2 = get_cluster(random_cat.personality.trait)
+                        if (
+                            cluster1 in event.r_c["cluster"] or
+                            cluster2 in event.r_c["cluster"]
+                            ):
+                            has_cluster = True
+                    #  ---
+
                     has_skill = False
                     if event.r_c["skill"]:
                         for _skill in event.r_c["skill"]:
@@ -547,6 +607,10 @@ class GenerateEvents:
                             continue
                     elif event.r_c["skill"]:
                         if not has_skill:
+                            continue
+                    
+                    if "cluster" in event.r_c and event.r_c["cluster"]:
+                        if not has_cluster:
                             continue
 
                     # check cat negate trait and skill

@@ -238,6 +238,11 @@ class HandleShortEvents:
         # handle injuries and injury history
         self.handle_injury()
 
+        if event_type == "faith":
+            self.main_cat.faith += self.chosen_event.faith_effect
+            if self.random_cat:
+                self.random_cat.faith += self.chosen_event.faith_effect
+
         # handle murder reveals
         clanwide = False
         shunned = False
@@ -314,6 +319,22 @@ class HandleShortEvents:
             if self.main_cat.status not in ["apprentice", "kitten", "elder", "warrior"] and shunned:
                 secondary_event = self.main_cat.shunned_demotion()
         # ---
+        # faith
+        if "faith" in self.types:
+            if main_cat.faith < 0:
+                if self.chosen_event.faith_effect < 0:
+                    self.additional_event_text = "(Dark Forest faith increased)"
+                else:
+                    self.additional_event_text = "(Dark Forest faith decreased)"
+            elif main_cat.faith > 0:
+                if self.chosen_event.faith_effect > 0:
+                    self.additional_event_text = "(StarClan faith increased)"
+                else:
+                    self.additional_event_text = "(StarClan faith decreased)"
+
+                    
+
+
 
         if self.chosen_herb:
             game.herb_events_list.append(f"{self.chosen_event} {self.herb_notice}.")

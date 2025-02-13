@@ -1,0 +1,65 @@
+[
+    {
+        "event_id": "faith_J1",
+        "faith_effect": 0.5,
+        "interactions": [
+            "m_c and r_c watch the stars together.",
+            "m_c tells r_c a story about StarClan."
+        ],
+        "m_c": {
+            "min_max_faith": [0, 9]
+        },
+        "r_c": {
+            "min_max_faith": [-2, 2]
+        }
+    },
+    {
+        "event_id": "faith_J2",
+        "faith_effect": -0.5,
+        "interactions": [
+            "m_c had a scary nightmare about the Dark Forest.",
+            "m_c has been seeing scary shadows."
+        ],
+        "m_c": {
+            "min_max_faith": [-9, 9]
+        }
+    },
+    {
+        "event_id": "faith_J3",
+        "faith_effect": 0.5,
+        "season": ["greenleaf"],
+        "interactions": [
+            "m_c prayed for some rain to water the herbs, and it came!",
+            "m_c thanks StarClan for leading {PRONOUN/m_c/object} towards a brand new herb patch.",
+            "m_c hopes StarClan is proud of {PRONOUN/m_c/object.}"
+        ],
+        "m_c": {
+            "min_max_faith": [2, 9],
+            "status": ["medicine cat", "medicine cat apprentice"]
+        }
+    },
+    {
+        "event_id": "solo_sc_faith_lvl1_J1",
+        "faith_effect": 0.5,
+        "interactions": [
+            "m_c thanks StarClan for {PRONOUN/m_c/poss} meal.",
+            "m_c gazes up at the stars, trying to guess which ones are {PRONOUN/m_c/poss} fallen Clanmates.",
+            "m_c thinks about StarClan.",
+            "m_c finds a strangely sparkly feather in {PRONOUN/m_c/poss} nest and wonders if it's a sign."
+        ],
+        "m_c": {
+            "min_max_faith": [-2, 2]
+        }
+    },
+    {
+        "event_id": "solo_df_faith_lvl1_J1",
+        "faith_effect": -0.5,
+        "interactions": [
+            "m_c considers if somewhere darker than StarClan might hold the answers {PRONOUN/m_c/subject} {VERB/m_c/seek/seeks}.",
+            "m_c finds more comfort in the darkness than {PRONOUN/m_c/subject} used to."
+        ],
+        "m_c": {
+            "min_max_faith": [-2, 0]
+        }
+    }
+]
