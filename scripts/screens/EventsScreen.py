@@ -30,6 +30,11 @@ from scripts.utility import (
     ui_scale_value,
     ui_scale_offset,
 )
+ 
+# LG
+from scripts.game_structure.ui_elements import UIImageButton, UIModifiedScrollingContainer, IDImageButton, UISpriteButton
+import random
+from scripts.game_structure.windows import GameOver, DeathScreen, PickPath
 
 
 class EventsScreen(Screens):
@@ -71,10 +76,38 @@ class EventsScreen(Screens):
         self.alert = {}
 
         self.event_display = None
-        self.event_display_elements = {}
-        self.cat_profile_buttons = {}
+        self.event_display_containers = []
+        self.event_display_boxes = []
+        self.cat_profile_buttons = []
         self.involved_cat_container = None
-        self.involved_cat_buttons = {}
+        self.involved_cat_buttons = []
+
+        # LIFEGEN -----------------------
+        self.fave_filter_elements = {}
+        self.selected_fave_filter = []
+        self.you = None
+        self.death_button = None
+
+        self.filters_open = False
+
+        # i dont wanna split them into different dicts or anything
+        self.all_filters = [
+            "yourcat_filter",
+            "fave_group_1",
+            "fave_group_2",
+            "fave_group_3",
+            "yourcat_filter_selected",
+            "fave_group_1_selected",
+            "fave_group_2_selected",
+            "fave_group_3_selected"
+        ]
+        self.selected_filters = ["yourcat_filter_selected", "fave_group_1_selected", "fave_group_2_selected", "fave_group_3_selected"]
+        self.unselected_filters = ["yourcat_filter", "fave_group_1", "fave_group_2", "fave_group_3"]
+
+        self.faves_1 = []
+        self.faves_2 = []
+        self.faves_3 = []
+        # -------------------------------
 
         # Stores the involved cat button that currently has its cat profile buttons open
         self.open_involved_cat_button = None
@@ -124,13 +157,106 @@ class EventsScreen(Screens):
                 # ensure we can't run the same timeskip multiple times
                 if self.events_thread is not None and self.events_thread.is_alive():
                     return
-                self.timeskip_button.disable()
-                self.events_thread = self.loading_screen_start_work(
-                    events_class.one_moon
-                )
-            elif element in self.involved_cat_buttons.values():
+                if game.clan.your_cat.dead_for >= 2 and not game.switches['continue_after_death']:
+                    DeathScreen('events screen')
+                    return
+                elif (game.clan.your_cat.moons == 5
+                        and not game.clan.your_cat.outside
+                        and not game.clan.your_cat.dead
+                        and game.clan.your_cat.status == "kitten"
+                        ) or not game.clan.your_cat.status:
+                    PickPath('events screen')
+                elif game.clan.your_cat.status:
+                    self.events_thread = self.loading_screen_start_work(
+                        events_class.one_moon
+                    )
+            elif self.death_button and event.ui_element == self.death_button:
+                DeathScreen('events screen')
+                return
+            elif element == self.you:
+                game.switches['cat'] = game.clan.your_cat.ID
+                self.change_screen("profile screen")
+
+            elif "cat_icon" in self.fave_filter_elements and element == self.fave_filter_elements["cat_icon"]:
+                if self.filters_open is True:
+                    self.filters_open = False
+                else:
+                    self.filters_open = True
+                
+                self.place_fave_filters()
+
+            elif (
+                "yourcat_filter" in self.fave_filter_elements and
+                element == self.fave_filter_elements["yourcat_filter"]
+                ):
+                self.fave_filter_elements["yourcat_filter"].hide()
+                self.fave_filter_elements["yourcat_filter_selected"].show()
+                self.selected_fave_filter.append("yourcat_filter")
+                self.place_fave_filters()
+            elif (
+                "yourcat_filter_selected" in self.fave_filter_elements and
+                element == self.fave_filter_elements["yourcat_filter_selected"]
+                ):
+                self.fave_filter_elements["yourcat_filter"].show()
+                self.fave_filter_elements["yourcat_filter_selected"].hide()
+                self.selected_fave_filter.remove("yourcat_filter")
+                self.place_fave_filters()
+
+            elif (
+                "fave_group_1" in self.fave_filter_elements and
+                element == self.fave_filter_elements["fave_group_1"]
+                ):
+                self.fave_filter_elements["fave_group_1"].hide()
+                self.fave_filter_elements["fave_group_1_selected"].show()
+                self.selected_fave_filter.append("fave_group_1")
+                self.place_fave_filters()
+            elif (
+                "fave_group_1_selected" in self.fave_filter_elements and
+                element == self.fave_filter_elements["fave_group_1_selected"]
+                ):
+                self.fave_filter_elements["fave_group_1"].show()
+                self.fave_filter_elements["fave_group_1_selected"].hide()
+                self.selected_fave_filter.remove("fave_group_1")
+                self.place_fave_filters()
+
+            elif (
+                "fave_group_2" in self.fave_filter_elements and
+                element == self.fave_filter_elements["fave_group_2"]
+                ):
+                self.fave_filter_elements["fave_group_2"].hide()
+                self.fave_filter_elements["fave_group_2_selected"].show()
+                self.selected_fave_filter.append("fave_group_2")
+                self.place_fave_filters()
+            elif (
+                "fave_group_2_selected" in self.fave_filter_elements and
+                element == self.fave_filter_elements["fave_group_2_selected"]
+                ):
+                self.fave_filter_elements["fave_group_2"].show()
+                self.fave_filter_elements["fave_group_2_selected"].hide()
+                self.selected_fave_filter.remove("fave_group_2")
+                self.place_fave_filters()
+
+            elif (
+                "fave_group_3" in self.fave_filter_elements and
+                element == self.fave_filter_elements["fave_group_3"]
+                ):
+                self.fave_filter_elements["fave_group_3"].hide()
+                self.fave_filter_elements["fave_group_3_selected"].show()
+                self.selected_fave_filter.append("fave_group_3")
+                self.place_fave_filters()
+            elif (
+                "fave_group_3_selected" in self.fave_filter_elements and
+                element == self.fave_filter_elements["fave_group_3_selected"]
+                ):
+                self.fave_filter_elements["fave_group_3"].show()
+                self.fave_filter_elements["fave_group_3_selected"].hide()
+                self.selected_fave_filter.remove("fave_group_3")
+                self.place_fave_filters()
+
+            elif element in self.involved_cat_buttons:
                 self.make_cat_buttons(element)
-            elif element in self.cat_profile_buttons.values():
+            
+            elif element in self.cat_profile_buttons:
                 self.save_scroll_position()
                 game.switches["cat"] = element.cat_id
                 self.change_screen("profile screen")
@@ -223,6 +349,7 @@ class EventsScreen(Screens):
 
         self.alert[display_type].hide()
 
+        self.place_fave_filters()
         self.update_events_display()
 
     def screen_switches(self):
@@ -241,7 +368,7 @@ class EventsScreen(Screens):
         )
 
         self.clan_info["symbol"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((227, 105), (100, 100))),
+            ui_scale(pygame.Rect((137, 105), (100, 100))),
             pygame.transform.scale(
                 clan_symbol_sprite(game.clan), ui_scale_dimensions((100, 100))
             ),
@@ -252,26 +379,26 @@ class EventsScreen(Screens):
         )
 
         self.clan_info["heading"] = pygame_gui.elements.UITextBox(
-            "Timeskip to progress your Clan's life.",
-            ui_scale(pygame.Rect((340, 155), (250, -1))),
-            object_id=get_text_box_theme("#text_box_30_horizleft_spacing_95"),
+            "",
+            ui_scale(pygame.Rect((272, 112), (250, -1))),
+            object_id=get_text_box_theme("#text_box_30_horizcenter"),
             starting_height=1,
             container=self.event_screen_container,
             manager=MANAGER,
         )
 
         self.clan_info["season"] = pygame_gui.elements.UITextBox(
-            f"Current season: {game.clan.current_season}",
-            ui_scale(pygame.Rect((340, 102), (600, 40))),
-            object_id=get_text_box_theme("#text_box_30"),
+            "",
+            ui_scale(pygame.Rect((252, 172), (290, -1))),
+            object_id=get_text_box_theme("#text_box_30_horizcenter"),
             starting_height=1,
             container=self.event_screen_container,
             manager=MANAGER,
         )
         self.clan_info["age"] = pygame_gui.elements.UITextBox(
             "",
-            ui_scale(pygame.Rect((340, 122), (600, 40))),
-            object_id=get_text_box_theme("#text_box_30"),
+            ui_scale(pygame.Rect((252, 142), (290, -1))),
+            object_id=get_text_box_theme("#text_box_30_horizcenter"),
             starting_height=1,
             container=self.event_screen_container,
             manager=MANAGER,
@@ -293,6 +420,87 @@ class EventsScreen(Screens):
             manager=MANAGER,
             sound_id="timeskip",
         )
+
+        height = 32
+        
+        self.fave_filter_elements["cat_icon"] = UIImageButton(
+            ui_scale(pygame.Rect((30, 287), (25, 25))),
+            "",
+            object_id="#faves_dropdown",
+            container=self.event_screen_container,
+            manager=MANAGER,
+            )
+
+        self.fave_filter_elements["yourcat_filter"] = UIImageButton(
+            ui_scale(pygame.Rect((30, 287 - height), (25, height))),
+            "",
+            object_id="#yourcat_filter",
+            manager=MANAGER,
+            container=self.event_screen_container
+            )
+        self.fave_filter_elements["fave_group_1"] = UIImageButton(
+            ui_scale(pygame.Rect((30, 287 + height - 5), (25, height))),
+            "", # dont ask me whats going on with the math here ^^ idfk
+            object_id="#fave_filter_1",
+            manager=MANAGER,
+            container=self.event_screen_container
+            )
+        self.fave_filter_elements["fave_group_2"] = UIImageButton(
+            ui_scale(pygame.Rect((30, 287 + height * 2 - 5), (25, height))),
+            "",
+            object_id="#fave_filter_2",
+            manager=MANAGER,
+            container=self.event_screen_container
+            )
+        self.fave_filter_elements["fave_group_3"] = UIImageButton(
+            ui_scale(pygame.Rect((30, 287 + height * 3 - 5), (25, height))),
+            "",
+            object_id="#fave_filter_3",
+            manager=MANAGER,
+            container=self.event_screen_container
+            )
+        self.fave_filter_elements["yourcat_filter_selected"] = UIImageButton(
+            ui_scale(pygame.Rect((30, 287 - height), (25, height))),
+            "",
+            object_id="#yourcat_filter_selected",
+            manager=MANAGER,
+            container=self.event_screen_container
+            )
+        self.fave_filter_elements["fave_group_1_selected"] = UIImageButton(
+            ui_scale(pygame.Rect((30, 287 + height - 5), (25, height))),
+            "",
+            object_id="#fave_filter_1_selected",
+            manager=MANAGER,
+            container=self.event_screen_container
+            )
+        self.fave_filter_elements["fave_group_2_selected"] = UIImageButton(
+            ui_scale(pygame.Rect((30, 287 + height * 2 - 5), (25, height))),
+            "",
+            object_id="#fave_filter_2_selected",
+            manager=MANAGER,
+            container=self.event_screen_container
+            )
+        self.fave_filter_elements["fave_group_3_selected"] = UIImageButton(
+            ui_scale(pygame.Rect((30, 287 + height * 3 - 5), (25, height))),
+            "",
+            object_id="#fave_filter_3_selected",
+            manager=MANAGER,
+            container=self.event_screen_container
+            )
+        
+
+        # lifegen continue after death button
+        self.death_button = UIImageButton(
+            ui_scale(pygame.Rect((500, 218), (34, 34))),
+            "",
+            object_id="#warrior",
+            tool_tip_text="Revive",
+            manager=MANAGER
+        )
+        self.death_button.hide()
+
+        if game.switches['continue_after_death']:
+            self.death_button.show()
 
         self.full_event_display_container = pygame_gui.core.UIContainer(
             ui_scale(pygame.Rect((45, 266), (700, 700))),
@@ -336,6 +544,7 @@ class EventsScreen(Screens):
 
             y_pos += 50
 
+        self.place_fave_filters()
         self.event_buttons[self.current_display].disable()
 
         self.make_event_scrolling_container()
@@ -416,8 +625,8 @@ class EventsScreen(Screens):
                     ),
                 )
             for ele in self.cat_profile_buttons:
-                self.cat_profile_buttons[ele].kill()
-            self.cat_profile_buttons = {}
+                ele.kill()
+            self.cat_profile_buttons = []
             return
         # now check if the involved cat display is already open somewhere
         # if so, shrink that back to original size
@@ -439,8 +648,8 @@ class EventsScreen(Screens):
         if self.involved_cat_container:
             self.involved_cat_container.kill()
         for ele in self.cat_profile_buttons:
-            self.cat_profile_buttons[ele].kill()
-        self.cat_profile_buttons = {}
+            ele.kill()
+        self.cat_profile_buttons = []
 
         container = button_pressed.parent_element
 
@@ -475,6 +684,7 @@ class EventsScreen(Screens):
 
         # make the cat profiles
         if scrollbar_needed:
+            anchor = {"left": "left"}
             for i, cat_id in enumerate(button_pressed.ids):
                 rect = ui_scale(pygame.Rect((0 if i == 0 else 5, 0), (120, 34)))
                 cat_ob = Cat.fetch_cat(cat_id)
@@ -483,7 +693,7 @@ class EventsScreen(Screens):
                     name = str(cat_ob.name)
                     short_name = shorten_text_to_fit(name, 80, 13, "clangen")
 
-                    self.cat_profile_buttons[f"profile_button{i}"] = CatButton(
+                    cat_profile_button = CatButton(
                         rect,
                         text=short_name,
                         cat_id=cat_id,
@@ -491,17 +701,12 @@ class EventsScreen(Screens):
                         object_id="#events_cat_profile_button",
                         starting_height=1,
                         manager=MANAGER,
-                        anchors=(
-                            {
-                                "left_target": self.cat_profile_buttons[
-                                    f"profile_button{i - 1}"
-                                ]
-                            }
-                            if i > 0
-                            else {"left": "left"}
-                        ),
+                        anchors=anchor
                     )
+                    self.cat_profile_buttons.append(cat_profile_button)
+                anchor = { "left_target": cat_profile_button }
         else:
+            anchor = {"right": "right"}
             rect = ui_scale(pygame.Rect((0, 0), (120, 34)))
             for i, cat_id in enumerate(reversed(button_pressed.ids)):
                 rect.topright = ui_scale_offset((0 if i == 0 else -125, 0))
@@ -511,7 +716,7 @@ class EventsScreen(Screens):
                     name = str(cat_ob.name)
                     short_name = shorten_text_to_fit(name, 80, 13, "clangen")
 
-                    self.cat_profile_buttons[f"profile_button{i}"] = CatButton(
+                    cat_profile_button = CatButton(
                         rect,
                         text=short_name,
                         cat_id=cat_id,
@@ -519,16 +724,10 @@ class EventsScreen(Screens):
                         object_id="#events_cat_profile_button",
                         starting_height=1,
                         manager=MANAGER,
-                        anchors=(
-                            {
-                                "left_target": self.cat_profile_buttons[
-                                    f"profile_button{i - 1}"
-                                ]
-                            }
-                            if i > 0
-                            else {"right": "right"}
-                        ),
+                        anchors=anchor,
                     )
+                    self.cat_profile_buttons.append(cat_profile_button)
+                anchor = { "left_target": cat_profile_button }
         del rect
         self.involved_cat_container.set_view_container_dimensions(
             (
@@ -540,6 +739,131 @@ class EventsScreen(Screens):
     def exit_screen(self):
         self.event_display.kill()  # event display isn't put in the screen container due to lag issues
         self.event_screen_container.kill()
+        if self.you:
+            self.you.kill()
+        
+        if self.death_button:
+            self.death_button.kill()
+
+        for ele in self.fave_filter_elements:
+            self.fave_filter_elements[ele].kill()
+        self.fave_filter_elements = {}
+
+    def place_fave_filters(self):
+        for ele in self.fave_filter_elements:
+            self.fave_filter_elements[ele].kill()
+        self.fave_filter_elements = {}
+
+        # fave filters
+        height = 32
+        
+        self.fave_filter_elements["cat_icon"] = UIImageButton(
+            ui_scale(pygame.Rect((30, 287), (25, 25))),
+            "",
+            object_id="#faves_dropdown",
+            container=self.event_screen_container,
+            manager=MANAGER,
+            )
+
+        self.fave_filter_elements["yourcat_filter"] = UIImageButton(
+            ui_scale(pygame.Rect((30, 287 - height), (25, height))),
+            "",
+            object_id="#yourcat_filter",
+            manager=MANAGER,
+            container=self.event_screen_container
+            )
+        self.fave_filter_elements["fave_group_1"] = UIImageButton(
+            ui_scale(pygame.Rect((30, 287 + height - 5), (25, height))),
+            "",
+            object_id="#fave_filter_1",
+            manager=MANAGER,
+            container=self.event_screen_container
+            )
+        self.fave_filter_elements["fave_group_2"] = UIImageButton(
+            ui_scale(pygame.Rect((30, 287 + height * 2 - 5), (25, height))),
+            "",
+            object_id="#fave_filter_2",
+            manager=MANAGER,
+            container=self.event_screen_container
+            )
+        self.fave_filter_elements["fave_group_3"] = UIImageButton(
+            ui_scale(pygame.Rect((30, 287 + height * 3 - 5), (25, height))),
+            "",
+            object_id="#fave_filter_3",
+            manager=MANAGER,
+            container=self.event_screen_container
+            )
+        self.fave_filter_elements["yourcat_filter_selected"] = UIImageButton(
+            ui_scale(pygame.Rect((30, 287 - height), (25, height))),
+            "",
+            object_id="#yourcat_filter_selected",
+            manager=MANAGER,
+            container=self.event_screen_container
+            )
+        self.fave_filter_elements["fave_group_1_selected"] = UIImageButton(
+            ui_scale(pygame.Rect((30, 287 + height - 5), (25, height))),
+            "",
+            object_id="#fave_filter_1_selected",
+            manager=MANAGER,
+            container=self.event_screen_container
+            )
+        self.fave_filter_elements["fave_group_2_selected"] = UIImageButton(
+            ui_scale(pygame.Rect((30, 287 + height * 2 - 5), (25, height))),
+            "",
+            object_id="#fave_filter_2_selected",
+            manager=MANAGER,
+            container=self.event_screen_container
+            )
+        self.fave_filter_elements["fave_group_3_selected"] = UIImageButton(
+            ui_scale(pygame.Rect((30, 287 + height * 3 - 5), (25, height))),
+            "",
+            object_id="#fave_filter_3_selected",
+            manager=MANAGER,
+            container=self.event_screen_container
+            )
+
+        if "yourcat_filter" not in self.selected_fave_filter:
+            self.fave_filter_elements["yourcat_filter"].show()
+            self.fave_filter_elements["yourcat_filter_selected"].hide()
+        else:
+            self.fave_filter_elements["yourcat_filter"].hide()
+            self.fave_filter_elements["yourcat_filter_selected"].show()
+        
+        if "fave_group_1" not in self.selected_fave_filter:
+            self.fave_filter_elements["fave_group_1"].show()
+            self.fave_filter_elements["fave_group_1_selected"].hide()
+        else:
+            self.fave_filter_elements["fave_group_1"].hide()
+            self.fave_filter_elements["fave_group_1_selected"].show()
+        
+        if "fave_group_2" not in self.selected_fave_filter:
+            self.fave_filter_elements["fave_group_2"].show()
+            self.fave_filter_elements["fave_group_2_selected"].hide()
+        else:
+            self.fave_filter_elements["fave_group_2"].hide()
+            self.fave_filter_elements["fave_group_2_selected"].show()
+        
+        if "fave_group_3" not in self.selected_fave_filter:
+            self.fave_filter_elements["fave_group_3"].show()
+            self.fave_filter_elements["fave_group_3_selected"].hide()
+        else:
+            self.fave_filter_elements["fave_group_3"].hide()
+            self.fave_filter_elements["fave_group_3_selected"].show()
+
+        if self.filters_open is False:
+            for item in self.fave_filter_elements:
+                if item == "cat_icon":
+                    continue
+                self.fave_filter_elements[item].hide()
+
+        if self.current_display == "all events":
+            self.fave_filter_elements["cat_icon"].show()
+        else:
+            for btn in self.fave_filter_elements:
+                self.fave_filter_elements[btn].hide()
+
+        self.update_display_events_lists()
+        self.update_events_display()
 
     def update_display_events_lists(self):
         """
@@ -549,6 +873,40 @@ class EventsScreen(Screens):
         self.all_events = [
             x for x in game.cur_events_list if "interaction" not in x.types
         ]
+
+         # LIFEGEN: changing all events based on fave filters
+        if self.selected_fave_filter:
+            fnumlist = []
+            for item in self.selected_fave_filter:
+                if "yourcat" in item:
+                    continue
+                num = item.split("_")[2]
+                fnumlist.append(int(num))
+
+            fav_cats = []
+            fav_events = []
+
+            for kitty in Cat.all_cats_list:
+                for num in fnumlist:
+                    if kitty.favourite == num:
+                        fav_cats.append(kitty)
+                if kitty.ID == game.clan.your_cat.ID:
+                    if "yourcat_filter" in self.selected_fave_filter and kitty not in fav_cats:
+                        fav_cats.append(kitty)
+
+            for kitty in fav_cats:
+                for ev in self.all_events + self.relation_events:
+                    if kitty.ID in ev.cats_involved:
+                        fav_events.append(ev)
+
+            self.all_events = [
+                x for x in fav_events
+            ]
+
+        self.event_display_type = self.current_display
+
+        # ----------------------------------------------------------------
+
         self.ceremony_events = [
             x for x in game.cur_events_list if "ceremony" in x.types
         ]
@@ -570,38 +928,49 @@ class EventsScreen(Screens):
         previously saved
         """
 
+        if not game.clan.your_cat:
+            print(
+                "Are you playing a normal ClanGen save? Switch to a LifeGen save or create a new cat!")
+            print("Choosing random cat to play...")
+            game.clan.your_cat = Cat.all_cats[random.choice(game.clan.clan_cats)]
+            print("Chose " + str(game.clan.your_cat.name))
         # UPDATE CLAN INFO
-        self.clan_info["season"].set_text(f"Current season: {game.clan.current_season}")
-        if game.clan.age == 1:
-            self.clan_info["age"].set_text(f"Clan age: {game.clan.age} moon")
-        else:
-            self.clan_info["age"].set_text(f"Clan age: {game.clan.age} moons")
+        # self.clan_info["season"].set_text(f"Current season: {game.clan.current_season}")
+        self.clan_info["heading"].set_text(str(game.clan.your_cat.name))
+        self.clan_info["season"].set_text(f'Season: {game.clan.current_season} - Clan Age: {game.clan.age}')
+        if game.clan.your_cat.moons == -1:
+            self.clan_info["age"].set_text('Your age: Unborn')
+        elif game.clan.your_cat.moons != 1:
+            self.clan_info["age"].set_text(f'Your age: {game.clan.your_cat.moons} moons')
+        elif game.clan.your_cat.moons == 1:
+            self.clan_info["age"].set_text(f'Your age: {game.clan.your_cat.moons} moon')
 
         self.make_event_scrolling_container()
 
-        for ele in self.event_display_elements:
-            self.event_display_elements[ele].kill()
-        self.event_display_elements = {}
+        for ele in self.event_display_containers:
+            ele.kill()
+        self.event_display_containers = []
+
+        for ele in self.event_display_boxes:
+            ele.kill()
+        self.event_display_boxes = []
 
         for ele in self.cat_profile_buttons:
-            self.cat_profile_buttons[ele].kill()
-        self.cat_profile_buttons = {}
+            ele.kill()
+        self.cat_profile_buttons = []
 
         for ele in self.involved_cat_buttons:
-            self.involved_cat_buttons[ele].kill()
-        self.involved_cat_buttons = {}
+            ele.kill()
+        self.involved_cat_buttons = []
 
         # Stop if Clan is new, so that events from previously loaded Clan don't show up
         if game.clan.age == 0:
             return
-
-        for event_object in self.display_events:
-            if not isinstance(event_object.text, str):
-                print(
-                    f"Incorrectly Formatted Event: {event_object.text}, {type(event_object)}"
-                )
-                self.display_events.remove(event_object)
-                continue
+        
+        # LIFEGEN: This has to be here to update fave filtered events
+        if self.current_display == "all events":
+            self.display_events = self.all_events
+        # -----------------------------------------------------------
 
         default_rect = pygame.Rect(
             ui_scale_offset((5, 0)),
@@ -612,8 +981,25 @@ class EventsScreen(Screens):
                 ui_scale_value(300),
             ),
         )
+
+        catbutton_rect = ui_scale(pygame.Rect((0, 0), (34, 34)))
+        catbutton_rect.topright = ui_scale_offset((-10, 5))
+
+        anchor = {"top": "top"}
+
+        alternate_color = (pygame.Color(87, 76, 55)
+                    if game.settings["dark mode"]
+                    else pygame.Color(167, 148, 111))
+
         for i, event_object in enumerate(self.display_events):
-            self.event_display_elements[f"container{i}"] = pygame_gui.elements.UIPanel(
+            if not isinstance(event_object.text, str):
+                print(
+                    f"Incorrectly Formatted Event: {event_object.text}, {type(event_object)}"
+                )
+                self.display_events.remove(event_object)
+                continue
+
+            display_element_container = pygame_gui.elements.UIPanel(
                 default_rect,
                 5,
                 MANAGER,
@@ -621,74 +1007,64 @@ class EventsScreen(Screens):
                 element_id="event_panel",
                 object_id="#dark" if game.settings["dark mode"] else None,
                 margins={"top": 0, "bottom": 0, "left": 0, "right": 0},
-                anchors=(
-                    {"top_target": self.event_display_elements[f"container{i - 1}"]}
-                    if i > 0
-                    else {"top": "top"}
-                ),
+                anchors=anchor,
             )
-            if i % 2 == 0:
-                self.event_display_elements[f"container{i}"].background_colour = (
-                    pygame.Color(87, 76, 55)
-                    if game.settings["dark mode"]
-                    else pygame.Color(167, 148, 111)
-                )
-                self.event_display_elements[f"container{i}"].rebuild()
 
-        for i, event_object in enumerate(self.display_events):
+            self.event_display_containers.append(display_element_container)
+
+            if i % 2 == 0:
+                display_element_container.background_colour = alternate_color
+                display_element_container.rebuild()
+
             # TEXT BOX
-            self.event_display_elements[f"event{i}"] = pygame_gui.elements.UITextBox(
+            display_element_event = pygame_gui.elements.UITextBox(
                 event_object.text,
                 ui_scale(pygame.Rect((0, 0), (509, -1))),
                 object_id=get_text_box_theme("#text_box_30_horizleft"),
                 starting_height=1,
-                container=self.event_display_elements[f"container{i}"],
+                container=display_element_container,
                 manager=MANAGER,
                 anchors={"left": "left", "right": "right"},
             )
 
-        catbutton_rect = ui_scale(pygame.Rect((0, 0), (34, 34)))
-        catbutton_rect.topright = ui_scale_offset((-10, 5))
-        for i, event_object in enumerate(self.display_events):
-            if not event_object.cats_involved:
-                continue
+            self.event_display_boxes.append(display_element_event)
 
-            self.involved_cat_buttons[f"cat_button{i}"] = IDImageButton(
-                catbutton_rect,
-                Icon.CAT_HEAD,
-                get_button_dict(ButtonStyles.ICON, (34, 34)),
-                ids=event_object.cats_involved,
-                layer_starting_height=3,
-                object_id="@buttonstyles_icon",
-                parent_element=self.event_display_elements[f"container{i}"],
-                container=self.event_display_elements[f"container{i}"],
-                manager=MANAGER,
-                anchors={
-                    "right": "right",
-                    "top_target": self.event_display_elements[f"event{i}"],
-                },
-            )
-        del catbutton_rect
+            if event_object.cats_involved:
+                involved_cat_button = IDImageButton(
+                    catbutton_rect,
+                    Icon.CAT_HEAD,
+                    get_button_dict(ButtonStyles.ICON, (34, 34)),
+                    ids=event_object.cats_involved,
+                    layer_starting_height=3,
+                    object_id="@buttonstyles_icon",
+                    parent_element=display_element_container,
+                    container=display_element_container,
+                    manager=MANAGER,
+                    anchors={
+                        "right": "right",
+                        "top_target": display_element_event,
+                    },
+                )
+                self.involved_cat_buttons.append(involved_cat_button)
 
-        for i, event_object in enumerate(self.display_events):
-            self.event_display_elements[f"container{i}"].set_dimensions(
+            display_element_container.set_dimensions(
                 (
                     default_rect[2],
                     (
-                        self.event_display_elements[f"event{i}"].get_relative_rect()[3]
+                        display_element_event.get_relative_rect()[3]
                         + (
-                            self.involved_cat_buttons[
-                                f"cat_button{i}"
-                            ].get_relative_rect()[3]
+                            involved_cat_button.get_relative_rect()[3]
                             + ui_scale_value(10)
                         )
-                        if f"cat_button{i}" in self.involved_cat_buttons
-                        else self.event_display_elements[
-                            f"event{i}"
-                        ].get_relative_rect()[3]
+                        if event_object.cats_involved
+                        else display_element_event.get_relative_rect()[3]
                     ),
                 )
             )
+
+            anchor = {"top_target": display_element_container}
+
+        del catbutton_rect
 
         # this HAS TO UPDATE before saved scroll position can be set
         self.event_display.scrollable_container.update(1)
@@ -707,6 +1083,20 @@ class EventsScreen(Screens):
             self.event_display.vert_scroll_bar.set_scroll_from_start_percentage(
                 game.switches["saved_scroll_positions"][self.current_display]
             )
+
+        if self.you:
+            self.you.kill()
+        if game.clan.your_cat.moons != -1:
+            self.you = UISpriteButton(
+                ui_scale(pygame.Rect((570, 100), (120, 120))),
+                game.clan.your_cat.sprite,
+                cat_id=game.clan.your_cat.ID,
+                manager=MANAGER
+                )
+        if game.switches['continue_after_death'] and game.clan.your_cat.moons >= 0:
+            self.death_button.show()
+        else:
+            self.death_button.hide()
 
     def update_list_buttons(self):
         """
@@ -779,5 +1169,6 @@ class EventsScreen(Screens):
         for item in self.alert.values():
             item.set_relative_position((10, item.get_relative_rect()[1]))
 
+        
         self.update_events_display()
         self.timeskip_button.enable()

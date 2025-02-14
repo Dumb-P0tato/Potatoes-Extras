@@ -27,6 +27,9 @@ class Game:
     just_died = []  # keeps track of which cats died this moon via die()
 
     cur_events_list = []
+    next_events_list = []
+    other_events_list = []
+    your_events_list = []
     ceremony_events_list = []
     birth_death_events_list = []
     relation_events_list = []
@@ -73,6 +76,7 @@ class Game:
     }"""
     patrol_cats = {}
     patrolled = []
+    dated_cats = []
 
     # store changing parts of the game that the user can toggle with buttons
     switches = {
@@ -139,6 +143,10 @@ class Game:
         "disallowed_symbol_tags": [],
         "saved_scroll_positions": {},
         "moon&season_open": False,
+        'window_open': False,
+        'windows_dict': [],
+        'continue_after_death': False,
+        "customise_new_life": False
     }
     all_screens = {}
     cur_events = {}
@@ -435,7 +443,7 @@ class Game:
                 inter_cat.save_history(directory + "/history")
                 # after saving, dump the history info
                 inter_cat.history = None
-            if not inter_cat.dead:
+            if not inter_cat.dead or inter_cat.ID == game.clan.your_cat.ID:
                 inter_cat.save_relationship_of_cat(directory + "/relationships")
 
         self.safe_save(f"{get_save_dir()}/{clanname}/clan_cats.json", clan_cats)
@@ -449,6 +457,9 @@ class Game:
 
         copy_of_info = ""
         for cat in game.cat_to_fade:
+            if cat not in self.cat_class.all_cats:
+                continue
+
             inter_cat = self.cat_class.all_cats[cat]
 
             # Add ID to list of faded cats.
@@ -516,7 +527,7 @@ class Game:
         Save current events list to events.json
         """
         events_list = []
-        for event in game.cur_events_list:
+        for event in game.cur_events_list + game.other_events_list:
             events_list.append(event.to_dict())
         game.safe_save(f"{get_save_dir()}/{game.clan.name}/events.json", events_list)
 
@@ -628,6 +639,74 @@ game.load_settings()
 
 pygame.display.set_caption("Clan Generator")
 
+# if game.settings["fullscreen"]:
+#     screen_x, screen_y = 1600, 1400
+#     screen = pygame.display.set_mode(
+#         (screen_x, screen_y), pygame.FULLSCREEN | pygame.SCALED
+#     )
+# else:
+#     screen_x, screen_y = 800, 700
+#     screen = pygame.display.set_mode((screen_x, screen_y))
+
+
+# def load_manager(res: tuple):
+#     # initialize pygame_gui manager, and load themes
+#     manager = pygame_gui.ui_manager.UIManager(
+#         res, "resources/theme/defaults.json", enable_live_theme_updates=False
+#     )
+#     manager.add_font_paths(
+#         font_name="notosans",
+#         regular_path="resources/fonts/NotoSans-Medium.ttf",
+#         bold_path="resources/fonts/NotoSans-ExtraBold.ttf",
+#         italic_path="resources/fonts/NotoSans-MediumItalic.ttf",
+#         bold_italic_path="resources/fonts/NotoSans-ExtraBoldItalic.ttf",
+#     )
+
+#     if res[0] > 800:
+#         manager.get_theme().load_theme("resources/theme/defaults.json")
+#         manager.get_theme().load_theme("resources/theme/buttons.json")
+#         manager.get_theme().load_theme("resources/theme/text_boxes.json")
+#         manager.get_theme().load_theme("resources/theme/text_boxes_dark.json")
+#         manager.get_theme().load_theme("resources/theme/vertical_scroll_bar.json")
+#         manager.get_theme().load_theme("resources/theme/window_base.json")
+#         manager.get_theme().load_theme("resources/theme/tool_tips.json")
+
+#         manager.preload_fonts(
+#             [
+#                 {"name": "notosans", "point_size": 30, "style": "italic"},
+#                 {"name": "notosans", "point_size": 26, "style": "italic"},
+#                 {"name": "notosans", "point_size": 30, "style": "bold"},
+#                 {"name": "notosans", "point_size": 26, "style": "bold"},
+#                 {"name": "notosans", "point_size": 22, "style": "bold"},
+#             ]
+#         )
+
+#     else:
+#         manager.get_theme().load_theme("resources/theme/defaults_small.json")
+#         manager.get_theme().load_theme("resources/theme/buttons_small.json")
+#         manager.get_theme().load_theme("resources/theme/text_boxes_small.json")
+#         manager.get_theme().load_theme("resources/theme/text_boxes_dark_small.json")
+#         manager.get_theme().load_theme("resources/theme/vertical_scroll_bar.json")
+#         manager.get_theme().load_theme("resources/theme/window_base_small.json")
+#         manager.get_theme().load_theme("resources/theme/tool_tips_small.json")
+
+#         manager.preload_fonts(
+#             [
+#                 {"name": "notosans", "point_size": 11, "style": "bold"},
+#                 {"name": "notosans", "point_size": 13, "style": "bold"},
+#                 {"name": "notosans", "point_size": 15, "style": "bold"},
+#                 {"name": "notosans", "point_size": 13, "style": "italic"},
+#                 {"name": "notosans", "point_size": 15, "style": "italic"},
+#             ]
+#         )
+
+#     manager.get_theme().load_theme("resources/theme/windows.json")
+#     manager.get_theme().load_theme("resources/theme/image_buttons.json")
+
+#     return manager
+
+
+# MANAGER = load_manager((screen_x, screen_y))
 toggle_fullscreen(
     fullscreen=game.settings["fullscreen"],
     show_confirm_dialog=False,

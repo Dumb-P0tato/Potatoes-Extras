@@ -36,6 +36,7 @@ class ChooseMentorScreen(Screens):
 
     def __init__(self, name=None):
         super().__init__(name)
+        self.fav = {}
         self.list_frame = None
         self.list_page = None
         self.next_cat = None
@@ -343,6 +344,10 @@ class ChooseMentorScreen(Screens):
             self.cat_list_buttons[ele].kill()
         self.cat_list_buttons = {}
 
+        for marker in self.fav:
+            self.fav[marker].kill()
+        self.fav = {}
+
         for ele in self.apprentice_details:
             self.apprentice_details[ele].kill()
         self.apprentice_details = {}
@@ -452,7 +457,7 @@ class ChooseMentorScreen(Screens):
             self.next_cat,
             self.previous_cat,
         ) = self.the_cat.determine_next_and_previous_cats(
-            status=["apprentice", "medicine cat apprentice", "mediator apprentice"]
+            filter_func = (lambda cat: cat.status in ["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"])
         )
 
         self.next_cat_button.disable() if self.next_cat == 0 else self.next_cat_button.enable()
@@ -581,10 +586,23 @@ class ChooseMentorScreen(Screens):
             self.cat_list_buttons[ele].kill()
         self.cat_list_buttons = {}
 
+        for marker in self.fav:
+            self.fav[marker].kill()
+        self.fav = {}
+
         pos_x = 0
         pos_y = 20
         i = 0
         for cat in display_cats:
+            if game.clan.clan_settings["show fav"] and cat.favourite != 0:
+                self.fav[str(i)] = pygame_gui.elements.UIImage(
+                    ui_scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))),
+                    pygame.transform.scale(
+                        pygame.image.load(
+                            f"resources/images/fav_marker_{cat.favourite}.png").convert_alpha(),
+                        (100, 100))
+                )
+                self.fav[str(i)].disable()
             self.cat_list_buttons["cat" + str(i)] = UISpriteButton(
                 ui_scale(pygame.Rect((100 + pos_x, 365 + pos_y), (50, 50))),
                 cat.sprite,
@@ -668,6 +686,9 @@ class ChooseMentorScreen(Screens):
         ]
         valid_mediator_mentors = []
         invalid_mediator_mentors = []
+        potential_queen_mentors = [cat for cat in Cat.all_cats_list if not (cat.dead or cat.outside) and cat.status == 'queen']
+        valid_queen_mentors = []
+        invalid_queen_mentors = []
 
         if self.the_cat.status == "apprentice":
             for cat in potential_warrior_mentors:
@@ -726,7 +747,27 @@ class ChooseMentorScreen(Screens):
                 if is_valid:
                     valid_mediator_mentors.append(cat)
 
-            return potential_mediator_mentors
+            return valid_mediator_mentors
+        
+        elif self.the_cat.status == "queen's apprentice":
+            for cat in potential_queen_mentors:
+                # Assume cat is valid initially
+                is_valid = True
+
+                # Check for no former apprentices filter
+                if self.show_only_no_former_app_mentors and cat.former_apprentices:
+                    is_valid = False
+
+                # Check for no current apprentices filter
+                if self.show_only_no_current_app_mentors and cat.apprentice:
+                    is_valid = False
+
+                # Add to valid or invalid list based on checks
+                if is_valid:
+                    valid_queen_mentors.append(cat)
+
+            return valid_queen_mentors
+        
         return []
 
     def on_use(self):

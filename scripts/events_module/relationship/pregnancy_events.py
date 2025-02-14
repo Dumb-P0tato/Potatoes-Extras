@@ -8,7 +8,7 @@ from scripts.cat.history import History
 from scripts.cat.names import names, Name
 from scripts.cat_relations.relationship import Relationship
 from scripts.event_class import Single_Event
-from scripts.events_module.condition_events import Condition_Events
+from scripts.events_module.short.condition_events import Condition_Events
 from scripts.game_structure.game_essentials import game
 from scripts.utility import (
     create_new_cat,
@@ -113,10 +113,16 @@ class Pregnancy_Events:
             if not game.clan.clan_settings["single parentage"]:
                 return
 
-        chance = Pregnancy_Events.get_balanced_kit_chance(
-            cat, second_parent, is_affair, clan
-        )
-
+        chance = Pregnancy_Events.get_balanced_kit_chance(cat, second_parent, is_affair, clan)
+        if "have kits" in game.switches:
+            if (
+                not game.switches['have kits'] and
+                game.clan.your_cat.ID == cat.ID and
+                not game.clan.your_cat.dead and
+                not game.clan.your_cat.outside
+                ):
+                chance = random.randint(0,3)
+        
         if not int(random.random() * chance):
             # If you've reached here - congrats, kits!
             if kits_are_adopted:
@@ -406,7 +412,7 @@ class Pregnancy_Events:
             event_list.append(adding_text)
         elif other_cat.ID in cat.mate and not other_cat.dead and not other_cat.outside:
             involved_cats.append(other_cat.ID)
-            event_list.append(choice(events["birth"]["two_parents"]))
+            event_list.append(choice(events["birth"]["two_parents"] + events["birth"][f"two_parents {game.clan.seasons[game.clan.age % 12]}"]))
         elif other_cat.ID in cat.mate and other_cat.dead or other_cat.outside:
             involved_cats.append(other_cat.ID)
             event_list.append(choice(events["birth"]["dead_mate"]))
@@ -500,9 +506,12 @@ class Pregnancy_Events:
         )
 
         # display event
-        game.cur_events_list.append(
-            Single_Event(print_event, ["health", "birth_death"], involved_cats)
-        )
+        if kits_amount != 0:
+            game.cur_events_list.append(Single_Event(print_event, ["health", "birth_death"], involved_cats))
+            for clan_cat in game.clan.clan_cats:
+                clan_cat_cat = Cat.fetch_cat(clan_cat)
+                if clan_cat_cat:
+                    clan_cat_cat.faith+= round(random.uniform(0,1), 2)
 
     # ---------------------------------------------------------------------------- #
     #                          check if event is triggered                         #
@@ -728,7 +737,6 @@ class Pregnancy_Events:
             other_cat = None
 
         blood_parent = None
-
         ##### SELECT BACKSTORY #####
         if cat and "pregnant" in cat.injuries:
             backstory = choice(["halfclan1", "outsider_roots1"])
@@ -857,7 +865,10 @@ class Pregnancy_Events:
                     kit.relationships[the_cat.ID] = Relationship(kit, the_cat)
 
             #### REMOVE ACCESSORY ######
-            kit.pelt.accessory = None
+            # kit.pelt.accessory = None
+            kit.pelt.accessories = []
+            kit.pelt.inventory = []
+            
             clan.add_cat(kit)
 
             #### GIVE HISTORY ######

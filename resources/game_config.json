@@ -208,6 +208,11 @@
 		"grumpy_trait_modifier": 30,
 		"ceremony_modifier": -20
 	},
+	"transition_related": {
+		"base_trans_chance": 256,
+		"adolescent_modifier": -128,
+		"older_modifier": 256
+	},
 	"fading": {
 		"age_to_fade": 202,
 		"opacity_at_fade": 20,
@@ -217,6 +222,14 @@
 		"mediator_app_chance": 50,
 		"base_medicine_app_chance": 41,
 		"become_mediator_chances": {
+			"warrior": 5000,
+			"elder": 400
+		},
+		"become_med_chances": {
+			"warrior": 5000,
+			"elder": 400
+		},
+		"become_queen_chances": {
 			"warrior": 5000,
 			"elder": 400
 		}
@@ -268,7 +281,7 @@
 		"cruel season_death_chance": 300,
 		"war_death_modifier_leader": 95,
 		"war_death_modifier": 250,
-		"base_random_murder_chance": 25,
+		"base_random_murder_chance":25,
 		"base_murder_kill_chance": 80,
 		"old_age_death_start": 150,
 		"old_age_death_curve": 4.5,
@@ -289,7 +302,7 @@
 		"war_injury_modifier": 100
 	},
 	"clan_creation": {
-		"rerolls": 3,
+		"rerolls": -1,
 		"comment": "Set this to -1 for it to be infinite"
 	},
 	"graduation": {
@@ -298,7 +311,8 @@
 		"max_apprentice_age": {
 			"medicine cat apprentice": 30,
 			"apprentice": 25,
-			"mediator apprentice": 25
+			"mediator apprentice": 25,
+			"queen's apprentice": 25
 		},
 		"min_graduating_age": 10
 	},
@@ -441,5 +455,33 @@
 		}
 	},
 	"lock_season": false, 
-	"comment": "Forces the season to be locked at the Clan's starting_season"
+	"comment": "Forces the season to be locked at the Clan's starting_season",
+	"affair_success_chance": 1,
+	"affair_success_pregnancy_chance": 20,
+	"affair_relationship_change_lb": 10,
+	"affair_relationship_change_ub": 30,
+	"murder_chance":-1,
+	"accomplice_chance":-1,
+	"debug_ensure_dialogue": "",
+	"debug_meow_error_locating": false,
+
+	"shunned_cat": {
+		"exile_chance": {
+			"newborn": 500,
+			"kitten": 45,
+			"adolescent": 20,
+			"young adult": 10,
+			"adult": 9,
+			"senior adult": 8,
+			"senior": 8	
+			},
+		"max_shunned_moons": 10,
+		"return_home_chance": 0,
+		"max_forgiven_moons": 10,
+		"comment": [
+		"Newborns have an exile_chance in case one of you sick freaks (/lhj) decides to save edit them to be shunned.",
+		"Leaving return_home_chance at zero will keep the game's default chances.",
+		"max_forgiven_moons is how many moons after being forgiven the cat get 'forgiven'-tagged dialogue and events."
+	]
+	}
 }

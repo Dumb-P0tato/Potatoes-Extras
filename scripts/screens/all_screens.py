@@ -6,7 +6,16 @@ from .ChooseMateScreen import ChooseMateScreen
 from .ChooseMentorScreen import ChooseMentorScreen
 from .ClanScreen import ClanScreen
 from .ClanSettingsScreen import ClanSettingsScreen
+from .TalkScreen import TalkScreen
+from .ChooseRebornScreen import ChooseRebornScreen
+from .AchievementScreen import AchievementScreen
+from .MurderScreen import MurderScreen
+from .DeputyScreen import DeputyScreen
+from .NameKitsScreen import NameKitsScreen
+from .AffairScreen import AffairScreen
 from .ClearingScreen import ClearingScreen
+from .QueenScreen import QueenScreen
+from .MoonplaceScreen import MoonplaceScreen
 from .EventsScreen import EventsScreen
 from .FamilyTreeScreen import FamilyTreeScreen
 from .LeaderDenScreen import LeaderDenScreen
@@ -24,6 +33,7 @@ from .SpriteInspectScreen import SpriteInspectScreen
 from .StartScreen import StartScreen
 from .SwitchClanScreen import SwitchClanScreen
 from .WarriorDenScreen import WarriorDenScreen
+from .GiftScreen import GiftScreen
 
 # ---------------------------------------------------------------------------- #
 #                                  UI RULES                                    #
@@ -82,6 +92,20 @@ class AllScreens:
     mediation_screen = MediationScreen("mediation screen")
     change_gender_screen = ChangeGenderScreen("change gender screen")
 
+    # LifeGen screens
+
+    talk_screen = TalkScreen('talk screen')
+    achivement_screen = AchievementScreen('achievement screen')
+    murder_screen = MurderScreen("murder screen")
+    deputy_screen = DeputyScreen("deputy screen")
+    name_kits_screen = NameKitsScreen("name kits screen")
+    choose_reborn_screen = ChooseRebornScreen("choose reborn screen")
+    affair_screen = AffairScreen("affair screen")
+    queen_screen = QueenScreen("queen screen")
+    moonplace_screen = MoonplaceScreen("moonplace screen")
+    gift_screen = GiftScreen("gift screen")
+    
+
     @classmethod
     def rebuild_all_screens(cls):
         cls.screens = Screens()
@@ -118,3 +142,15 @@ class AllScreens:
         cls.family_tree_screen = FamilyTreeScreen("family tree screen")
         cls.mediation_screen = MediationScreen("mediation screen")
         cls.change_gender_screen = ChangeGenderScreen("change gender screen")
+
+        # LIFEGEN
+        cls.talk_screen = TalkScreen('talk screen')
+        cls.achivement_screen = AchievementScreen('achievement screen')
+        cls.murder_screen = MurderScreen("murder screen")
+        cls.deputy_screen = DeputyScreen("deputy screen")
+        cls.name_kits_screen = NameKitsScreen("name kits screen")
+        cls.choose_reborn_screen = ChooseRebornScreen("choose reborn screen")
+        cls.affair_screen = AffairScreen("affair screen")
+        cls.queen_screen = QueenScreen("queen screen")
+        cls.moonplace_screen = MoonplaceScreen("moonplace screen")
+        cls.gift_screen = GiftScreen("gift screen")

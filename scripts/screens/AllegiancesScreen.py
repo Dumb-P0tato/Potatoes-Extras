@@ -49,14 +49,17 @@ class AllegiancesScreen(Screens):
         self.update_heading_text(f"{game.clan.name}Clan")
         allegiance_list = self.get_allegiances_text()
 
+
         self.scroll_container = pygame_gui.elements.UIScrollingContainer(
             ui_scale(pygame.Rect((50, 165), (715, 470))),
             allow_scroll_x=False,
+            allow_scroll_y=True,
             manager=MANAGER,
         )
 
         self.ranks_boxes = []
         self.names_boxes = []
+        allegiances_height = 0
         for x in allegiance_list:
             self.ranks_boxes.append(
                 pygame_gui.elements.UITextBox(
@@ -91,6 +94,10 @@ class AllegiancesScreen(Screens):
                 )
             )
             self.names_boxes[-1].disable()
+            allegiances_height += 1
+        
+        self.scroll_container.set_scrollable_area_dimensions((715, 470 + allegiances_height*20))
+
 
     def exit_screen(self):
         for x in self.ranks_boxes:
@@ -135,6 +142,7 @@ class AllegiancesScreen(Screens):
         living_mediators = []
         living_warriors = []
         living_apprentices = []
+        living_queens = []
         living_kits = []
         living_elders = []
         for cat in living_cats:
@@ -144,11 +152,9 @@ class AllegiancesScreen(Screens):
                 living_warriors.append(cat)
             elif cat.status == "mediator":
                 living_mediators.append(cat)
-            elif cat.status in [
-                "apprentice",
-                "medicine cat apprentice",
-                "mediator apprentice",
-            ]:
+            elif cat.status == 'queen':
+                living_queens.append(cat)
+            elif cat.status in ["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"]:
                 living_apprentices.append(cat)
             elif cat.status in ["kitten", "newborn"]:
                 living_kits.append(cat)
@@ -227,9 +233,9 @@ class AllegiancesScreen(Screens):
                 [self.generate_one_entry(i) for i in living_apprentices]
             )
             outputs.append(_box)
-
+        
         # Queens and Kits Box:
-        if queen_dict or living_kits:
+        if queen_dict or living_kits or living_queens:
             _box = ["", ""]
             _box[0] = "<b><u>QUEENS AND KITS</u></b>"
 
@@ -249,7 +255,10 @@ class AllegiancesScreen(Screens):
 
                 all_entries.append(self.generate_one_entry(queen, kittens))
 
-            # Now kittens without carers
+            for k in living_queens:
+                if k.ID not in queen_dict.keys():
+                    all_entries.append(self.generate_one_entry(k))
+            #Now kittens without carers
             for k in living_kits:
                 all_entries.append(
                     f"{str(k.name).upper()} - {k.describe_cat(short=True)}"

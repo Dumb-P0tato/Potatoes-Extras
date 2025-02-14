@@ -370,6 +370,7 @@ class MediationScreen(Screens):
             for i in Cat.all_cats_list
             if (i.ID != self.mediators[self.selected_mediator].ID)
             and not (i.dead or i.outside)
+            and i.moons > 0
         ]
         self.all_cats = self.chunks(self.all_cats_list, 24)
         self.current_listed_cats = self.all_cats_list
@@ -404,10 +405,10 @@ class MediationScreen(Screens):
         chunked_cats = self.chunks(self.current_listed_cats, 24)
         if chunked_cats:
             for cat in chunked_cats[self.page - 1]:
-                if game.clan.clan_settings["show fav"] and cat.favourite:
+                if game.clan.clan_settings["show fav"] and cat.favourite != 0:
                     _temp = pygame.transform.scale(
                         pygame.image.load(
-                            f"resources/images/fav_marker.png"
+                            f"resources/images/fav_marker_{cat.favourite}.png"
                         ).convert_alpha(),
                         ui_scale_dimensions((50, 50)),
                     )

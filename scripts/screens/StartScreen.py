@@ -16,6 +16,7 @@ import os
 import platform
 import subprocess
 import traceback
+import random
 from html import escape
 
 import pygame
@@ -52,10 +53,19 @@ class StartScreen(Screens):
     def __init__(self, name=None):
         super().__init__(name)
         self.warning_label = None
-
         self.social_buttons = {}
-
         self.error_open = False
+
+    def choose_random_menu(self, folder_path):
+        """This will choose a random menu to display from the menus folder."""
+        files = os.listdir(folder_path)
+        png_files = [file for file in files if file.endswith('.png')]
+
+        if png_files:
+            chosen_file = random.choice(png_files)
+            return "resources/menus/" + chosen_file
+        else:
+            return "resources/images/menu.png"
 
     def handle_event(self, event):
         """This is where events that occur on this page are handled.
@@ -100,18 +110,21 @@ class StartScreen(Screens):
                 quit(savesettings=False, clearevents=False)
             elif event.ui_element == self.social_buttons["discord_button"]:
                 if platform.system() == "Darwin":
-                    subprocess.Popen(["open", "-u", "https://discord.gg/clangen"])
+                    subprocess.Popen(
+                        ["open", "-u", "https://discord.gg/lifegen"])
                 elif platform.system() == "Windows":
-                    os.system(f"start \"\" {'https://discord.gg/clangen'}")
+                    os.system(f"start \"\" {'https://discord.gg/lifegen'}")
                 elif platform.system() == "Linux":
-                    subprocess.Popen(["xdg-open", "https://discord.gg/clangen"])
+                    subprocess.Popen(
+                        ["xdg-open", "https://discord.gg/lifegen"])
             elif event.ui_element == self.social_buttons["tumblr_button"]:
                 if platform.system() == "Darwin":
                     subprocess.Popen(
                         ["open", "-u", "https://officialclangen.tumblr.com/"]
                     )
                 elif platform.system() == "Windows":
-                    os.system(f"start \"\" {'https://officialclangen.tumblr.com/'}")
+                    os.system(
+                        f"start \"\" {'https://officialclangen.tumblr.com/'}")
                 elif platform.system() == "Linux":
                     subprocess.Popen(
                         ["xdg-open", "https://officialclangen.tumblr.com/"]
@@ -122,7 +135,8 @@ class StartScreen(Screens):
                         ["open", "-u", "https://twitter.com/OfficialClangen"]
                     )
                 elif platform.system() == "Windows":
-                    os.system(f"start \"\" {'https://twitter.com/OfficialClangen'}")
+                    os.system(
+                        f"start \"\" {'https://twitter.com/OfficialClangen'}")
                 elif platform.system() == "Linux":
                     subprocess.Popen(
                         ["xdg-open", "https://twitter.com/OfficialClangen"]
@@ -153,6 +167,7 @@ class StartScreen(Screens):
         self.update_button.kill()
         self.quit.kill()
         self.closebtn.kill()
+        self.warning_label_background.kill()
         for btn in self.social_buttons:
             self.social_buttons[btn].kill()
 
@@ -167,7 +182,9 @@ class StartScreen(Screens):
         # this is the only screen that has to check its own music, other screens handle that in the screen change
         music_manager.check_music("start screen")
 
-        bg = pygame.image.load("resources/images/menu.png").convert()
+        bg = pygame.image.load(
+            self.choose_random_menu("resources/menus")).convert()
+
         if game.settings["dark mode"]:
             bg.fill(
                 game.config["theme"]["fullscreen_background"]["dark"]["mainmenu_tint"],
@@ -272,7 +289,7 @@ class StartScreen(Screens):
         self.error_gethelp = pygame_gui.elements.UITextBox(
             "Please join the Discord server and ask for technical support. "
             "We'll be happy to help! Please include the error message and the traceback below (if available). "
-            '<br><a href="https://discord.gg/clangen">Discord</a>',  # pylint: disable=line-too-long
+            '<br><a href="https://discord.gg/lifegen">Discord</a>',  # pylint: disable=line-too-long
             ui_scale(pygame.Rect((527, 215), (175, 300))),
             object_id="#text_box_22_horizleft",
             starting_height=3,
@@ -285,7 +302,8 @@ class StartScreen(Screens):
             get_button_dict(ButtonStyles.SQUOVAL, (178, 30)),
             object_id="@buttonstyles_squoval",
             manager=MANAGER,
-            starting_height=2,  # Layer 2 and repositioned so hover affect works.
+            # Layer 2 and repositioned so hover affect works.
+            starting_height=2,
             tool_tip_text="Opens the data directory. "
             "This is where save files "
             "and logs are stored.",
@@ -294,7 +312,8 @@ class StartScreen(Screens):
         self.closebtn = UIImageButton(
             ui_scale(pygame.Rect((693, 215), (22, 22))),
             "",
-            starting_height=2,  # Hover affect works, and now allows it to be clicked more easily.
+            # Hover affect works, and now allows it to be clicked more easily.
+            starting_height=2,
             object_id="#exit_window_button",
             manager=MANAGER,
         )
@@ -317,14 +336,8 @@ class StartScreen(Screens):
         try:
             global has_checked_for_update
             global update_available
-            if (
-                not get_version_info().is_source_build
-                and not get_version_info().is_itch
-                and get_version_info().upstream.lower()
-                == "ClanGenOfficial/clangen".lower()
-                and game.settings["check_for_updates"]
-                and not has_checked_for_update
-            ):
+            if not get_version_info().is_source_build and not get_version_info().is_itch and get_version_info().upstream.lower() == "sedgestripe/clangen".lower() and \
+                    game.settings['check_for_updates'] and not has_checked_for_update:
                 if has_update(UpdateChannel(get_version_info().release_channel)):
                     update_available = True
                     show_popup = True
@@ -364,8 +377,16 @@ class StartScreen(Screens):
                 ) as write_file:
                     write_file.write(get_version_info().version_number)
 
+        self.warning_label_background = UISurfaceImageButton(
+            ui_scale(pygame.Rect((50, 601), (700, 32))),
+            "",
+            get_button_dict(ButtonStyles.ROUNDED_RECT, (700, 32)),
+            object_id="@buttonstyles_rounded_rect",
+            manager=MANAGER
+        )
+        self.warning_label_background.disable()
         self.warning_label = pygame_gui.elements.UITextBox(
-            "Warning: This game contains mild depictions of gore, canon-typical violence and animal abuse.",
+            "Warning: this game includes descriptions of gore, violence, murder, kit death, and animal abuse",
             ui_scale(pygame.Rect((0, 600), (800, 40))),
             object_id=ObjectID("#text_box_30_horizcenter", "#dark"),
             manager=MANAGER,

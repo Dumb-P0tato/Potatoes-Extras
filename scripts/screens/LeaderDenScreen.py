@@ -35,6 +35,8 @@ class LeaderDenScreen(Screens):
     def __init__(self, name=None):
         super().__init__(name)
 
+        self.fav = {}
+
         self.current_page = 1
         self.help_button = None
         self.back_button = None
@@ -334,6 +336,10 @@ class LeaderDenScreen(Screens):
 
         for ele in self.screen_elements:
             self.screen_elements[ele].kill()
+
+        for marker in self.fav:
+            self.fav[marker].kill()
+        self.fav = {}
 
         # killing containers kills all inner elements as well
         self.focus_frame_container.kill()
@@ -985,12 +991,25 @@ class LeaderDenScreen(Screens):
         for ele in self.outsider_cat_buttons:
             self.outsider_cat_buttons[ele].kill()
         self.outsider_cat_buttons = {}
+        for marker in self.fav:
+            self.fav[marker].kill()
+        self.fav = {}
 
         pos_x = 0
         pos_y = 0
         i = 0
 
         for cat in display_cats:
+            if game.clan.clan_settings["show fav"] and cat.favourite != 0:
+                self.fav[str(i)] = pygame_gui.elements.UIImage(
+                    ui_scale(pygame.Rect((10 + pos_x, 0 + pos_y), (100, 100))),
+                    pygame.transform.scale(
+                        pygame.image.load(
+                            f"resources/images/fav_marker_{cat.favourite}.png").convert_alpha(),
+                        (100, 100)),
+                        container=self.outsider_cat_list_container
+                )
+                self.fav[str(i)].disable()
             self.outsider_cat_buttons[f"sprite{str(i)}"] = UISpriteButton(
                 ui_scale(pygame.Rect((5 + pos_x, pos_y), (50, 50))),
                 cat.sprite,

@@ -1,3 +1,12 @@
+import pygame
+
+from scripts.utility import update_sprite
+from scripts.cat.cats import Cat
+from scripts.game_structure.game_essentials import game
+from scripts.game_structure import image_cache
+import pygame_gui
+from scripts.game_structure.windows import SaveCheck, EventLoading, RetireScreen, DeputyScreen, NameKitsWindow, MateScreen
+from scripts.game_structure.propagating_thread import PropagatingThread
 from threading import current_thread
 from typing import Dict, Optional, Union
 
@@ -152,7 +161,21 @@ class Screens:
             self.work_done.pop(work_thread.name)
 
             final_actions()
-
+            game.switches['window_open'] = False
+        
+        if len(game.switches['windows_dict']) > 0:
+            if 'name kits' in game.switches['windows_dict'] and not game.switches['window_open']:
+                NameKitsWindow('events screen')
+                game.switches['windows_dict'].remove('name kits')
+            elif 'retire' in game.switches['windows_dict'] and not game.switches['window_open']:
+                RetireScreen('events screen')
+                game.switches['windows_dict'].remove('retire')
+            elif 'deputy' in game.switches['windows_dict'] and not game.switches['window_open']:
+                DeputyScreen('events screen')
+                game.switches['windows_dict'].remove('deputy')
+            elif 'mate' in game.switches['windows_dict'] and not game.switches['window_open']:
+                MateScreen('events screen')
+                game.switches['windows_dict'].remove('mate')
         return
 
     def on_use(self):
@@ -607,6 +630,10 @@ class Screens:
 
         if theme is None:
             theme = self.theme
+        if not self.active_bg:
+            self.active_bg = "default"
+        blur_bg = None
+        bg = None
 
         # make the right string to pull the correct camp image
         try:
@@ -637,10 +664,6 @@ class Screens:
             bg = scripts.screens.screens_core.screens_core.default_game_bgs[theme][
                 self.active_bg
             ]
-        else:
-            raise Exception(
-                f"Selected game background not recognised! '{self.active_bg}' not in default or custom bgs"
-            )
 
         if self.active_blur_bg == "default" or self.active_blur_bg == season:
             blur_bg = season_bg
@@ -662,10 +685,6 @@ class Screens:
             blur_bg = scripts.screens.screens_core.screens_core.default_fullscreen_bgs[
                 theme
             ][self.active_blur_bg]
-        else:
-            raise Exception(
-                f"Selected fullscreen background not recognised! '{self.active_blur_bg}' not in default or custom bgs"
-            )
 
         if (
             self.previous_season != season

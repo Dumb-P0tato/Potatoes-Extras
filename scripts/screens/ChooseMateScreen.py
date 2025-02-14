@@ -32,6 +32,7 @@ from ..ui.icon import Icon
 class ChooseMateScreen(Screens):
     def __init__(self, name=None):
         super().__init__(name)
+        self.fav = {}
         self.list_frame_image = None
         self.next_cat = None
         self.previous_cat = None
@@ -477,10 +478,24 @@ class ChooseMateScreen(Screens):
         else:
             display_cats = []
 
+        for marker in self.fav:
+            self.fav[marker].kill()
+        self.fav = {}
+
         pos_x = 15
         pos_y = 0
         i = 0
         for _mate in display_cats:
+            if game.clan.clan_settings["show fav"] and _mate.favourite != 0:
+                self.fav[str(i)] = pygame_gui.elements.UIImage(
+                    ui_scale(pygame.Rect((pos_x, pos_y), (50, 50))),
+                    pygame.transform.scale(
+                        pygame.image.load(
+                            f"resources/images/fav_marker_{_mate.favourite}.png").convert_alpha(),
+                        (50, 50)),
+                        container=self.mates_container,
+                )
+                self.fav[str(i)].disable()
             self.mates_cat_buttons["cat" + str(i)] = UISpriteButton(
                 ui_scale(pygame.Rect((pos_x, pos_y), (50, 50))),
                 _mate.sprite,
@@ -732,6 +747,10 @@ class ChooseMateScreen(Screens):
             self.current_cat_elements[ele].kill()
         self.current_cat_elements = {}
 
+        for marker in self.fav:
+            self.fav[marker].kill()
+        self.fav = {}
+
         for ele in self.selected_cat_elements:
             self.selected_cat_elements[ele].kill()
         self.selected_cat_elements = {}
@@ -803,7 +822,8 @@ class ChooseMateScreen(Screens):
         (
             self.next_cat,
             self.previous_cat,
-        ) = self.the_cat.determine_next_and_previous_cats(exclude_status=["kitten", "medicine cat apprentice", "mediator apprentice", "apprentice"])
+        ) = self.the_cat.determine_next_and_previous_cats(
+            filter_func = (lambda cat: cat.age in ["young adult", "adult", "senior adult", "senior"]))
         self.next_cat_button.disable() if self.next_cat == 0 else self.next_cat_button.enable()
         self.previous_cat_button.disable() if self.previous_cat == 0 else self.previous_cat_button.enable()
 
@@ -830,6 +850,10 @@ class ChooseMateScreen(Screens):
             object_id=get_text_box_theme("#text_box_34_horizcenter"),
             anchors={
                 "centerx": "centerx",
+            },
+            text_kwargs={
+                "name": shorten_text_to_fit(str(self.the_cat.name), 500, 18),
+                "m_c": self.the_cat,
             },
         )
 

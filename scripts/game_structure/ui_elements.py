@@ -1163,12 +1163,26 @@ class UICatListDisplay(UIContainer):
 
         self.show_names = show_names
 
-        self._favor_circle = pygame.transform.scale(
-            pygame.image.load(f"resources/images/fav_marker.png").convert_alpha(),
+        self._favor_circle = {}
+
+        self._favor_circle["1"] = pygame.transform.scale(
+            pygame.image.load(f"resources/images/fav_marker_1.png").convert_alpha(),
             ui_scale_dimensions((50, 50)),
         )
+
+        self._favor_circle["2"] = pygame.transform.scale(
+            pygame.image.load(f"resources/images/fav_marker_2.png").convert_alpha(),
+            ui_scale_dimensions((50, 50)),
+        )
+
+        self._favor_circle["3"] = pygame.transform.scale(
+            pygame.image.load(f"resources/images/fav_marker_3.png").convert_alpha(),
+            ui_scale_dimensions((50, 50)),
+        )
+
         if game.settings["dark mode"]:
-            self._favor_circle.set_alpha(150)
+            for fav in self._favor_circle:
+                self._favor_circle[fav].set_alpha(150)
 
         self.generate_grid()
 
@@ -1275,10 +1289,11 @@ class UICatListDisplay(UIContainer):
 
         # FAVOURITE ICON
         if show_fav:
-            fav_indexes = [
-                display_cats.index(cat) for cat in display_cats if cat.favourite
-            ]
-            [self.create_favor_indicator(i, self.boxes[i]) for i in fav_indexes]
+            # LG: redone for multiple fav groups
+            for num in [1, 2, 3]:
+                fav_indexes = [display_cats.index(cat) for cat in display_cats if cat.favourite == num]
+                [self.create_favor_indicator(i, self.boxes[i], num) for i in fav_indexes]
+            # ---
 
         # CAT SPRITE
         [
@@ -1318,10 +1333,10 @@ class UICatListDisplay(UIContainer):
             },
         )
 
-    def create_favor_indicator(self, i, container):
+    def create_favor_indicator(self, i, container, num):
         self.favor_indicator[f"favor{i}"] = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((0, 15), (50, 50))),
-            self._favor_circle,
+            self._favor_circle[str(num)],
             object_id=f"favor_circle{i}",
             container=container,
             starting_height=1,

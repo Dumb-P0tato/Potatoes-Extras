@@ -66,7 +66,7 @@
             "Is hiding under the bed",
             "Is lying about whether {PRONOUN/m_c/subject} {VERB/m_c/have/has} been fed",
             "Is stuck with a cone of shame",
-            "Is showing {PRONOUN/m_c/poss} belly to {PRONOUN/m_c/poss} housefolk... but it's a trap",
+            "Is showing {PRONOUN/m_c/poss} belly to {PRONOUN/m_c/poss} housefolk... But it's a trap",
             "Is showing {PRONOUN/m_c/poss} belly to {PRONOUN/m_c/poss} housefolk and it's not a trap",
             "Had a weird dream recently and wonders what it means",
             "Was naughty, but {PRONOUN/m_c/poss} housefolk can't stay mad at {PRONOUN/m_c/object}",
@@ -140,13 +140,13 @@
     },
     {
         "id": "kittypet_shameless_thoughts",
-        "thoughts":[
+        "thoughts": [
             "Stole food the second {PRONOUN/m_c/poss} housefolk turned their head",
             "Is sleeping in the dog's bed",
             "Is inside a Twoleg den that's not {PRONOUN/m_c/inposs}",
             "Is pretending to be a hungry loner to get more food"
         ],
-        "main_trait_constraint":[
+        "main_trait_constraint": [
             "shameless"
         ]
     }

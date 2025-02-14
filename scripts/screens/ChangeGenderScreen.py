@@ -65,6 +65,8 @@ class ChangeGenderScreen(Screens):
                 "inposs": "",
                 "self": "",
                 "conju": 1,
+                "parent": "",
+                "sibling": ""
             }
         ]
         self.remove_button = {}
@@ -217,6 +219,10 @@ class ChangeGenderScreen(Screens):
         text += poss.capitalize()
         text += f"That den is {pronouns['inposs']}. <br>"
         text += f"This cat hunts by {pronouns['self']}."
+
+        text += f"This cat wants to be a {pronouns['parent']} someday.<br>"
+        text += f"This cat is a good {pronouns['sibling']}.<br>"
+
         return text
 
     def update_selected_cat(self):
