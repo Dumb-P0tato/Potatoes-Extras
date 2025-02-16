@@ -35,7 +35,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='Clangen',
+    name='Potatoes Extras Cg',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
