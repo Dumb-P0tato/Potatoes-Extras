@@ -32,21 +32,21 @@ jobs:
             api_artifact_name: linux2.35
             
           - os: windows-2019
-            artifact_name: PotatoesExtrasCg_Win32
+            artifact_name: PotatoesExtrasCg_Win32.zip
             python_version: "3.8"
             python_arch: "x86"
             itch_channel: win32
             api_artifact_name: win32
             
           - os: windows-latest
-            artifact_name: PotatoesExtrasCg_Win64
+            artifact_name: PotatoesExtrasCg_Win64.zip
             python_version: "3.8"
             python_arch: "x64"
             itch_channel: win64
             api_artifact_name: win64
             
           - os: windows-latest
-            artifact_name: PotatoesExtrasCg_Win64_Windows10+
+            artifact_name: PotatoesExtrasCg_Win64_Windows10+.zip
             python_version: "3.11"
             python_arch: "x64"
             itch_channel: win64_10
