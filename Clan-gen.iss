@@ -1,6 +1,6 @@
 ; Clan-gen Installer Script
 
-#define ApplicationBaseName "Potatoes Extras"
+#define ApplicationBaseName "PotatoesExtrasCg"
 #define ApplicationFullName "Potatoes Extras: A clangen mod"
 
 ; Update this line to the date of the latest Clan-gen (fan edit) by Sablesteel release 
