@@ -154,13 +154,13 @@ jobs:
           IS_RELEASE: 1
       - name: Create archive (Linux)
         if: startsWith(matrix.os, 'ubuntu')
-        run: tar -caf ${{ matrix.artifact_name }} -C dist PotatoesExtrasCg
+        run: tar -caf ${{ matrix.artifact_name }} -C dist Clangen
       - name: Create archive (Windows)
         if: startsWith(matrix.os, 'windows')
         shell: powershell
         run: |
           cp dist/PotatoesExtrasCg/_internal/.itch.toml dist/ 
-          tar.exe -a -c -f ${{ matrix.artifact_name }} -C dist PotatoesExtrasCg .itch.toml
+          tar.exe -a -c -f ${{ matrix.artifact_name }} -C dist Clangen .itch.toml
       - name: Create DMG (macOS)
         if: startsWith(matrix.os, 'macos')
         run: |
