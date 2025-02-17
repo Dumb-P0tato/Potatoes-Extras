@@ -1,4 +1,4 @@
-# Potatoes extra's - a Lifegen mod
+# LifeGen - A ClanGen Mod
 
 ### [Discord Server](https://discord.gg/lifegen) || [Official website](https://mods.clangen.io/LifeGen/download) || [ClanGen Itch.io Page](https://sablesteel.itch.io/clan-gen-fan-edit) 
 
