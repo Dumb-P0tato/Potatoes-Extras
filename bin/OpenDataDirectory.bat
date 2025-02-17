@@ -1,1 +1,1 @@
-start %LocalAppData%\PotatoesExtras\Cg
+start %LocalAppData%\PotatoesExtrasCg\PotatoesExtrasCg
