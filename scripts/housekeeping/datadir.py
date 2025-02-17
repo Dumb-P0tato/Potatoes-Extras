@@ -32,8 +32,8 @@ def get_data_dir():
     from platformdirs import user_data_dir
 
     if get_version_info().is_dev():
-        return user_data_dir("PotatoesExtrasCg", "PotatoesExtrasCg")
-    return user_data_dir("PotatoesExtrasCg", "PotatoesExtrasCg")
+        return user_data_dir("PotatoesExtras", "Clangen")
+    return user_data_dir("PotatoesExtras", "Clangen")
 
 
 def get_log_dir():
