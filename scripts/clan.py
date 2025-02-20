@@ -18,10 +18,9 @@ import ujson
 from scripts.cat_relations.inheritance import Inheritance
 from scripts.game_structure.game_essentials import game
 from scripts.housekeeping.version import get_version_info, SAVE_VERSION_NUMBER
-from scripts.utility import update_sprite, get_current_season, quit, get_free_possible_mates, get_alive_status_cats, create_new_cat  # pylint: disable=redefined-builtin
+from scripts.utility import get_current_season, quit, get_free_possible_mates, get_alive_status_cats, create_new_cat  # pylint: disable=redefined-builtin
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES
 from scripts.cat.pelts import Pelt
-from scripts.cat.cats import Cat, cat_class
 from scripts.cat.history import History
 from scripts.cat.names import names
 from scripts.cat.sprites import sprites
@@ -147,7 +146,7 @@ class Clan:
         self.game_mode = game_mode
         self.pregnancy_data = {}
         self.inheritance = {}
-        self.murdered = False
+        self.murdered = {}
         self.exile_return = False
         self.affair = False
         self.achievements = []
@@ -296,9 +295,9 @@ class Clan:
         number_other_clans = randint(3, 5)
         for _ in range(number_other_clans):
             other_clan_names = [str(i.name) for i in self.all_clans] + [game.clan.name]
-            other_clan_name = choice(names.names_dict["normal_prefixes"])
+            other_clan_name = choice(names.names_dict["normal_prefixes"] + names.names_dict["clan_prefixes"])
             while other_clan_name in other_clan_names:
-                other_clan_name = choice(names.names_dict["normal_prefixes"])
+                other_clan_name = choice(names.names_dict["normal_prefixes"] + names.names_dict["clan_prefixes"])
             other_clan = OtherClan(name=other_clan_name)
             self.all_clans.append(other_clan)
         if 'other_med' in game.switches:
@@ -350,6 +349,7 @@ class Clan:
         num_mates = random.randint(0,3)
 
         for i in range(num_mates):
+            same_age_cats = []
             random_cat = get_adult_mateless_cat()
             if random_cat:
                 same_age_cats = get_free_possible_mates(random_cat)
@@ -449,7 +449,13 @@ class Clan:
                 "dead10",
                 "dead12",
                 "dead15"])
-            sc_cats = create_new_cat(Cat, new_name=True, alive=False, backstory=random_backstory, thought="Watches over the Clan")
+            sc_cats = create_new_cat(
+                Cat,
+                new_name=True,
+                alive=False,
+                backstory=random_backstory,
+                thought="Watches over the Clan"
+                )
             sc_cats[0].history.beginning = None
             sc_cats[0].dead_for = randint(20, 200)
 
@@ -467,7 +473,16 @@ class Clan:
                 "dead11",
                 "dead12"])
             status = random.choice(["loner","kittypet"])
-            ur_cats = create_new_cat(Cat, alive=False, status = status, loner=True if status == "loner" else False, kittypet=True if status == "kittypet" else False, outside=True, backstory=random_backstory, thought="Wanders the Unknown Residence")
+            ur_cats = create_new_cat(
+                Cat,
+                alive=False,
+                status = status,
+                loner=True if status == "loner" else False,
+                kittypet=True if status == "kittypet" else False,
+                outside=True,
+                backstory=random_backstory,
+                thought="Wanders the Unknown Residence"
+                )
             ur_cats[0].history.beginning = None
             ur_cats[0].dead_for = randint(20,100)
 
@@ -482,16 +497,26 @@ class Clan:
                 "dead12",
                 "dead13",
                 "dead14"])
-            df_cats = create_new_cat(Cat, new_name=True, alive=False, df=True, backstory=random_backstory, thought="Watches the Clan from the gloom")
+            df_cats = create_new_cat(
+                Cat,
+                new_name=True,
+                alive=False,
+                df=True,
+                backstory=random_backstory,
+                thought="Watches the Clan from the gloom"
+                )
             df_cats[0].history.beginning = None
             df_cats[0].dead_for = randint(20, 200)
 
     def generate_outsiders(self):
         for i in range(randint(0,5)):
-            outsider = create_new_cat(Cat,
-                                        status=random.choice(["loner", "kittypet"]),
-                                        age=randint(15, 120),
-                                        outside=True)[0]
+            outsider = create_new_cat(
+                Cat,
+                status=random.choice(["loner", "kittypet"]),
+                age=randint(15, 120),
+                outside=True,
+                thought="Wanders around beyond the Clan's borders"
+                )[0]
             outsider.history.beginning = None
 
     def generate_outsider_mates(self):
@@ -506,6 +531,7 @@ class Clan:
         num_mates = random.randint(0,3)
 
         for i in range(num_mates):
+            same_age_cats = []
             random_cat = get_adult_mateless_cat()
             if random_cat:
                 same_age_cats = get_free_possible_mates(random_cat)
@@ -842,17 +868,8 @@ class Clan:
         clan_data["patrolled_cats"] = [str(i) for i in game.patrolled]
 
         # OTHER CLANS
-        # Clan Names
-        clan_data["other_clans_names"] = ",".join([str(i.name) for i in self.all_clans])
-        clan_data["other_clans_relations"] = ",".join(
-            [str(i.relations) for i in self.all_clans]
-        )
-        clan_data["other_clan_temperament"] = ",".join(
-            [str(i.temperament) for i in self.all_clans]
-        )
-        clan_data["other_clan_chosen_symbol"] = ",".join(
-            [str(i.chosen_symbol) for i in self.all_clans]
-        )
+        clan_data["other_clans"] = [vars(i) for i in self.all_clans]
+        
         clan_data["war"] = self.war
         clan_data['achievements'] = self.achievements
         clan_data['talks'] = self.talks
@@ -871,7 +888,7 @@ class Clan:
             for other_clan in game.switches["other_med"]:
                 cats = []
                 for c in other_clan:
-                    cats.append(c.prefix + "," + c.suffix + "," + c.status)
+                    cats.append(c.prefix + "," + c.suffix + ",medicine cat")
                 other_med.append(cats)
             clan_data["other_med"] = other_med
 
@@ -937,7 +954,7 @@ class Clan:
         """
         TODO: DOCS
         """
-        other_clans = []
+
         if game.switches["clan_list"] == "":
             number_other_clans = randint(3, 5)
             for _ in range(number_other_clans):
@@ -1161,7 +1178,7 @@ class Clan:
         else:
             med_cat = None
 
-        game.switches["error_message"] = "Error loading ---clan.json. Check clanname/biome/camp_bg/gamemode"
+        game.switches["error_message"] = "Error loading ---clan.json. Check clanname/biome/camp_bg/gamemode or leader/deputy/medcat info"
         game.clan = Clan(
             name=clan_data["clanname"],
             leader=leader,
@@ -1240,23 +1257,27 @@ class Clan:
         else:
             game.clan.chosen_symbol = clan_symbol_sprite(game.clan, return_string=True)
 
-        if "other_clan_chosen_symbol" not in clan_data:
-            for name, relation, temper in zip(
-                clan_data["other_clans_names"].split(","),
-                clan_data["other_clans_relations"].split(","),
-                clan_data["other_clan_temperament"].split(","),
-            ):
-                game.clan.all_clans.append(OtherClan(name, int(relation), temper))
+        if "other_clans" in clan_data:
+            for other_clan in clan_data["other_clans"]:
+                game.clan.all_clans.append(OtherClan(other_clan["name"], int(other_clan["relations"]), other_clan["temperament"], other_clan["chosen_symbol"]))
         else:
-            for name, relation, temper, symbol in zip(
-                clan_data["other_clans_names"].split(","),
-                clan_data["other_clans_relations"].split(","),
-                clan_data["other_clan_temperament"].split(","),
-                clan_data["other_clan_chosen_symbol"].split(","),
-            ):
-                game.clan.all_clans.append(
-                    OtherClan(name, int(relation), temper, symbol)
-                )
+            if "other_clan_chosen_symbol" not in clan_data:
+                for name, relation, temper in zip(
+                    clan_data["other_clans_names"].split(","),
+                    clan_data["other_clans_relations"].split(","),
+                    clan_data["other_clan_temperament"].split(","),
+                ):
+                    game.clan.all_clans.append(OtherClan(name, int(relation), temper))
+            else:
+                for name, relation, temper, symbol in zip(
+                    clan_data["other_clans_names"].split(","),
+                    clan_data["other_clans_relations"].split(","),
+                    clan_data["other_clan_temperament"].split(","),
+                    clan_data["other_clan_chosen_symbol"].split(","),
+                ):
+                    game.clan.all_clans.append(
+                        OtherClan(name, int(relation), temper, symbol)
+                    )
 
         for cat in clan_data["clan_cats"].split(","):
             if cat in Cat.all_cats:
@@ -1285,6 +1306,9 @@ class Clan:
         # Patrolled cats
         if "patrolled_cats" in clan_data:
             game.patrolled = clan_data["patrolled_cats"]
+        
+        if "dated_cats" in clan_data:
+            game.dated_cats = clan_data["dated_cats"]
 
         game.switches["error_message"] = "Error loading ---clan.json. Check Mediated"
         # Mediated flag
@@ -1312,13 +1336,16 @@ class Clan:
             game.clan.your_cat = Cat.all_cats[clan_data["your_cat"]]
 
         if "murdered" in clan_data:
-            game.clan.murdered = clan_data["murdered"]
+            if isinstance(clan_data["murdered"], bool):
+                game.clan.murdered = {}
+            else:
+                game.clan.murdered = clan_data["murdered"]
 
         if "affair" in clan_data:
-            game.clan.murdered = clan_data["affair"]
+            game.clan.affair = clan_data["affair"]
 
         if "exile_return" in clan_data:
-            game.clan.murdered = clan_data["exile_return"]
+            game.clan.exile_return = clan_data["exile_return"]
         
         game.switches["error_message"] = "Error loading ---clan.json. Check achievements"
         if "achievements" in clan_data:
@@ -1355,7 +1382,7 @@ class Clan:
                 other_clan_meds = []
                 for other_clan_med in c:
                     other_clan_med = other_clan_med.split(",")
-                    n = Name(status = other_clan_med[2], prefix = other_clan_med[0], suffix = other_clan_med[1])
+                    n = Name(prefix = other_clan_med[0], suffix = other_clan_med[1])
                     other_clan_meds.append(n)
                 other_med.append(other_clan_meds)
             game.switches["other_med"] = other_med
@@ -1432,13 +1459,15 @@ class Clan:
                             except ValueError:
                                 print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
 
-                if not c.pelt.inventory:
-                    c.pelt.inventory = []
-                for acc in acc_list:
-                    if acc not in c.pelt.inventory:
-                        c.pelt.inventory.append(acc)
+                # if not c.pelt.inventory:
+                #     c.pelt.inventory = []
+                # for acc in acc_list:
+                #     if acc not in c.pelt.inventory:
+                #         c.pelt.inventory.append(acc)
+                return acc_list
 
     def load_clan_settings(self):
+        _load_settings = {}
         if os.path.exists(
             get_save_dir() + f'/{game.switches["clan_list"][0]}/clan_settings.json'
         ):
