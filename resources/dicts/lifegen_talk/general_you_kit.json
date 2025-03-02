@@ -54,7 +54,8 @@
     ],
     "assertive_5": [
         [
-            "kitten",
+            "you_kitten",
+            "they_older",
             "assertive",
             "cool",
             "unlawful",
@@ -68,27 +69,14 @@
             "Hmph. Whatever. Just stay outta the real warriors' way, before someone squishes you."
         ]
     ],
-    "assertive_tokit_2": [
-        [
-            "kitten",
-            "platonic_like",
-            "assertive"
-        ],
-        [
-            "Hey, y_c! I brought you back something from my last patrol. Take a look!",
-            "[t_c drops a colorful feather at your paws.]",
-            "You wanna know how I found it? Oh, it's a crazy story. I was on a hunting patrol, when I found this huge bird, and ...",
-            "[t_c regales you with a daring story full of thrills, twists, and turns.]",
-            "... And then I got the feather! Quite the adventure, no?",
-            "Just wait until you're old enough. You'll be having plenty of adventures of your own before you know it!"
-        ]
-    ],
     "assertive_4": [
         [
             "you_kitten",
             "they_older",
             "they_any",
-            "assertive"
+            "assertive",
+            "they_blind",
+            "you_blind"
         ],
         [
             "Whoa! Watch where you're going there, little pal! One wrong move, and you might get stepped on!",
@@ -98,7 +86,8 @@
     ],
     "assertive_tokit1": [
         [
-            "kitten",
+            "you_kitten",
+            "they_adult",
             "assertive",
             "unlawful",
             "they_blind",
@@ -130,7 +119,6 @@
             "you_newborn",
             "they_any",
             "assertive",
-            "they_blind",
             "you_blind"
         ],
         [
@@ -159,7 +147,6 @@
     ],
     "sweetgrieving_5": [
         [
-            "dead_close",
             "they_grieving",
             "kitten",
             "sweet",
@@ -255,7 +242,7 @@
     "introspective_to_NB_1": [
         [
             "you_newborn",
-            "Introspective",
+            "introspective",
             "they_blind",
             "you_blind"
         ],
@@ -269,7 +256,7 @@
     "introspective_to_NB_2": [
         [
             "you_newborn",
-            "Introspective",
+            "introspective",
             "non-related",
             "you_blind"
         ],
@@ -320,6 +307,7 @@
         [
             "you_newborn",
             "stable",
+            "they_adult",
             "you_blind"
         ],
         [
@@ -334,7 +322,10 @@
         [
             "you_newborn",
             "stable",
-            "you_blind"
+            "you_blind",
+            "they_app",
+            "they_not_queen",
+            "they_not_queen's_apprentice"
         ],
         [
             "...",
@@ -374,6 +365,7 @@
             "kitten",
             "stable",
             "upstanding",
+            "introspective",
             "they_blind",
             "you_blind"
         ],
@@ -432,16 +424,15 @@
             "assertive",
             "cool",
             "brooding",
-            "you_grieving",
-            "dead_close"
+            "you_grieving"
         ],
         [
-            "[When you ask t_c what happened to yg_c, and if you'll ever see {PRONOUN/yg_c/object} again, something on {PRONOUN/t_c/poss} face breaks.]",
+            "[When you ask t_c what happened to plike_yg_c, and if you'll ever see {PRONOUN/plike_yg_c/object} again, something on {PRONOUN/t_c/poss} face breaks.]",
             "Ah ... Ah, kid, I'm so sorry ...",
-            "It ain't right, what happened to yg_c ...",
-            "But, mark my words, you haven't seen the last of {PRONOUN/yg_c/object}. Though, it may be a while. {PRONOUN/yg_c/subject/CAP} {VERB/yg_c/are/is} up in StarClan now, with our warrior ancestors.",
-            "One day, you'll reunite again. But until then, just know {PRONOUN/yg_c/subject} {VERB/yg_c/are/is} up there watching over you, helping you grow strong and healthy.",
-            "Can you try to grow up strong and healthy for {PRONOUN/yg_c/object}?"
+            "It ain't right, what happened to plike_yg_c ...",
+            "But, mark my words, you haven't seen the last of {PRONOUN/plike_yg_c/object}. Though, it may be a while. {PRONOUN/plike_yg_c/subject/CAP} {VERB/plike_yg_c/are/is} up in StarClan now, with our warrior ancestors.",
+            "One day, you'll reunite again. But until then, just know {PRONOUN/plike_yg_c/subject} {VERB/plike_yg_c/are/is} up there watching over you, helping you grow strong and healthy.",
+            "Can you try to grow up strong and healthy for {PRONOUN/plike_yg_c/object}?"
         ]
     ],
     "assertive_parent4": [
@@ -1881,45 +1872,6 @@
             "Hmph. Anyone who thinks these things are cute must be delusional."
         ]
     ],
-    "stable_kit_younewborn_1": [
-        [
-            "you_newborn",
-            "stable",
-            "you_blind"
-        ],
-        [
-            "Wowza, look at y_c! Aww, {PRONOUN/y_c/subject}{VERB/y_c/'re/'s} so tiny, like a miniature version of you, y_p!",
-            "I hope {PRONOUN/y_c/subject} {VERB/y_c/grow/grows} up big and strong.",
-            "Big and strong like me! Maybe strongerer than me... maybe??? No nevermind, I want to be the strongerest!"
-        ]
-    ],
-    "stable_kit_younewborn_2": [
-        [
-            "you_newborn",
-            "stable"
-        ],
-        [
-            "Little tiny baby! Little tiny baby! Every kitty in the Clan look at this little tiny baby!!!",
-            "[You look up and slowly nod your head along to the strange tune t_c sings.]",
-            "Yippee! See, I can sing! y_c thinks so! Hey t_s did you see that? HEY! Don't shake your head at me! If y_c thinks I can sing then {PRONOUN/y_c/subject} must be right!"
-        ]
-    ],
-    "stable_kit_younewborn_3": [
-        [
-            "you_newborn",
-            "stable"
-        ],
-        [
-            "[t_c trots into the nursery and drops a mossball into the nest.]",
-            "See this, y_c? This is called a moss-ball and you should remember that! You bat it around with your paws like this, see? And you use it to play really fun games! You're going to love it!",
-            "[r_c snickers and reminds t_c that you're a newborn, far younger than {PRONOUN/t_c/subject} {VERB/t_c/are/is} and that you probably don't understand a word {PRONOUN/t_c/subject} said. t_c puffs out {PRONOUN/t_c/poss} little chest.]",
-            "Well, yeah, I know that! But I thought that maybe {PRONOUN/y_c/subject}'d like to see one for the first time because then that way {PRONOUN/y_c/subject}'ll like playing games with me!",
-            "[r_c states that it's a nice gesture and lovely thought but maybe y_p wouldn't want {PRONOUN/y_p/poss} kittens playing with such a big toy until {PRONOUN/y_c/subject} {VERB/y_c/are/is} a little older.]",
-            "[y_p laughs it off and pushes the ball towards t_c and asks if {PRONOUN/t_c/subject} {VERB/t_c/want/wants} to play.]",
-            "Really? YES!",
-            "[You squint as you watch your loving {PRONOUN/y_p/parent} paw the ball back and forth, your whiskers twitch eagerly. Maybe when you are older this will be a fun game! You will remember this.]"
-        ]
-    ],
     "unlawful_newborn1": [
         [
             "you_newborn",
@@ -2671,7 +2623,6 @@
             "they_sc",
             "kitten",
             "you_grieving",
-            "dead_close",
             "they_adult",
             "they_blind",
             "you_blind"
@@ -2686,7 +2637,6 @@
             "they_sc",
             "kitten",
             "you_grieving",
-            "dead_close",
             "they_blind",
             "you_blind",
             "they_deaf",
@@ -2701,7 +2651,6 @@
             "they_df",
             "kitten",
             "you_grieving",
-            "dead_close",
             "they_adult",
             "they_blind",
             "you_blind"
@@ -2717,7 +2666,6 @@
             "they_df",
             "kitten",
             "you_grieving",
-            "dead_close",
             "they_deaf",
             "you_deaf"
         ],
@@ -2730,7 +2678,6 @@
             "they_sc",
             "kitten",
             "you_grieving",
-            "dead_close",
             "grievingthem",
             "you_blind"
         ],
@@ -5722,6 +5669,39 @@
             "Remember the story I told you a while ago, with the cats going on an adventure to stop the big storm? And, um, remember how they teamed up with an eagle near the end?",
             "I just wanted to remind you that that was a story, right? In real life, eagles are really dangerous, so you should never get close to them.",
             "That's... that's all I wanted to say!"
+        ]
+    ],
+    "youdeaf_SQ1": [
+        [
+            "you_kitten",
+            "they_adult",
+            "they_neurotic",
+            "they_hearing",
+            "only_you_deaf",
+            "neutral"
+        ],
+        [
+            "[Something hits you in the side, and you slam against the ground. You look up to see t_c regaining {PRONOUN/t_c/poss} balance... oh. {PRONOUN/t_c/subject/CAP} must have tripped over you.]",
+            "[t_c notices you and {PRONOUN/t_c/poss} eyes widen. {PRONOUN/t_c/subject/CAP} {VERB/t_c/start/starts} moving {PRONOUN/t_c/poss} mouth really quickly, looking apologetic, before realizing you can't understand {PRONOUN/t_c/object} and looking even more embarrassed.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/hesitate/hesitates}, then {VERB/t_c/move/moves} one paw in quick circles over {PRONOUN/t_c/poss} chest... oh! {PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} saying sorry! {PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} saying sorry a lot...]",
+            "[Before you can respond, t_c's already scooted away.]"
+        ]
+    ],
+    "youdeaf_SQ5": [
+        [
+            "you_kitten",
+            "they_queen",
+            "they_queen's_apprentice",
+            "they_hearing",
+            "min_platonic_10",
+            "only_you_deaf"
+        ],
+        [
+            "[When t_c gathers you to tell a story, {PRONOUN/t_c/subject} {VERB/t_c/make/makes} sure to sign as well. When plike_r_k joins you, {PRONOUN/plike_r_k/subject} also {VERB/plike_r_k/translate/translates}!]",
+            "[Today, though, they both seem unsure of the sign for a certain word. You watch them stop the story to discuss something for a bit, and then t_c steps just outside of the nursery and points up at the sky.]",
+            "[You try to look up, but t_c stops you before you look directly at the sun! Was that what {PRONOUN/t_c/subject} {VERB/t_c/were/was} motioning to?]",
+            "[plike_r_k nudges you. When you look at {PRONOUN/plike_r_k/object}, {PRONOUN/plike_r_k/subject} {VERB/plike_r_k/point/points} upwards, and then {VERB/plike_r_k/motion/motions} to {PRONOUN/plike_r_k/poss} paws. Sun... paws? Oh! The hero's name must be Sunpaw!]",
+            "[You nod at t_c and plike_r_k, and the three of you exchange satisfied smiles before settling in to continue the story.]"
         ]
     ]
 }

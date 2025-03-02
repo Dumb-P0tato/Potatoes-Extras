@@ -176,8 +176,8 @@
         ],
         [
             "Eeek! The half-moon meeting is coming up! Aren't you excited?",
-            "Is it just me, or is it high time the o_cClan apprentice earns their full name? I hope their name ends in -cloud ... That would really suit them.",
-            "And the o_cClan medicine cat has been totally eyeing you at every gathering ... C'mon, don't tell me you haven't noticed!",
+            "Is it just me, or is it high time the o_c_n apprentice earns their full name? I hope their name ends in -cloud ... That would really suit them.",
+            "And the o_c_n medicine cat has been totally eyeing you at every gathering ... C'mon, don't tell me you haven't noticed!",
             "Though, I suppose whatever they feel is between them and StarClan, teehee!"
         ]
     ],
@@ -590,10 +590,8 @@
             "introspective",
             "stable",
             "silly",
-            "platonic_like",
-            "trust",
-            "comfort",
-            "dead_close",
+            "min_plike_20",
+            "min_comfort_15",
             "you_blind",
             "they_blind"
         ],
@@ -645,7 +643,6 @@
             "upstanding",
             "stable",
             "from_your_apprentice",
-            "dead_close",
             "you_blind",
             "they_blind"
         ],
@@ -1620,7 +1617,7 @@
         [
             "Psst! y_c, over here!",
             "[You turn to see t_c hiding towards the back of the camp, beckoning you to come closer.]",
-            "Look, I need your help with something. I need you to come on a mission with me to get more cobwebs from o_cClan territory. It's urgent.",
+            "Look, I need your help with something. I need you to come on a mission with me to get more cobwebs from o_c_n territory. It's urgent.",
             "Don't stare at me like that! I know it's against the code, but the health and safety of my Clanmates matter so much more to me. I wouldn't be doing this at all if I didn't feel like it's important, you know that.",
             "And I need you to come with me just in case we do happen to meet some enemy warriors out there. You're a mediator, they'll listen to you! I think.",
             "Ok, you're a mediator-in-training, but what's the difference? Besides, m_n would never agree to this! That's why I'm asking you.",
@@ -1736,7 +1733,7 @@
         [
             "Is it really true that you're allowed to just ... Travel between the Clans as you please?",
             "Whoa! That's so cool!!! I've always wanted to explore the other territories, but I've never been allowed.",
-            "Is it true that o_cClan cats can swim like fish? Or that their territory is full of snakes?",
+            "Is it true that o_c_n cats can swim like fish? Or that their territory is full of snakes?",
             "[You and t_c have a long conversation about the other Clans. With each detail you share, {PRONOUN/t_c/poss} eyes grow bigger and bigger.]"
         ]
     ],
@@ -1857,7 +1854,7 @@
             "no_kit",
             "you_sc",
             "they_star",
-            "they_oblivious"
+            "oblivious"
         ],
         [
             "[You notice t_c having some trouble deciphering the prophecies {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} being given, and {PRONOUN/t_c/subject} {VERB/t_c/approach/approaches} you one day.]",
@@ -2345,39 +2342,6 @@
             "[You try to clear the obvious tension in the air by attempting to make small talk, which t_c immediately shuts down.]",
             "Don't. Just- don't. I'm only here because my duty as a healer is to treat any cat in need. That's <i>it</i>.",
             "Just because we're littermates doesn't mean that I'm some special exception to your shun. You made your choice, and now you have to deal with the consequences."
-        ]
-    ],
-    "mediator_gen_youshunned_rad2": [
-        [
-            "they_mediator",
-            "they_mediator_apprentice",
-            "you_shunned",
-            "they_unabashed",
-            "they_assertive",
-            "neutral",
-            "you_blind",
-            "they_blind"
-        ],
-        [
-            "y_c, if you needed conflict resolution skills, you could've just asked."
-        ]
-    ],
-    "mediatorapp_youshunned_gen_rad1": [
-        [
-            "they_mediator_apprentice",
-            "from_your_apprentice",
-            "you_mediator",
-            "you_shunned",
-            "murder_success",
-            "max_platonic_15",
-            "they_unabashed",
-            "they_assertive",
-            "they_blind",
-            "you_blind"
-        ],
-        [
-            "Correct me if I'm wrong, but...",
-            "Aren't you supposed to be teaching me how to <i>prevent</i> stuff like this?"
         ]
     ],
     "medcat_chaotic_innovator_rad1": [

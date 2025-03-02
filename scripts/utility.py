@@ -957,6 +957,7 @@ def create_new_cat(
             # give em a collar if they got one
             if accessory:
                 new_cat.pelt.accessories.append(accessory)
+                new_cat.pelt.inventory.append(accessory)
         # give apprentice aged cat a mentor
         if new_cat.age == "adolescent":
             new_cat.update_mentor()
@@ -4522,15 +4523,15 @@ def adjust_txt(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 text = add_to_cat_dict("r_c", cluster, x, rel, r, random_cat, text, cat_dict)
     # Other Clan
     if o_c_allowed is True:
-        if "o_c" in text:
-            if "o_c" in other_dict:
-                text = re.sub(r'(?<!\/)o_c(?!\/)', str(other_dict["o_c"].name), text)
+        if "o_c_n" in text:
+            if "o_c_n" in other_dict:
+                text = re.sub(r'(?<!\/)o_c_n(?!\/)', str(other_dict["o_c_n"].name) + "Clan", text)
             else:
                 other_clan = choice(game.clan.all_clans)
                 if not other_clan:
                     return ""
-                other_dict["o_c"] = other_clan
-                text = re.sub(r'(?<!\/)o_c(?!\/)', str(other_clan.name), text)
+                other_dict["o_c_n"] = other_clan
+                text = re.sub(r'(?<!\/)o_c_n(?!\/)', str(other_clan.name) + "Clan", text)
 
     # Your DF Mentor
     if "df_m_n" in text:
@@ -4710,7 +4711,7 @@ def adjust_txt(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
             addon_check = abbrev_addons(cat, dead_cat, cluster, x, rel, r)
 
             counter = 0
-            while (dead_cat.ID == you.ID or dead_cat.ID == cat.ID or dead_cat.ID in [game.clan.instructor.ID, game.clan.demon.ID] or addon_check is False):
+            while not dead_cat or (dead_cat.ID == you.ID or dead_cat.ID == cat.ID or dead_cat.ID in [game.clan.instructor.ID, game.clan.demon.ID] or addon_check is False):
                 if counter == 30:
                     return ""
                 dead_cat = Cat.all_cats.get(choice(game.clan.starclan_cats))
@@ -4740,26 +4741,29 @@ def adjust_txt(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
         text, in_dict = cat_dict_check("tg_c", cluster, x, rel, r, text, cat_dict)
 
         if in_dict is False:
+            dead_cat = None
             if "grief stricken" in cat.illnesses:
                 if cat.illnesses['grief stricken'].get("grief_cat"):
                     dead_cat = Cat.fetch_cat(cat.illnesses['grief stricken'].get("grief_cat"))
+                    addon_check = abbrev_addons(cat, dead_cat, cluster, x, rel, r)
                 else:
                     if "lasting grief" not in cat.permanent_condition:
                         print("Warning:", cat.name, "is grieving + has no grief cat?")
                     return ""
-
-            addon_check = abbrev_addons(cat, dead_cat, cluster, x, rel, r)
+            else:
+                return ""
 
             counter = 0
-            while (dead_cat.ID == you.ID or dead_cat.ID == cat.ID or dead_cat.ID in [game.clan.instructor.ID, game.clan.demon.ID] or addon_check is False):
+            while not dead_cat or (dead_cat.ID == you.ID or dead_cat.ID == cat.ID or dead_cat.ID in [game.clan.instructor.ID, game.clan.demon.ID] or addon_check is False):
                 if counter == 30:
                     return ""
                 dead_cat = Cat.all_cats.get(choice(game.clan.starclan_cats))
                 addon_check = abbrev_addons(cat, dead_cat, cluster, x, rel, r)
                 counter += 1
-            cat_dict["tg_c"] = dead_cat
 
-            text = add_to_cat_dict("tg_c", cluster, x, rel, r, dead_cat, text, cat_dict)
+            if dead_cat:
+                cat_dict["tg_c"] = dead_cat
+                text = add_to_cat_dict("tg_c", cluster, x, rel, r, dead_cat, text, cat_dict)
     
     # your grief cat
     if "yg_c" in text:
@@ -4792,7 +4796,7 @@ def adjust_txt(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
             addon_check = abbrev_addons(cat, dead_cat, cluster, x, rel, r)
 
             counter = 0
-            while (dead_cat.ID == you.ID or dead_cat.ID == cat.ID or dead_cat.ID in [game.clan.instructor.ID, game.clan.demon.ID] or addon_check is False):
+            while not dead_cat or (dead_cat.ID == you.ID or dead_cat.ID == cat.ID or dead_cat.ID in [game.clan.instructor.ID, game.clan.demon.ID] or addon_check is False):
                 if counter == 30:
                     return ""
                 dead_cat = Cat.all_cats.get(choice(game.clan.starclan_cats))

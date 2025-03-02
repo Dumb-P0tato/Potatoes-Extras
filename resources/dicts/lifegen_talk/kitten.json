@@ -417,7 +417,7 @@
         [
             "Is it really true that you're allowed to just ... Travel between the Clans as you please?",
             "Whoa! That's so cool!!! I've always wanted to explore the other territories, but I've never been allowed.",
-            "Is it true that o_cClan cats can swim like fish? Or that their territory is full of snakes?",
+            "Is it true that o_c_n cats can swim like fish? Or that their territory is full of snakes?",
             "[You and t_c have a long conversation about the other Clans. With each detail you share, {PRONOUN/t_c/poss} eyes grow bigger and bigger.]"
         ]
     ],
@@ -1069,7 +1069,7 @@
     "introspective_kit_3": [
         [
             "kitten",
-            "Introspective",
+            "introspective",
             "dislike",
             "they_blind",
             "you_blind",
@@ -1439,22 +1439,20 @@
             "Any",
             "assertive",
             "they_grieving",
-            "dead_close",
             "they_blind",
             "you_blind"
         ],
         [
-            "*Sniffle* What happened to tg_c? I miss {PRONOUN/d_c/object} ...",
-            "{PRONOUN/d_c/subject/CAP}{VERB/d_c/'re/'s} gone?",
-            "Well, when {VERB/d_c/are/is} {PRONOUN/d_c/subject} coming back?"
+            "*Sniffle* What happened to tg_c? I miss {PRONOUN/tg_c/object} ...",
+            "{PRONOUN/tg_c/subject/CAP}{VERB/tg_c/'re/'s} gone?",
+            "Well, when {VERB/tg_c/are/is} {PRONOUN/tg_c/subject} coming back?"
         ]
     ],
     "assertivekitten_deadclose_2": [
         [
             "Any",
             "assertive",
-            "they_grieving",
-            "dead_close"
+            "they_grieving"
         ],
         [
             "[You tell t_c that you like {PRONOUN/t_c/poss} pretty feather.]",
@@ -1468,7 +1466,6 @@
             "Any",
             "assertive",
             "they_grieving",
-            "dead_close",
             "they_blind",
             "you_blind"
         ],
@@ -1480,7 +1477,6 @@
     ],
     "theygrief_1": [
         [
-            "dead_close",
             "they_grieving",
             "no_kit",
             "assertive",
@@ -1496,7 +1492,6 @@
     ],
     "theygrief_1_1": [
         [
-            "dead_close",
             "they_grieving",
             "any",
             "they_blind",
@@ -1512,7 +1507,6 @@
         [
             "any",
             "introspective",
-            "dead_close",
             "you_grieving",
             "they_blind",
             "you_blind",
@@ -1527,7 +1521,6 @@
     ],
     "theygrief_2": [
         [
-            "dead_close",
             "they_grieving",
             "any",
             "they_deaf",
@@ -1571,7 +1564,6 @@
     ],
     "sweetgrieving_2": [
         [
-            "dead_close",
             "they_grieving",
             "trust",
             "comfort",
@@ -1587,7 +1579,6 @@
     ],
     "sweetgrieving_3": [
         [
-            "dead_close",
             "they_grieving",
             "trust",
             "comfort",
@@ -1603,7 +1594,6 @@
     ],
     "sweetgrieving_4": [
         [
-            "dead_close",
             "they_grieving",
             "dislike",
             "sweet",
@@ -1618,7 +1608,6 @@
     ],
     "sweetgrieving_6": [
         [
-            "dead_close",
             "they_grieving",
             "any",
             "they_blind",
@@ -1634,7 +1623,6 @@
         [
             "any",
             "introspective",
-            "dead_close",
             "they_grieving",
             "they_deaf",
             "you_deaf"
@@ -1648,7 +1636,6 @@
         [
             "any",
             "introspective",
-            "dead_close",
             "they_grieving",
             "they_deaf",
             "you_deaf"
@@ -1665,7 +1652,6 @@
     "theygrief_6": [
         [
             "any",
-            "dead_close",
             "they_grieving",
             "they_blind",
             "you_blind"
@@ -1677,7 +1663,6 @@
     "theygrief_8": [
         [
             "any",
-            "dead_close",
             "they_grieving",
             "they_blind",
             "they_deaf",
@@ -1691,7 +1676,6 @@
     "theygrief_10": [
         [
             "any",
-            "dead_close",
             "they_grieving",
             "they_blind",
             "you_blind"
@@ -1707,7 +1691,6 @@
     "theygrief_11": [
         [
             "any",
-            "dead_close",
             "they_grieving"
         ],
         [
@@ -1720,7 +1703,6 @@
     "theygrief_12": [
         [
             "any",
-            "dead_close",
             "they_grieving",
             "they_blind",
             "they_deaf",
@@ -1734,7 +1716,6 @@
     "theygrief_13": [
         [
             "any",
-            "dead_close",
             "they_grieving",
             "they_blind",
             "they_deaf",
@@ -1749,12 +1730,11 @@
     "theygrief_14_1": [
         [
             "any",
-            "dead_close",
             "they_grieving"
         ],
         [
             "[In the middle of the night, t_c wakes all of c_nClan with a fur-raising screech.]",
-            "d_c!!!",
+            "tg_c!!!",
             "Where ... What ...",
             "Uh ...",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/look/looks} around at {PRONOUN/t_c/poss} Clanmates guiltily. There's no need to explain. Everycat knows what happened.]",
@@ -1764,7 +1744,6 @@
     "theygrief_14": [
         [
             "any",
-            "dead_close",
             "they_grieving",
             "they_blind",
             "you_blind"
@@ -1842,7 +1821,7 @@
         ],
         [
             "y_c! y_c!",
-            "What do you think of this cool stick I found? I bet I could rule the entirety of c_nClan with it! Or even o_cClan! Or every Clan in the WORLD!",
+            "What do you think of this cool stick I found? I bet I could rule the entirety of c_nClan with it! Or even o_c_n! Or every Clan in the WORLD!",
             "Woah. What if I could even rule all the Twolegs in the world, so they have to do everything I tell them?"
         ]
     ],
@@ -2756,7 +2735,7 @@
             "you_blind"
         ],
         [
-            "o_cClan cats!!",
+            "o_c_n cats!!",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/hide/hides} behind your leg as the leader of the other Clan enters your camp. Probably should let {PRONOUN/t_c/object} know why they're visiting.]"
         ]
     ],
@@ -3343,7 +3322,8 @@
     "stable_kit_younewborn_4": [
         [
             "newborn",
-            "stable"
+            "stable",
+            "non-related"
         ],
         [
             "... Y'know... I think...",
@@ -3433,7 +3413,6 @@
     "sweet_kit_32": [
         [
             "Any",
-            "talk_dead",
             "sweet",
             "you_blind"
         ],
@@ -3519,7 +3498,7 @@
         ],
         [
             "y_c, I need you to teach me some battle moves.",
-            "Pleeeease? I need to be ready to defend the camp! What if there's an invasion? What if I need to defend the nursery against o_cClan cats?",
+            "Pleeeease? I need to be ready to defend the camp! What if there's an invasion? What if I need to defend the nursery against o_c_n cats?",
             "Trust me, there is nothing to worry about. The Warrior Code says nothing about teaching a kit some self-defense, so it should be fine!"
         ]
     ],
@@ -3676,7 +3655,6 @@
         [
             "any",
             "they_grieving",
-            "dead_close",
             "they_kitten",
             "they_blind",
             "you_blind"
@@ -3691,7 +3669,6 @@
         [
             "any",
             "they_grieving",
-            "dead_close",
             "they_kitten"
         ],
         [
@@ -3705,7 +3682,6 @@
         [
             "any",
             "they_grieving",
-            "dead_close",
             "they_kitten",
             "assertive",
             "brooding",
@@ -3726,7 +3702,6 @@
         [
             "any",
             "they_grieving",
-            "dead_close",
             "they_kitten",
             "neurotic",
             "sweet",
@@ -4685,8 +4660,8 @@
             "you_blind"
         ],
         [
-            "I had fun playing with the o_cClan kits the other day!",
-            "I wonder why o_cClan can't combine nurseries with c_nClan.",
+            "I had fun playing with the o_c_n kits the other day!",
+            "I wonder why o_c_n can't combine nurseries with c_nClan.",
             "It would have been so much fun!"
         ]
     ],
@@ -4703,8 +4678,8 @@
         [
             "[You ask t_c if {PRONOUN/t_c/subject} {VERB/t_c/want/wants} to play a game of 'warriors'.]",
             "Fine, but only if I get to be a warrior from c_nClan!",
-            "[You sigh, and offer to be an enemy warrior from o_cClan.]",
-            "No! I talked with a o_cClan warrior yesterday and they were really nice! You can be a badger instead, okay? Now get ready, stinky badger!"
+            "[You sigh, and offer to be an enemy warrior from o_c_n.]",
+            "No! I talked with a o_c_n warrior yesterday and they were really nice! You can be a badger instead, okay? Now get ready, stinky badger!"
         ]
     ],
     "sc_sc_kitten_10": [
@@ -5825,8 +5800,8 @@
             "you_blind"
         ],
         [
-            "I'm sorry {PRONOUN/d_c/subject} had to come to StarClan so soon.",
-            "But you can talk to us, can't you? Go find them, it'll be like {PRONOUN/d_c/subject} never left!",
+            "I'm sorry {PRONOUN/yg_c/subject} had to come to StarClan so soon.",
+            "But you can talk to us, can't you? Go find them, it'll be like {PRONOUN/yg_c/subject} never left!",
             "[You don't know how to explain that it's not the same.]"
         ]
     ],
@@ -6452,7 +6427,6 @@
             "they_sc",
             "kitten",
             "you_grieving",
-            "dead_close",
             "they_kitten"
         ],
         [
@@ -6466,7 +6440,6 @@
             "they_df",
             "kitten",
             "you_grieving",
-            "dead_close",
             "they_kitten",
             "they_blind",
             "you_blind",
@@ -6483,7 +6456,6 @@
             "they_df",
             "kitten",
             "you_grieving",
-            "dead_close",
             "they_kitten",
             "grievingthem",
             "they_blind",
@@ -7542,7 +7514,7 @@
         ],
         [
             "[One night, t_c curls up beside you and whispers about the starry-pelted cats {PRONOUN/t_c/object} sometimes {VERB/t_c/see/sees} around camp. You listen in wonder.]",
-            "d_c said I'm 'star-touched', and that most living cats can't see StarClan.  {PRONOUN/d_c/object/CAP} said that even medicine cats can't see them!",
+            "d_c said I'm 'star-touched', and that most living cats can't see StarClan. {PRONOUN/d_c/object/CAP} said that even medicine cats can't see them!",
             "They're all nice to me, but I don't wanna be different. And does that mean I've gotta become a medicine cat?"
         ]
     ],
@@ -8189,8 +8161,8 @@
         ],
         [
             "y_c? I... I heard a scary sound outside! It sounded like claws or... or teeth...",
-            "[You sit up in the dark nursery and y_c presses against you, trembling. You prick your ears, but all you can hear is {PRONOUN/t_c/poss} quivering breaths and, distantly, a haunting birdcall.]",
-            "[You still stay awake, listening, until y_c falls asleep again.]"
+            "[You sit up in the dark nursery and t_c presses against you, trembling. You prick your ears, but all you can hear is {PRONOUN/t_c/poss} quivering breaths and, distantly, a haunting birdcall.]",
+            "[You still stay awake, listening, until t_c falls asleep again.]"
         ]
     ],
     "neurotic_kitten_SQ13~1": [
@@ -8375,7 +8347,7 @@
         [
             "[Every kit in the nursery is crowded around y_c, wide-eyed, as {PRONOUN/t_c/subject} {VERB/t_c/talk/talks} about {PRONOUN/t_c/poss} family.]",
             "My mom was actually part magic fox, so she could shapeshift into a fox whenever she wanted, and she had purple fur with green eyes.",
-            "My dad lives in o_cClan, and he's a prophecy cat destined to change the Clans forever.",
+            "My dad lives in o_c_n, and he's a prophecy cat destined to change the Clans forever.",
             "They both left me here because they knew it would be too dangerous for me if cats knew who I was. But pretty soon, they'll both be coming to get me!",
             "[The rest of the kits titter and ask questions as you seethe with jealousy. You wish you were as special as t_c!]"
         ]
@@ -8714,7 +8686,7 @@
     ],
     "neurotic_kitten_SQ30": [
         [
-            "they_secretive",
+            "secretive",
             "they_kitten",
             "you_adult",
             "neutral"
@@ -8729,7 +8701,7 @@
     ],
     "neurotic_kitten_SQ31": [
         [
-            "they_secretive",
+            "secretive",
             "they_kitten",
             "you_any"
         ],
@@ -8847,5 +8819,97 @@
             "I... I dunno, y_c. That doesn't feel right. I'm not a hero...",
             "I've gotta think about this some more."
         ]
-    }
+    },
+    "youdeaf_SQ2": [
+        [
+            "you_kitten",
+            "they_kitten",
+            "they_neurotic",
+            "they_stable",
+            "they_introspective",
+            "they_hearing",
+            "only_you_deaf",
+            "newleaf",
+            "greenleaf",
+            "leaffall"
+        ],
+        [
+            "[t_c sits next to the nursery entrance, watching the rain fall outside. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} tapping {PRONOUN/t_c/poss} front paws against the ground rapidly, but you can't figure out why.]",
+            "[When t_c notices you watching {PRONOUN/t_c/poss} paws, {PRONOUN/t_c/poss} eyes widen. {PRONOUN/t_c/subject/CAP} {VERB/t_c/point/points} to the rain, and then to the nursery roof, and then to {PRONOUN/t_c/poss} paws again...]",
+            "[Ohh. Maybe the rain's making noise on the roof, and {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} imitating it? You're not certain, but you decide to follow t_c's lead. {PRONOUN/t_c/subject/CAP} {VERB/t_c/bounce/bounces} a bit in response.]"
+        ]
+    ],
+    "youdeaf_SQ3": [
+        [
+            "you_kitten",
+            "they_kitten",
+            "they_neurotic",
+            "they_hearing",
+            "only_you_deaf"
+        ],
+        [
+            "[As far as you can tell, t_c can hear, but sometimes you notice that {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} respond when another cat tries to get {PRONOUN/t_c/poss} attention.]",
+            "[Instead, {PRONOUN/t_c/subject} often {VERB/t_c/scurry/scurries} away to hide, seemingly nervous about answering.]"
+        ]
+    ],
+    "youdeaf_SQ4": [
+        [
+            "you_kitten",
+            "they_kitten",
+            "they_neurotic",
+            "min_platonic_15",
+            "they_deaf",
+            "only_you_deaf",
+            "newleaf",
+            "greenleaf",
+            "leaffall"
+        ],
+        [
+            "[You're awoken late at night by t_c shifting beside you. You sleepily blink at {PRONOUN/t_c/object} and realize {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} tense, {PRONOUN/t_c/poss} fur bristling.]",
+            "[As you're about to ask what's wrong, a bright flash illuminates the nursery, followed by a rumble that shakes you both. t_c buries {PRONOUN/t_c/poss} head under {PRONOUN/t_c/poss} paws.]",
+            "[You press against {PRONOUN/t_c/object}, hoping that your presence will calm {PRONOUN/t_c/object} down.]"
+        ]
+    ],
+    "youdeaf_SQ6": [
+        [
+            "they_kitten",
+            "you_queen",
+            "you_queen's_apprentice",
+            "they_deaf",
+            "they_blind",
+            "only_you_deaf"
+        ],
+        [
+            "[Other cats can find hiding kits by following the sound of stifled giggling, but you have to be a bit more observant.]",
+            "[You pace the nursery, looking for t_c's hide-and-seek spot. You look for untucked paws, moss being disturbed by a flicking tail, fur poking out...]",
+            "[Ah, there: a tiny ear jutting out from behind a nest. Smiling, you creep forward and gently tap t_c on {PRONOUN/t_c/poss} head.]"
+        ]
+    ],
+    "youdeaf_SQ7": [
+        [
+            "they_kitten",
+            "you_adult",
+            "neutral",
+            "they_neurotic",
+            "only_you_deaf"
+        ],
+        [
+            "[t_c creeps up to you and clumsily begins signing. You can... mostly understand {PRONOUN/t_c/object}, but then {PRONOUN/t_c/subject} {VERB/t_c/make/makes} a few signs that you can't interpret.]",
+            "[When t_c notices that you look confused, {PRONOUN/t_c/subject} {VERB/t_c/stop/stops}. Averting {PRONOUN/t_c/poss} eyes, {PRONOUN/t_c/subject} {VERB/t_c/turn/turns} and {VERB/t_c/scurry/scurries} away.]"
+        ]
+    ],
+    "youdeaf_SQ8": [
+        [
+            "they_kitten",
+            "you_adult",
+            "from_your_kit",
+            "from_adopted_kit",
+            "they_neurotic",
+            "only_you_deaf"
+        ],
+        [
+            "[t_c stares apprehensively at the cats milling around outside the nursery. Whenever anyone gets too close to the entrance, {PRONOUN/t_c/subject} {VERB/t_c/burrow/burrows} into your fur.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/seem/seems} bewildered as to why other cats speak so much more than you.]"
+        ]
+    ]
 }
