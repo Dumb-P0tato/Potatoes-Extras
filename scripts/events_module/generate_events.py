@@ -457,6 +457,20 @@ class GenerateEvents:
                     if random_cat.faith > event.r_c["min_max_faith"][1]:
                         continue
 
+                # residence
+                if "residence" in event.m_c:
+                    if not cat.dead:
+                        continue
+                    if "ur" in event.m_c["residence"]:
+                        if not cat.outside:
+                            continue
+                    if "df" in event.m_c["residence"]:
+                        if not cat.df:
+                            continue
+                    if "sc" in event.m_c["residence"]:
+                        if cat.outside or cat.df:
+                            continue
+
                 # check cat trait and skill
                 if (
                     int(random.random() * trait_skill_bypass) or prevent_bypass
@@ -563,6 +577,20 @@ class GenerateEvents:
                         event_id=event.event_id,
                     ):
                         continue
+
+                # residence
+                if "residence" in event.r_c:
+                    if not random_cat.dead:
+                        continue
+                    if "ur" in event.r_c["residence"]:
+                        if not random_cat.outside:
+                            continue
+                    if "df" in event.r_c["residence"]:
+                        if not random_cat.df:
+                            continue
+                    if "sc" in event.r_c["residence"]:
+                        if random_cat.outside or random_cat.df:
+                            continue
 
                 # check cat trait and skill
                 if (
