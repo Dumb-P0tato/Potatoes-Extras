@@ -18,10 +18,9 @@ import ujson
 from scripts.cat_relations.inheritance import Inheritance
 from scripts.game_structure.game_essentials import game
 from scripts.housekeeping.version import get_version_info, SAVE_VERSION_NUMBER
-from scripts.utility import update_sprite, get_current_season, quit, get_free_possible_mates, get_alive_status_cats, create_new_cat  # pylint: disable=redefined-builtin
+from scripts.utility import get_current_season, quit, get_free_possible_mates, get_alive_status_cats, create_new_cat  # pylint: disable=redefined-builtin
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES
 from scripts.cat.pelts import Pelt
-from scripts.cat.cats import Cat, cat_class
 from scripts.cat.history import History
 from scripts.cat.names import names
 from scripts.cat.sprites import sprites
@@ -147,7 +146,7 @@ class Clan:
         self.game_mode = game_mode
         self.pregnancy_data = {}
         self.inheritance = {}
-        self.murdered = False
+        self.murdered = {}
         self.exile_return = False
         self.affair = False
         self.achievements = []
@@ -350,6 +349,7 @@ class Clan:
         num_mates = random.randint(0,3)
 
         for i in range(num_mates):
+            same_age_cats = []
             random_cat = get_adult_mateless_cat()
             if random_cat:
                 same_age_cats = get_free_possible_mates(random_cat)
@@ -531,6 +531,7 @@ class Clan:
         num_mates = random.randint(0,3)
 
         for i in range(num_mates):
+            same_age_cats = []
             random_cat = get_adult_mateless_cat()
             if random_cat:
                 same_age_cats = get_free_possible_mates(random_cat)
@@ -887,7 +888,7 @@ class Clan:
             for other_clan in game.switches["other_med"]:
                 cats = []
                 for c in other_clan:
-                    cats.append(c.prefix + "," + c.suffix + "," + c.status)
+                    cats.append(c.prefix + "," + c.suffix + ",medicine cat")
                 other_med.append(cats)
             clan_data["other_med"] = other_med
 
@@ -1194,7 +1195,7 @@ class Clan:
             game.clan.followingsc = clan_data['following_starclan']
         else:
             game.clan.followingsc = True
-        game.clan.reputation = int(clan_data["reputation"])
+        game.clan.reputation = max(0, min(100, int(clan_data["reputation"])))
 
         game.switches["error_message"] = "Error loading ---clan.json. Check clan age"
         game.clan.age = clan_data["clanage"]
@@ -1305,6 +1306,9 @@ class Clan:
         # Patrolled cats
         if "patrolled_cats" in clan_data:
             game.patrolled = clan_data["patrolled_cats"]
+        
+        if "dated_cats" in clan_data:
+            game.dated_cats = clan_data["dated_cats"]
 
         game.switches["error_message"] = "Error loading ---clan.json. Check Mediated"
         # Mediated flag
@@ -1332,13 +1336,16 @@ class Clan:
             game.clan.your_cat = Cat.all_cats[clan_data["your_cat"]]
 
         if "murdered" in clan_data:
-            game.clan.murdered = clan_data["murdered"]
+            if isinstance(clan_data["murdered"], bool):
+                game.clan.murdered = {}
+            else:
+                game.clan.murdered = clan_data["murdered"]
 
         if "affair" in clan_data:
-            game.clan.murdered = clan_data["affair"]
+            game.clan.affair = clan_data["affair"]
 
         if "exile_return" in clan_data:
-            game.clan.murdered = clan_data["exile_return"]
+            game.clan.exile_return = clan_data["exile_return"]
         
         game.switches["error_message"] = "Error loading ---clan.json. Check achievements"
         if "achievements" in clan_data:
@@ -1375,7 +1382,7 @@ class Clan:
                 other_clan_meds = []
                 for other_clan_med in c:
                     other_clan_med = other_clan_med.split(",")
-                    n = Name(prefix = other_clan_med[0], suffix = other_clan_med[1], status = other_clan_med[2])
+                    n = Name(prefix = other_clan_med[0], suffix = other_clan_med[1])
                     other_clan_meds.append(n)
                 other_med.append(other_clan_meds)
             game.switches["other_med"] = other_med
@@ -1452,13 +1459,15 @@ class Clan:
                             except ValueError:
                                 print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
 
-                if not c.pelt.inventory:
-                    c.pelt.inventory = []
-                for acc in acc_list:
-                    if acc not in c.pelt.inventory:
-                        c.pelt.inventory.append(acc)
+                # if not c.pelt.inventory:
+                #     c.pelt.inventory = []
+                # for acc in acc_list:
+                #     if acc not in c.pelt.inventory:
+                #         c.pelt.inventory.append(acc)
+                return acc_list
 
     def load_clan_settings(self):
+        _load_settings = {}
         if os.path.exists(
             get_save_dir() + f'/{game.switches["clan_list"][0]}/clan_settings.json'
         ):

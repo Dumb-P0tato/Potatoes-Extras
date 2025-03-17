@@ -35,7 +35,6 @@ from ..ui.generate_button import ButtonStyles, get_button_dict
 from ..ui.get_arrow import get_arrow
 from ..ui.icon import Icon
 from scripts.cat.skills import SkillPath, Skill
-from scripts.housekeeping.version import get_version_info
 from scripts.events_module.patrol.patrol import Patrol
 
 
@@ -146,6 +145,7 @@ class MakeClanScreen(Screens):
 
     def screen_switches(self):
         super().screen_switches()
+        self.set_mute_button_position("topright")
         self.show_mute_buttons()
         self.set_bg("default", "mainmenu_bg")
 
@@ -380,7 +380,7 @@ class MakeClanScreen(Screens):
                             "LUNARCHIMES", "SILVERLUNARCHIMES", "FLOWER MOSS", "SANVITALIAFLOWERS",
                             "STARFLOWERS", "SHELL PACK", "MOSS2", "MUSHROOMS", "CLOVERS", "MUD", "LADYBUGS",
                             "FIRBRANCHES", "CHERRYBLOSSOM", "MISTLETOE", "BROWNMOSSPELT", "BLEEDINGVINES",
-                            "BLEEDINGHEART", "MOREFERN", "GRAYMOSSPELT", "FERN"]
+                            "BLEEDINGHEART", "MOREFERN", "GRAYMOSSPELT", "FERN", "YELLOWWISTERIA", "WATTLE", "SPRINGFLOWERCORSAGE"]
         # god damn we have a lot of tail accessories
 
         # Buttons that appear on every screen.
@@ -396,7 +396,7 @@ class MakeClanScreen(Screens):
             get_button_dict(ButtonStyles.SQUOVAL, (153, 30)),
             manager=MANAGER,
             object_id="@buttonstyles_squoval",
-            starting_height=1,
+            starting_height=2,
         )
 
         if game.switches["customise_new_life"] is True:
@@ -624,33 +624,42 @@ class MakeClanScreen(Screens):
             c_size = 10
         elif self.clan_size == 'large':
             c_size = 20
+        
+        special_ranks = 0
+        special_rank_str = ["medicine cat", "medicine cat apprentice", "mediator", "mediator apprentice", "queen", "queen's apprentice"]
         for a in range(c_size):
             if a in e:
                 game.choose_cats[a] = Cat(status='warrior', biome=None)
             else:
-                r = random.randint(1,90)
-                s = "warrior"
-                if r > 85:
-                    s = "medicine cat"
-                elif r > 80:
-                    s = "medicine cat apprentice"
-                elif r > 40:
-                    s = "warrior"
-                elif r > 30:
-                    s = "apprentice"
-                elif r > 25:
-                    s = "kitten"
-                elif r > 20:
-                    s = "elder"
-                elif r > 15:
-                    s = "mediator"
-                elif r > 10:
-                    s = "mediator apprentice"
-                elif r > 5:
-                    s = "queen"
-                elif r >= 0:
-                    s = "queen's apprentice"
+                
+                status_percentages = [
+                ("medicine cat", 1),
+                ("medicine cat apprentice", 1),
+                ("warrior", 38),
+                ("apprentice", 15),
+                ("kitten", 5),
+                ("elder", 5),
+                ("mediator", 2),
+                ("mediator apprentice", 3),
+                ("queen", 2),
+                ("queen's apprentice", 3),
+                ]
+
+                status_choices = []
+                for status, percentage in status_percentages:
+                    status_choices.extend([status] * percentage)
+
+                s = random.choice(status_choices)
+
+                if special_ranks > 5:
+                    while s in special_rank_str:
+                        s = random.choice(status_choices)
+
+                if s in special_rank_str:
+                    special_ranks += 1
+
                 game.choose_cats[a] = Cat(status=s, biome=None)
+
             if game.choose_cats[a].moons >= 160:
                 game.choose_cats[a].moons = choice(range(120, 155))
             elif game.choose_cats[a].moons == 0:
@@ -709,6 +718,15 @@ class MakeClanScreen(Screens):
             self.refresh_selected_camp()
         elif event.ui_element == self.tabs["tab6"]:
             self.selected_camp_tab = 6
+            self.refresh_selected_camp()
+        elif event.ui_element == self.tabs["tab7"]:
+            self.selected_camp_tab = 7
+            self.refresh_selected_camp()
+        elif event.ui_element == self.tabs["tab8"]:
+            self.selected_camp_tab = 8
+            self.refresh_selected_camp()
+        elif event.ui_element == self.tabs["tab9"]:
+            self.selected_camp_tab = 9
             self.refresh_selected_camp()
         elif event.ui_element == self.tabs["newleaf_tab"]:
             self.selected_season = "Newleaf"
@@ -824,6 +842,7 @@ class MakeClanScreen(Screens):
         self.rolls_left = game.config["clan_creation"]["rerolls"]
         self.fullscreen_bgs = {}
         self.game_bgs = {}
+        self.set_mute_button_position("bottomright")
         return super().exit_screen()
 
     def on_use(self):
@@ -1077,6 +1096,9 @@ class MakeClanScreen(Screens):
         self.tabs["tab4"].kill()
         self.tabs["tab5"].kill()
         self.tabs["tab6"].kill()
+        self.tabs["tab7"].kill()
+        self.tabs["tab8"].kill()
+        self.tabs["tab9"].kill()
 
         if self.biome_selected == "Forest":
             tab_rect = ui_scale(pygame.Rect((0, 0), (85, 30)))
@@ -1328,6 +1350,49 @@ class MakeClanScreen(Screens):
                     "top_target": self.tabs["tab5"],
                 },
             )
+            tab_rect = ui_scale(pygame.Rect((0, 0), (85, 30)))
+            tab_rect.topright = ui_scale_offset((5, 5))
+            self.tabs["tab7"] = UISurfaceImageButton(
+                tab_rect,
+                "Farm",
+                get_button_dict(ButtonStyles.VERTICAL_TAB, (85, 30)),
+                object_id="@buttonstyles_vertical_tab",
+                manager=MANAGER,
+                anchors={
+                    "right": "right",
+                    "right_target": self.elements["art_frame"],
+                    "top_target": self.tabs["tab6"],
+                },
+            )
+            tab_rect = ui_scale(pygame.Rect((0, 0), (105, 30)))
+            tab_rect.topright = ui_scale_offset((5, 5))
+            self.tabs["tab8"] = UISurfaceImageButton(
+                tab_rect,
+                "Bushland",
+                get_button_dict(ButtonStyles.VERTICAL_TAB, (105, 30)),
+                object_id="@buttonstyles_vertical_tab",
+                manager=MANAGER,
+                anchors={
+                    "right": "right",
+                    "right_target": self.elements["art_frame"],
+                    "top_target": self.tabs["tab7"],
+                },
+            )
+            # ---
+            tab_rect = ui_scale(pygame.Rect((0, 0), (95, 30)))
+            tab_rect.topright = ui_scale_offset((5, 5))
+            self.tabs["tab9"] = UISurfaceImageButton(
+                tab_rect,
+                "Castle",
+                get_button_dict(ButtonStyles.VERTICAL_TAB, (95, 30)),
+                object_id="@buttonstyles_vertical_tab",
+                manager=MANAGER,
+                anchors={
+                    "right": "right",
+                    "right_target": self.elements["art_frame"],
+                    "top_target": self.tabs["tab8"],
+                },
+            )
             # ---
         elif self.biome_selected == "Beach":
             tab_rect = ui_scale(pygame.Rect((0, 0), (110, 30)))
@@ -1420,6 +1485,15 @@ class MakeClanScreen(Screens):
         ].enable()
         self.tabs["tab6"].disable() if self.selected_camp_tab == 6 else self.tabs[
             "tab6"
+        ].enable()
+        self.tabs["tab7"].disable() if self.selected_camp_tab == 7 else self.tabs[
+            "tab7"
+        ].enable()
+        self.tabs["tab8"].disable() if self.selected_camp_tab == 8 else self.tabs[
+            "tab8"
+        ].enable()
+        self.tabs["tab9"].disable() if self.selected_camp_tab == 9 else self.tabs[
+            "tab9"
         ].enable()
 
         # I have to do this for proper layering.
@@ -1598,23 +1672,6 @@ class MakeClanScreen(Screens):
         self.elements["version_background"] = UIImageButton(ui_scale(pygame.Rect((725, 672), (700, 27))), "", object_id="blank_button", manager=MANAGER)
         self.elements["version_background"].disable()
 
-        if game.settings['fullscreen']:
-            version_number = pygame_gui.elements.UILabel(
-                pygame.Rect((750, 675), (-1, -1)), get_version_info().version_number[0:8],
-                object_id=get_text_box_theme())
-            # Adjust position
-            version_number.set_position(
-                (1600 - version_number.get_relative_rect()[2] - 8,
-                1400 - version_number.get_relative_rect()[3]))
-        else:
-            version_number = pygame_gui.elements.UILabel(
-                pygame.Rect((350, 325), (-1, -1)), get_version_info().version_number[0:8],
-                object_id=get_text_box_theme())
-            # Adjust position
-            version_number.set_position(
-                (800 - version_number.get_relative_rect()[2] - 8,
-                700 - version_number.get_relative_rect()[3]))
-
         self.refresh_cat_images_and_info2()
         
         self.sub_screen = 'choose name'
@@ -1745,7 +1802,7 @@ class MakeClanScreen(Screens):
             ui_scale(pygame.Rect((220, 160), (100, 30))),
             "Small",
             get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
-            object_id="@buttonstyles_icon",
+            object_id="@buttonstyles_squoval",
             manager=MANAGER
         )
 
@@ -1753,7 +1810,7 @@ class MakeClanScreen(Screens):
             ui_scale(pygame.Rect((350, 160), (100, 30))),
             "Medium",
             get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
-            object_id="@buttonstyles_icon",
+            object_id="@buttonstyles_squoval",
             manager=MANAGER
         )
 
@@ -1761,7 +1818,7 @@ class MakeClanScreen(Screens):
             ui_scale(pygame.Rect((480, 160), (100, 30))),
             "Large",
             get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
-            object_id="@buttonstyles_icon",
+            object_id="@buttonstyles_squoval",
             manager=MANAGER
         )
 
@@ -1771,7 +1828,7 @@ class MakeClanScreen(Screens):
             ui_scale(pygame.Rect((295, 200), (80, 30))),
             "Old",
             get_button_dict(ButtonStyles.SQUOVAL, (80, 30)),
-            object_id="@buttonstyles_icon",
+            object_id="@buttonstyles_squoval",
             tool_tip_text="The Clan has existed for many moons and cats' backstories will reflect this.",
             manager=MANAGER
         )
@@ -1779,7 +1836,7 @@ class MakeClanScreen(Screens):
             ui_scale(pygame.Rect((425, 200), (80, 30))),
             "New",
             get_button_dict(ButtonStyles.SQUOVAL, (80, 30)),
-            object_id="@buttonstyles_icon",
+            object_id="@buttonstyles_squoval",
             tool_tip_text="The Clan is newly established and cats' backstories will reflect this.",
             manager=MANAGER
         )
@@ -2109,7 +2166,7 @@ class MakeClanScreen(Screens):
         self.custom_cat = Cat(moons = c_moons, pelt=pelt2, loading_cat=True)
         self.custom_cat.sprite = generate_sprite(self.custom_cat)
         self.elements["sprite"] = UISpriteButton(ui_scale(pygame.Rect
-                                         ((315, 140), (175, 175))),
+                                         ((315, 160), (175, 175))),
                                    self.custom_cat.sprite,
                                    self.custom_cat.ID,
                                    starting_height=0, manager=MANAGER)
@@ -2411,7 +2468,7 @@ class MakeClanScreen(Screens):
                     ]:
                     self.tint_buttons[tint] = UIImageButton(
                         ui_scale(pygame.Rect((tint_x_pos, tint_y_pos), (40, 40))),
-                        tint,
+                        "",
                         object_id=f"#tint_button_{tint}",
                         manager=MANAGER
                         )
@@ -2424,7 +2481,7 @@ class MakeClanScreen(Screens):
                 # search bar first
                 self.elements["search_button"] = UISurfaceImageButton(
                     ui_scale(pygame.Rect((475, 530), (34, 34))),
-                    "!",
+                    Icon.MAGNIFY,
                     get_button_dict(ButtonStyles.ICON, (34, 34)),
                     object_id="@buttonstyles_icon",
                     manager=MANAGER,
@@ -2719,7 +2776,7 @@ class MakeClanScreen(Screens):
 
                 self.elements["search_button"] = UISurfaceImageButton(
                     ui_scale(pygame.Rect((475, 530), (34, 34))),
-                    "!",
+                    Icon.MAGNIFY,
                     get_button_dict(ButtonStyles.ICON, (34, 34)),
                     object_id="@buttonstyles_icon",
                     manager=MANAGER,
@@ -3182,7 +3239,7 @@ class MakeClanScreen(Screens):
                         searched = self.search_text
                         if searched not in ["", "search"]:
                             for acc in acc_list:
-                                if searched in acc.lower():
+                                if searched in str(self.ACC_DISPLAY[acc]["default"]).lower() or searched in acc.lower():
                                     new_acc_list.append(acc)
                         else:
                             new_acc_list = acc_list
@@ -3308,7 +3365,7 @@ class MakeClanScreen(Screens):
                         searched = self.search_text
                         if searched not in ["", "search"]:
                             for acc in acc_list:
-                                if searched in acc.lower():
+                                if searched in str(self.ACC_DISPLAY[acc]["default"]).lower() or searched in acc.lower():
                                     new_acc_list.append(acc)
                         else:
                             new_acc_list = acc_list
@@ -3801,6 +3858,12 @@ class MakeClanScreen(Screens):
                 else:
                     self.tortie_patches_buttons[i[0]].disable()
 
+            if "match_tortie" in self.elements:
+                if self.pname != "Tortie":
+                    self.elements["match_tortie"].disable()
+                else:
+                    self.elements["match_tortie"].enable()
+
         elif self.page == 2:
             for i in self.eye_colour_buttons.items():
                 if i[0] != self.eye_colour:
@@ -4005,7 +4068,7 @@ class MakeClanScreen(Screens):
         self.custom_cat.sprite = generate_sprite(self.custom_cat)
         self.elements['sprite'].kill()
         self.elements["sprite"] = UISpriteButton(ui_scale(pygame.Rect
-                                         ((315, 140), (175, 175))),
+                                         ((315, 160), (175, 175))),
                                    self.custom_cat.sprite,
                                    self.custom_cat.ID,
                                    starting_height=0, manager=MANAGER)
@@ -4073,6 +4136,12 @@ class MakeClanScreen(Screens):
         self.tabs["tab5"] = UIImageButton(ui_scale(pygame.Rect((0, 0), (0, 0))), "",
                                           visible=False, manager=MANAGER)
         self.tabs["tab6"] = UIImageButton(ui_scale(pygame.Rect((0, 0), (0, 0))), "",
+                                          visible=False, manager=MANAGER)
+        self.tabs["tab7"] = UIImageButton(ui_scale(pygame.Rect((0, 0), (0, 0))), "",
+                                          visible=False, manager=MANAGER)
+        self.tabs["tab8"] = UIImageButton(ui_scale(pygame.Rect((0, 0), (0, 0))), "",
+                                          visible=False, manager=MANAGER)
+        self.tabs["tab9"] = UIImageButton(ui_scale(pygame.Rect((0, 0), (0, 0))), "",
                                           visible=False, manager=MANAGER)
         y_pos = 275
         self.tabs["newleaf_tab"] = UIImageButton(ui_scale(pygame.Rect((627, y_pos), (39, 34))), "",
@@ -4432,15 +4501,17 @@ class MakeClanScreen(Screens):
             self.your_cat.create_inheritance_new_cat()
             game.clan.your_cat = self.your_cat
             game.clan.your_cat.moons = -1
+            game.clan.add_cat(game.clan.your_cat)
             self.delete_example_cats()
         else:
             self.handle_create_other_cats()
             game.mediated.clear()
             game.patrolled.clear()
+            game.dated_cats.clear()
             game.cat_to_fade.clear()
             Cat.outside_cats.clear()
             Patrol.used_patrols.clear()
-            convert_camp = {1: 'camp1', 2: 'camp2', 3: 'camp3', 4: 'camp4', 5: 'camp5', 6: 'camp6'}
+            convert_camp = {1: 'camp1', 2: 'camp2', 3: 'camp3', 4: 'camp4', 5: 'camp5', 6: 'camp6', 7: 'camp7', 8: 'camp8', 9: 'camp9'}
             self.your_cat.create_inheritance_new_cat()
             game.clan = Clan(name = self.clan_name,
                             leader = self.leader,
@@ -4473,7 +4544,10 @@ class MakeClanScreen(Screens):
         start_leave = leaf.casefold()
         light_dark = "dark" if game.settings["dark mode"] else "light"
 
-        biome = self.biome_selected.lower()
+        if self.biome_selected:
+            biome = self.biome_selected.lower()
+        else:
+            biome = game.clan.biome
 
         return (
             f"{camp_bg_base_dir}/{biome}/{start_leave}_camp{campnum}_{light_dark}.png"

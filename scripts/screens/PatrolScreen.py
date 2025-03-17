@@ -507,7 +507,7 @@ class PatrolScreen(Screens):
 
             self.elements["info"] = pygame_gui.elements.UITextBox(
                 text,
-                ui_scale(pygame.Rect((250, 525), (300, 400))),
+                ui_scale(pygame.Rect((250, 525), (300, 35))),
                 object_id=get_text_box_theme("#text_box_30_horizcenter"),
                 manager=MANAGER,
             )
@@ -1089,7 +1089,7 @@ class PatrolScreen(Screens):
 
         elif game.switches["patrol_category"] == "lifegen":
             the_cat = game.clan.your_cat
-            if not the_cat.dead and not the_cat.outside and not the_cat.moons <= 0 and the_cat not in self.current_patrol and not the_cat.not_working() and "2" not in game.switches['patrolled']:
+            if (not the_cat.outside or (the_cat.outside and the_cat.dead)) and not the_cat.moons <= 0 and the_cat not in self.current_patrol and not the_cat.not_working() and "2" not in game.switches['patrolled']:
                 self.able_cats.append(game.clan.your_cat)
 
         elif game.switches["patrol_category"] == "date":
@@ -1098,7 +1098,7 @@ class PatrolScreen(Screens):
                 if you not in self.current_patrol and not you.not_working():
                     self.current_patrol.insert(0, you)
                 for the_cat in Cat.all_cats_list:
-                    if the_cat.in_camp and the_cat.ID not in game.patrolled and the_cat not in self.current_patrol and not the_cat.not_working() and the_cat.is_dateable(game.clan.your_cat):
+                    if the_cat.in_camp and the_cat.ID not in game.dated_cats and the_cat not in self.current_patrol and not the_cat.not_working() and the_cat.is_dateable(game.clan.your_cat):
                         self.able_cats.append(the_cat)
         else:
             the_cat = game.clan.your_cat
