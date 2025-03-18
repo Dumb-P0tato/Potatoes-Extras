@@ -3281,61 +3281,74 @@ class Cat:
                 )
 
     @staticmethod
-    def elder_story(elder, cat, chosen_story=""):
+    def elder_story(elder, cats, chosen_story=""):
         output = "Elder story results go here!!!<br>"
         # elder influence:
         # SPEAKER, CLEVER, COOPERATIVE ?, INSIGHTFUL, MEDIATOR, STORY, LORE
         # also their relationship with the chosen cat
 
-        if elder.ID in cat.relationships:
-            relationship = cat.relationships[elder.ID]
-            stranger = False
-        else:
-            relationship = cat.create_one_relationship(elder)
-            stranger = True
+        with open("resources/dicts/elder_stories.json", 'r') as r:
+            possible_stories = ujson.loads(r.read())
 
-        comfort = relationship.comfortable
-        trust = relationship.trust
-        platonic_like = relationship.platonic_like
-        romantic_love = relationship.romantic_love
-        dislike = relationship.dislike
-        jealousy = relationship.jealousy
-        respect = relationship.admiration
+        cat_effects = {}
+        for cat in cats:
+            if elder.ID in cat.relationships:
+                relationship = cat.relationships[elder.ID]
+                stranger = False
+            else:
+                relationship = cat.create_one_relationship(elder)
+                stranger = True
 
-        if not stranger:
-            fail_chance = (
-                comfort +
-                trust +
-                platonic_like +
-                romantic_love +
-                respect -
-                jealousy -
-                dislike
-                )
-        else:
-            fail_chance = 10
+            comfort = relationship.comfortable
+            trust = relationship.trust
+            platonic_like = relationship.platonic_like
+            romantic_love = relationship.romantic_love
+            dislike = relationship.dislike
+            jealousy = relationship.jealousy
+            respect = relationship.admiration
 
-        if fail_chance < 1:
-            fail_chance = 1
-        # change this up obviously. not just relationships
-        
-        print("fail chance:", fail_chance, stranger)
+            if not stranger:
+                fail_chance = (
+                    comfort +
+                    trust +
+                    platonic_like +
+                    romantic_love +
+                    respect -
+                    jealousy -
+                    dislike
+                    )
+            else:
+                fail_chance = 10
 
-        
-        old_faith = cat.faith
+            if fail_chance < 10:
+                fail_chance = 10
+            # change this up obviously. not just relationships
+            
+            fail = False
+            if not int(random() * fail_chance):
+                fail = True
+                print(cat.name, "faith effect failed", fail_chance, stranger)
 
-        if chosen_story == "starclan":
-            cat.faith += 1
-        elif chosen_story == "darkforest":
-            cat.faith -= 1
+            faith_change = 0
+            if chosen_story == "starclan":
+                if fail:
+                    faith_change = -1
+                else:
+                    faith_change = 1
+            elif chosen_story == "darkforest":
+                if fail:
+                    faith_change = 1
+                else:
+                    faith_change = -1
+            cat.faith += faith_change
 
-        output += f"<br> Elder: {elder.name}"
-        output += f"<br> Cat: {cat.name}"
-        output += f"<br>Story type: {chosen_story}"
+            cat_effects.update({cat: faith_change})
 
-        output += f"<br>Faith change: {str(old_faith + cat.faith)}"
+        story = choice(possible_stories[chosen_story])
+        heading = story["title"]
+        output = story["story"]
 
-        return output
+        return heading, output, cat_effects
 
     @staticmethod
     def mediate_relationship(mediator, cat1, cat2, allow_romantic, sabotage=False):

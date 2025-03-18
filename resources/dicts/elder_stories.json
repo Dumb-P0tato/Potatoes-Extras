@@ -1,0 +1,29 @@
+{
+    "starclan": [
+        {
+            "title": "A Very Cool StarClan Story",
+            "story": [
+                "m_c tells a compelling story about the goodness of StarClan.",
+                "The story is captivating, and the group of cats listen with sparkling eyes, their respect for their ancestors growing."
+            ]
+        }
+    ],
+    "darkforest": [
+        {
+            "title": "A Very Evil Dark Forest Story",
+            "story": [
+                "m_c tells an enthralling story about the power of the Dark Forest.",
+                "Though noticeably intimidated by the tale, the group of cats listens attentively, taking its morals to heart."
+            ]
+        },
+        {
+            "title": "The Murky River",
+            "story": [
+                "m_c decides to tell the group a story from ancient Clans.",
+                "Long ago, a very evil cat attempted to kill their leader. They lured the leader to a dark and secluded river, where they attempted to drown the leader and take all of their lives. However, when the evil cat's paw touched the water, a pair of paws shot out from the water, grabbed the cat, and pulled them in, sparing the life of the leader.",
+                "The cat was dragged deeper and deeper into the water until they emerged onto the riverbank of a blood-red river. The forest around them had died, and hungry eyes shone at them from the shadows that surrounded them. The cat had been taken to the Dark Forest.",
+                "The group of listening cats is captivated by the tale, both their fear and respect for the Dark Forest growing."
+            ]
+        }
+    ]
+}

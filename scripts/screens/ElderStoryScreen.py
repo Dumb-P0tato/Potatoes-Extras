@@ -3,6 +3,7 @@ from random import choice
 
 import pygame.transform
 import pygame_gui.elements
+# pylint: disable=consider-using-dict-items
 
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
@@ -10,13 +11,15 @@ from scripts.game_structure.game_essentials import game
 from scripts.game_structure.ui_elements import (
     UIImageButton,
     UISpriteButton,
-    UISurfaceImageButton
+    UISurfaceImageButton,
+    UITextBoxTweaked
 )
 from scripts.utility import (
     get_text_box_theme,
     ui_scale,
     shorten_text_to_fit,
     ui_scale_dimensions,
+    event_text_adjust
 )
 from .Screens import Screens
 from ..game_structure.screen_settings import MANAGER
@@ -43,12 +46,16 @@ class ElderStoryScreen(Screens):
         self.previous_search_text = ""
         self.selected_story = ""
         self.selected_cats = []
+        self.selected_cat_containers = {}
+        self.story_container = None
+        self.elements = {}
+
+        self.stage = "cats"
 
         # the cat currently being chosen for
         self.selected_cat_sprites = {}
         self.selected_cat_sprite_buttons = {}
-        self.cat_selection = 0
-        self.cat_selection_box = None
+        self.cat_selection = None
 
     def handle_event(self, event):
 
@@ -74,36 +81,85 @@ class ElderStoryScreen(Screens):
                 self.selected_story = "darkforest"
                 self.update_buttons()
             elif event.ui_element == self.tell_story_button:
-                game.patrolled.append(self.elders[self.selected_elder].ID)
-                output = Cat.elder_story(
-                    self.elders[self.selected_elder],
-                    self.selected_cats,
-                    chosen_story = self.selected_story
-                )
-                self.results.set_text(output)
+                if self.stage == "cats":
+                    self.stage = "story"
+                    self.exit_screen()
+                    self.screen_switches()
+                    game.patrolled.append(self.elders[self.selected_elder].ID)
+                    output = Cat.elder_story(
+                        self.elders[self.selected_elder],
+                        self.selected_cats,
+                        chosen_story = self.selected_story
+                    )
+                    self.results_heading.set_text(output[0])
+
+                    story_text = []
+                    for string in output[1]:
+                        story_text.append(event_text_adjust(
+                            Cat,
+                            text=string,
+                            main_cat=self.elders[self.selected_elder],
+                            clan=game.clan))
+                    
+                    joined_story_text = "<br><br>".join(story_text)
+                    
+                    self.results.set_text(joined_story_text)
+                    self.update_selected_cats(output[2])
+                else:
+                    self.stage = "cats"
+                    self.selected_cats = []
+                    self.exit_screen()
+                    self.screen_switches()
+                    self.update_selected_cats()
+            elif event.ui_element == self.random1:
+                self.selected_cats = []
+                for i in [0,1,2,3,4]:
+                    new_cat = self.random_cat()
+                    self.selected_cats.append(new_cat)
                 self.update_selected_cats()
                 self.update_elder_info()
-            elif event.ui_element == self.random1:
-                self.selected_cats[self.cat_selection] = self.random_cat()
-                self.update_selected_cats()
+            elif event.ui_element == self.elements["randomise_cat"]:
+                if self.cat_selection is not None:
+                    new_cat = self.random_cat()
+                    self.selected_cats[self.cat_selection] = new_cat
+                    self.update_selected_cats()
+            elif event.ui_element == self.elements["remove_cat"]:
+                if self.cat_selection is not None:
+                    self.selected_cats.remove(self.selected_cats[self.cat_selection])
+                    if self.cat_selection > 0:
+                        self.cat_selection -= 1
+                    if self.cat_selection == 0:
+                        self.cat_selection = None
+                    self.update_selected_cats()
             elif event.ui_element in self.cat_buttons:
                 cat_object = event.ui_element.return_cat_object()
                 if cat_object in self.selected_cats:
-                    self.cat_selection = (self.selected_cats.index(cat_object)) - 1 if self.selected_cats.index(cat_object) > 0 else 0
+                    if self.cat_selection == self.selected_cats.index(cat_object):
+                        if self.cat_selection is not None:
+                            self.cat_selection = None
                     self.selected_cats.remove(cat_object)
+                    if self.selected_cats:
+                        self.cat_selection = (self.selected_cats.index(cat_object)) - 1 if self.selected_cats.index(cat_object) > 0 else 0
                 else:
-                    if len(self.selected_cats) < 5:
-                        self.selected_cats.append(cat_object)
-                        self.cat_selection = self.selected_cats.index(cat_object)
+                    if self.cat_selection is not None:
+                        self.selected_cats[self.cat_selection] = cat_object
+                    else:
+                        if len(self.selected_cats) < 5:
+                            self.selected_cats.append(cat_object)
+                            # self.cat_selection = self.selected_cats.index(cat_object)
+
                 self.update_selected_cats()
             for item in self.selected_cat_sprite_buttons:
                 if event.ui_element == self.selected_cat_sprite_buttons[item]:
-                    self.cat_selection = item
+                    if self.cat_selection == item:
+                        self.cat_selection = None
+                    else:
+                        self.cat_selection = item
+                    self.update_selected_cats()
 
             for item in self.selected_cat_sprite_buttons:
                 if event.ui_element == item:
                     self.cat_selection = item
-            self.update_cat_selection()
 
     def screen_switches(self):
         super().screen_switches()
@@ -128,6 +184,7 @@ class ElderStoryScreen(Screens):
         else:
             self.selected_elder = None
 
+        # SIDEBAR
         self.back_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((25, 25), (105, 30))),
             get_arrow(2) + " Back",
@@ -158,71 +215,13 @@ class ElderStoryScreen(Screens):
         )
         self.list_frame.disable()
 
-        self.buttons_bg = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((53, 410), (200, 110))),
-            get_box(BoxStyles.ROUNDED_BOX, (200, 110)),
-        )
-        self.buttons_bg.disable()
-
-        self.tell_story_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((53, 540), (200, 30))),
-            "tell a story",
-            get_button_dict(ButtonStyles.ROUNDED_RECT, (200, 30)),
-            object_id="@buttonstyles_rounded_rect",
-            manager=MANAGER,
-        )
-
-        self.starclan_story_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((73, 430), (160, 30))),
-            "StarClan",
-            get_button_dict(ButtonStyles.ROUNDED_RECT, (160, 30)),
-            object_id="@buttonstyles_rounded_rect",
-            manager=MANAGER,
-        )
-        self.df_story_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((73, 470), (160, 30))),
-            "Dark Forest",
-            get_button_dict(ButtonStyles.ROUNDED_RECT, (160, 30)),
-            object_id="@buttonstyles_rounded_rect",
-            manager=MANAGER,
-        )
-
-        self.next_med = UISurfaceImageButton(
-            ui_scale(pygame.Rect((580, 300), (34, 34))),
-            Icon.ARROW_RIGHT,
-            get_button_dict(ButtonStyles.ICON, (34, 34)),
-            object_id="@buttonstyles_icon",
-        )
-        self.last_med = UISurfaceImageButton(
-            ui_scale(pygame.Rect((425, 300), (34, 34))),
-            Icon.ARROW_LEFT,
-            get_button_dict(ButtonStyles.ICON, (34, 34)),
-            object_id="@buttonstyles_icon",
-        )
-
-        addon = ""
-        if game.settings["dark mode"]:
-            addon = "_dark"
-
-        self.results = pygame_gui.elements.UITextBox(
-            "",
-            ui_scale(pygame.Rect((560, 125), (175, 270))),
-            object_id=get_text_box_theme("#text_box_22_horizcenter_spacing_95"),
-            manager=MANAGER,
-        )
-
-        self.error = pygame_gui.elements.UITextBox(
-            "",
-            ui_scale(pygame.Rect((280, 37), (229, 57))),
-            object_id=get_text_box_theme("#text_box_22_horizcenter_spacing_95"),
-            manager=MANAGER,
-        )
         self.random1 = UISurfaceImageButton(
             ui_scale(pygame.Rect((200, 360), (34, 34))),
             "\u2684",
             get_button_dict(ButtonStyles.ICON, (34, 34)),
             object_id="@buttonstyles_icon",
             manager=MANAGER,
+            tool_tip_text="Randomise all cats",
             sound_id="dice_roll",
         )
 
@@ -238,56 +237,198 @@ class ElderStoryScreen(Screens):
             manager=MANAGER,
         )
 
-        self.elder_elements["silhouette_1"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((260, 160), (150, 150))),
-            pygame.image.load("resources/images/search_bar.png").convert_alpha(),
+        self.elements["randomise_cat"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((64, 405), (34, 34))),
+            Icon.DICE,
+            get_button_dict(ButtonStyles.ICON, (34, 34)),
+            object_id="@buttonstyles_icon",
+            tool_tip_text="Randomise selected cat",
+            sound_id="dice_roll",
+        )
+        self.elements["remove_cat"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((105, 405), (135, 34))),
+            "Remove cat",
+            get_button_dict(ButtonStyles.SQUOVAL, (135, 34)),
+            object_id="@buttonstyles_squoval",
+        )
+
+        self.buttons_bg = pygame_gui.elements.UIImage(
+            ui_scale(pygame.Rect((53, 455), (200, 110))),
+            get_box(BoxStyles.ROUNDED_BOX, (200, 110)),
+        )
+        self.buttons_bg.disable()
+
+        self.starclan_story_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((73, 475), (160, 30))),
+            "StarClan",
+            get_button_dict(ButtonStyles.ROUNDED_RECT, (160, 30)),
+            object_id="@buttonstyles_rounded_rect",
             manager=MANAGER,
         )
+        self.df_story_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((73, 515), (160, 30))),
+            "Dark Forest",
+            get_button_dict(ButtonStyles.ROUNDED_RECT, (160, 30)),
+            object_id="@buttonstyles_rounded_rect",
+            manager=MANAGER,
+        )
+
+        self.story_container = pygame_gui.core.UIContainer(
+            ui_scale(pygame.Rect((270, 70), (496, 620))),
+            starting_height=1,
+            manager=MANAGER
+        )
+
+        # CATS STAGE
+        if self.stage == "cats":
+            self.results = None
+            self.results_heading = None
+            self.tell_story_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((53, 585), (200, 30))),
+                "tell a story",
+                get_button_dict(ButtonStyles.ROUNDED_RECT, (200, 30)),
+                object_id="@buttonstyles_rounded_rect",
+                manager=MANAGER,
+            )
+            # SELECTED CAT CONTAINERS
+            self.selected_cat_containers[0] = pygame_gui.core.UIContainer(
+                ui_scale(pygame.Rect((0, 184), (150, 180))),
+                starting_height=1,
+                container=self.story_container,
+                manager=MANAGER
+            )
+            self.selected_cat_containers[1] = pygame_gui.core.UIContainer(
+                ui_scale(pygame.Rect((34, 34), (150, 180))),
+                starting_height=1,
+                container=self.story_container,
+                manager=MANAGER
+            )
+            self.selected_cat_containers[2] = pygame_gui.core.UIContainer(
+                ui_scale(pygame.Rect((0, 0), (150, 180))),
+                starting_height=1,
+                container=self.story_container,
+                manager=MANAGER,
+                anchors={"centerx": "centerx"}
+            )
+            self.selected_cat_containers[3] = pygame_gui.core.UIContainer(
+                ui_scale(pygame.Rect((-184, 34), (150, 180))),
+                starting_height=1,
+                container=self.story_container,
+                manager=MANAGER,
+                anchors={"right": "right"}
+            )
+            self.selected_cat_containers[4] = pygame_gui.core.UIContainer(
+                ui_scale(pygame.Rect((-150, 184), (150, 180))),
+                starting_height=1,
+                container=self.story_container,
+                manager=MANAGER,
+                anchors={"right": "right"}
+            )
+
+            self.next_med = UISurfaceImageButton(
+                ui_scale(pygame.Rect((590, 340), (34, 34))),
+                Icon.ARROW_RIGHT,
+                get_button_dict(ButtonStyles.ICON, (34, 34)),
+                object_id="@buttonstyles_icon",
+            )
+            self.last_med = UISurfaceImageButton(
+                ui_scale(pygame.Rect((410, 340), (34, 34))),
+                Icon.ARROW_LEFT,
+                get_button_dict(ButtonStyles.ICON, (34, 34)),
+                object_id="@buttonstyles_icon",
+            )
+            self.error = pygame_gui.elements.UITextBox(
+                "",
+                ui_scale(pygame.Rect((0, 335), (280, 34))),
+                object_id=get_text_box_theme("#text_box_22_horizcenter_spacing_95"),
+                manager=MANAGER,
+                container=self.story_container,
+                anchors={"centerx": "centerx"}
+            )
+        elif self.stage == "story":
+            self.next_med = None
+            self.last_med = None
+            self.error = None
+
+            for ele in self.selected_cat_containers:
+                self.selected_cat_containers[ele].kill()
+            self.selected_cat_containers = {}
+
+            self.tell_story_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((53, 585), (200, 30))),
+                "reset",
+                get_button_dict(ButtonStyles.ROUNDED_RECT, (200, 30)),
+                object_id="@buttonstyles_rounded_rect",
+                manager=MANAGER,
+            )
+
+            self.elements["banner_img"] = pygame_gui.elements.UIImage(
+                    ui_scale(pygame.Rect((0, 10), (460, 70))),
+                    pygame.image.load("resources/images/dead_camps/scbackground_sunsetclouds.png").convert_alpha(),
+                    container=self.story_container,
+                    anchors={"centerx": "centerx"},
+                    manager=MANAGER,
+                )
+
+            self.selected_cat_containers[0] = pygame_gui.core.UIContainer(
+                ui_scale(pygame.Rect((100, 400), (75, 165))),
+                starting_height=1,
+                container=self.story_container,
+                manager=MANAGER
+            )
+            self.selected_cat_containers[1] = pygame_gui.core.UIContainer(
+                ui_scale(pygame.Rect((180, 400), (75, 165))),
+                starting_height=1,
+                container=self.story_container,
+                manager=MANAGER
+            )
+            self.selected_cat_containers[2] = pygame_gui.core.UIContainer(
+                ui_scale(pygame.Rect((260, 400), (75, 165))),
+                starting_height=1,
+                container=self.story_container,
+                manager=MANAGER
+            )
+            self.selected_cat_containers[3] = pygame_gui.core.UIContainer(
+                ui_scale(pygame.Rect((340, 400), (75, 165))),
+                starting_height=1,
+                container=self.story_container,
+                manager=MANAGER
+            )
+            self.selected_cat_containers[4] = pygame_gui.core.UIContainer(
+                ui_scale(pygame.Rect((420, 400), (75, 165))),
+                starting_height=1,
+                container=self.story_container,
+                manager=MANAGER
+            )
+
+            self.results_heading = pygame_gui.elements.UITextBox(
+                "",
+                ui_scale(pygame.Rect((0, 90), (420, 40))),
+                object_id=get_text_box_theme("#text_box_34_horizcenter"),
+                manager=MANAGER,
+                container=self.story_container,
+                anchors={"centerx": "centerx"}
+            )
+            self.results = pygame_gui.elements.UITextBox(
+                "",
+                ui_scale(pygame.Rect((0, 140), (420, 270))),
+                object_id=get_text_box_theme("#text_box_26_horizcenter"),
+                manager=MANAGER,
+                container=self.story_container,
+                anchors={"centerx": "centerx"}
+            )
 
         self.update_buttons()
         self.update_elder_info()
-    
-    def update_cat_selection(self):
-        if self.cat_selection_box:
-            self.cat_selection_box.kill()
-            del self.cat_selection_box
-
-
-        if self.cat_selection == 0:
-            x = 462
-            y = 35
-        elif self.cat_selection == 1:
-            x = 620
-            y = 180
-        elif self.cat_selection == 2:
-            x = 570
-            y = 360
-        elif self.cat_selection == 3:
-            x = 360
-            y = 360
-        elif self.cat_selection == 4:
-            x = 290
-            y = 180
-        else:
-            print("Invalid selected cat index:", self.cat_selection)
-            x = 0
-            y = 0
-
-        self.cat_selection_box = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((x, y), (120, 120))),
-            get_box(BoxStyles.FRAME, (120, 120)),
-            starting_height=1,
-            manager=MANAGER,
-        )
-
 
     def random_cat(self):
-        if self.selected_cat_list():
-            random_list = [
-                i for i in self.all_cats_list if i.ID not in self.selected_cat_list()
-            ]
-        else:
-            random_list = self.all_cats_list
+        random_list = [
+            i for i in Cat.all_cats_list if (
+                i not in self.selected_cats and
+                not i.dead and not i.outside and
+                (i.ID != self.elders[self.selected_elder].ID)
+            )
+        ]
         return choice(random_list)
 
     def update_elder_info(self):
@@ -296,61 +437,101 @@ class ElderStoryScreen(Screens):
         self.elder_elements = {}
 
         if (
-            self.selected_elder is not None
-        ):  # It can be zero, so we must test for not None here.
-            x_value = 445
+            self.selected_elder is None
+        ):
+            if self.stage == "cats":
+                self.last_med.disable()
+                self.next_med.disable()
+        else:
             elder = self.elders[self.selected_elder]
 
             # Clear elder as selected cat
             if elder in self.selected_cats:
                 self.selected_cats.remove(elder)
                 self.update_selected_cats()
+        
+            if self.stage == "cats":
+                self.elder_elements["elder_container"] = pygame_gui.core.UIContainer(
+                    ui_scale(pygame.Rect((0, 130), (150, 230))),
+                    starting_height=1,
+                    manager=MANAGER,
+                    container=self.story_container,
+                    anchors={"centerx": "centerx"}
+                )
 
-            self.elder_elements["elder_image"] = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((x_value, 145), (150, 150))),
-                pygame.transform.scale(elder.sprite, (150, 150)),
-            )
+                self.elder_elements["elder_image"] = pygame_gui.elements.UIImage(
+                    ui_scale(pygame.Rect((0, 0), (130, 130))),
+                    pygame.transform.scale(elder.sprite, ui_scale_dimensions((130, 130))),
+                    anchors={"centerx": "centerx"},
+                    container=self.elder_elements["elder_container"]
+                )
 
-            name = str(elder.name)
-            short_name = shorten_text_to_fit(name, 120, 11)
-            self.elder_elements["name"] = pygame_gui.elements.UILabel(
-                ui_scale(pygame.Rect((x_value - 5, 290), (160, -1))),
-                short_name,
-                object_id=get_text_box_theme("#text_box_30_horizcenter"),
-            )
+                name = str(elder.name)
+                short_name = shorten_text_to_fit(name, 120, 11)
+                self.elder_elements["name"] = pygame_gui.elements.UILabel(
+                    ui_scale(pygame.Rect((0, 130), (130, 25))),
+                    short_name,
+                    object_id=get_text_box_theme("#text_box_30_horizcenter"),
+                    manager=MANAGER,
+                    anchors={"centerx": "centerx"},
+                    container=self.elder_elements["elder_container"]
+                )
 
-            text = elder.personality.trait + "\n" + elder.experience_level
+                text = elder.personality.trait + "\n" + elder.experience_level
 
-            if elder.not_working():
-                text += "\nThis cat isn't able to work"
-                self.starclan_story_button.disable()
-                self.df_story_button.disable()
-            else:
-                text += "\nThis cat can work"
-                self.starclan_story_button.enable()
-                self.df_story_button.enable()
+                if elder.not_working():
+                    text += "\nThis cat isn't able to work"
+                    self.starclan_story_button.disable()
+                    self.df_story_button.disable()
+                else:
+                    text += "\nThis cat can work"
+                    self.starclan_story_button.enable()
+                    self.df_story_button.enable()
 
-            self.elder_elements["details"] = pygame_gui.elements.UITextBox(
-                text,
-                ui_scale(pygame.Rect((x_value, 310), (155, 60))),
-                object_id=get_text_box_theme("#text_box_22_horizcenter_spacing_95"),
-                manager=MANAGER,
-            )
+                self.elder_elements["details"] = pygame_gui.elements.UITextBox(
+                    text,
+                    ui_scale(pygame.Rect((0, 160), (130, 80))),
+                    object_id=get_text_box_theme("#text_box_22_horizcenter_spacing_95"),
+                    manager=MANAGER,
+                    anchors={"centerx": "centerx"},
+                    container=self.elder_elements["elder_container"]
+                )
 
-            elder_number = len(self.elders)
-            if self.selected_elder < elder_number - 1:
-                self.next_med.enable()
-            else:
-                self.next_med.disable()
+                elder_number = len(self.elders)
+                if self.selected_elder < elder_number - 1:
+                    self.next_med.enable()
+                else:
+                    self.next_med.disable()
 
-            if self.selected_elder > 0:
-                self.last_med.enable()
-            else:
-                self.last_med.disable()
+                if self.selected_elder > 0:
+                    self.last_med.enable()
+                else:
+                    self.last_med.disable()
+            elif self.stage == "story":
+                self.elder_elements["elder_container"] = pygame_gui.core.UIContainer(
+                    ui_scale(pygame.Rect((0, 400), (100, 150))),
+                    starting_height=1,
+                    manager=MANAGER,
+                    container=self.story_container
+                )
 
-        else:
-            self.last_med.disable()
-            self.next_med.disable()
+                self.elder_elements["elder_image"] = pygame_gui.elements.UIImage(
+                    ui_scale(pygame.Rect((0, 0), (75, 75))),
+                    pygame.transform.scale(elder.sprite, ui_scale_dimensions((75, 75))),
+                    anchors={"centerx": "centerx"},
+                    container=self.elder_elements["elder_container"]
+                )
+
+                name = str(elder.name)
+                short_name = shorten_text_to_fit(name, 75, 11)
+                self.elder_elements["name"] = pygame_gui.elements.UILabel(
+                    ui_scale(pygame.Rect((0, 80), (75, 30))),
+                    short_name,
+                    object_id=get_text_box_theme("#text_box_22_horizcenter"),
+                    manager=MANAGER,
+                    anchors={"centerx": "centerx"},
+                    container=self.elder_elements["elder_container"]
+                )
 
         self.update_buttons()
         self.update_list_cats()
@@ -421,7 +602,7 @@ class ElderStoryScreen(Screens):
                     y += 55
                     x = 75
 
-    def update_selected_cats(self):
+    def update_selected_cats(self, faith_changes={}):
         for ele in self.selected_cat_elements:
             self.selected_cat_elements[ele].kill()
         self.selected_cat_elements = {}
@@ -433,11 +614,32 @@ class ElderStoryScreen(Screens):
         self.selected_cat_sprite_buttons = {}
 
         for cat in self.selected_cats:
-            self.draw_info_block(self.selected_cats.index(cat), cat)
+            self.draw_info_block(self.selected_cats.index(cat), cat, faith_changes)
+
+        if self.cat_selection is not None and self.stage == "cats":
+            self.selected_cat_elements["outline"] = pygame_gui.elements.UIImage(
+                ui_scale(pygame.Rect((0, 0), (130, 170))),
+                get_box(BoxStyles.FRAME, (130, 170)),
+                container=self.selected_cat_containers[self.cat_selection],
+                starting_height=1,
+                anchors={"centerx": "centerx"},
+                manager=MANAGER
+            )
+            self.selected_cat_elements["outline"].show()
+        else:
+            self.selected_cat_elements["outline"] = pygame_gui.elements.UIImage(
+                ui_scale(pygame.Rect((0, 0), (130, 170))),
+                get_box(BoxStyles.FRAME, (130, 170)),
+                container=self.selected_cat_containers[0],
+                starting_height=1,
+                anchors={"centerx": "centerx"},
+                manager=MANAGER
+            )
+            self.selected_cat_elements["outline"].hide()
 
         self.update_buttons()
 
-    def draw_info_block(self, index, cat):
+    def draw_info_block(self, index, cat, faith_changes):
         if not cat:
             return
 
@@ -447,67 +649,143 @@ class ElderStoryScreen(Screens):
         else:
             other_cat = None
 
+        if self.stage == "cats":
 
-        if index == 0:
-            x = 462
-            y = 35
-        elif index == 1:
-            x = 620
-            y = 180
-        elif index == 2:
-            x = 570
-            y = 360
-        elif index == 3:
-            x = 360
-            y = 360
-        elif index == 4:
-            x = 290
-            y = 180
-        else:
-            print("Invalid selected cat index:", index)
-            x = 0
-            y = 0
+            self.selected_cat_sprites["cat_", index] = pygame_gui.elements.UIImage(
+                ui_scale(pygame.Rect((0, 0), (120, 120))),
+                pygame.transform.scale(cat.sprite, ui_scale_dimensions((120, 120))),
+                container=self.selected_cat_containers[index],
+                anchors={"centerx": "centerx"}
+            )
 
-        self.selected_cat_sprites["cat_", index] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((x, y), (120, 120))),
-            pygame.transform.scale(cat.sprite, (120, 120)),
-        )
+            name = str(cat.name)
+            short_name = shorten_text_to_fit(name, 130, 15)
+            self.selected_cat_elements["name" + str(index)] = pygame_gui.elements.UILabel(
+                ui_scale(pygame.Rect((0, 110), (130, 30))),
+                short_name,
+                object_id=get_text_box_theme("#text_box_30_horizcenter"),
+                container=self.selected_cat_containers[index],
+                anchors={"centerx": "centerx"}
+            )
 
-        self.selected_cat_sprite_buttons[index] = UIImageButton(
-            ui_scale(pygame.Rect((x, y), (120, 120))),
-            "h",
-            object_id="#blank_button",
-            manager=MANAGER,
-            starting_height=2,
-        )
+            cat_faith = round(cat.faith)
 
-        name = str(cat.name)
-        short_name = shorten_text_to_fit(name, 140, 15)
-        self.selected_cat_elements["name" + str(index)] = pygame_gui.elements.UILabel(
-            ui_scale(pygame.Rect((x - 10, y + 120), (140, 30))),
-            short_name,
-            object_id=get_text_box_theme("#text_box_30_horizcenter"),
-        )
+            if cat_faith < 0:
+                cat_faith *= -1
+                image_path = "resources/images/relation_bar_red.png"
+            elif cat_faith > 0:
+                image_path = "resources/images/relation_bar_green.png"
+            else:
+                image_path = "resources/images/relation_bar.png"
 
-        cat_faith = round(cat.faith)
+            if cat.moons > 5:
+                self.selected_cat_elements["faith_bar_bg_" + str(index)] = pygame_gui.elements.UIImage(
+                    ui_scale(pygame.Rect((0, 140), (118, 25))),
+                    pygame.image.load("resources/images/search_bar.png").convert_alpha(),
+                    container=self.selected_cat_containers[index],
+                    anchors={"centerx": "centerx"},
+                    manager=MANAGER,
+                )
+                x_pos = 25
+                for i in range(cat_faith):
+                    self.selected_cat_elements[str(index) + "_faith_bars_" + str(i)] = pygame_gui.elements.UIImage(
+                        ui_scale(pygame.Rect((x_pos, 145), (8, 15))),
+                        image_cache.load_image(image_path).convert_alpha(),
+                        container=self.selected_cat_containers[index],
+                        anchors={"left": "left"}
+                        )
+                    x_pos += 12
+            self.selected_cat_sprite_buttons[index] = UIImageButton(
+                ui_scale(pygame.Rect((0, 0), (150, 150))),
+                "",
+                object_id="#blank_button",
+                container=self.selected_cat_containers[index],
+                anchors={"centerx": "centerx"}
+                )
+        elif self.stage == "story":
+            self.selected_cat_sprites["cat_", index] = pygame_gui.elements.UIImage(
+                ui_scale(pygame.Rect((0, 0), (75, 75))),
+                pygame.transform.scale(cat.sprite, ui_scale_dimensions((75, 75))),
+                container=self.selected_cat_containers[index],
+                anchors={"centerx": "centerx"}
+            )
 
-        y_pos = y + 150
-        x_pos = x + 25
+            name = str(cat.name)
+            short_name = shorten_text_to_fit(name, 75, 15)
+            self.selected_cat_elements["name" + str(index)] = pygame_gui.elements.UILabel(
+                ui_scale(pygame.Rect((0, 80), (75, 25))),
+                short_name,
+                object_id=get_text_box_theme("#text_box_22_horizcenter"),
+                container=self.selected_cat_containers[index],
+                anchors={"centerx": "centerx"}
+            )
 
-        if cat_faith < 0:
-            cat_faith *= -1
-            image_path = "resources/images/relation_bar_red.png"
-        elif cat_faith > 0:
-            image_path = "resources/images/relation_bar_green.png"
-        else:
-            image_path = "resources/images/relation_bar.png"
+            cat_faith = round(cat.faith)
 
-        if cat.moons > 5:
-            for i in range(cat_faith):
-                self.selected_cat_elements["faith_bars" + str(i)] = pygame_gui.elements.UIImage(
-                    ui_scale(pygame.Rect((x_pos, y_pos), (5, 10))),
-                    image_cache.load_image(image_path).convert_alpha())
-                x_pos += 7
+            if cat_faith < 0:
+                cat_faith *= -1
+                image_path = "resources/images/relation_bar_red.png"
+            elif cat_faith > 0:
+                image_path = "resources/images/relation_bar_green.png"
+            else:
+                image_path = "resources/images/relation_bar.png"
+
+            if cat.moons > 5:
+                self.selected_cat_elements["faith_bar_bg_" + str(index)] = pygame_gui.elements.UIImage(
+                    ui_scale(pygame.Rect((0, 108), (75, 25))),
+                    pygame.image.load("resources/images/search_bar.png").convert_alpha(),
+                    container=self.selected_cat_containers[index],
+                    anchors={"centerx": "centerx"},
+                    manager=MANAGER,
+                )
+                x_pos = 5
+                for i in range(cat_faith):
+                    self.selected_cat_elements[str(index) + "_faith_bars_" + str(i)] = pygame_gui.elements.UIImage(
+                        ui_scale(pygame.Rect((x_pos, 113), (5, 15))),
+                        image_cache.load_image(image_path).convert_alpha(),
+                        container=self.selected_cat_containers[index],
+                        anchors={"left": "left"}
+                        )
+                    x_pos += 6
+
+            change = faith_changes[cat]
+
+            # font colours
+            if game.settings["dark mode"]:
+                sc_colour = "#A8BBFF"
+                df_colour = "#FF9999"
+                neut_colour = "#CE9DFF"
+            else:
+                sc_colour = "#2B3DC3"
+                df_colour = "#950000"
+                neut_colour = "#450E7B"
+
+            if change < 0:
+                if cat.faith > 0:
+                    faith_text = f"<font color = '{sc_colour}'>decreased</font>"
+                elif cat.faith < 0:
+                    faith_text = f"<font color = '{df_colour}'>increased</font>"
+                else:
+                    faith_text = f"<font color = '{neut_colour}'>unchanged</font>"
+            elif change > 0:
+                if cat.faith > 0:
+                    faith_text = f"<font color = '{sc_colour}'>increased</font>"
+                elif cat.faith < 0:
+                    faith_text = f"<font color = '{df_colour}'>decreased</font>"
+                else:
+                    faith_text = f"<font color = '{neut_colour}'>unchanged</font>"
+            else:
+                faith_text = f"<font color = '{neut_colour}'>unchanged</font>"
+
+            self.selected_cat_elements["faith_change_" + str(index)] = UITextBoxTweaked(
+                faith_text,
+                ui_scale(pygame.Rect((0, 140), (75, 25))),
+                object_id=get_text_box_theme("#text_box_22_horizcenter"),
+                container=self.selected_cat_containers[index],
+                anchors={"centerx": "centerx"},
+                manager=MANAGER
+            )
+            
 
     def selected_cat_list(self):
         return self.selected_cats
@@ -531,7 +809,8 @@ class ElderStoryScreen(Screens):
         if len(self.selected_cats) == 0:
             invalid_pair = True
 
-        self.error.set_text(error_message)
+        if self.error:
+            self.error.set_text(error_message)
 
         if invalid_elder or invalid_pair:
             self.starclan_story_button.disable()
@@ -542,18 +821,44 @@ class ElderStoryScreen(Screens):
             self.df_story_button.enable()
             self.tell_story_button.enable()
         
-        if self.selected_story == "":
+        if (self.selected_story == "" or not self.selected_cats):
             self.tell_story_button.disable()
         else:
             self.tell_story_button.enable()
 
-        if self.selected_story == "starclan":
-            self.starclan_story_button.disable()
-            self.df_story_button.enable()
-        elif self.selected_story == "darkforest":
-            self.starclan_story_button.enable()
+        if self.stage == "story":
+            self.next_page.disable()
+            self.previous_page.disable()
+            self.random1.disable()
+            self.search_bar.hide()
             self.df_story_button.disable()
+            self.starclan_story_button.disable()
+        else:
+            self.next_page.enable()
+            self.previous_page.enable()
+            self.random1.enable()
+            self.search_bar.show()
 
+            if self.selected_story == "starclan":
+                self.starclan_story_button.disable()
+                self.df_story_button.enable()
+            elif self.selected_story == "darkforest":
+                self.starclan_story_button.enable()
+                self.df_story_button.disable()
+
+        if self.cat_selection is None:
+            self.elements["randomise_cat"].disable()
+            self.elements["remove_cat"].disable()
+        else:
+            self.elements["randomise_cat"].enable()
+            self.elements["remove_cat"].enable()
+        
+        for btn in self.selected_cat_sprite_buttons:
+            if len(self.selected_cats) < btn:
+                self.selected_cat_sprite_buttons[btn].disable()
+            else:
+                self.selected_cat_sprite_buttons[btn].enable()
+        
 
     def update_search_cats(self, search_text):
         """Run this function when the search text changes, or when the screen is switched to."""
@@ -578,7 +883,6 @@ class ElderStoryScreen(Screens):
         self.update_page()
 
     def exit_screen(self):
-        self.selected_cats = []
 
         for ele in self.elder_elements:
             self.elder_elements[ele].kill()
@@ -591,6 +895,22 @@ class ElderStoryScreen(Screens):
         for ele in self.selected_cat_elements:
             self.selected_cat_elements[ele].kill()
         self.selected_cat_elements = {}
+
+        for ele in self.selected_cat_sprite_buttons:
+            self.selected_cat_sprite_buttons[ele].kill()
+        self.selected_cat_sprite_buttons = {}
+
+        for ele in self.selected_cat_sprites:
+            self.selected_cat_sprites[ele].kill()
+        self.selected_cat_sprites = {}
+
+        for ele in self.selected_cat_containers:
+            self.selected_cat_containers[ele].kill()
+        self.selected_cat_containers = {}
+
+        for ele in self.elements:
+            self.elements[ele].kill()
+        self.elements = {}
 
         self.elders = []
         self.back_button.kill()
@@ -605,27 +925,33 @@ class ElderStoryScreen(Screens):
         del self.starclan_story_button
         self.df_story_button.kill()
         del self.df_story_button
-        self.last_med.kill()
-        del self.last_med
-        self.next_med.kill()
-        del self.next_med
+        if self.last_med:
+            self.last_med.kill()
+            del self.last_med
+        if self.next_med:
+            self.next_med.kill()
+            del self.next_med
         self.next_page.kill()
         del self.next_page
         self.previous_page.kill()
         del self.previous_page
-        self.results.kill()
-        del self.results
+        if self.results:
+            self.results.kill()
+            del self.results
+        if self.results_heading:
+            self.results_heading.kill()
+            del self.results_heading
         self.random1.kill()
         del self.random1
-        self.error.kill()
-        del self.error
+        if self.error:
+            self.error.kill()
+            del self.error
         self.search_bar_image.kill()
         del self.search_bar_image
         self.search_bar.kill()
         del self.search_bar
-        if self.cat_selection_box:
-            self.cat_selection_box.kill()
-            del self.cat_selection_box
+        self.story_container.kill()
+        del self.story_container
 
     def chunks(self, L, n):
         return [L[x : x + n] for x in range(0, len(L), n)]
