@@ -1,10 +1,19 @@
 {
     "starclan": [
         {
-            "title": "A Very Cool StarClan Story",
+            "title": "A Helping Paw",
             "story": [
-                "m_c tells a compelling story about the goodness of StarClan.",
-                "The story is captivating, and the group of cats listen with sparkling eyes, their respect for their ancestors growing."
+                "m_c tells a simple story about the goodness of StarClan.",
+                "It's said that ancestor spirits can lead hunting patrols to prey, even in the coldest conditions. m_c recounts a tale of a hunting patrol that was struggling to find any prey. Just as the patrol was about to return home empty-pawed, a pure black feather floated past and landed at the base of the tree. Burying at that tree uncovered a whole den of hibernating groundhogs! The patrol returned home with enough to feed the entire Clan."
+            ]
+        },
+        {
+            "title": "StarClan's Sights",
+            "story": [
+                "m_c decides to tell a story about the grace of StarClan.",
+                "One day, a very long time ago, the leader of an ancient Clan decided to run away. Burdened by the stress of being leader, they left camp during the night and started towards the border.",
+                "The night was still and cool. The moon shone down onto the rain-slicked ground, causing the grass to twinkle just like the stars above. When the leader reached the Clan's border, the sparkles stopped. Beyond Clan territory was a dull, dark landscape, barren of StarClan's touch.",
+                "The leader decided that their life could not carry on without StarClan. They turned around and returned to camp, and when they awoke in the morning, they stepped down, allowing their capable deputy to take their place. The leader was safe in StarClan's sights once more."
             ]
         }
     ],
@@ -12,18 +21,75 @@
         {
             "title": "A Very Evil Dark Forest Story",
             "story": [
-                "m_c tells an enthralling story about the power of the Dark Forest.",
-                "Though noticeably intimidated by the tale, the group of cats listens attentively, taking its morals to heart."
+                "m_c tells an enthralling story about the power of the Dark Forest."
             ]
         },
         {
             "title": "The Murky River",
             "story": [
                 "m_c decides to tell the group a story from ancient Clans.",
-                "Long ago, a very evil cat attempted to kill their leader. They lured the leader to a dark and secluded river, where they attempted to drown the leader and take all of their lives. However, when the evil cat's paw touched the water, a pair of paws shot out from the water, grabbed the cat, and pulled them in, sparing the life of the leader.",
-                "The cat was dragged deeper and deeper into the water until they emerged onto the riverbank of a blood-red river. The forest around them had died, and hungry eyes shone at them from the shadows that surrounded them. The cat had been taken to the Dark Forest.",
-                "The group of listening cats is captivated by the tale, both their fear and respect for the Dark Forest growing."
+                "Long ago, a very evil cat attempted to kill their leader. They lured the leader to a dark and secluded river, where they attempted to drown the leader and take all of their lives. However, when the evil cat touched the water, a pair of paws shot out, grabbed the cat, and pulled them in, sparing the leader's lives.",
+                "The cat was dragged deeper and deeper into the water until they emerged onto the bank of a blood-red river. The forest around them had died, and hungry eyes shone at them from the shadows that surrounded them. The cat had been taken to the Dark Forest."
             ]
         }
-    ]
+    ],
+    "result_strings": {
+        "darkforest": {
+            "all_success": {
+                "one": [
+                    "r_c listens eagerly, {PRONOUN/r_c/poss} respect for the Dark Forest growing."
+                ],
+                "mult": [
+                    "Though noticeably intimidated by the tale, the group of cats listens attentively, taking its morals to heart."
+                ]
+           } ,
+            "some_success": {
+                "one": [
+                    "This should not appear."
+                ],
+                "mult": [
+                    "Most of the group's respect for the Dark Forest grows after hearing the tale, while some are so thoroughly spooked that they leave the den with an increased reliance on StarClan.",
+                    "The group begins debating on the moral of the story. Some believe that this means the Dark Forest is clearly more powerful than StarClan and should be respected, with others argue that this only means StarClan should be more closely followed.",
+                    "While some cats express their growing respect for the Dark Forest, others find themselves growing closer to StarClan after the story."
+                ]
+            },
+            "none_success": {
+                "one": [
+                    "r_c is unamused, telling m_c {PRONOUN/r_c/subject} {VERB/r_c/don't/doesn't} really believe the story-- the Dark Forest is nothing scarier than a kit tale."
+                ],
+                "mult": [
+                    "m_c was hoping to instill some respect for the Dark Forest in the group, but instead, the group of cats leave the den compelled even more towards StarClan.",
+                    "The group collectively agrees that the story can't possibly be true, as StarClan would never have allowed such a thing. It seems that they've missed the point..."
+                ]
+            }
+        },
+        "starclan": {
+            "all_success": {
+                "one": [
+                    "When m_c finishes the story, r_c asks for another one, {PRONOUN/r_c/poss} eyes sparkling!"
+                ],
+                "mult": [
+                    "The story is captivating, and the group of cats listen with sparkling eyes, their respect for their ancestors growing."
+                ]
+            },
+            "some_success": {
+                "one": [
+                    "This should not appear."
+                ],
+                "mult": [
+                    "Many of the group express their increased respect for StarClan, while others aren't so impressed, believing the story would have been better if the Dark Forest were involved.",
+                    "While some group members understand the StarClan-positive moral, others roll their eyes. StarClan is boring-- the Dark Forest would have made for a better story!",
+                    "Not every cat retains the pro-StarClan message of the tale, instead leaving the den pondering the Dark Forest."
+                ]
+            },
+            "none_success": {
+                "one": [
+                    "r_c listens politely, but very clearly isn't entertained by the story. At the end, {PRONOUN/r_c/subject} {VERB/r_c/ask/asks} if m_c has any stories about the Dark Forest instead."
+                ],
+                "mult": [
+                    "m_c's storytelling skills may need some work... all the group ends up asking about is the Dark Forest, and how much more interesting the story would be if they were involved."
+                ]
+            }
+        }
+    }
 }

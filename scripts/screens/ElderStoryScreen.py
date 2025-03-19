@@ -108,6 +108,7 @@ class ElderStoryScreen(Screens):
                 else:
                     self.stage = "cats"
                     self.selected_cats = []
+                    self.cat_selection = None
                     self.exit_screen()
                     self.screen_switches()
                     self.update_selected_cats()
@@ -136,10 +137,8 @@ class ElderStoryScreen(Screens):
                 if cat_object in self.selected_cats:
                     if self.cat_selection == self.selected_cats.index(cat_object):
                         if self.cat_selection is not None:
-                            self.cat_selection = None
+                            self.cat_selection = (self.selected_cats.index(cat_object)) - 1 if self.selected_cats.index(cat_object) > 0 else None
                     self.selected_cats.remove(cat_object)
-                    if self.selected_cats:
-                        self.cat_selection = (self.selected_cats.index(cat_object)) - 1 if self.selected_cats.index(cat_object) > 0 else 0
                 else:
                     if self.cat_selection is not None:
                         self.selected_cats[self.cat_selection] = cat_object
@@ -147,6 +146,8 @@ class ElderStoryScreen(Screens):
                         if len(self.selected_cats) < 5:
                             self.selected_cats.append(cat_object)
                             # self.cat_selection = self.selected_cats.index(cat_object)
+                if self.cat_selection is not None and self.cat_selection > len(self.selected_cats):
+                    self.cat_selection = len(self.selected_cats) if len(self.selected_cats) > 0 else None
 
                 self.update_selected_cats()
             for item in self.selected_cat_sprite_buttons:
@@ -371,31 +372,31 @@ class ElderStoryScreen(Screens):
                 )
 
             self.selected_cat_containers[0] = pygame_gui.core.UIContainer(
-                ui_scale(pygame.Rect((100, 400), (75, 165))),
+                ui_scale(pygame.Rect((80, 400), (75, 165))),
                 starting_height=1,
                 container=self.story_container,
                 manager=MANAGER
             )
             self.selected_cat_containers[1] = pygame_gui.core.UIContainer(
-                ui_scale(pygame.Rect((180, 400), (75, 165))),
+                ui_scale(pygame.Rect((160, 400), (75, 165))),
                 starting_height=1,
                 container=self.story_container,
                 manager=MANAGER
             )
             self.selected_cat_containers[2] = pygame_gui.core.UIContainer(
-                ui_scale(pygame.Rect((260, 400), (75, 165))),
+                ui_scale(pygame.Rect((240, 400), (75, 165))),
                 starting_height=1,
                 container=self.story_container,
                 manager=MANAGER
             )
             self.selected_cat_containers[3] = pygame_gui.core.UIContainer(
-                ui_scale(pygame.Rect((340, 400), (75, 165))),
+                ui_scale(pygame.Rect((320, 400), (75, 165))),
                 starting_height=1,
                 container=self.story_container,
                 manager=MANAGER
             )
             self.selected_cat_containers[4] = pygame_gui.core.UIContainer(
-                ui_scale(pygame.Rect((420, 400), (75, 165))),
+                ui_scale(pygame.Rect((400, 400), (75, 165))),
                 starting_height=1,
                 container=self.story_container,
                 manager=MANAGER
@@ -411,7 +412,7 @@ class ElderStoryScreen(Screens):
             )
             self.results = pygame_gui.elements.UITextBox(
                 "",
-                ui_scale(pygame.Rect((0, 140), (420, 270))),
+                ui_scale(pygame.Rect((0, 140), (420, 250))),
                 object_id=get_text_box_theme("#text_box_26_horizcenter"),
                 manager=MANAGER,
                 container=self.story_container,
@@ -509,7 +510,7 @@ class ElderStoryScreen(Screens):
                     self.last_med.disable()
             elif self.stage == "story":
                 self.elder_elements["elder_container"] = pygame_gui.core.UIContainer(
-                    ui_scale(pygame.Rect((0, 400), (100, 150))),
+                    ui_scale(pygame.Rect((-20, 400), (100, 150))),
                     starting_height=1,
                     manager=MANAGER,
                     container=self.story_container
@@ -523,7 +524,7 @@ class ElderStoryScreen(Screens):
                 )
 
                 name = str(elder.name)
-                short_name = shorten_text_to_fit(name, 75, 11)
+                short_name = shorten_text_to_fit(name, 75, 14)
                 self.elder_elements["name"] = pygame_gui.elements.UILabel(
                     ui_scale(pygame.Rect((0, 80), (75, 30))),
                     short_name,
@@ -678,14 +679,14 @@ class ElderStoryScreen(Screens):
             else:
                 image_path = "resources/images/relation_bar.png"
 
+            self.selected_cat_elements["faith_bar_bg_" + str(index)] = pygame_gui.elements.UIImage(
+                ui_scale(pygame.Rect((0, 140), (118, 25))),
+                pygame.image.load("resources/images/search_bar.png").convert_alpha(),
+                container=self.selected_cat_containers[index],
+                anchors={"centerx": "centerx"},
+                manager=MANAGER,
+            )
             if cat.moons > 5:
-                self.selected_cat_elements["faith_bar_bg_" + str(index)] = pygame_gui.elements.UIImage(
-                    ui_scale(pygame.Rect((0, 140), (118, 25))),
-                    pygame.image.load("resources/images/search_bar.png").convert_alpha(),
-                    container=self.selected_cat_containers[index],
-                    anchors={"centerx": "centerx"},
-                    manager=MANAGER,
-                )
                 x_pos = 25
                 for i in range(cat_faith):
                     self.selected_cat_elements[str(index) + "_faith_bars_" + str(i)] = pygame_gui.elements.UIImage(
@@ -730,14 +731,14 @@ class ElderStoryScreen(Screens):
             else:
                 image_path = "resources/images/relation_bar.png"
 
+            self.selected_cat_elements["faith_bar_bg_" + str(index)] = pygame_gui.elements.UIImage(
+                ui_scale(pygame.Rect((0, 108), (75, 25))),
+                pygame.image.load("resources/images/search_bar.png").convert_alpha(),
+                container=self.selected_cat_containers[index],
+                anchors={"centerx": "centerx"},
+                manager=MANAGER,
+            )
             if cat.moons > 5:
-                self.selected_cat_elements["faith_bar_bg_" + str(index)] = pygame_gui.elements.UIImage(
-                    ui_scale(pygame.Rect((0, 108), (75, 25))),
-                    pygame.image.load("resources/images/search_bar.png").convert_alpha(),
-                    container=self.selected_cat_containers[index],
-                    anchors={"centerx": "centerx"},
-                    manager=MANAGER,
-                )
                 x_pos = 5
                 for i in range(cat_faith):
                     self.selected_cat_elements[str(index) + "_faith_bars_" + str(i)] = pygame_gui.elements.UIImage(
@@ -760,26 +761,29 @@ class ElderStoryScreen(Screens):
                 df_colour = "#950000"
                 neut_colour = "#450E7B"
 
-            if change < 0:
-                if cat.faith > 0:
-                    faith_text = f"<font color = '{sc_colour}'>decreased</font>"
-                elif cat.faith < 0:
-                    faith_text = f"<font color = '{df_colour}'>increased</font>"
-                else:
-                    faith_text = f"<font color = '{neut_colour}'>unchanged</font>"
-            elif change > 0:
-                if cat.faith > 0:
-                    faith_text = f"<font color = '{sc_colour}'>increased</font>"
-                elif cat.faith < 0:
-                    faith_text = f"<font color = '{df_colour}'>decreased</font>"
+            if cat.moons > 5:
+                if change < 0:
+                    if cat.faith > 0:
+                        faith_text = f"<font color = '{sc_colour}'>decreased</font>"
+                    elif cat.faith < 0:
+                        faith_text = f"<font color = '{df_colour}'>increased</font>"
+                    else:
+                        faith_text = f"<font color = '{neut_colour}'>unchanged</font>"
+                elif change > 0:
+                    if cat.faith > 0:
+                        faith_text = f"<font color = '{sc_colour}'>increased</font>"
+                    elif cat.faith < 0:
+                        faith_text = f"<font color = '{df_colour}'>decreased</font>"
+                    else:
+                        faith_text = f"<font color = '{neut_colour}'>unchanged</font>"
                 else:
                     faith_text = f"<font color = '{neut_colour}'>unchanged</font>"
             else:
-                faith_text = f"<font color = '{neut_colour}'>unchanged</font>"
+                faith_text = "???"
 
             self.selected_cat_elements["faith_change_" + str(index)] = UITextBoxTweaked(
                 faith_text,
-                ui_scale(pygame.Rect((0, 140), (75, 25))),
+                ui_scale(pygame.Rect((0, 130), (75, 25))),
                 object_id=get_text_box_theme("#text_box_22_horizcenter"),
                 container=self.selected_cat_containers[index],
                 anchors={"centerx": "centerx"},

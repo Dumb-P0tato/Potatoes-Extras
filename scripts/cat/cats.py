@@ -3291,6 +3291,7 @@ class Cat:
             possible_stories = ujson.loads(r.read())
 
         cat_effects = {}
+        failed_cats = []
         for cat in cats:
             if elder.ID in cat.relationships:
                 relationship = cat.relationships[elder.ID]
@@ -3320,26 +3321,27 @@ class Cat:
             else:
                 fail_chance = 10
 
-            if fail_chance < 10:
-                fail_chance = 10
+            if fail_chance < 5:
+                fail_chance = 5
             # change this up obviously. not just relationships
             
             fail = False
             if not int(random() * fail_chance):
                 fail = True
                 print(cat.name, "faith effect failed", fail_chance, stranger)
+                failed_cats.append(cat)
 
             faith_change = 0
             if chosen_story == "starclan":
                 if fail:
-                    faith_change = -1
+                    faith_change = -0.75
                 else:
-                    faith_change = 1
+                    faith_change = 0.75
             elif chosen_story == "darkforest":
                 if fail:
-                    faith_change = 1
+                    faith_change = 0.75
                 else:
-                    faith_change = -1
+                    faith_change = -0.75
             cat.faith += faith_change
 
             cat_effects.update({cat: faith_change})
@@ -3347,6 +3349,38 @@ class Cat:
         story = choice(possible_stories[chosen_story])
         heading = story["title"]
         output = story["story"]
+
+        success_rate = "all_success"
+        if failed_cats:
+            if len(failed_cats) < len(cats):
+                success_rate = "some_success"
+            else:
+                success_rate = "none_success"
+        
+        if len(cats) == 1:
+            random_cat = cats[0]
+            count = "one"
+        else:
+            cat_choices = []
+            if success_rate != "none_success":
+                for kitty in cats:
+                    if kitty in failed_cats:
+                        continue
+                    cat_choices.append(kitty)
+            random_cat = choice(cat_choices)
+            count = "mult"
+
+        result = choice(possible_stories["result_strings"][chosen_story][success_rate][count])
+        result_string = event_text_adjust(
+            Cat,
+            text=result,
+            main_cat=elder,
+            random_cat=random_cat,
+            clan=game.clan
+        )
+
+        output.append("~~~")
+        output.append(result_string)
 
         return heading, output, cat_effects
 
