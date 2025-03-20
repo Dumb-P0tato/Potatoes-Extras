@@ -61,6 +61,9 @@ class ElderStoryScreen(Screens):
 
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.back_button:
+                self.stage = "cats"
+                self.selected_cats = []
+                self.cat_selection = None
                 self.change_screen("profile screen")
             elif event.ui_element == self.last_med:
                 self.selected_elder -= 1
@@ -86,6 +89,7 @@ class ElderStoryScreen(Screens):
                     self.exit_screen()
                     self.screen_switches()
                     game.patrolled.append(self.elders[self.selected_elder].ID)
+                    game.told_story.extend([cat.ID for cat in self.selected_cats])
                     output = Cat.elder_story(
                         self.elders[self.selected_elder],
                         self.selected_cats,
@@ -109,19 +113,26 @@ class ElderStoryScreen(Screens):
                     self.stage = "cats"
                     self.selected_cats = []
                     self.cat_selection = None
+                    self.selected_story = ""
                     self.exit_screen()
                     self.screen_switches()
                     self.update_selected_cats()
             elif event.ui_element == self.random1:
                 self.selected_cats = []
                 for i in [0,1,2,3,4]:
-                    new_cat = self.random_cat()
+                    try:
+                        new_cat = self.random_cat()
+                    except:
+                        print("No random cats available.")
                     self.selected_cats.append(new_cat)
                 self.update_selected_cats()
                 self.update_elder_info()
             elif event.ui_element == self.elements["randomise_cat"]:
                 if self.cat_selection is not None:
-                    new_cat = self.random_cat()
+                    try:
+                        new_cat = self.random_cat()
+                    except:
+                        print("No random cats available.")
                     self.selected_cats[self.cat_selection] = new_cat
                     self.update_selected_cats()
             elif event.ui_element == self.elements["remove_cat"]:
@@ -275,7 +286,7 @@ class ElderStoryScreen(Screens):
         )
 
         self.story_container = pygame_gui.core.UIContainer(
-            ui_scale(pygame.Rect((270, 70), (496, 620))),
+            ui_scale(pygame.Rect((290, 70), (476, 620))),
             starting_height=1,
             manager=MANAGER
         )
@@ -327,20 +338,20 @@ class ElderStoryScreen(Screens):
             )
 
             self.next_med = UISurfaceImageButton(
-                ui_scale(pygame.Rect((590, 340), (34, 34))),
+                ui_scale(pygame.Rect((530, 475), (34, 34))),
                 Icon.ARROW_RIGHT,
                 get_button_dict(ButtonStyles.ICON, (34, 34)),
                 object_id="@buttonstyles_icon",
             )
             self.last_med = UISurfaceImageButton(
-                ui_scale(pygame.Rect((410, 340), (34, 34))),
+                ui_scale(pygame.Rect((490, 475), (34, 34))),
                 Icon.ARROW_LEFT,
                 get_button_dict(ButtonStyles.ICON, (34, 34)),
                 object_id="@buttonstyles_icon",
             )
             self.error = pygame_gui.elements.UITextBox(
                 "",
-                ui_scale(pygame.Rect((0, 335), (280, 34))),
+                ui_scale(pygame.Rect((0, 345), (380, 60))),
                 object_id=get_text_box_theme("#text_box_22_horizcenter_spacing_95"),
                 manager=MANAGER,
                 container=self.story_container,
@@ -365,38 +376,38 @@ class ElderStoryScreen(Screens):
 
             self.elements["banner_img"] = pygame_gui.elements.UIImage(
                     ui_scale(pygame.Rect((0, 10), (460, 70))),
-                    pygame.image.load("resources/images/dead_camps/scbackground_sunsetclouds.png").convert_alpha(),
+                    pygame.image.load(f"resources/images/elder_banner_{self.selected_story}.png").convert_alpha(),
                     container=self.story_container,
                     anchors={"centerx": "centerx"},
                     manager=MANAGER,
                 )
 
             self.selected_cat_containers[0] = pygame_gui.core.UIContainer(
-                ui_scale(pygame.Rect((80, 400), (75, 165))),
+                ui_scale(pygame.Rect((70, 400), (75, 165))),
                 starting_height=1,
                 container=self.story_container,
                 manager=MANAGER
             )
             self.selected_cat_containers[1] = pygame_gui.core.UIContainer(
-                ui_scale(pygame.Rect((160, 400), (75, 165))),
+                ui_scale(pygame.Rect((150, 400), (75, 165))),
                 starting_height=1,
                 container=self.story_container,
                 manager=MANAGER
             )
             self.selected_cat_containers[2] = pygame_gui.core.UIContainer(
-                ui_scale(pygame.Rect((240, 400), (75, 165))),
+                ui_scale(pygame.Rect((230, 400), (75, 165))),
                 starting_height=1,
                 container=self.story_container,
                 manager=MANAGER
             )
             self.selected_cat_containers[3] = pygame_gui.core.UIContainer(
-                ui_scale(pygame.Rect((320, 400), (75, 165))),
+                ui_scale(pygame.Rect((310, 400), (75, 165))),
                 starting_height=1,
                 container=self.story_container,
                 manager=MANAGER
             )
             self.selected_cat_containers[4] = pygame_gui.core.UIContainer(
-                ui_scale(pygame.Rect((400, 400), (75, 165))),
+                ui_scale(pygame.Rect((390, 400), (75, 165))),
                 starting_height=1,
                 container=self.story_container,
                 manager=MANAGER
@@ -410,7 +421,7 @@ class ElderStoryScreen(Screens):
                 container=self.story_container,
                 anchors={"centerx": "centerx"}
             )
-            self.results = pygame_gui.elements.UITextBox(
+            self.results = UITextBoxTweaked(
                 "",
                 ui_scale(pygame.Rect((0, 140), (420, 250))),
                 object_id=get_text_box_theme("#text_box_26_horizcenter"),
@@ -423,13 +434,24 @@ class ElderStoryScreen(Screens):
         self.update_elder_info()
 
     def random_cat(self):
-        random_list = [
-            i for i in Cat.all_cats_list if (
-                i not in self.selected_cats and
-                not i.dead and not i.outside and
-                (i.ID != self.elders[self.selected_elder].ID)
-            )
-        ]
+        try:
+            random_list = [
+                i for i in Cat.all_cats_list if (
+                    i not in self.selected_cats and
+                    not i.dead and not i.outside and
+                    (i.ID != self.elders[self.selected_elder].ID) and
+                    i.ID not in game.mediated
+                )
+            ]
+        except:
+            random_list = [
+                i for i in Cat.all_cats_list if (
+                    i not in self.selected_cats and
+                    not i.dead and not i.outside and
+                    (i.ID != self.elders[self.selected_elder].ID)
+                )
+            ]
+
         return choice(random_list)
 
     def update_elder_info(self):
@@ -673,24 +695,24 @@ class ElderStoryScreen(Screens):
 
             if cat_faith < 0:
                 cat_faith *= -1
-                image_path = "resources/images/relation_bar_red.png"
+                image_path = "resources/images/faith_bar_df.png"
             elif cat_faith > 0:
-                image_path = "resources/images/relation_bar_green.png"
+                image_path = "resources/images/faith_bar_sc.png"
             else:
                 image_path = "resources/images/relation_bar.png"
 
             self.selected_cat_elements["faith_bar_bg_" + str(index)] = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((0, 140), (118, 25))),
+                ui_scale(pygame.Rect((0, 140), (124, 25))),
                 pygame.image.load("resources/images/search_bar.png").convert_alpha(),
                 container=self.selected_cat_containers[index],
                 anchors={"centerx": "centerx"},
                 manager=MANAGER,
             )
             if cat.moons > 5:
-                x_pos = 25
+                x_pos = 22
                 for i in range(cat_faith):
                     self.selected_cat_elements[str(index) + "_faith_bars_" + str(i)] = pygame_gui.elements.UIImage(
-                        ui_scale(pygame.Rect((x_pos, 145), (8, 15))),
+                        ui_scale(pygame.Rect((x_pos, 148), (8, 9))),
                         image_cache.load_image(image_path).convert_alpha(),
                         container=self.selected_cat_containers[index],
                         anchors={"left": "left"}
@@ -725,9 +747,9 @@ class ElderStoryScreen(Screens):
 
             if cat_faith < 0:
                 cat_faith *= -1
-                image_path = "resources/images/relation_bar_red.png"
+                image_path = "resources/images/faith_bar_df.png"
             elif cat_faith > 0:
-                image_path = "resources/images/relation_bar_green.png"
+                image_path = "resources/images/faith_bar_sc.png"
             else:
                 image_path = "resources/images/relation_bar.png"
 
@@ -739,15 +761,15 @@ class ElderStoryScreen(Screens):
                 manager=MANAGER,
             )
             if cat.moons > 5:
-                x_pos = 5
+                x_pos = 6
                 for i in range(cat_faith):
                     self.selected_cat_elements[str(index) + "_faith_bars_" + str(i)] = pygame_gui.elements.UIImage(
-                        ui_scale(pygame.Rect((x_pos, 113), (5, 15))),
+                        ui_scale(pygame.Rect((x_pos, 115), (6, 11))),
                         image_cache.load_image(image_path).convert_alpha(),
                         container=self.selected_cat_containers[index],
                         anchors={"left": "left"}
                         )
-                    x_pos += 6
+                    x_pos += 7
 
             change = faith_changes[cat]
 
@@ -801,47 +823,52 @@ class ElderStoryScreen(Screens):
         if self.selected_elder is not None:
             if self.elders[self.selected_elder].not_working():
                 invalid_elder = True
-                error_message += "This elder can't work this moon. "
             elif self.elders[self.selected_elder].ID in game.patrolled:
                 invalid_elder = True
-                error_message += "This elder has already worked this moon. "
+                error_message += "This elder has already worked this moon. <br>"
         else:
             invalid_elder = True
 
-        invalid_pair = False
-
-        if len(self.selected_cats) == 0:
-            invalid_pair = True
+        no_cats = False
+        invalid_cats = []
+        if self.selected_cats:
+            for x in self.selected_cats:
+                if x.ID in game.told_story:
+                    invalid_cats.append(x)
+            if invalid_cats:
+                error_message += "These cats have already been told a story this moon:<br>"
+                error_message += f"{', '.join(str(x.name) for x in invalid_cats)}"
+        else:
+            no_cats = True
 
         if self.error:
             self.error.set_text(error_message)
 
-        if invalid_elder or invalid_pair:
-            self.starclan_story_button.disable()
-            self.df_story_button.disable()
+        if (self.selected_story == "" or not self.selected_cats or invalid_cats):
             self.tell_story_button.disable()
         else:
-            self.starclan_story_button.enable()
-            self.df_story_button.enable()
             self.tell_story_button.enable()
         
-        if (self.selected_story == "" or not self.selected_cats):
-            self.tell_story_button.disable()
-        else:
-            self.tell_story_button.enable()
 
-        if self.stage == "story":
-            self.next_page.disable()
-            self.previous_page.disable()
-            self.random1.disable()
-            self.search_bar.hide()
-            self.df_story_button.disable()
-            self.starclan_story_button.disable()
-        else:
+        if self.stage == "cats":
             self.next_page.enable()
             self.previous_page.enable()
             self.random1.enable()
             self.search_bar.show()
+
+            if invalid_elder or no_cats or invalid_cats:
+                self.starclan_story_button.disable()
+                self.df_story_button.disable()
+                self.tell_story_button.disable()
+            else:
+                self.starclan_story_button.enable()
+                self.df_story_button.enable()
+            
+            if self.selected_story:
+                self.tell_story_button.enable()
+            else:
+                self.tell_story_button.disable()
+
 
             if self.selected_story == "starclan":
                 self.starclan_story_button.disable()
@@ -849,6 +876,19 @@ class ElderStoryScreen(Screens):
             elif self.selected_story == "darkforest":
                 self.starclan_story_button.enable()
                 self.df_story_button.disable()
+            for btn in self.cat_buttons:
+                btn.enable()
+        else:
+            self.next_page.disable()
+            self.previous_page.disable()
+            self.random1.disable()
+            self.search_bar.hide()
+            self.df_story_button.disable()
+            self.starclan_story_button.disable()
+            self.tell_story_button.enable()
+
+            for btn in self.cat_buttons:
+                btn.disable()
 
         if self.cat_selection is None:
             self.elements["randomise_cat"].disable()

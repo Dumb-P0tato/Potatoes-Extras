@@ -3328,7 +3328,6 @@ class Cat:
             fail = False
             if not int(random() * fail_chance):
                 fail = True
-                print(cat.name, "faith effect failed", fail_chance, stranger)
                 failed_cats.append(cat)
 
             faith_change = 0
@@ -3342,11 +3341,22 @@ class Cat:
                     faith_change = 0.75
                 else:
                     faith_change = -0.75
+
             cat.faith += faith_change
+            if cat.faith > 9:
+                cat.faith = 9
+            if cat.faith < -9:
+                cat.faith = -9
 
             cat_effects.update({cat: faith_change})
+        
+        # FILTERING FOR POSSIBLE STORIES
+        stories = possible_stories[chosen_story]
+        filtered_stories = []
+        for story in stories:
+            filtered_stories.append(story)
 
-        story = choice(possible_stories[chosen_story])
+        story = choice(filtered_stories)
         heading = story["title"]
         output = story["story"]
 

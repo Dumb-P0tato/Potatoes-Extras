@@ -24,6 +24,7 @@ class Game:
     # relation_scroll_ct = 0
 
     mediated = []  # Keep track of which couples have been mediated this moon.
+    told_story = []  # LG: Keep track of who has been told a story this moon
     just_died = []  # keeps track of which cats died this moon via die()
 
     cur_events_list = []

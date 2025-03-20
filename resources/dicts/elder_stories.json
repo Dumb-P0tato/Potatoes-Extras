@@ -1,13 +1,15 @@
 {
     "starclan": [
         {
+            "id": "sc_J1",
             "title": "A Helping Paw",
             "story": [
                 "m_c tells a simple story about the goodness of StarClan.",
-                "It's said that ancestor spirits can lead hunting patrols to prey, even in the coldest conditions. m_c recounts a tale of a hunting patrol that was struggling to find any prey. Just as the patrol was about to return home empty-pawed, a pure black feather floated past and landed at the base of the tree. Burying at that tree uncovered a whole den of hibernating groundhogs! The patrol returned home with enough to feed the entire Clan."
+                "It's said that ancestor spirits can lead hunting patrols to prey, even in the harshest conditions. m_c recounts a tale of a hunting patrol that was struggling to find any prey. Just as the patrol was about to return home empty-pawed, a pure black feather floated past and landed in the bright white snow at the base of the tree. Digging at that tree uncovered a whole den of hibernating groundhogs! The patrol returned home with enough to feed the entire Clan."
             ]
         },
         {
+            "id": "sc_J2",
             "title": "StarClan's Sights",
             "story": [
                 "m_c decides to tell a story about the grace of StarClan.",
@@ -19,12 +21,14 @@
     ],
     "darkforest": [
         {
+            "id": "df_J1",
             "title": "A Very Evil Dark Forest Story",
             "story": [
                 "m_c tells an enthralling story about the power of the Dark Forest."
             ]
         },
         {
+            "id": "df_J2",
             "title": "The Murky River",
             "story": [
                 "m_c decides to tell the group a story from ancient Clans.",
@@ -49,7 +53,7 @@
                 ],
                 "mult": [
                     "Most of the group's respect for the Dark Forest grows after hearing the tale, while some are so thoroughly spooked that they leave the den with an increased reliance on StarClan.",
-                    "The group begins debating on the moral of the story. Some believe that this means the Dark Forest is clearly more powerful than StarClan and should be respected, with others argue that this only means StarClan should be more closely followed.",
+                    "The group begins debating on the moral of the story. Some believe that this means the Dark Forest is clearly more powerful than StarClan and should be respected, while others argue that this only means StarClan should be more closely followed.",
                     "While some cats express their growing respect for the Dark Forest, others find themselves growing closer to StarClan after the story."
                 ]
             },
