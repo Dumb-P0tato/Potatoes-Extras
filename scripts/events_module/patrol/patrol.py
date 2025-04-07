@@ -282,6 +282,7 @@ class Patrol:
         biome_dir = f"{biome}/"
         leaf = f"{season}"
         self.update_resources(biome_dir, leaf)
+        
 
         possible_patrols = []
         # This is for debugging purposes, load-in *ALL* the possible patrols when debug_override_patrol_stat_requirements is true. (May require longer loading time)
@@ -460,7 +461,6 @@ class Patrol:
         final_patrols, final_romance_patrols = self.get_filtered_patrols(
             possible_patrols, biome, camp, current_season, patrol_type
         )
-
         # This is a debug option, this allows you to remove any constraints of a patrol regarding location, session, biomes, etc. 
         if game.config["patrol_generation"]["debug_override_patrol_stat_requirements"]:
             final_patrols = final_romance_patrols = possible_patrols
@@ -645,7 +645,6 @@ class Patrol:
                 if "you_med" in patrol.tags:
                     if game.clan.your_cat.status != 'medicine cat':
                         continue
-                    
             #  correct button check
             if game.switches["patrol_category"] == 'clangen':
                 if patrol_type == "general":
@@ -663,6 +662,15 @@ class Patrol:
                         continue
 
             if game.switches["patrol_category"] in ['lifegen', 'df', 'date']:
+                if game.switches["patrol_category"] == "lifegen":
+                    if not any(p in patrol.types for p in ["sc_lifegen", "ur_lifegen", "df_lifegen"]) and game.clan.your_cat.dead:
+                        continue
+                    if "sc_lifegen" in patrol.types and (not game.clan.your_cat.dead or game.clan.your_cat.df or game.clan.your_cat.ID in game.clan.unknown_cats):
+                        continue
+                    elif "df_lifegen" in patrol.types and (not game.clan.your_cat.dead or not game.clan.your_cat.df or game.clan.your_cat.ID in game.clan.unknown_cats):
+                        continue
+                    elif "ur_lifegen" in patrol.types and (not game.clan.your_cat.dead or game.clan.your_cat.df or game.clan.your_cat.ID not in game.clan.unknown_cats):
+                        continue
                 if game.switches["patrol_category"] == "df":
                     if len(self.patrol_cats) > 1:
                         other_cat = self.patrol_cats[1]
@@ -736,8 +744,7 @@ class Patrol:
                     # else:
                     #     print(i)
                 if skip is True:
-                    continue
-                        
+                    continue            
             # cruel season tag check
             if "cruel_season" in patrol.tags:
                 if game.clan and game.clan.game_mode != "cruel_season":
@@ -862,6 +869,10 @@ class Patrol:
                 self.random_cat.relationships[game.clan.your_cat.ID].comfortable -= randint(1,5)
             except:
                 print("ERROR: handling relationship changes in date patrol")
+
+        if success and game.switches["patrol_category"] == "df":
+            game.clan.your_cat.df_patrols += 1
+            
         print(f"PATROL ID: {self.patrol_event.patrol_id} | SUCCESS: {success}")
         
         # Run the chosen outcome

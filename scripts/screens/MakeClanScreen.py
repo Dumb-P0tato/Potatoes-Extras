@@ -10,12 +10,11 @@ import pygame_gui
 from pygame_gui.core import ObjectID
 
 import scripts.screens.screens_core.screens_core
-from scripts.cat.cats import create_example_cats, create_cat, Cat
+from scripts.cat.cats import create_example_cats, Cat
 from scripts.cat.pelts import Pelt
 from scripts.cat.personality import Personality
 from scripts.cat.names import names
 from scripts.clan import Clan
-from scripts.game_structure import image_cache
 from scripts.game_structure.game_essentials import (
     game,
 )
@@ -145,6 +144,7 @@ class MakeClanScreen(Screens):
 
     def screen_switches(self):
         super().screen_switches()
+        self.set_mute_button_position("topright")
         self.show_mute_buttons()
         self.set_bg("default", "mainmenu_bg")
 
@@ -379,7 +379,7 @@ class MakeClanScreen(Screens):
                             "LUNARCHIMES", "SILVERLUNARCHIMES", "FLOWER MOSS", "SANVITALIAFLOWERS",
                             "STARFLOWERS", "SHELL PACK", "MOSS2", "MUSHROOMS", "CLOVERS", "MUD", "LADYBUGS",
                             "FIRBRANCHES", "CHERRYBLOSSOM", "MISTLETOE", "BROWNMOSSPELT", "BLEEDINGVINES",
-                            "BLEEDINGHEART", "MOREFERN", "GRAYMOSSPELT", "FERN"]
+                            "BLEEDINGHEART", "MOREFERN", "GRAYMOSSPELT", "FERN", "YELLOWWISTERIA", "WATTLE", "SPRINGFLOWERCORSAGE"]
         # god damn we have a lot of tail accessories
 
         # Buttons that appear on every screen.
@@ -841,6 +841,7 @@ class MakeClanScreen(Screens):
         self.rolls_left = game.config["clan_creation"]["rerolls"]
         self.fullscreen_bgs = {}
         self.game_bgs = {}
+        self.set_mute_button_position("bottomright")
         return super().exit_screen()
 
     def on_use(self):
@@ -4499,6 +4500,7 @@ class MakeClanScreen(Screens):
             self.your_cat.create_inheritance_new_cat()
             game.clan.your_cat = self.your_cat
             game.clan.your_cat.moons = -1
+            game.clan.add_cat(game.clan.your_cat)
             self.delete_example_cats()
         else:
             self.handle_create_other_cats()
