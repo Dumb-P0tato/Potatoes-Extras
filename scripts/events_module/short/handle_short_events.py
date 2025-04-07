@@ -331,31 +331,35 @@ class HandleShortEvents:
             # change text
             # if both mc and rc are affected, the mc text is chosen
             if mc_affected:
-                if main_cat.faith < 0:
+                if main_cat.faith <= 0:
                     if self.chosen_event.faith_effect < 0:
                         self.additional_event_text = "(Dark Forest faith increased)"
-                    else:
+                    elif self.chosen_event.faith_effect > 0:
                         self.additional_event_text = "(Dark Forest faith decreased)"
+                    else:
+                        self.additional_event_text = "(Faith unchanged)"
                 elif main_cat.faith > 0:
                     if self.chosen_event.faith_effect > 0:
                         self.additional_event_text = "(StarClan faith increased)"
-                    else:
+                    elif self.chosen_event.faith_effect < 0:
                         self.additional_event_text = "(StarClan faith decreased)"
+                    else:
+                        self.additional_event_text = "(Faith unchanged)"
             elif rc_affected:
-                if random_cat.faith < 0:
+                if random_cat.faith <= 0:
                     if self.chosen_event.faith_effect < 0:
                         self.additional_event_text = "(Dark Forest faith increased)"
-                    else:
+                    elif self.chosen_event.faith_effect > 0:
                         self.additional_event_text = "(Dark Forest faith decreased)"
+                    else:
+                        self.additional_event_text = "(Faith unchanged)"
                 elif random_cat.faith > 0:
                     if self.chosen_event.faith_effect > 0:
                         self.additional_event_text = "(StarClan faith increased)"
-                    else:
+                    elif self.chosen_event.faith_effect < 0:
                         self.additional_event_text = "(StarClan faith decreased)"
-
-                    
-
-
+                    else:
+                        self.additional_event_text = "(Faith unchanged)"
 
         if self.chosen_herb:
             game.herb_events_list.append(f"{self.chosen_event} {self.herb_notice}.")

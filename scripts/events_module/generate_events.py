@@ -122,7 +122,7 @@ class GenerateEvents:
             new_events_dict = []
             if faith_event:
                 # this sucks so bad but
-                # i have to go through the dicts with multiple interactions and dseperate them here into different events
+                # i have to go through the dicts with multiple interactions and seperate them here into different events
                 for faith_event in events_dict:
                     for count, text in enumerate(faith_event["interactions"], start=1):
                         new_event = deepcopy(faith_event)
@@ -470,6 +470,11 @@ class GenerateEvents:
                     if "sc" in event.m_c["residence"]:
                         if cat.outside or cat.df:
                             continue
+                if "shunned" in event.m_c:
+                    if event.m_c["shunned"] is True and cat.shunned == 0:
+                        continue
+                    elif event.m_c["shunned"] is False and cat.shunned != 0:
+                        continue
 
                 # check cat trait and skill
                 if (
@@ -591,6 +596,12 @@ class GenerateEvents:
                     if "sc" in event.r_c["residence"]:
                         if random_cat.outside or random_cat.df:
                             continue
+
+                if "shunned" in event.r_c:
+                    if event.r_c["shunned"] is True and cat.shunned == 0:
+                        continue
+                    elif event.r_c["shunned"] is False and cat.shunned != 0:
+                        continue
 
                 # check cat trait and skill
                 if (
@@ -963,6 +974,45 @@ class GenerateEvents:
                                 break
                 if discard:
                     continue
+
+            # LG
+            # Slightly changing the event weight based on the cats current faiths
+            if event.faith_effect:
+                if event.faith_effect > 0:
+                    if event.m_c:
+                        if "affected" in event.m_c and event.m_c["affected"] is True:
+                            if cat.faith < 0:
+                                event.weight -= round(event.weight / 3)
+                    if event.r_c:
+                        if "affected" in event.m_c and event.m_c["affected"] is True:
+                            if random_cat.faith < 0:
+                                event.weight -= round(event.weight / 3)
+                elif event.faith_effect < 0:
+                    if event.m_c:
+                        if "affected" in event.m_c and event.m_c["affected"] is True:
+                            if cat.faith > 0:
+                                event.weight -= round(event.weight / 3)
+                    if event.r_c:
+                        if "affected" in event.m_c and event.m_c["affected"] is True:
+                            if random_cat.faith > 0:
+                                event.weight -= round(event.weight / 3)
+                elif event.faith_effect == 0:
+                    if event.m_c:
+                        if "affected" in event.m_c and event.m_c["affected"] is True:
+                            if (
+                                cat.faith > 2 or
+                                cat.faith < 2
+                                ):
+                                event.weight -= round(event.weight / 3)
+                    if event.r_c:
+                        if "affected" in event.m_c and event.m_c["affected"] is True:
+                            if (
+                                random_cat.faith > 2 or
+                                random_cat.faith < 2
+                                ):
+                                event.weight -= round(event.weight / 3)
+            # ------
+
 
             final_events.extend([event] * event.weight)
 
