@@ -7942,7 +7942,7 @@
             "you_shunned"
         ],
         [
-            "[t_c's fur spikes up as you approach them{PRONOUN/t_c/object}, and {PRONOUN/t_c/subject} quickly {VERB/t_c/rush/rushes} away, clearly afraid of your presence.]"
+            "[t_c's fur spikes up as you approach {PRONOUN/t_c/object}, and {PRONOUN/t_c/subject} quickly {VERB/t_c/rush/rushes} away, clearly afraid of your presence.]"
         ]
     ],
     "Introspective_murder2": [
@@ -13345,7 +13345,8 @@
         [
             "any",
             "you_shunned",
-            "unlawful"
+            "unlawful",
+            "not_accomplice"
         ],
         [
             "Word to the wise, if you wanna get away with it next time, you should pick me as an accomplice.",
