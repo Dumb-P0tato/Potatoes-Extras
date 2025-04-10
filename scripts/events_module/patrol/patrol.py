@@ -26,7 +26,8 @@ from scripts.utility import (
     filter_relationship_type,
     get_special_snippet_list,
     adjust_txt,
-    get_alive_status_cats
+    get_alive_status_cats,
+    get_cluster
 )
 from scripts.game_structure.game_essentials import game
 from itertools import combinations
@@ -171,6 +172,14 @@ class Patrol:
                 self.patrol_statuses[cat.status] += 1
             else:
                 self.patrol_statuses[cat.status] = 1
+
+            # LG ---
+            if cat.dead and cat.df:
+                if "df" in self.patrol_statuses:
+                    self.patrol_statuses["df"] += 1
+                else:
+                    self.patrol_statuses["df"] = 1
+            # ---
 
             # Combined patrol_statuses catagories
             if cat.status in ("medicine cat", "medicine cat apprentice"):
@@ -623,7 +632,15 @@ class Patrol:
                 continue
 
             flag = False
+
+            # LG
+            df_status = False
+            # ---
             for sta, num in patrol.min_max_status.items():
+                # LG 
+                if sta == "df":
+                    df_status = True
+                # ---
                 if len(num) != 2:
                     print(f"Issue with status limits: {patrol.patrol_id}")
                     continue
@@ -631,6 +648,14 @@ class Patrol:
                 if not (num[0] <= self.patrol_statuses.get(sta, -1) <= num[1]):
                     flag = True
                     break
+            
+            # LG
+            # DF patrols will default to being alive cats only
+            # So if theres no "df" in min_max_status, it will auto disallow df cats from being in it
+            if not df_status and self.patrol_statuses["df"] > 0:
+                flag = True
+            # ---
+
             if flag:
                 continue
 
@@ -927,6 +952,25 @@ class Patrol:
                     "fail_stat_cat_modifier"
                 ]
 
+            # LG
+            cluster1, cluster2 = get_cluster(kitty.personality.trait)
+            if (
+                cluster1 in success_outcome.stat_cluster or
+                cluster2 and cluster2 in success_outcome.stat_cluster
+                ):
+                success_chance += game.config["patrol_generation"][
+                    "win_stat_cat_modifier"
+                ]
+
+            if (
+                cluster1 in fail_outcome.stat_cluster or
+                cluster2 and cluster2 in fail_outcome.stat_cluster
+                ):
+                success_chance += game.config["patrol_generation"][
+                    "fail_stat_cat_modifier"
+                ]
+            # ---
+
             skill_updates += f"{kitty.name} updated chance to {success_chance} | "
         if game.switches["patrol_category"] == 'date':
             c = random.randint(1,100)
@@ -1158,7 +1202,7 @@ class Patrol:
             prey_types = {}
             for outcome in patrol.success_outcomes:
                 # ignore skill or trait outcomes
-                if outcome.stat_trait or outcome.stat_skill:
+                if outcome.stat_trait or outcome.stat_skill or outcome.stat_cluster:
                     continue
                 if outcome.prey:
                     if outcome.prey[0] in prey_types:
@@ -1474,6 +1518,9 @@ This is a good starting point for writing your own outcomes.
     "weight": 20,
     "stat_skill": [],
     "stat_trait": [],
+    "stat_cluster": [],
+    "stat_faith": [],
+    "stat_residence": [],
     "can_have_stat": [],
     "lost_cats": [],
     "dead_cats": [],

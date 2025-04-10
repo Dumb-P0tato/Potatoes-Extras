@@ -24,7 +24,8 @@ from scripts.utility import (
     event_text_adjust,
     gather_cat_objects,
     adjust_txt,
-    create_new_cat_block
+    create_new_cat_block,
+    get_cluster
 )
 from scripts.game_structure.game_essentials import game
 from scripts.cat.skills import SkillPath
@@ -52,7 +53,11 @@ class PatrolOutcome:
         exp: int = 0,
         stat_trait: List[str] = None,
         stat_skill: List[str] = None,
+        # LG
+        stat_cluster: List[str] = None,
         stat_faith: List[int] = None,
+        stat_residence: List[str] = None,
+        # ---
         can_have_stat: List[str] = None,
         dead_cats: List[str] = None,
         lost_cats: List[str] = None,
@@ -82,7 +87,11 @@ class PatrolOutcome:
         self.exp = exp
         self.stat_trait = stat_trait if stat_trait is not None else []
         self.stat_skill = stat_skill if stat_skill is not None else []
+        # LG
+        self.stat_cluster = stat_cluster if stat_cluster is not None else []
         self.stat_faith = stat_faith if stat_faith is not None else []
+        self.stat_residence = stat_residence if stat_residence is not None else []
+        # ---
         self.can_have_stat = can_have_stat if can_have_stat is not None else []
         self.dead_cats = dead_cats if dead_cats is not None else []
         self.lost_cats = lost_cats if lost_cats is not None else []
@@ -137,7 +146,7 @@ class PatrolOutcome:
             # outcomes seperatly, so we can ensure that those occur if possible.
             special = False
 
-            if out.stat_skill or out.stat_trait or out.stat_faith:
+            if out.stat_skill or out.stat_trait or out.stat_faith or out.stat_residence or out.stat_cluster:
                 special = True
                 out._get_stat_cat(patrol)
                 if not isinstance(out.stat_cat, Cat):
@@ -186,7 +195,11 @@ class PatrolOutcome:
                     exp=_d.get("exp"),
                     stat_skill=_d.get("stat_skill"),
                     stat_trait=_d.get("stat_trait"),
+                    # LG
+                    stat_cluster=_d.get("stat_cluster"),
                     stat_faith=_d.get("stat_faith"),
+                    stat_residence=_d.get("stat_residence"),
+                    # ---
                     can_have_stat=_d.get("can_have_stat"),
                     dead_cats=_d.get("dead_cats"),
                     injury=_d.get("injury"),
@@ -446,6 +459,14 @@ class PatrolOutcome:
                 actual_stat_cats.append(kitty)
 
             # LG
+            # Cluster
+            cluster1, cluster2 = get_cluster(kitty.personality.trait)
+            if cluster1 in self.stat_cluster:
+                actual_stat_cats.append(kitty)
+            if cluster2 and cluster2 in self.stat_cluster:
+                actual_stat_cats.append(kitty)
+
+            # Faith
             if self.stat_faith:
                 if len(self.stat_faith) != 2:
                     print("Misformatted stat_faith")
@@ -457,6 +478,23 @@ class PatrolOutcome:
                         faith_fail = True
                     if not faith_fail:
                         actual_stat_cats.append(kitty)
+
+            # Residence
+            if self.stat_residence:
+                if kitty.dead:
+                    if kitty.df:
+                        if "df" in self.stat_residence:
+                            actual_stat_cats.append(kitty)
+                    elif kitty.outside:
+                        if "ur" in self.stat_residence:
+                            actual_stat_cats.append(kitty)
+                    else:
+                        if "sc" in self.stat_residence:
+                            actual_stat_cats.append(kitty)
+                else:
+                    if "living" in self.stat_residence:
+                        actual_stat_cats.append(kitty)
+                # ---
 
         if actual_stat_cats:
             self.stat_cat = choice(actual_stat_cats)
