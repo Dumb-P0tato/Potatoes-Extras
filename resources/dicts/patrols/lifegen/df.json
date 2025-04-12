@@ -3579,7 +3579,7 @@
             },
             "weight": 20,
             "intro_text": "When you awaken in the Dark Forest tonight, you open your eyes to see an uninitiated Clanmate of yours surrounded by a group of Dark Forest cats, all jeering and swiping.",
-            "decline_text": "You decide to escape while you can. hoping your Clanmate will be okay.",
+            "decline_text": "You decide to escape while you can, hoping your Clanmate will be okay.",
             "chance_of_success": 60,
             "success_outcomes": [
                 {
