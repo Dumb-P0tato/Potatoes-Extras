@@ -3353,20 +3353,15 @@ class Cat:
         # FILTERING FOR POSSIBLE STORIES
         stories = possible_stories[chosen_story]
         filtered_stories = []
-        for story in stories:
-            filtered_stories.append(story)
 
-        story = choice(filtered_stories)
-        heading = story["title"]
-        output = story["story"]
-
+        # most of this stuff isnt used until later
         success_rate = "all_success"
         if failed_cats:
             if len(failed_cats) < len(cats):
                 success_rate = "some_success"
             else:
                 success_rate = "none_success"
-        
+
         if len(cats) == 1:
             random_cat = cats[0]
             count = "one"
@@ -3379,6 +3374,87 @@ class Cat:
                     cat_choices.append(kitty)
             random_cat = choice(cat_choices)
             count = "mult"
+        # ---
+
+        kits_amount = 0
+        cats_amount = len(cats)
+        for cat in cats:
+            if cat.moons < 6:
+                kits_amount += 1
+        for story in stories:
+            if "min_max_cats" in story:
+                if cats_amount < story["min_max_cats"][0]:
+                    continue
+                if cats_amount > story["min_max_cats"][1]:
+                    continue
+            if "kits_amount" in story:
+                if story["kits_amount"] == "none":
+                    if kits_amount != 0:
+                        continue
+                elif story["kits_amount"] == "some":
+                    if kits_amount == 0:
+                        continue
+                    if cats_amount - kits_amount < 1:
+                        continue
+                    if cats_amount == kits_amount:
+                        continue
+                elif story["kits_amount"] == "all":
+                    if kits_amount != cats_amount:
+                        continue
+            if "elder" in story:
+                if "cluster" in story["elder"]:
+                    cluster1, cluster2 = get_cluster(elder.personality.trait)
+                    if (
+                        cluster1 not in story["elder"]["cluster"] and
+                        (cluster2 and cluster2 not in story["elder"]["cluster"])
+                    ):
+                        continue
+                if "min_max_faith" in story["elder"]:
+                    if elder.faith < story["elder"]["min_max_faith"][0]:
+                        continue
+                    if elder.faith > story["elder"]["min_max_faith"][1]:
+                        continue
+            if "random_cat" in story:
+                if "cluster" in story["random_cat"]:
+                    cluster1, cluster2 = get_cluster(random_cat.personality.trait)
+                    if (
+                        cluster1 not in story["random_cat"]["cluster"] and
+                        (cluster2 and cluster2 not in story["random_cat"]["cluster"])
+                    ):
+                        continue
+                if "min_max_faith" in story["random_cat"]:
+                    if random_cat.faith < story["random_cat"]["min_max_faith"][0]:
+                        continue
+                    if random_cat.faith > story["random_cat"]["min_max_faith"][1]:
+                        continue
+
+            filtered_stories.append(story)
+
+        story = choice(filtered_stories)
+
+        debug_story_id = "sc_J4"
+
+        # print("POSSIBLE STORIES:")
+        for option in filtered_stories:
+            # print(option["id"])
+            if option["id"] == debug_story_id:
+                story = option
+                break
+
+        heading = story["title"]
+        output = story["story"]
+
+        adjusted_output = []
+
+        for string in output:
+            new_string = event_text_adjust(
+                Cat,
+                text=string,
+                main_cat=elder,
+                random_cat=random_cat,
+                clan=game.clan
+            )
+            adjusted_output.append(new_string)
 
         result = choice(possible_stories["result_strings"][chosen_story][success_rate][count])
         result_string = event_text_adjust(
@@ -3389,10 +3465,10 @@ class Cat:
             clan=game.clan
         )
 
-        output.append("~~~")
-        output.append(result_string)
+        adjusted_output.append("~~~")
+        adjusted_output.append(result_string)
 
-        return heading, output, cat_effects
+        return heading, adjusted_output, cat_effects
 
     @staticmethod
     def mediate_relationship(mediator, cat1, cat2, allow_romantic, sabotage=False):

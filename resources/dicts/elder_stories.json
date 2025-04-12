@@ -17,6 +17,38 @@
                 "The night was still and cool. The moon shone down onto the rain-slicked ground, causing the grass to twinkle just like the stars above. When the leader reached the Clan's border, the sparkles stopped. Beyond Clan territory was a dull, dark landscape, barren of StarClan's touch.",
                 "The leader decided that their life could not carry on without StarClan. They turned around and returned to camp, and when they awoke in the morning, they stepped down, allowing their capable deputy to take their place. The leader was safe in StarClan's sights once more."
             ]
+        },
+        {
+            "id": "sc_J3",
+            "title": "Weather",
+            "min_max_cats": [2,5],
+            "kits_amount": "any",
+            "elder": {
+                "cluster": ["brooding", "cool", "stable", "introspective"],
+                "min_max_faith": [-9, 9]
+            },
+            "story": [
+                "m_c has been chosen to tell a story about StarClan today. While {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} not really in the mood to tell a tale, {PRONOUN/m_c/subject} {VERB/m_c/decide/decides} to try anyway.",
+                "m_c supposes it would be worthwhile to tell the group about StarClan's control of the weather. Whether you look up to your warrior ancestors or not, it's undeniable how powerful they must be to have their control over the skies.",
+                "From clouds covering the moon at tense Gatherings to sending sudden downpours to quench fires, m_c discusses the many ways their warrior ancestors take control of the weather to help out the Clans."
+            ]
+        },
+        {
+            "id": "sc_J4",
+            "title": "Personal Approach",
+            "min_max_cats": [1,1],
+            "kits_amount": "none",
+            "elder": {
+                "min_max_faith": [2, 9]
+            },
+            "random_cat": {
+                "min_max_faith": [-2, 2]
+            },
+            "story": [
+                "When r_c asks m_c to talk to {PRONOUN/r_c/object} about StarClan, m_c is happy to oblige.",
+                "First, m_c asks why. r_c tells {PRONOUN/m_c/object} {PRONOUN/r_c/subject}{VERB/r_c/'ve/'s} been feeling a bit lost about {PRONOUN/r_c/poss} faith and thought m_c might be some help, since {PRONOUN/m_c/subject} {VERB/m_c/seem/seems} to look up to StarClan quite a bit. Why is that?",
+                "m_c simply tells r_c how {PRONOUN/m_c/subject} {VERB/m_c/view/views} the world. To m_c, StarClan is everywhere, from the call of a bird to the gentle thrum of the rain on den roofs. Everything worth enjoying in life is sent by {PRONOUN/m_c/poss} loved ones up in StarClan."
+            ]
         }
     ],
     "darkforest": [
