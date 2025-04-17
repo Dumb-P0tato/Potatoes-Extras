@@ -3414,6 +3414,12 @@ class Cat:
                         continue
                     if elder.faith > story["elder"]["min_max_faith"][1]:
                         continue
+                if "status" in story["elder"]:
+                    if elder.status not in story["elder"]["status"]:
+                        continue
+                if "age" in story["age"]:
+                    if elder.age not in story["elder"]["status"]:
+                        continue
             if "random_cat" in story:
                 if "cluster" in story["random_cat"]:
                     cluster1, cluster2 = get_cluster(random_cat.personality.trait)
@@ -3426,6 +3432,12 @@ class Cat:
                     if random_cat.faith < story["random_cat"]["min_max_faith"][0]:
                         continue
                     if random_cat.faith > story["random_cat"]["min_max_faith"][1]:
+                        continue
+                if "status" in story["random_cat"]:
+                    if random_cat.status not in story["random_cat"]["status"]:
+                        continue
+                if "age" in story["age"]:
+                    if random_cat.age not in story["random_cat"]["status"]:
                         continue
 
             filtered_stories.append(story)
