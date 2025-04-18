@@ -494,6 +494,15 @@ class GenerateEvents:
                             cluster2 in event.m_c["cluster"]
                             ):
                             has_cluster = True
+                    
+                    if "df_status" in event.m_c and event.m_c["df_status"]:
+                        if cat.joined_df is False:
+                            continue
+                        else:
+                            if cat.graduated_df and "warrior" not in event.m_c["df_status"]:
+                                continue
+                            if not cat.graduated_df and "apprentice" not in event.m_c["df_status"]:
+                                continue
                     #  ---
 
                     has_skill = False
@@ -521,7 +530,7 @@ class GenerateEvents:
                         if not has_skill:
                             continue
 
-                    if  "cluster" in event.m_c and event.m_c["cluster"]:
+                    if "cluster" in event.m_c and event.m_c["cluster"]:
                         if not has_cluster:
                             continue
 
@@ -621,6 +630,14 @@ class GenerateEvents:
                             cluster2 in event.r_c["cluster"]
                             ):
                             has_cluster = True
+                    if "df_status" in event.r_c and event.r_c["df_status"]:
+                        if random_cat.joined_df is False:
+                            continue
+                        else:
+                            if random_cat.graduated_df and "warrior" not in event.r_c["df_status"]:
+                                continue
+                            if not random_cat.graduated_df and "apprentice" not in event.r_c["df_status"]:
+                                continue
                     #  ---
 
                     has_skill = False
