@@ -76,10 +76,35 @@
                 "min_max_faith": [-2 ,9]
             },
             "story": [
-                "When m_c is asked to tell a story about the Dark Forest, they're a bit nervous. They don't know much about it.",
-                "m_c eventually recalls an old story they once heard. They tell a tale about a lost StarClan cat who ended up in the Dark Forest. The StarClan cat was terrified at first, jumping at every twig snap or howl in the distance. However, as they explored the territory, they discovered that not everything was worth being scared of.",
+                "When m_c is asked to tell a story about the Dark Forest, {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a bit nervous. {PRONOUN/m_c/subject/CAP} {VERB/m_c/don't/doesn't} know much about it.",
+                "m_c eventually recalls an old story {PRONOUN/m_c/subject} once heard. {PRONOUN/m_c/subject/CAP} {VERB/m_c/tell/tells} a tale about a lost StarClan cat who ended up in the Dark Forest. The StarClan cat was terrified at first, jumping at every twig snap or howl in the distance. However, as they explored the territory, they discovered that not everything was worth being scared of.",
                 "The cat found dark rivers to swim in, and spindly trees to climb. They found inhabitants to train with and bugs to chase around. Though it was murky and the air was heavy, the StarClan cat found themself preferring the ruggedness and inpredictability of the Dark Forest to the calm and boring environment of StarClan.",
                 "The next time any of their Clanmates saw that StarClan cat in a dream, the stars in their pelt had been swapped for a film of muck."
+            ]
+        },
+        {
+            "id": "df_J3_1",
+            "title": "Change of Pace",
+            "elder": {
+                "min_max_faith": [-9, -2]
+            },
+            "story": [
+                "m_c is excited to tell a story about the Dark Forest!",
+                "After some thinking, m_c eventually recalls an old story {PRONOUN/m_c/subject} once heard. {PRONOUN/m_c/subject/CAP} {VERB/m_c/tell/tells} a tale about a lost StarClan cat who ended up in the Dark Forest. The StarClan cat was terrified at first, jumping at every twig snap or howl in the distance. However, as they explored the territory, they discovered that not everything was worth being scared of.",
+                "The cat found dark rivers to swim in, and spindly trees to climb. They found inhabitants to train with and bugs to chase around. Though it was murky and the air was heavy, the StarClan cat found themself preferring the ruggedness and inpredictability of the Dark Forest to the calm and boring environment of StarClan.",
+                "The next time any of their Clanmates saw that StarClan cat in a dream, the stars in their pelt had been swapped for a film of muck."
+            ]
+        },
+        {
+            "id": "df_J4",
+            "title": "The Battle",
+            "elder": {
+                "min_max_faith": [-9, -2]
+            },
+            "story": [
+                "m_c is excited to tell a story about the Dark Forest!",
+                "Once, a very long time ago, StarClan and the Dark Forest were at war. The Dark Forest had broken down the barrier between the two afterlives and launched an attack on their starry enemies for treating them so cruelly. Being highly trained and brutal, the Dark Forest cats quickly wiped out what StarClan cats they could find, showing no mercy, and enjoyed a long and lavish feast in StarClan's prey-laden forests.",
+                "Since that day so many moons ago, StarClan has since repopulated, and those Dark Forest cats have all faded away. However, some say that the barrier between StarClan and the Dark Forest is growing weaker every day, and another war is bound to break out soon..."
             ]
         }
     ],
