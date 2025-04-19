@@ -5,7 +5,8 @@
             "title": "A Helping Paw",
             "story": [
                 "m_c tells a simple story about the goodness of StarClan.",
-                "It's said that ancestor spirits can lead hunting patrols to prey, even in the harshest conditions. m_c recounts a tale of a hunting patrol that was struggling to find any prey. Just as the patrol was about to return home empty-pawed, a pure black feather floated past and landed in the bright white snow at the base of the tree. Digging at that tree uncovered a whole den of hibernating groundhogs! The patrol returned home with enough to feed the entire Clan."
+                "It's said that ancestor spirits can lead hunting patrols to prey, even in the harshest conditions. m_c recounts a tale of a hunting patrol that was struggling to find any prey.",
+                "Just as the patrol was about to return home empty-pawed, a pure black feather floated past and landed in the bright white snow at the base of the tree. Digging at that tree uncovered a whole den of hibernating groundhogs! The patrol returned home with enough to feed the entire Clan."
             ]
         },
         {
@@ -54,7 +55,7 @@
     "darkforest": [
         {
             "id": "df_J1",
-            "title": "A Very Evil Dark Forest Story",
+            "title": "A Dark Forest Story",
             "story": [
                 "m_c tells an enthralling story about the power of the Dark Forest."
             ]
@@ -66,6 +67,19 @@
                 "m_c decides to tell the group a story from ancient Clans.",
                 "Long ago, a very evil cat attempted to kill their leader. They lured the leader to a dark and secluded river, where they attempted to drown the leader and take all of their lives. However, when the evil cat touched the water, a pair of paws shot out, grabbed the cat, and pulled them in, sparing the leader's lives.",
                 "The cat was dragged deeper and deeper into the water until they emerged onto the bank of a blood-red river. The forest around them had died, and hungry eyes shone at them from the shadows that surrounded them. The cat had been taken to the Dark Forest."
+            ]
+        },
+        {
+            "id": "df_J3",
+            "title": "Change of Pace",
+            "elder": {
+                "min_max_faith": [-2 ,9]
+            },
+            "story": [
+                "When m_c is asked to tell a story about the Dark Forest, they're a bit nervous. They don't know much about it.",
+                "m_c eventually recalls an old story they once heard. They tell a tale about a lost StarClan cat who ended up in the Dark Forest. The StarClan cat was terrified at first, jumping at every twig snap or howl in the distance. However, as they explored the territory, they discovered that not everything was worth being scared of.",
+                "The cat found dark rivers to swim in, and spindly trees to climb. They found inhabitants to train with and bugs to chase around. Though it was murky and the air was heavy, the StarClan cat found themself preferring the ruggedness and inpredictability of the Dark Forest to the calm and boring environment of StarClan.",
+                "The next time any of their Clanmates saw that StarClan cat in a dream, the stars in their pelt had been swapped for a film of muck."
             ]
         }
     ],
