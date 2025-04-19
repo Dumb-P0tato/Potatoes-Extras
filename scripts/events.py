@@ -2424,9 +2424,11 @@ class Events:
         self.mediator_events(cat)
 
        
-        # LIFEGEN: faith events
-        if not int(random.random() * 5):
+        # LIFEGEN: handle faith events
+        # they only get a faith event if they hit the chance. that chance being 8 rn
+        if not int(random.random() * 8):
             self.generate_faith_events(cat)
+        # ---
 
         # handle nutrition amount
         # (CARE: the cats have to be fed before this happens - should be handled in "one_moon" function)
