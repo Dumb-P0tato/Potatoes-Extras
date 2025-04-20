@@ -83,6 +83,9 @@ class ElderStoryScreen(Screens):
             elif event.ui_element == self.df_story_button:
                 self.selected_story = "darkforest"
                 self.update_buttons()
+            elif event.ui_element == self.ur_story_button:
+                self.selected_story = "neutral"
+                self.update_buttons()
             elif event.ui_element == self.tell_story_button:
                 if self.stage == "cats":
                     self.stage = "story"
@@ -265,8 +268,8 @@ class ElderStoryScreen(Screens):
         )
 
         self.buttons_bg = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((53, 455), (200, 110))),
-            get_box(BoxStyles.ROUNDED_BOX, (200, 110)),
+            ui_scale(pygame.Rect((53, 450), (200, 160))),
+            get_box(BoxStyles.ROUNDED_BOX, (200, 160)),
         )
         self.buttons_bg.disable()
 
@@ -284,6 +287,13 @@ class ElderStoryScreen(Screens):
             object_id="@buttonstyles_rounded_rect",
             manager=MANAGER,
         )
+        self.ur_story_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((73, 555), (160, 30))),
+            "Neutral",
+            get_button_dict(ButtonStyles.ROUNDED_RECT, (160, 30)),
+            object_id="@buttonstyles_rounded_rect",
+            manager=MANAGER,
+        )
 
         self.story_container = pygame_gui.core.UIContainer(
             ui_scale(pygame.Rect((290, 70), (476, 620))),
@@ -296,7 +306,7 @@ class ElderStoryScreen(Screens):
             self.results = None
             self.results_heading = None
             self.tell_story_button = UISurfaceImageButton(
-                ui_scale(pygame.Rect((53, 585), (200, 30))),
+                ui_scale(pygame.Rect((53, 630), (200, 30))),
                 "tell a story",
                 get_button_dict(ButtonStyles.ROUNDED_RECT, (200, 30)),
                 object_id="@buttonstyles_rounded_rect",
@@ -367,7 +377,7 @@ class ElderStoryScreen(Screens):
             self.selected_cat_containers = {}
 
             self.tell_story_button = UISurfaceImageButton(
-                ui_scale(pygame.Rect((53, 585), (200, 30))),
+                ui_scale(pygame.Rect((53, 630), (200, 30))),
                 "reset",
                 get_button_dict(ButtonStyles.ROUNDED_RECT, (200, 30)),
                 object_id="@buttonstyles_rounded_rect",
@@ -506,10 +516,12 @@ class ElderStoryScreen(Screens):
                     text += "\nThis cat isn't able to work"
                     self.starclan_story_button.disable()
                     self.df_story_button.disable()
+                    self.ur_story_button.disable()
                 else:
                     text += "\nThis cat can work"
                     self.starclan_story_button.enable()
                     self.df_story_button.enable()
+                    self.ur_story_button.enable()
 
                 self.elder_elements["details"] = pygame_gui.elements.UITextBox(
                     text,
@@ -860,9 +872,11 @@ class ElderStoryScreen(Screens):
                 self.starclan_story_button.disable()
                 self.df_story_button.disable()
                 self.tell_story_button.disable()
+                self.ur_story_button.disable()
             else:
                 self.starclan_story_button.enable()
                 self.df_story_button.enable()
+                self.ur_story_button.enable()
             
             if self.selected_story:
                 self.tell_story_button.enable()
@@ -873,8 +887,14 @@ class ElderStoryScreen(Screens):
             if self.selected_story == "starclan":
                 self.starclan_story_button.disable()
                 self.df_story_button.enable()
+                self.ur_story_button.disable()
             elif self.selected_story == "darkforest":
                 self.starclan_story_button.enable()
+                self.df_story_button.disable()
+                self.ur_story_button.disable()
+            elif self.selected_story == "neutral":
+                self.ur_story_button.enable()
+                self.starclan_story_button.disable()
                 self.df_story_button.disable()
             for btn in self.cat_buttons:
                 btn.enable()
@@ -884,6 +904,7 @@ class ElderStoryScreen(Screens):
             self.random1.disable()
             self.search_bar.hide()
             self.df_story_button.disable()
+            self.ur_story_button.disable()
             self.starclan_story_button.disable()
             self.tell_story_button.enable()
 
@@ -969,6 +990,8 @@ class ElderStoryScreen(Screens):
         del self.starclan_story_button
         self.df_story_button.kill()
         del self.df_story_button
+        self.ur_story_button.kill()
+        del self.ur_story_button
         if self.last_med:
             self.last_med.kill()
             del self.last_med

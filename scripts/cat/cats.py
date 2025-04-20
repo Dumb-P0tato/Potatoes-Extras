@@ -3341,6 +3341,25 @@ class Cat:
                     faith_change = 0.75
                 else:
                     faith_change = -0.75
+            elif chosen_story == "neutral":
+                if cat.faith > 1:
+                    if fail:
+                        faith_change = 0.75
+                    else:
+                        faith_change = -0.75
+                elif cat.faith < 1:
+                    if fail:
+                        faith_change = -0.75
+                    else:
+                        faith_change = 0.75
+                else:
+                    # cats already neutral
+                    if fail:
+                        faith_change = choice([0.75, -0.75])
+                    else:
+                        faith_change = 0
+
+                
 
             cat.faith += faith_change
             if cat.faith > 9:

@@ -55,13 +55,6 @@
     "darkforest": [
         {
             "id": "df_J1",
-            "title": "A Dark Forest Story",
-            "story": [
-                "m_c tells an enthralling story about the power of the Dark Forest."
-            ]
-        },
-        {
-            "id": "df_J2",
             "title": "The Murky River",
             "story": [
                 "m_c decides to tell the group a story from ancient Clans.",
@@ -70,7 +63,7 @@
             ]
         },
         {
-            "id": "df_J3",
+            "id": "df_J2",
             "title": "Change of Pace",
             "elder": {
                 "min_max_faith": [-2 ,9]
@@ -83,7 +76,7 @@
             ]
         },
         {
-            "id": "df_J3_1",
+            "id": "df_J3",
             "title": "Change of Pace",
             "elder": {
                 "min_max_faith": [-9, -2]
@@ -91,7 +84,7 @@
             "story": [
                 "m_c is excited to tell a story about the Dark Forest!",
                 "After some thinking, m_c eventually recalls an old story {PRONOUN/m_c/subject} once heard. {PRONOUN/m_c/subject/CAP} {VERB/m_c/tell/tells} a tale about a lost StarClan cat who ended up in the Dark Forest. The StarClan cat was terrified at first, jumping at every twig snap or howl in the distance. However, as they explored the territory, they discovered that not everything was worth being scared of.",
-                "The cat found dark rivers to swim in, and spindly trees to climb. They found inhabitants to train with and bugs to chase around. Though it was murky and the air was heavy, the StarClan cat found themself preferring the ruggedness and inpredictability of the Dark Forest to the calm and boring environment of StarClan.",
+                "The cat found dark rivers to swim in, and spindly trees to climb. They found inhabitants to train with and bugs to chase around. Though it was murky and the air was heavy, the StarClan cat found themself preferring the ruggedness and unpredictability of the Dark Forest to the calm and boring environment of StarClan.",
                 "The next time any of their Clanmates saw that StarClan cat in a dream, the stars in their pelt had been swapped for a film of muck."
             ]
         },
@@ -105,6 +98,17 @@
                 "m_c is excited to tell a story about the Dark Forest!",
                 "Once, a very long time ago, StarClan and the Dark Forest were at war. The Dark Forest had broken down the barrier between the two afterlives and launched an attack on their starry enemies for treating them so cruelly. Being highly trained and brutal, the Dark Forest cats quickly wiped out what StarClan cats they could find, showing no mercy, and enjoyed a long and lavish feast in StarClan's prey-laden forests.",
                 "Since that day so many moons ago, StarClan has since repopulated, and those Dark Forest cats have all faded away. However, some say that the barrier between StarClan and the Dark Forest is growing weaker every day, and another war is bound to break out soon..."
+            ]
+        }
+    ],
+    "neutral": [
+        {
+            "id": "ur_J1",
+            "title": "Ghostly Presence",
+            "story": [
+                "m_c tells a story about a vengeful spirit beyond both StarClan and the Dark Forest.",
+                "There was once a kittypet who wandered Clan territory all day. The collar on their neck jingled as they walked, startling prey and annoying nearby Clan cats. One day, the leader of a nearby Clan had enough and sent a patrol to deal with the intruder. The kittypet was swiftly killed without mercy. The Clan was relieved that prey would soon return to the forest now that the loud kittypet wasn't there to disturb it.",
+                "However, the Clan still didn't know peace. The kittypet's spirit was still left wandering the forest, and they were angry. The kittypet spent their days startling prey out of the paws of Clan hunting patrols, and when leafbare hit, many cats starved. The Clan's reckless killing only lead to more death and despair."
             ]
         }
     ],
@@ -163,6 +167,32 @@
                 ],
                 "mult": [
                     "m_c's storytelling skills may need some work... all the group ends up asking about is the Dark Forest, and how much more interesting the story would be if they were involved."
+                ]
+            }
+        },
+        "neutral": {
+            "all_success": {
+                "one": [
+                    "r_c enjoys the story and leaves the elder's den with a new perspective."
+                ],
+                "mult": [
+                    "The group enjoys the story, feeling more connected to the ground beneath them as they leave the den."
+                ]
+            },
+            "some_success": {
+                "one": [
+                    "This should not appear."
+                ],
+                "mult": [
+                    "Some cats listen intently, feeling more grounded after the story. Others, aversely, feel more drawn to their current faith instead."
+                ]
+            },
+            "none_success": {
+                "one": [
+                    "r_c doesn't feel very moved by the story."
+                ],
+                "mult": [
+                    "The group stays silent for a moment before beginning to discuss how their warrior ancestors might have changed the story."
                 ]
             }
         }
