@@ -18,8 +18,7 @@ from scripts.utility import (
     get_text_box_theme,
     ui_scale,
     shorten_text_to_fit,
-    ui_scale_dimensions,
-    event_text_adjust
+    ui_scale_dimensions
 )
 from .Screens import Screens
 from ..game_structure.screen_settings import MANAGER
@@ -102,11 +101,7 @@ class ElderStoryScreen(Screens):
 
                     story_text = []
                     for string in output[1]:
-                        story_text.append(event_text_adjust(
-                            Cat,
-                            text=string,
-                            main_cat=self.elders[self.selected_elder],
-                            clan=game.clan))
+                        story_text.append(string)
                     
                     joined_story_text = "<br><br>".join(story_text)
                     

@@ -3477,13 +3477,20 @@ class Cat:
 
         adjusted_output = []
 
+        other_clan = None
+
         for string in output:
+            if "o_c_n" in string:
+                if not other_clan:
+                    other_clan = choice(game.clan.all_clans)
+                    print(game.clan.all_clans)
             new_string = event_text_adjust(
                 Cat,
                 text=string,
                 main_cat=elder,
                 random_cat=random_cat,
-                clan=game.clan
+                clan=game.clan,
+                other_clan=other_clan
             )
             adjusted_output.append(new_string)
 
