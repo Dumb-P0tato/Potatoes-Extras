@@ -365,7 +365,7 @@ class TalkScreen(Screens):
             # print(dialogue[1])
             if "#dialogue-bugs" in str(dialogue[1]):
                 # skip over the dialogue that doesnt need anything bc its impossible anyway
-                if game.clan.your_cat.status == "newborn" and dialogue[0].dead:
+                if game.clan.your_cat.old_status == "newborn" and dialogue[0].dead:
                     continue
                 if dialogue[0].outside and not dialogue[0].dead:
                     continue
@@ -399,7 +399,7 @@ class TalkScreen(Screens):
         return ["assertive", "brooding", "cool", "upstanding", "introspective", "neurotic", "silly", "stable", "sweet", "unabashed", "unlawful"]
 
     def get_cluster_list_they(self):
-        return ["they_assertive", "they_brooding", "they_cool", "they_upstanding", "they_introspective", "they_neurotic", "they_silly", "they_stable", "they_sweet", "they_unabashed", "they_unlawful"]
+        return ["they_previously_assertive", "they_previously_brooding", "they_previously_cool", "they_previously_upstanding", "they_previously_introspective", "they_previously_neurotic", "they_previously_silly", "they_previously_stable", "they_previously_sweet", "they_previously_unabashed", "they_previously_unlawful"]
 
     def get_cluster_list_you(self):
         return ["you_assertive", "you_brooding", "you_cool", "you_upstanding", "you_introspective", "you_neurotic", "you_silly", "you_stable", "you_sweet", "you_unabashed", "you_unlawful"]
@@ -507,21 +507,21 @@ class TalkScreen(Screens):
             with open(f"{resource_dir}flirt.json", 'r') as read_file:
                 possible_texts.update(ujson.loads(read_file.read()))
         else:
-            if cat.status != 'exiled':
-                with open(f"{resource_dir}{cat.status}.json", 'r') as read_file:
+            if cat.old_status != 'exiled':
+                with open(f"{resource_dir}{cat.old_status}.json", 'r') as read_file:
                     possible_texts = ujson.loads(read_file.read())
 
-            # if cat.status not in ['loner', 'rogue', 'former Clancat', 'kittypet', 'exiled', 'newborn']:
+            # if cat.old_status not in ['loner', 'rogue', 'former Clancat', 'kittypet', 'exiled', 'newborn']:
             #     with open(f"{resource_dir}choice_dialogue.json", 'r') as read_file:
             #         possible_texts.update(ujson.loads(read_file.read()))
 
-            if cat.status in ["rogue", "loner", "kittypet"]:
+            if cat.old_status in ["rogue", "loner", "kittypet"]:
                 # former clancats only get their own file so we can write general dialogue about not knowing what a clan is
                 with open(f"{resource_dir}general_outsider.json", 'r') as read_file:
                     possible_texts4 = ujson.loads(read_file.read())
                     possible_texts.update(possible_texts4)
             else:
-                if cat.status == "newborn":
+                if cat.old_status == "newborn":
                     # newborns will no longer participate in nuanced discussion (focus + choices)
                     with open(f"{resource_dir}newborn.json", 'r') as read_file:
                         possible_texts.update(ujson.loads(read_file.read()))
@@ -529,22 +529,22 @@ class TalkScreen(Screens):
                     with open(f"{resource_dir}choice_dialogue.json", 'r') as read_file:
                         possible_texts.update(ujson.loads(read_file.read()))
 
-                    if cat.status not in ['kitten', "newborn"] and you.status not in ['kitten', 'newborn']:
+                    if cat.old_status not in ['kitten', "newborn"] and you.status not in ['kitten', 'newborn']:
                         with open(f"{resource_dir}general_no_kit.json", 'r') as read_file:
                             possible_texts2 = ujson.loads(read_file.read())
                             possible_texts.update(possible_texts2)
 
-                    if cat.status not in ["newborn"] and you.status not in ['newborn']:
+                    if cat.old_status not in ["newborn"] and you.status not in ['newborn']:
                         with open(f"{resource_dir}general_no_newborn.json", 'r') as read_file:
                             possible_texts4 = ujson.loads(read_file.read())
                             possible_texts.update(possible_texts4)
 
-                    if cat.status not in ['kitten', "newborn"] and you.status in ['kitten', 'newborn']:
+                    if cat.old_status not in ['kitten', "newborn"] and you.status in ['kitten', 'newborn']:
                         with open(f"{resource_dir}general_you_kit.json", 'r') as read_file:
                             possible_texts3 = ujson.loads(read_file.read())
                             possible_texts.update(possible_texts3)
 
-                    if cat.status not in ['kitten', 'newborn'] and you.status not in ['kitten', 'newborn'] and randint(1,3)==1:
+                    if cat.old_status not in ['kitten', 'newborn'] and you.status not in ['kitten', 'newborn'] and randint(1,3)==1:
                         with open(f"{resource_dir}crush.json", 'r') as read_file:
                             possible_texts3 = ujson.loads(read_file.read())
                             possible_texts.update(possible_texts3)
@@ -626,18 +626,18 @@ class TalkScreen(Screens):
             "you_abandoned",
             "you_ancientspirit"
         ]
-        they_backstory_list = ["they_clanfounder",
-            "they_clanborn",
-            "they_outsiderroots",
-            "they_half-clan",
-            "they_formerlyaloner",
-            "they_formerlyarogue",
-            "they_formerlyakittypet",
-            "they_formerlyaoutsider",
-            "they_originallyfromanotherclan",
-            "they_orphaned",
-            "they_abandoned",
-            "they_ancientspirit"
+        they_previously_backstory_list = ["they_previously_clanfounder",
+            "they_previously_clanborn",
+            "they_previously_outsiderroots",
+            "they_previously_half-clan",
+            "they_previously_formerlyaloner",
+            "they_previously_formerlyarogue",
+            "they_previously_formerlyakittypet",
+            "they_previously_formerlyaoutsider",
+            "they_previously_originallyfromanotherclan",
+            "they_previously_orphaned",
+            "they_previously_abandoned",
+            "they_previously_ancientspirit"
         ]
         skill_list = [
             'teacher', 'hunter', 'fighter', 'runner', 'climber', 'swimmer', 'speaker',
@@ -664,7 +664,7 @@ class TalkScreen(Screens):
             if game.switches["talk_category"] == "talk" and ("insult" in tags or "reject" in tags or "accept" in tags):
                 continue
 
-            if game.switches["talk_category"] == "insult" and ("insult" not in tags or cat.status == "newborn" and "they_newborn" not in tags):
+            if game.switches["talk_category"] == "insult" and ("insult" not in tags or cat.old_status == "newborn" and "they_previously_newborn" not in tags):
                 continue
 
             if game.switches["talk_category"] == "flirt" and ("insult" in tags or ("reject" not in tags and "accept" not in tags)):
@@ -694,55 +694,55 @@ class TalkScreen(Screens):
             if game.clan.your_cat.shunned != 0:
                 murder_history = History.get_murders(game.clan.your_cat)
                 history = None
-                your_status = game.clan.your_cat.status
+                your_status = game.clan.your_cat.old_status
                 if "is_murderer" in murder_history:
                     history = murder_history["is_murderer"]
                 else:
-                    your_status = game.clan.your_cat.status
+                    your_status = game.clan.your_cat.old_status
                 if history:
                     if "demoted_from" in history[-1] and history[-1]["demoted_from"]:
                         your_status = history[-1]["demoted_from"]
                     else:
-                        your_status = game.clan.your_cat.status
+                        your_status = game.clan.your_cat.old_status
                 else:
-                    your_status = game.clan.your_cat.status
+                    your_status = game.clan.your_cat.old_status
             else:
-                your_status = game.clan.your_cat.status
+                your_status = game.clan.your_cat.old_status
 
             if (
                 your_status not in tags
                 and "any" not in tags
                 and f"you_{your_status}" not in tags
                 and f"you_{(your_status).replace(' ', '_')}" not in tags
-                and "they_young_elder" not in tags
+                and "they_previously_young_elder" not in tags
                 and "you_young_elder" not in tags
                 and "no_kit" not in tags
                 and "no_newborn" not in tags
                 and "you_any" not in tags
-                and "they_app" not in tags
+                and "they_previously_app" not in tags
                 and "you_app" not in tags
-                and "they_adult" not in tags
-                and "they_not_kit" not in tags
+                and "they_previously_adult" not in tags
+                and "they_previously_not_kit" not in tags
                 and "you_adult" not in tags
                 ):
                 continue
-            elif "they_young_elder" in tags and cat.status == 'elder' and cat.moons >= 100:
+            elif "they_previously_young_elder" in tags and cat.old_status == 'elder' and cat.moons >= 100:
                 continue
             elif "you_young_elder" in tags and you.status == 'elder' and you.moons >= 100:
                 continue
-            elif "no_kit" in tags and (you.status in ['kitten', 'newborn'] or cat.status in ['kitten', 'newborn']):
+            elif "no_kit" in tags and (you.status in ['kitten', 'newborn'] or cat.old_status in ['kitten', 'newborn']):
                 continue
-            elif "no_newborn" in tags and (you.status == "newborn" or cat.status == "newborn"):
+            elif "no_newborn" in tags and (you.status == "newborn" or cat.old_status == "newborn"):
                 continue
             elif "newborn" in tags and "kitten" not in tags and you.moons != 0:
                 continue
 
-            if f"they_not_{cat.status.replace(' ', '')}" in tags:
+            if f"they_previously_not_{cat.old_status.replace(' ', '')}" in tags:
                 continue
-            if f"you_not_{game.clan.your_cat.status.replace(' ', '')}" in tags:
+            if f"you_not_{game.clan.your_cat.old_status.replace(' ', '')}" in tags:
                 continue
 
-            if "they_adult" in tags and cat.status in [
+            if "they_previously_adult" in tags and cat.old_status in [
                 'apprentice', 'medicine cat apprentice', 'mediator apprentice',
                 "queen's apprentice", "kitten", "newborn"
                 ]:
@@ -754,7 +754,7 @@ class TalkScreen(Screens):
                 ]:
                 continue
 
-            if "they_app" in tags and cat.status not in [
+            if "they_previously_app" in tags and cat.old_status not in [
                 'apprentice', 'medicine cat apprentice',
                 'mediator apprentice', "queen's apprentice"
                 ]:
@@ -766,45 +766,45 @@ class TalkScreen(Screens):
                 ]:
                 continue
             
-            if not any(t in tags for t in ["they_dead", "they_sc", "they_df", "they_ur"]) and cat.dead:
+            if not any(t in tags for t in ["they_previously_dead", "they_previously_sc", "they_previously_df", "they_previously_ur"]) and cat.dead:
                 continue
             if not any(t in tags for t in ["you_dead", "you_sc", "you_df", "you_ur"]) and you.dead:
                 continue
 
-            if any(t in tags for t in ["they_dead", "they_sc", "they_df", "they_ur"]) and not cat.dead:
+            if any(t in tags for t in ["they_previously_dead", "they_previously_sc", "they_previously_df", "they_previously_ur"]) and not cat.dead:
                 continue
             if any(t in tags for t in ["you_dead", "you_sc", "you_df", "you_ur"]) and not you.dead:
                 continue
 
 
-            if "they_kittypet" in tags and not cat.status == "kittypet":
+            if "they_previously_kittypet" in tags and not cat.old_status == "kittypet":
                 continue
-            if "they_rogue" in tags and not cat.status == "rogue":
+            if "they_previously_rogue" in tags and not cat.old_status == "rogue":
                 continue
-            if "they_loner" in tags and not cat.status == "loner":
+            if "they_previously_loner" in tags and not cat.old_status == "loner":
                 continue
 
             # Cluster tags
             if any(i in self.get_cluster_list() for i in tags) or any(i in self.get_cluster_list_they() for i in tags):
                 if cluster1 not in tags and cluster2 not in tags and\
-                (("they_"+cluster1) not in tags) and (("they_"+cluster2) not in tags):
+                (("they_previously_"+cluster1) not in tags) and (("they_previously_"+cluster2) not in tags):
                     continue
             if any(i in self.get_cluster_list_you() for i in tags):
                 if ("you_"+cluster3) not in tags and ("you_"+cluster4) not in tags:
                     continue
 
-            # if "they_kittypet" not in tags and cat.status == "kittypet":
+            # if "they_previously_kittypet" not in tags and cat.old_status == "kittypet":
             #     continue
-            # if "they_rogue" not in tags and cat.status == "rogue":
+            # if "they_previously_rogue" not in tags and cat.old_status == "rogue":
             #     continue
-            # if "they_loner" not in tags and cat.status == "loner":
+            # if "they_previously_loner" not in tags and cat.old_status == "loner":
             #     continue
 
             # the status files already separate these, so statuses can be untagged in general
 
-            if "they_outside" in tags and not cat.outside:
+            if "they_previously_outside" in tags and not cat.outside:
                 continue
-            if "they_dead" in tags and not cat.dead:
+            if "they_previously_dead" in tags and not cat.dead:
                 continue
             if "you_dead" in tags and not you.dead:
                 continue
@@ -812,28 +812,28 @@ class TalkScreen(Screens):
             if "you_dftrainee" in tags and not you.joined_df:
                 continue
 
-            if "they_dftrainee" in tags and not cat.joined_df:
+            if "they_previously_dftrainee" in tags and not cat.joined_df:
                 continue
 
             if "you_not_dftrainee" in tags and cat.joined_df:
                 continue
                 
-            if "they_not_dftrainee" in tags and cat.joined_df:
+            if "they_previously_not_dftrainee" in tags and cat.joined_df:
                 continue
 
-            if "they_df" in tags and (not cat.df or cat.outside):
+            if "they_previously_df" in tags and (not cat.df or cat.outside):
                 continue
             if "you_df" in tags and (not you.df or you.outside):
                 continue
-            if "they_sc" in tags and (cat.df or cat.outside):
+            if "they_previously_sc" in tags and (cat.df or cat.outside):
                 continue
             if "you_sc" in tags and (you.df or you.outside):
                 continue
-            if "they_ur" in tags and not cat.outside:
+            if "they_previously_ur" in tags and not cat.outside:
                 continue
             if "you_ur" in tags and not you.outside:
                 continue
-            if "they_dead" in tags and not cat.dead:
+            if "they_previously_dead" in tags and not cat.dead:
                 continue
 
             murdered_them = False
@@ -900,7 +900,7 @@ class TalkScreen(Screens):
             if "you_forgiven" in tags and (you.shunned > 0 or not youreforgiven):
                 continue
 
-            if "they_forgiven" in tags and (cat.shunned > 0 or not theyreforgiven):
+            if "they_previously_forgiven" in tags and (cat.shunned > 0 or not theyreforgiven):
                 continue
             
             roles = [
@@ -944,51 +944,87 @@ class TalkScreen(Screens):
                     continue
 
             roles = [
-                "they_kitten", "they_apprentice", "they_medicine_cat_apprentice",
-                "they_mediator_apprentice", "they_queen's_apprentice", "they_warrior",
-                "they_mediator", "they_medicine_cat", "they_queen", "they_deputy",
-                "they_leader", "they_elder", "they_newborn", "they_guide"
+                "they_previously_kitten", "they_previously_apprentice", "they_previously_medicine_cat_apprentice",
+                "they_previously_mediator_apprentice", "they_previously_queen's_apprentice", "they_previously_warrior",
+                "they_previously_mediator", "they_previously_medicine_cat", "they_previously_queen", "they_previously_deputy",
+                "they_previously_leader", "they_previously_elder", "they_previously_newborn", "they_previously_guide"
             ]
             if any(r in roles for r in tags):
                 has_role = False
-                if "they_kitten" in tags and cat.status == "kitten":
+                if "they_previously_kitten" in tags and cat.old_status == "kitten":
                     has_role = True
-                elif "they_apprentice" in tags and cat.status == "apprentice":
+                elif "they_previously_apprentice" in tags and cat.old_status == "apprentice":
                     has_role = True
-                elif "they_medicine_cat_apprentice" in tags and cat.status == "medicine cat apprentice":
+                elif "they_previously_medicine_cat_apprentice" in tags and cat.old_status == "medicine cat apprentice":
                     has_role = True
-                elif "they_mediator_apprentice" in tags and cat.status == "mediator apprentice":
+                elif "they_previously_mediator_apprentice" in tags and cat.old_status == "mediator apprentice":
                     has_role = True
-                elif "they_queen's_apprentice" in tags and cat.status == "queen's apprentice":
+                elif "they_previously_queen's_apprentice" in tags and cat.old_status == "queen's apprentice":
                     has_role = True
-                elif "they_warrior" in tags and cat.status == "warrior":
+                elif "they_previously_warrior" in tags and cat.old_status == "warrior":
                     has_role = True
-                elif "they_mediator" in tags and cat.status == "mediator":
+                elif "they_previously_mediator" in tags and cat.old_status == "mediator":
                     has_role = True
-                elif "they_medicine_cat" in tags and cat.status == "medicine cat":
+                elif "they_previously_medicine_cat" in tags and cat.old_status == "medicine cat":
                     has_role = True
-                elif "they_queen" in tags and cat.status == "queen":
+                elif "they_previously_queen" in tags and cat.old_status == "queen":
                     has_role = True
-                elif "they_deputy" in tags and cat.status == "deputy":
+                elif "they_previously_deputy" in tags and cat.old_status == "deputy":
                     has_role = True
-                elif "they_leader" in tags and cat.status == "leader":
+                elif "they_previously_leader" in tags and cat.old_status == "leader":
                     has_role = True
-                elif "they_elder" in tags and cat.status == "elder":
+                elif "they_previously_elder" in tags and cat.old_status == "elder":
                     has_role = True
-                elif "they_newborn" in tags and cat.status == "newborn":
+                elif "they_previously_newborn" in tags and cat.old_status == "newborn":
                     has_role = True
-                elif "they_guide" in tags and (game.clan.instructor.ID == cat.ID or game.clan.demon.ID == cat.ID):
+                elif "they_previously_guide" in tags and (game.clan.instructor.ID == cat.ID or game.clan.demon.ID == cat.ID):
+                    has_role = True
+                if not has_role:
+                    continue
+            
+            roles = [
+                "they_previously_kitten", "they_previously_apprentice", "they_previously_medicine_cat_apprentice",
+                "they_previously_mediator_apprentice", "they_previously_queen's_apprentice", "they_previously_warrior",
+                "they_previously_mediator", "they_previously_medicine_cat", "they_previously_queen", "they_previously_deputy",
+                "they_previously_leader", "they_previously_elder", "they_previously_newborn"]
+            if any(r in roles for r in tags):
+                has_role = False
+                if "they_previously_kitten" in tags and cat.old_status == "kitten":
+                    has_role = True
+                elif "they_previously_apprentice" in tags and cat.old_status == "apprentice":
+                    has_role = True
+                elif "they_previously_medicine_cat_apprentice" in tags and cat.old_status == "medicine cat apprentice":
+                    has_role = True
+                elif "they_previously_mediator_apprentice" in tags and cat.old_status == "mediator apprentice":
+                    has_role = True
+                elif "they_previously_queen's_apprentice" in tags and cat.old_status == "queen's apprentice":
+                    has_role = True
+                elif "they_previously_warrior" in tags and cat.old_status == "warrior":
+                    has_role = True
+                elif "they_previously_mediator" in tags and cat.old_status == "mediator":
+                    has_role = True
+                elif "they_previously_medicine_cat" in tags and cat.old_status == "medicine cat":
+                    has_role = True
+                elif "they_previously_queen" in tags and cat.old_status == "queen":
+                    has_role = True
+                elif "they_previously_deputy" in tags and cat.old_status == "deputy":
+                    has_role = True
+                elif "they_previously_leader" in tags and cat.old_status == "leader":
+                    has_role = True
+                elif "they_previously_elder" in tags and cat.old_status == "elder":
+                    has_role = True
+                elif "they_previously_newborn" in tags and cat.old_status == "newborn":
                     has_role = True
                 if not has_role:
                     continue
 
-            if "they_grieving" not in tags and "grief stricken" in cat.illnesses and not cat.dead:
+            if "they_previously_grieving" not in tags and "grief stricken" in cat.illnesses and not cat.dead:
                 continue
 
             if "you_grieving" in tags and "grief stricken" not in you.illnesses and not you.dead:
                 continue
 
-            if "they_recovering_from_birth" in tags and "recovering from birth" not in cat.injuries:
+            if "they_previously_recovering_from_birth" in tags and "recovering from birth" not in cat.injuries:
                 continue
 
             if "you_recovering_from_birth" in tags and "recovering from birth" not in you.injuries:
@@ -997,7 +1033,7 @@ class TalkScreen(Screens):
             if "you_not_kit" in tags and game.clan.your_cat.moons < 6:
                 continue
 
-            if "they_not_kit" in tags and cat.moons < 6:
+            if "they_previously_not_kit" in tags and cat.moons < 6:
                 continue
 
 
@@ -1021,9 +1057,9 @@ class TalkScreen(Screens):
                 if f"you_{bs_text}" not in tags:
                     continue
 
-            if any(i in they_backstory_list for i in tags):
+            if any(i in they_previously_backstory_list for i in tags):
                 bs_text = self.backstory_text(cat).replace(" ", "").lower()
-                if f"they_{bs_text}" not in tags:
+                if f"they_previously_{bs_text}" not in tags:
                     continue
 
             # Skill tags
@@ -1041,7 +1077,7 @@ class TalkScreen(Screens):
                         and skill.upper() not in str(you.skills.secondary.path)))
                         ):
                         skip1 = True
-                if f"they_{i}" in tags:
+                if f"they_previously_{i}" in tags:
                     if (
                         skill.upper() not in str(cat.skills.primary.path)
                         and (cat.skills.secondary is None or (cat.skills.secondary
@@ -1070,17 +1106,17 @@ class TalkScreen(Screens):
 
             if "you_pregnant" in tags and "pregnant" not in you.injuries:
                 continue
-            if "they_pregnant" in tags and "pregnant" not in cat.injuries:
+            if "they_previously_pregnant" in tags and "pregnant" not in cat.injuries:
                 continue
 
             if "grief stricken" not in you.illnesses and "you_grieving" in tags and not you.dead:
                 continue
-            if "grief stricken" not in cat.illnesses and "they_grieving" in tags and not cat.dead:
+            if "grief stricken" not in cat.illnesses and "they_previously_grieving" in tags and not cat.dead:
                 continue
 
             if "starving" not in you.illnesses and "you_starving" in tags:
                 continue
-            if "starving" not in cat.illnesses and "they_starving" in tags:
+            if "starving" not in cat.illnesses and "they_previously_starving" in tags:
                 continue
 
 
@@ -1100,14 +1136,14 @@ class TalkScreen(Screens):
                 if not ill_injured:
                     continue
 
-            if any(i in ["they_ill", "they_injured"] for i in tags):
+            if any(i in ["they_previously_ill", "they_previously_injured"] for i in tags):
                 ill_injured = False
 
-                if cat.is_ill() and "they_ill" in tags and "grief stricken" not in cat.illnesses and "guilty" not in cat.illnesses:
+                if cat.is_ill() and "they_previously_ill" in tags and "grief stricken" not in cat.illnesses and "guilty" not in cat.illnesses:
                     for illness in cat.illnesses:
                         if cat.illnesses[illness]['severity'] != 'minor':
                             ill_injured = True
-                if cat.is_injured() and "they_injured" in tags and "pregnant" not in cat.injuries\
+                if cat.is_injured() and "they_previously_injured" in tags and "pregnant" not in cat.injuries\
                 and "recovering from birth" not in cat.injuries and "sprain" not in cat.injuries:
                     for injury in cat.injuries:
                         if cat.injuries[injury]['severity'] != 'minor':
@@ -1204,10 +1240,10 @@ class TalkScreen(Screens):
                 if "siblings_mate" in tags:
                     if cat.ID in you.inheritance.get_siblings_mates():
                         fam = True
-                if "they_grandparent" in tags:
+                if "they_previously_grandparent" in tags:
                     if cat.is_grandparent(game.clan.your_cat):
                         fam = True
-                if "they_grandchild" in tags:
+                if "they_previously_grandchild" in tags:
                     if game.clan.your_cat.is_grandparent(cat):
                         fam = True
                 if not fam:
@@ -1288,19 +1324,19 @@ class TalkScreen(Screens):
                 if not clan_has_kits:
                     continue
 
-            if "they_older" in tags:
+            if "they_previously_older" in tags:
                 if you.age == cat.age or cat.moons < you.moons:
                     continue
 
-            if "they_sameage" in tags:
+            if "they_previously_sameage" in tags:
                 if you.age != cat.age:
                     continue
 
-            if "they_younger" in tags:
+            if "they_previously_younger" in tags:
                 if you.age == cat.age or cat.moons > you.moons:
                     continue
 
-            if "they_shunned" in tags:
+            if "they_previously_shunned" in tags:
                 if cat.shunned == 0:
                     continue
 
@@ -1308,11 +1344,11 @@ class TalkScreen(Screens):
                 if you.shunned == 0:
                     continue
             
-            if "both_shunned" in tags or ("they_shunned" in tags and "you_shunned" in tags):
+            if "both_shunned" in tags or ("they_previously_shunned" in tags and "you_shunned" in tags):
                 if cat.shunned == 0 or you.shunned == 0:
                     continue
 
-            if cat.shunned > 0 and you.shunned == 0 and "they_shunned" not in tags:
+            if cat.shunned > 0 and you.shunned == 0 and "they_previously_shunned" not in tags:
                 continue
 
             if you.shunned > 0 and cat.shunned == 0 and "you_shunned" not in tags:
@@ -1327,32 +1363,32 @@ class TalkScreen(Screens):
             # PERMANENT CONDITIONS
             # the exclusive deaf/blind ones
 
-            if "only_they_born_deaf" in tags:
+            if "only_they_previously_born_deaf" in tags:
                 if "deaf" not in cat.permanent_condition:
                     continue
                 if "deaf" in cat.permanent_condition and cat.permanent_condition["deaf"]["born_with"] is False:
                     continue
-            if "only_they_went_deaf" in tags:
+            if "only_they_previously_went_deaf" in tags:
                 if "deaf" not in cat.permanent_condition:
                     continue
                 if "deaf" in cat.permanent_condition and cat.permanent_condition["deaf"]["born_with"] is True:
                     continue
-            if "only_they_deaf" in tags and "deaf" not in cat.permanent_condition:
+            if "only_they_previously_deaf" in tags and "deaf" not in cat.permanent_condition:
                 continue
 
-            if "only_they_born_blind" in tags:
+            if "only_they_previously_born_blind" in tags:
                 if "blind" not in cat.permanent_condition:
                     continue
                 if "blind" in cat.illnesses and cat.permanent_condition["blind"]["born_with"] is False:
                     continue
 
-            if "only_they_went_blind" in tags:
+            if "only_they_previously_went_blind" in tags:
                 if "blind" not in cat.permanent_condition:
                     continue
                 if "blind" in cat.permanent_condition and cat.permanent_condition["blind"]["born_with"] is True:
                     continue
 
-            if "only_they_blind" in tags and "blind" not in cat.permanent_condition:
+            if "only_they_previously_blind" in tags and "blind" not in cat.permanent_condition:
                 continue
 
             if "only_you_born_deaf" in tags:
@@ -1384,17 +1420,17 @@ class TalkScreen(Screens):
             # non-exclusive deaf/blind
             if "deaf" in cat.permanent_condition:
                 if cat.permanent_condition["deaf"]["born_with"] is True:
-                    if "they_born_deaf" not in tags and "only_they_born_deaf" not in tags:
-                        if "they_deaf" not in tags and "only_they_deaf" not in tags:
+                    if "they_previously_born_deaf" not in tags and "only_they_previously_born_deaf" not in tags:
+                        if "they_previously_deaf" not in tags and "only_they_previously_deaf" not in tags:
                             continue
                 else:
-                    if "they_born_deaf" in tags or "only_they_born_deaf" not in tags:
-                        if "they_deaf" not in tags and "only_they_deaf" not in tags:
+                    if "they_previously_born_deaf" in tags or "only_they_previously_born_deaf" not in tags:
+                        if "they_previously_deaf" not in tags and "only_they_previously_deaf" not in tags:
                             continue
-                if "they_hearing" in tags:
+                if "they_previously_hearing" in tags:
                     continue
                 # cats who went deaf later in life can get pretty much all normal dialogue, as they're able to talk regularly.
-                # they_hearing is for dialogue that explicitly mentions that t_c can hear,
+                # they_previously_hearing is for dialogue that explicitly mentions that t_c can hear,
                 # so it can be filtered out for cats who went deaf.
                 # "did you hear that?" "i just heard..." "r_k is so loud!" yanno
 
@@ -1413,14 +1449,14 @@ class TalkScreen(Screens):
             # blind
             if "blind" in cat.permanent_condition:
                 if cat.permanent_condition["blind"]["born_with"] is True:
-                    if "they_born_blind" not in tags and "only_they_born_blind" not in tags:
-                        if "they_blind" not in tags and "only_they_blind" not in tags:
+                    if "they_previously_born_blind" not in tags and "only_they_previously_born_blind" not in tags:
+                        if "they_previously_blind" not in tags and "only_they_previously_blind" not in tags:
                             continue
                 else:
-                    if "they_born_blind" in tags or "only_they_born_blind" in tags:
+                    if "they_previously_born_blind" in tags or "only_they_previously_born_blind" in tags:
                         continue
-                    if "they_went_blind" not in tags and "only_they_went_blind" not in tags:
-                        if "they_blind" not in tags and "only_they_blind" not in tags:
+                    if "they_previously_went_blind" not in tags and "only_they_previously_went_blind" not in tags:
+                        if "they_previously_blind" not in tags and "only_they_previously_blind" not in tags:
                             continue
 
             if "blind" in you.permanent_condition:
@@ -1437,82 +1473,82 @@ class TalkScreen(Screens):
 
             if "you_allergies" in tags and "allergies" not in you.permanent_condition:
                 continue
-            if "they_allergies" in tags and "allergies" not in cat.permanent_condition:
+            if "they_previously_allergies" in tags and "allergies" not in cat.permanent_condition:
                 continue
 
             if "you_jointpain" in tags and "constant joint pain" not in you.illnesses:
                 continue
-            if "they_jointpain" in tags and "constant join pain" not in cat.illnesses:
+            if "they_previously_jointpain" in tags and "constant join pain" not in cat.illnesses:
                 continue
 
             if "you_dizzy" in tags and "constantly dizzy" not in you.permanent_condition:
                 continue
-            if "they_dizzy" in tags and "constantly dizzy" not in cat.permanent_condition:
+            if "they_previously_dizzy" in tags and "constantly dizzy" not in cat.permanent_condition:
                 continue
 
             if "you_nightmares" in tags and "constant nightmares" not in you.permanent_condition:
                 continue
-            if "they_nightmares" in tags and "constant nightmares" not in cat.permanent_condition:
+            if "they_previously_nightmares" in tags and "constant nightmares" not in cat.permanent_condition:
                 continue
 
             if "you_crookedjaw" in tags and "crooked jaw" not in you.permanent_condition:
                 continue
-            if "they_crookedjaw" in tags and "crooked jaw" not in cat.permanent_condition:
+            if "they_previously_crookedjaw" in tags and "crooked jaw" not in cat.permanent_condition:
                 continue
 
             if "you_failingeyesight" in tags and "failing eyesight" not in you.permanent_condition:
                 continue
-            if "they_failingeyesight" in tags and "failing eyesight" not in cat.permanent_condition:
+            if "they_previously_failingeyesight" in tags and "failing eyesight" not in cat.permanent_condition:
                 continue
 
             if "you_lastinggrief" in tags and "lasting grief" not in you.permanent_condition:
                 continue
-            if "they_lastinggrief" in tags and "lasting grief" not in cat.permanent_condition:
+            if "they_previously_lastinggrief" in tags and "lasting grief" not in cat.permanent_condition:
                 continue
 
             # if "you_missingleg" in tags and "lost a leg" not in you.permanent_condition and "born without a leg" not in you.permanent_condition:
             #     continue
-            # if "they_missingleg" in tags and "lost a leg" not in cat.permanent_condition and "born without a leg" not in cat.permanent_condition:
+            # if "they_previously_missingleg" in tags and "lost a leg" not in cat.permanent_condition and "born without a leg" not in cat.permanent_condition:
             #     continue
 
             # if "you_missingtail" in tags and "lost their tail" not in you.permanent_condition and "born without a tail" not in you.permanent_condition:
             #     continue
-            # if "they_missingtail" in tags and "lost their tail" not in cat.permanent_condition and "born without a tail" not in cat.permanent_condition:
+            # if "they_previously_missingtail" in tags and "lost their tail" not in cat.permanent_condition and "born without a tail" not in cat.permanent_condition:
             #     continue
 
             if "you_paralyzed" in tags and "paralyzed" not in you.permanent_condition:
                 continue
-            if "they_paralyzed" in tags and "paralyzed" not in cat.permanent_condition:
+            if "they_previously_paralyzed" in tags and "paralyzed" not in cat.permanent_condition:
                 continue
 
             if "you_hearingloss" in tags and "partial hearing loss" not in you.permanent_condition:
                 continue
-            if "they_hearingloss" in tags and "partial hearing loss" not in cat.permanent_condition:
+            if "they_previously_hearingloss" in tags and "partial hearing loss" not in cat.permanent_condition:
                 continue
 
             if "you_headaches" in tags and "persistent headaches" not in you.permanent_condition:
                 continue
-            if "they_headaches" in tags and "persistent headaches" not in cat.illnesses:
+            if "they_previously_headaches" in tags and "persistent headaches" not in cat.illnesses:
                 continue
 
             if "you_raspylungs" in tags and "raspy lungs" not in you.permanent_condition:
                 continue
-            if "they_raspylungs" in tags and "raspy lungs" not in cat.permanent_condition:
+            if "they_previously_raspylungs" in tags and "raspy lungs" not in cat.permanent_condition:
                 continue
 
             if "you_recurringshock" in tags and "recurring shock" not in you.permanent_condition:
                 continue
-            if "they_recurringshock" in tags and "recurring shock" not in cat.permanent_condition:
+            if "they_previously_recurringshock" in tags and "recurring shock" not in cat.permanent_condition:
                 continue
 
             if "you_seizureprone" in tags and "seizure prone" not in you.permanent_condition:
                 continue
-            if "they_seizureprone" in tags and "seizure prone" not in cat.permanent_condition:
+            if "they_previously_seizureprone" in tags and "seizure prone" not in cat.permanent_condition:
                 continue
 
             if "you_wastingdisease" in tags and "wasting disease" not in you.permanent_condition:
                 continue
-            if "they_wastingdisease" in tags and "wasting disease" not in cat.permanent_condition:
+            if "they_previously_wastingdisease" in tags and "wasting disease" not in cat.permanent_condition:
                 continue
 
             # Relationship conditions
@@ -1646,7 +1682,7 @@ class TalkScreen(Screens):
             if game.clan.focus_cat:
                 if "you_focuscat" in tags and game.clan.focus_cat.ID != game.clan.your_cat.ID:
                     continue
-                if "they_focuscat" in tags and cat.ID != game.clan.focus_cat.ID:
+                if "they_previously_focuscat" in tags and cat.ID != game.clan.focus_cat.ID:
                     continue
                 if game.clan.focus == "unknown_murder":
                     focus_cat = game.clan.focus_cat
@@ -1693,12 +1729,12 @@ class TalkScreen(Screens):
 
                 if cat.dead and not skip_processing:
                     for tag in tags:
-                        if tag.startswith("min_they_deadfor_"):
+                        if tag.startswith("min_they_previously_deadfor_"):
                             min_value = int(tag.split("_")[-1])
                             if cat.dead_for < min_value:
                                 skip_processing = True
                                 break
-                        elif tag.startswith("max_they_deadfor_"):
+                        elif tag.startswith("max_they_previously_deadfor_"):
                             max_value = int(tag.split("_")[-1])
                             if cat.dead_for > max_value:
                                 skip_processing = True
@@ -1716,7 +1752,7 @@ class TalkScreen(Screens):
             possible_texts = ujson.loads(read_file.read())
 
             y_c_text = f"y_c: {you.status} "
-            t_c_text = f"t_c: {cat.status} "
+            t_c_text = f"t_c: {cat.old_status} "
 
             cluster1, cluster2 = get_cluster(cat.personality.trait)
             cluster3, cluster4 = get_cluster(you.personality.trait)
@@ -1775,14 +1811,14 @@ class TalkScreen(Screens):
 
         # Assign weights based on tags
         weighted_tags = [
-            "you_pregnant", "they_pregnant", "from_mentor", "from_your_parent",
+            "you_pregnant", "they_previously_pregnant", "from_mentor", "from_your_parent",
             "from_adopted_parent", "adopted_parent", "half sibling", "littermate",
             "siblings_mate", "cousin", "adopted_sibling", "parents_siblings",
             "from_df_mentor", "from_your_kit", "from_your_apprentice",
             "from_df_apprentice", "from_mate", "from_parent", "adopted_parent",
-            "from_kit", "sibling", "from_adopted_kit", "they_injured", "they_ill",
-            "you_injured", "you_ill", "you_grieving", "they_grieving", "you_forgiven",
-            "they_forgiven", "murderedyou", "murderedthem"
+            "from_kit", "sibling", "from_adopted_kit", "they_previously_injured", "they_previously_ill",
+            "you_injured", "you_ill", "you_grieving", "they_previously_grieving", "you_forgiven",
+            "they_previously_forgiven", "murderedyou", "murderedthem"
         ] # List of tags that increase the weight
 
         special_date = get_special_date()
