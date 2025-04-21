@@ -1545,7 +1545,7 @@ class Events:
                 game.cur_events_list.insert(0, evt)
         
         
-        if game.clan.your_cat.df_patrols >= 1 and game.clan.age - game.clan.your_cat.df_join_moon >= 12 and not game.clan.your_cat.graduated_df:
+        if game.clan.your_cat.df_patrols >= 5 and game.clan.age - game.clan.your_cat.df_join_moon >= 12 and not game.clan.your_cat.graduated_df:
             game.clan.your_cat.graduated_df = True
             evt = self.process_text(random.choice(self.df_txt["graduate"]))
             if evt:
