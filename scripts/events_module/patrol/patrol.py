@@ -652,8 +652,9 @@ class Patrol:
             # LG
             # DF patrols will default to being alive cats only
             # So if theres no "df" in min_max_status, it will auto disallow df cats from being in it
-            if not df_status and self.patrol_statuses["df"] > 0:
-                flag = True
+            if "df" in self.patrol_statuses:
+                if not df_status and self.patrol_statuses["df"] > 0:
+                    flag = True
             # ---
 
             if flag:
