@@ -2328,7 +2328,7 @@
                 "weight": 20
             },
             {
-                "text": "As r_w1 speaks, you feel the weight of the words on your conscious. It's fueled by hatred, yes, but it's also a desperate attempt to come to terms with your crimes. {PRONOUN/r_w1/poss} words falter into sobbing and r_w2 steps in to guide {PRONOUN/r_w1/object} away. Your heart is heavy in their wake.",
+                "text": "As r_w1 speaks, you feel the weight of the words on your conscience. It's fueled by hatred, yes, but it's also a desperate attempt to come to terms with your crimes. {PRONOUN/r_w1/poss/CAP} words falter into sobbing and r_w2 steps in to guide {PRONOUN/r_w1/object} away. Your heart is heavy in their wake.",
                 "exp": 15,
                 "weight": 20
             }
