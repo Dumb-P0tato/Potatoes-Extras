@@ -16885,16 +16885,6 @@
             "Oh, no need to get tm_n... I know <i>you</i> need practice."
         ]
     ],
-    "unlawful_tomedcatGuy1": [
-        [
-            "you_medicine_cat",
-            "unlawful"
-        ],
-        [
-            "Where did the catmint go? Why'd you think I had something to do with it?",
-            "[t_c wobbles back and forth in place. Probably best to just let {PRONOUN/t_c/object} sleep it off...]"
-        ]
-    ],
     "unlawful_tomediatorappGuy1": [
         [
             "you_mediator_apprentice",

@@ -3122,7 +3122,10 @@ class MakeClanScreen(Screens):
                             new_patch_list = patch_list
 
                         patches = ["None"] + new_patch_list
-                        current_index = patches.index(str(self.white_patches))
+                        try:
+                            current_index = patches.index(str(self.white_patches))
+                        except ValueError:
+                            current_index = 0
                         next_index = (current_index + num) % len(patches)
                         if patches[next_index] == "None":
                             self.white_patches = None
@@ -3248,7 +3251,10 @@ class MakeClanScreen(Screens):
                                 if i[0] in new_acc_list or i[0] in self.accessories:
                                     new_acc_list.remove(i[0])
                         accs = ["None"] + new_acc_list
-                        current_index = accs.index(self.accessories[0]) if self.accessories else 0
+                        try:
+                            current_index = accs.index(self.accessories[0]) if self.accessories else 0
+                        except ValueError:
+                            current_index = 0
                         next_index = (current_index + num) % len(accs)
                         if accs[next_index] == "None":
                             next_acc = []

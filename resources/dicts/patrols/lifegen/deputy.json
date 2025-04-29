@@ -630,7 +630,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "patrol_art_png_name",
+        "patrol_art": "DefaultDeputy",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
