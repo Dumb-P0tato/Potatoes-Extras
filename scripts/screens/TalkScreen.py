@@ -507,7 +507,7 @@ class TalkScreen(Screens):
             with open(f"{resource_dir}flirt.json", 'r') as read_file:
                 possible_texts.update(ujson.loads(read_file.read()))
         else:
-            if cat.old_status != 'exiled':
+            if cat.old_status and cat.old_status != 'exiled':
                 with open(f"{resource_dir}{cat.old_status}.json", 'r') as read_file:
                     possible_texts = ujson.loads(read_file.read())
 
