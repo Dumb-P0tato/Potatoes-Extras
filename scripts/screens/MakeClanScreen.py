@@ -2711,7 +2711,7 @@ class MakeClanScreen(Screens):
                         manager=MANAGER
                         )
                     self.eye_colour_names[colour] = pygame_gui.elements.UITextBox(
-                        str(colour).lower().capitalize(),
+                        str(Cat.describe_eyes(self.selected_cat, colour)).lower().capitalize(),
                         ui_scale(pygame.Rect((0 + 32, eye_y_pos), (200, 34))),
                         object_id=get_text_box_theme("#text_box_30_horizleft"),
                         container=self.elements["scroll_container"],
@@ -2729,7 +2729,7 @@ class MakeClanScreen(Screens):
                         manager=MANAGER
                         )
                     self.heterochromia_names[str(colour)] = pygame_gui.elements.UITextBox(
-                        str(colour).lower().capitalize(),
+                        str(Cat.describe_eyes(self.selected_cat, colour)).lower().capitalize(),
                         ui_scale(pygame.Rect((0 + 32, eye_y_pos), (200, 34))),
                         object_id=get_text_box_theme("#text_box_30_horizleft"),
                         container=self.elements["scroll_container"],
