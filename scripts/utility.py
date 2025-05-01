@@ -3800,6 +3800,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         "r_w": r_w,
         "r_a": r_a,
         "r_m": r_m,
+        "r_d": r_d,
         "r_q": r_q,
         "r_e": r_e,
         "rsh_k": rsh_k,
