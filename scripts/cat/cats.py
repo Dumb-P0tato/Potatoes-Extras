@@ -269,6 +269,7 @@ class Cat:
         self.df_join_moon = 0
         self.df_patrols = 0
         self.graduated_df = False
+        self.old_status = ""
         
         self.prevent_fading = False  # Prevents a cat from fading.
         self.faded_offspring = []  # Stores of a list of faded offspring, for family page purposes.
@@ -1155,6 +1156,7 @@ class Cat:
         resort = If sorting type is 'rank', and resort is True, it will resort the cat list. This should
                 only be true for non-timeskip status changes."""
         old_status = self.status
+        self.old_status = self.status
         self.status = new_status
         self.name.status = new_status
 
@@ -3949,7 +3951,8 @@ class Cat:
                 "lock_faith": self.lock_faith if self.lock_faith else "flexible",
                 "df_patrols": self.df_patrols if self.df_patrols else 0,
                 "df_join_moon": self.df_join_moon if self.df_join_moon else 0,
-                "graduated_df": self.graduated_df if self.graduated_df else False
+                "graduated_df": self.graduated_df if self.graduated_df else False,
+                "old_status": self.old_status if self.old_status else ""
             }
 
     def determine_next_and_previous_cats(self, filter_func: Callable[[Cat], bool] = None):
