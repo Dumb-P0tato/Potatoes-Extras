@@ -595,9 +595,9 @@
         [
             "y_c, come here. I want to show you something.",
             "[t_c waves you over with a flick of {PRONOUN/t_c/poss} tail, and looks to the sky where the stars shine the brightest.]",
-            "Do you see that star, to the left? No, no. How can you miss {PRONOUN/tg_c/object}? {PRONOUN/t_c/subject/CAP}{VERB/tg_c/'re/'s} shimmering right up there.",
+            "Do you see that star, to the left? No, no. How can you miss {PRONOUN/tg_c/object}? {PRONOUN/tg_c/subject/CAP}{VERB/tg_c/'re/'s} shimmering right up there.",
             "[A look of reminiscent longing falls upon t_c's expression as {PRONOUN/t_c/subject} {VERB/t_c/look/looks} up that one star.]",
-            "See, y_c, that's my tg_c. Up in StarClan, watching over me... Do you see how {PRONOUN/tg_c/subject} light up the sky?",
+            "See, y_c, that's my tg_c. Up in StarClan, watching over me... Do you see how {PRONOUN/tg_c/subject} {VERB/tg_c/light/lights} up the sky?",
             "I do miss {PRONOUN/tg_c/object}. But... tg_c looks just as beautiful up there as {PRONOUN/tg_c/subject} did by my side."
         ]
     ],
@@ -1685,7 +1685,7 @@
             "[t_c snuggles up next to you with a piece of prey in {PRONOUN/t_c/poss} mouth, dropping it between you two. It's fairly large, just enough to feed two cats.]",
             "Here, I brought enough to share, y_c! Can't get enough good ol' bonding time these days. Heh, but it can't be worse than whatever's going on with o_c_n's leader, right?",
             "...Man.",
-            "[t_c sighs, taking a bite of the prey. {PRONOUN/t_c/subject/CAP} {VERB/t_c/let/lets} it sit in {PRONOUN/t_c/poss} mouth for a moment as {PRONOUN/t_c/subject} {VERB/t_c/chew/chews} it, seeming to have trouble with the giant piece {PRONOUN/t_c/subject} took.",
+            "[t_c sighs, taking a bite of the prey. {PRONOUN/t_c/subject/CAP} {VERB/t_c/let/lets} it sit in {PRONOUN/t_c/poss} mouth for a moment as {PRONOUN/t_c/subject} {VERB/t_c/chew/chews} it, seeming to have trouble with the giant piece {PRONOUN/t_c/subject} took.]",
             "[Then, {PRONOUN/t_c/poss} eyes widen massively, and for a moment you're worried {PRONOUN/t_c/subject} might be choking...]",
             "[...nope. t_c is just about to talk with {PRONOUN/t_c/poss} mouth full.]",
             "Oh! Mmm-mm, y_c! You woulfn't guess what I saw ta' other day!",
@@ -3207,6 +3207,144 @@
         [
             "[t_c presses {PRONOUN/t_c/poss} mud-covered body into your pelt to give you comfort. The mud is oddly comforting.]",
             "[Maybe your home really is in the Dark Forest.]"
+        ]
+    ],
+    "blind_deaf_H1": [
+        [
+            "they_blind",
+            "only_you_deaf",
+            "you_blind",
+            "any",
+            "min_plike_15"
+        ],
+        [
+            "[You can feel the vibrations coming from t_c's body as {PRONOUN/t_c/subject} {VERB/t_c/talk/talks}, even though you can't hear {PRONOUN/t_c/poss} words.]",
+            "[It's comforting in it's own way.]"
+        ]
+    ],
+    "blind_deaf_H2": [
+        [
+            "only_they_blind",
+            "only_you_deaf",
+            "you_blind",
+            "any"
+        ],
+        [
+            "[t_c creeps up behind you and scares the fur off your body.]",
+            "[It's unfair that {PRONOUN/t_c/subject} can use {PRONOUN/t_c/poss} heightened hearing to sneak up on you, even though t_c can't see!]"
+        ]
+    ],
+    "deaf_grieving_H1": [
+        [
+            "they_grieving",
+            "you_deaf",
+            "they_blind",
+            "flirt",
+            "reject",
+            "any"
+        ],
+        [
+            "[t_c shakes {PRONOUN/t_c/poss} head, eyes shining with disappointment.]",
+            "[It's not the time for flirting.]"
+        ]
+    ],
+    "deaf_grieving_H2": [
+        [
+            "they_grieving",
+            "grievingyou",
+            "you_deaf",
+            "they_blind",
+            "flirt",
+            "reject",
+            "any"
+        ],
+        [
+            "[t_c shakes {PRONOUN/t_c/poss} head, eyes shining with disappointment.]",
+            "[It's not the time for flirting.]"
+        ]
+    ],
+    "blind_grieving_H1": [
+        [
+            "they_grieving",
+            "you_blind",
+            "they_blind",
+            "any",
+            "min_comfort_5"
+        ],
+        [
+            "Sometimes I call out for tg_c as if {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} still alive. The silence that follows... I can't bear it.",
+            "I wish I was able to talk to {PRONOUN/t_c/poss} one last time."
+        ]
+    ],
+    "dead_grieving_shunned_blind_H1": [
+        [
+            "you_grieving",
+            "they_df",
+            "they_blind",
+            "you_blind",
+            "any"
+        ],
+        [
+            "If there is one thing I do not miss about the living, it's grief. Here, everycat is already dead. There's nothing to grieve.",
+            "I, uh, I'm sorry for your lost, though."
+        ]
+    ],
+    "dead_grieving_shunned_blind_H2": [
+        [
+            "you_grieving",
+            "you_shunned",
+            "you_blind",
+            "they_blind",
+            "they_deaf",
+            "you_deaf",
+            "they_df",
+            "any"
+        ],
+        [
+            "[t_c doesn't acknowledge you, but {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} chase you away either.]"
+        ]
+    ],
+    "dead_grieving_shunned_blind_H3": [
+        [
+            "you_grieving",
+            "you_shunned",
+            "you_blind",
+            "they_blind",
+            "they_deaf",
+            "you_deaf",
+            "they_sc",
+            "any"
+        ],
+        [
+            "[t_c doesn't acknowledge you, but {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} chase you away either.]"
+        ]
+    ],
+    "dead_grieving_shunned_blind_H4": [
+        [
+            "you_grieving",
+            "you_shunned",
+            "you_blind",
+            "they_blind",
+            "they_deaf",
+            "you_deaf",
+            "they_ur",
+            "any"
+        ],
+        [
+            "[t_c doesn't acknowledge you, but {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} chase you away either.]"
+        ]
+    ],
+    "you_dead_to_living_H1": [
+        [
+            "you_sc",
+            "they_grieving",
+            "they_deaf",
+            "you_deaf",
+            "any"
+        ],
+        [
+            "[t_c notices you hovering in the distance and frowns.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/turn/turns} away, ignoring your presence.]"
         ]
     ]
 }

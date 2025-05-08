@@ -1322,7 +1322,7 @@
         "chance_of_success": 60,
         "success_outcomes": [
             {
-                "text": "You approach {PRONOUN/r_a/object} and offer kind words of encouragement. After a few moments of listening, r_a thank you for your support, giving you a small smile of appreciation. Taking the moment to be kind was worth it.",
+                "text": "You approach {PRONOUN/r_a/object} and offer kind words of encouragement. After a few moments of listening, r_a thanks you for your support, giving you a small smile of appreciation. Taking the moment to be kind was worth it.",
                 "exp": 10,
                 "weight": 20
             },
