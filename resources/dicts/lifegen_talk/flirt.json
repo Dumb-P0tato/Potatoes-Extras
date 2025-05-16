@@ -5638,5 +5638,34 @@
             "[t_c shakes {PRONOUN/t_c/poss} head, eyes shining with disappointment.]",
             "[It's not the time for flirting.]"
         ]
+    ],
+    "deaf_grieving_H1": [
+        [
+            "they_grieving",
+            "you_deaf",
+            "they_blind",
+            "flirt",
+            "reject",
+            "any"
+        ],
+        [
+            "[t_c shakes {PRONOUN/t_c/poss} head, eyes shining with disappointment.]",
+            "[It's not the time for flirting.]"
+        ]
+    ],
+    "deaf_grieving_H2": [
+        [
+            "they_grieving",
+            "grievingyou",
+            "you_deaf",
+            "they_blind",
+            "flirt",
+            "reject",
+            "any"
+        ],
+        [
+            "[t_c shakes {PRONOUN/t_c/poss} head, eyes shining with disappointment.]",
+            "[It's not the time for flirting.]"
+        ]
     ]
 }

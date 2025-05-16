@@ -3234,35 +3234,6 @@
             "[It's unfair that {PRONOUN/t_c/subject} can use {PRONOUN/t_c/poss} heightened hearing to sneak up on you, even though t_c can't see!]"
         ]
     ],
-    "deaf_grieving_H1": [
-        [
-            "they_grieving",
-            "you_deaf",
-            "they_blind",
-            "flirt",
-            "reject",
-            "any"
-        ],
-        [
-            "[t_c shakes {PRONOUN/t_c/poss} head, eyes shining with disappointment.]",
-            "[It's not the time for flirting.]"
-        ]
-    ],
-    "deaf_grieving_H2": [
-        [
-            "they_grieving",
-            "grievingyou",
-            "you_deaf",
-            "they_blind",
-            "flirt",
-            "reject",
-            "any"
-        ],
-        [
-            "[t_c shakes {PRONOUN/t_c/poss} head, eyes shining with disappointment.]",
-            "[It's not the time for flirting.]"
-        ]
-    ],
     "blind_grieving_H1": [
         [
             "they_grieving",
