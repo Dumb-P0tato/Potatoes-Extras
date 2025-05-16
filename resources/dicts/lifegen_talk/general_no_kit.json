@@ -26895,5 +26895,19 @@
         [
             "[t_c stares at you like {PRONOUN/t_c/subject} {VERB/t_c/know/knows} something.]"
         ]
+    ],
+    "blind_deaf_H3": [
+        [
+            "only_they_blind",
+            "they_deaf",
+            "you_deaf",
+            "any",
+            "neutral",
+            "clan_has_kits"
+        ],
+        [
+            "[Noticing t_c is starting to wander into a crater the kittens have dug over the past moon, you gently guide {PRONOUN/t_c/object} into safety.]",
+            "[The rumble of {PRONOUN/t_c/poss} appreciation is felt through your touch.]"
+        ]
     ]
 }
