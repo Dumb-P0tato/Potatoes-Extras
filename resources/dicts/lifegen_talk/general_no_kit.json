@@ -7942,7 +7942,7 @@
             "you_shunned"
         ],
         [
-            "[t_c's fur spikes up as you approach them{PRONOUN/t_c/object}, and {PRONOUN/t_c/subject} quickly {VERB/t_c/rush/rushes} away, clearly afraid of your presence.]"
+            "[t_c's fur spikes up as you approach {PRONOUN/t_c/object}, and {PRONOUN/t_c/subject} quickly {VERB/t_c/rush/rushes} away, clearly afraid of your presence.]"
         ]
     ],
     "Introspective_murder2": [
@@ -10806,7 +10806,8 @@
             "you_brooding",
             "you_unabashed",
             "you_sweet",
-            "you_introspective"
+            "you_introspective",
+            "you_not_deputy"
         ],
         [
             "[You threaten to report t_c to the deputy unless {PRONOUN/t_c/subject} {VERB/t_c/return/returns} an item {PRONOUN/t_c/subject} stole to you.]",
@@ -15289,7 +15290,7 @@
     ],
     "DF_living_H3": [
         [
-            "They_df",
+            "they_df",
             "any",
             "you_blind",
             "they_blind",
@@ -17107,7 +17108,7 @@
         [
             "[t_c blatantly mimics l_n.]",
             "'More young warriors, ready to join the Clan and do everything I say all of the time.'",
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/wink/winks}at you.]"
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/wink/winks} at you.]"
         ]
     ],
     "unlawful_youpregGuy2": [
@@ -21600,7 +21601,8 @@
             "they_silly",
             "min_romantic_40",
             "they_adult",
-            "you_adult"
+            "you_adult",
+            "non-mates"
         ],
         "intro": [
             "Hey, y_c? Can I ask you a question?",
@@ -26892,6 +26894,20 @@
         ],
         [
             "[t_c stares at you like {PRONOUN/t_c/subject} {VERB/t_c/know/knows} something.]"
+        ]
+    ],
+    "blind_deaf_H3": [
+        [
+            "only_they_blind",
+            "they_deaf",
+            "you_deaf",
+            "any",
+            "neutral",
+            "clan_has_kits"
+        ],
+        [
+            "[Noticing t_c is starting to wander into a crater the kittens have dug over the past moon, you gently guide {PRONOUN/t_c/object} into safety.]",
+            "[The rumble of {PRONOUN/t_c/poss} appreciation is felt through your touch.]"
         ]
     ]
 }

@@ -5472,7 +5472,7 @@
             "Happily agrees to patrol with r_c",
             "Volunteers to guard the camp during a Gathering",
             "Purposely loses a prey for r_c to catch instead",
-            "Offers to grab some herbs for the medicine den while {PRONOUN/m_c/subject}'re hunting",
+            "Offers to grab some herbs for the medicine den while {PRONOUN/m_c/subject}{VERB/t_c/'re/'s} hunting",
             "Practices a fighting move with r_c",
             "Creates a new two-cat fighting move",
             "Helps r_c up a tree so {PRONOUN/r_c/subject} can grab a bird",
