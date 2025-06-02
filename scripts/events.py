@@ -1050,7 +1050,7 @@ class Events:
 
         text = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), text)
 
-        text = text.replace("c_n", str(game.clan.name))
+        text = text.replace("c_n", str(game.clan.name) + "Clan")
         if "w_c" in text:
             if game.clan.war.get("at_war", True):
                 text = text.replace("w_c", str(game.clan.war["enemy"]))
@@ -1067,7 +1067,7 @@ class Events:
 
         text = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), text)
 
-        text = text.replace("c_n", str(game.clan.name))
+        text = text.replace("c_n", str(game.clan.name) + "Clan")
         if "w_c" in text:
             if game.clan.war.get("at_war", True):
                 text = text.replace("w_c", str(game.clan.war["enemy"]))
@@ -1200,7 +1200,7 @@ class Events:
                 add_on_mentor = " no mentor" if not game.clan.your_cat.mentor else ""
                 ceremony_txt = random.choice(self.b_txt[f"{game.clan.your_cat.status} ceremony{add_on_lead}{add_on_mentor}"])
 
-            ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.name))
+            ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.name) + "Clan")
             ceremony_txt = ceremony_txt.replace('y_c', str(game.clan.your_cat.name))
             if game.clan.leader and not game.clan.leader.dead and not game.clan.leader.outside:
                 ceremony_txt = re.sub(r'(?<!\/)l_n(?!\/)', str(game.clan.leader.name), ceremony_txt)
@@ -1250,7 +1250,7 @@ class Events:
             else:
                 ceremony_txt = random.choice(self.b_txt[game.clan.your_cat.status + '_ceremony_no_mentor'])
         
-        ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.name))
+        ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.name) + "Clan")
         ceremony_txt = ceremony_txt.replace('y_c', str(game.clan.your_cat.name))
         
         if game.clan.leader and not game.clan.leader.dead and not game.clan.leader.outside:
@@ -1281,7 +1281,7 @@ class Events:
         
     def generate_elder_ceremony(self):
         ceremony_txt = random.choice(self.b_txt['elder_ceremony'])
-        ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.name))
+        ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.name) + "Clan")
         ceremony_txt = ceremony_txt.replace('y_c', str(game.clan.your_cat.name))
         if game.clan.leader and not game.clan.leader.dead and not game.clan.leader.outside:
             ceremony_txt = re.sub(r'(?<!\/)l_n(?!\/)', str(game.clan.leader.name), ceremony_txt)
