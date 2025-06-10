@@ -8911,5 +8911,25 @@
             "[t_c stares apprehensively at the cats milling around outside the nursery. Whenever anyone gets too close to the entrance, {PRONOUN/t_c/subject} {VERB/t_c/burrow/burrows} into your fur.]",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/seem/seems} bewildered as to why other cats speak so much more than you.]"
         ]
+    ],
+    "deaf_kitten_H1": [
+        [
+            "you_newborn",
+            "they_deaf",
+            "they_kitten"
+        ],
+        [
+            "[t_c sniffs at your fur before gagging and running away.]"
+        ]
+    ],
+    "deaf_kitten_H2": [
+        [
+            "you_newborn",
+            "they_deaf",
+            "they_kitten"
+        ],
+        [
+            "[t_c looks at you with curiosity, and smiles when your beady eyes look up at {PRONOUN/t_c/object}.]"
+        ]
     ]
 }
