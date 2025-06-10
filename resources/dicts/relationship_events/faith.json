@@ -701,7 +701,7 @@
         "faith_effect": 0.5,
         "interactions": [
             "m_c and r_c pad into camp after a successful hunt, purring their thanks to StarClan.",
-            "After a successful—but cold—hunt, m_c and r_c are sure to thank StarClan.",
+            "After a successful--but cold--hunt, m_c and r_c are sure to thank StarClan.",
             "Despite almost freezing their paws off, m_c and r_c are sure to send their thanks to StarClan after a successful hunt."
         ],
         "m_c": {
