@@ -262,7 +262,7 @@ class Patrol:
             # to make writing a bit more open
             df_patrol_cats = [i for i in patrol_cats if i.df and i.ID != game.clan.your_cat.ID]
             if df_patrol_cats:
-                self.random_cat = choice(possible_random_cats)
+                self.random_cat = choice(df_patrol_cats)
             else:
                 possible_random_cats = [i for i in patrol_cats if i.ID != game.clan.your_cat.ID]
                 self.random_cat = choice(possible_random_cats)
