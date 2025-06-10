@@ -109,70 +109,70 @@ class GenerateEvents:
             file_path = "resources/dicts/relationship_events/faith.json"
         # ---
 
-        # try:
-        if file_path in GenerateEvents.loaded_events:
-            return GenerateEvents.loaded_events[file_path]
-        else:
-            events_dict = GenerateEvents.get_short_event_dicts(file_path)
+        try:
+            if file_path in GenerateEvents.loaded_events:
+                return GenerateEvents.loaded_events[file_path]
+            else:
+                events_dict = GenerateEvents.get_short_event_dicts(file_path)
 
-            event_list = []
-            if not events_dict:
+                event_list = []
+                if not events_dict:
+                    return event_list
+                
+                new_events_dict = []
+                if faith_event:
+                    # this sucks so bad but
+                    # i have to go through the dicts with multiple interactions and seperate them here into different events
+                    for faith_event in events_dict:
+                        for count, text in enumerate(faith_event["interactions"], start=1):
+                            new_event = deepcopy(faith_event)
+                            new_event["event_text"] = [text]
+                            new_event["event_id"] = f"{count}faith_{faith_event['event_id']}"
+                            new_events_dict.append(new_event)
+
+                for event in new_events_dict:
+                    event_text = event["event_text"] if "event_text" in event else None
+                    if not event_text:
+                        event_text = (
+                            event["death_text"] if "death_text" in event else None
+                        )
+
+                    if not event_text:
+                        print(
+                            f"WARNING: some events resources which are used in generate_events have no 'event_text'."
+                        )
+                    event = ShortEvent(
+                        event_id=event["event_id"] if "event_id" in event else "",
+                        location=event["location"] if "location" in event else ["any"],
+                        faith_effect=event["faith_effect"] if "faith_effect" in event else 0,
+                        season=event["season"] if "season" in event else ["any"],
+                        sub_type=event["sub_type"] if "sub_type" in event else [],
+                        tags=event["tags"] if "tags" in event else [],
+                        weight=event["weight"] if "weight" in event else 20,
+                        text=event_text,
+                        new_accessory=event["new_accessory"]
+                        if "new_accessory" in event
+                        else [],
+                        m_c=event["m_c"] if "m_c" in event else {},
+                        r_c=event["r_c"] if "r_c" in event else {},
+                        new_cat=event["new_cat"] if "new_cat" in event else [],
+                        injury=event["injury"] if "injury" in event else [],
+                        history=event["history"] if "history" in event else [],
+                        relationships=event["relationships"]
+                        if "relationships" in event
+                        else [],
+                        outsider=event["outsider"] if "outsider" in event else {},
+                        other_clan=event["other_clan"] if "other_clan" in event else {},
+                        supplies=event["supplies"] if "supplies" in event else [],
+                        new_gender=event["new_gender"] if "new_gender" in event else []
+                    )
+                    event_list.append(event)
+
+                # Add to loaded events.
+                GenerateEvents.loaded_events[file_path] = event_list
                 return event_list
-            
-            new_events_dict = []
-            if faith_event:
-                # this sucks so bad but
-                # i have to go through the dicts with multiple interactions and seperate them here into different events
-                for faith_event in events_dict:
-                    for count, text in enumerate(faith_event["interactions"], start=1):
-                        new_event = deepcopy(faith_event)
-                        new_event["event_text"] = [text]
-                        new_event["event_id"] = f"{count}faith_{faith_event['event_id']}"
-                        new_events_dict.append(new_event)
-
-            for event in new_events_dict:
-                event_text = event["event_text"] if "event_text" in event else None
-                if not event_text:
-                    event_text = (
-                        event["death_text"] if "death_text" in event else None
-                    )
-
-                if not event_text:
-                    print(
-                        f"WARNING: some events resources which are used in generate_events have no 'event_text'."
-                    )
-                event = ShortEvent(
-                    event_id=event["event_id"] if "event_id" in event else "",
-                    location=event["location"] if "location" in event else ["any"],
-                    faith_effect=event["faith_effect"] if "faith_effect" in event else 0,
-                    season=event["season"] if "season" in event else ["any"],
-                    sub_type=event["sub_type"] if "sub_type" in event else [],
-                    tags=event["tags"] if "tags" in event else [],
-                    weight=event["weight"] if "weight" in event else 20,
-                    text=event_text,
-                    new_accessory=event["new_accessory"]
-                    if "new_accessory" in event
-                    else [],
-                    m_c=event["m_c"] if "m_c" in event else {},
-                    r_c=event["r_c"] if "r_c" in event else {},
-                    new_cat=event["new_cat"] if "new_cat" in event else [],
-                    injury=event["injury"] if "injury" in event else [],
-                    history=event["history"] if "history" in event else [],
-                    relationships=event["relationships"]
-                    if "relationships" in event
-                    else [],
-                    outsider=event["outsider"] if "outsider" in event else {},
-                    other_clan=event["other_clan"] if "other_clan" in event else {},
-                    supplies=event["supplies"] if "supplies" in event else [],
-                    new_gender=event["new_gender"] if "new_gender" in event else []
-                )
-                event_list.append(event)
-
-            # Add to loaded events.
-            GenerateEvents.loaded_events[file_path] = event_list
-            return event_list
-        # except:
-        #     print(f"WARNING: {file_path} was not found, check short event generation")
+        except:
+            print(f"WARNING: {file_path} was not found, check short event generation")
 
     @staticmethod
     def generate_ongoing_events(event_type, biome, specific_event=None):
