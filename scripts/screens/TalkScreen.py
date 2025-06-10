@@ -983,10 +983,10 @@ class TalkScreen(Screens):
                     continue
             
             roles = [
-                "they_previously_kitten", "they_previously_apprentice", "they_previously_medicine_cat_apprentice",
-                "they_previously_mediator_apprentice", "they_previously_queen's_apprentice", "they_previously_warrior",
-                "they_previously_mediator", "they_previously_medicine_cat", "they_previously_queen", "they_previously_deputy",
-                "they_previously_leader", "they_previously_elder", "they_previously_newborn"]
+                "they_kitten", "they_apprentice", "they_medicine_cat_apprentice",
+                "they_mediator_apprentice", "they_queen's_apprentice", "they_warrior",
+                "they_mediator", "they_medicine_cat", "they_queen", "they_deputy",
+                "they_leader", "they_elder", "they_newborn"]
             if any(r in roles for r in tags):
                 has_role = False
                 if "they_previously_kitten" in tags and cat.old_status == "kitten":
@@ -1354,7 +1354,10 @@ class TalkScreen(Screens):
             if you.shunned > 0 and cat.shunned == 0 and "you_shunned" not in tags:
                 continue
 
-            if you.shunned > 0 and cat.shunned > 0 and "both_shunned" not in tags:
+            if you.shunned > 0 and cat.shunned > 0 and (
+                "both_shunned" not in tags and
+                ("you_shunned" not in tags and "they_shunned" not in tags)
+                ):
                 continue
 
             if "guilty" in tags and "guilt" not in cat.illnesses:

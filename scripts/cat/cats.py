@@ -1289,10 +1289,15 @@ class Cat:
         output = f"an {output}" if output[0].lower() in "aeiou" else f"a {output}"
         return output
 
-    def describe_eyes(self):
-        """Get a human-readable description of this cat's eye colour"""
-        colour = str(self.pelt.eye_colour).lower()
-        colour2 = str(self.pelt.eye_colour2).lower()
+    def describe_eyes(self, eye_colour=None):
+        """Get a human-readable description of this cat's eye colour
+        eye_colour is a LifeGen argument to describe eyes in the customiser"""
+        if self:
+            colour = str(self.pelt.eye_colour).lower()
+            colour2 = str(self.pelt.eye_colour2).lower()
+        else:
+            colour = str(eye_colour).lower()
+            colour2 = None
 
         if colour == "palegreen":
             colour = "pale green"
@@ -1310,7 +1315,7 @@ class Cat:
             colour = "sunlit ice"
         elif colour == "greenyellow":
             colour = "green-yellow"
-        if self.pelt.eye_colour2:
+        if self and self.pelt.eye_colour2:
             if colour2 == "palegreen":
                 colour2 = "pale green"
             if colour2 == "darkblue":
