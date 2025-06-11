@@ -742,11 +742,11 @@
         "relationship": [
             "min_dislike_50",
             "neutral",
-            "half_sibling",
             "adopted_sibling",
             "from_parent",
             "from_kit",
             "sibling",
+            "half_sibling",
             "from_adopted_kit"
         ],
         "intro": [
@@ -4357,8 +4357,8 @@
             ]
         },
         "relationship": [
-            "half_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "Woah, look at you! We're going to be great friends, you and I! Let's hope y_p doesn't keep you from the rest of your family for too long."
@@ -4379,8 +4379,8 @@
             ]
         },
         "relationship": [
-            "half_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "Out of the way, t_s, let me see them.",
@@ -5409,8 +5409,8 @@
             ]
         },
         "relationship": [
-            "half_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "Hey y_c! How is my favourite little {PRONOUN/y_c/sibling}?",
@@ -5434,8 +5434,8 @@
             ]
         },
         "relationship": [
-            "half_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "[You sniffle and cry as r_k points at you. {PRONOUN/r_k/subject/CAP} {VERB/r_k/sneer/sneers} mean names and hiss every insult {PRONOUN/r_k/subject} can think of. You curl into a ball, but {PRONOUN/r_k/subject} won't leave you alone.]",
@@ -5464,8 +5464,8 @@
             ]
         },
         "relationship": [
-            "half_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "Aww! Look at my whittle baby {PRONOUN/y_c/sibling}! Soooo cute! Yes you are! Yes you are!"

@@ -113,10 +113,10 @@
         },
         "relationship": [
             "min_dislike_50",
-            "half_sibling",
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling",
+            "half_sibling"
         ],
         "intro": [
             "What did I do in a past life to wind up related to you, y_c?",

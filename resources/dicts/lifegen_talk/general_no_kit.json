@@ -287,9 +287,9 @@
         },
         "relationship": [
             "min_dislike_50",
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "What did I do in a past life to wind up related to you, y_c?",
@@ -24824,9 +24824,9 @@
         },
         "relationship": [
             "min_dislike_50",
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "What did I do in a past life to wind up related to you, y_c?",
@@ -25154,11 +25154,11 @@
         },
         "relationship": [
             "min_dislike_50",
-            "half_sibling",
             "adopted_sibling",
             "from_parent",
             "from_kit",
             "sibling",
+            "half_sibling",
             "from_adopted_kit"
         ],
         "intro": [
@@ -27130,9 +27130,9 @@
         "relationship": [
             "min_platonic_50",
             "min_comfort_50",
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "[t_c walks into the nursery with a hefty piece of prey, {PRONOUN/t_c/poss} eyes set on you.]",
@@ -34073,9 +34073,9 @@
             ]
         },
         "relationship": [
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "Stop growing please, y_c! It's unsettling! I still remember when you were a little pebble looking thing... Now you look like a fuzzy, bigger rock...",
@@ -34102,9 +34102,9 @@
             ]
         },
         "relationship": [
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "[t_c is curled up in {PRONOUN/t_c/poss} nest, you weakly walk through the den and collapse next to {PRONOUN/t_c/object}. You bury snout into the bedding and let out a deep sigh. t_c opens an eye and exhales deeply.]",
@@ -34135,9 +34135,9 @@
             ]
         },
         "relationship": [
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "This life is amazing when you greet it with open paws. Whatever we face, we'll be fine if we're leading from the heart.",
@@ -34159,9 +34159,9 @@
             ]
         },
         "relationship": [
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "tags": [
             "you_adult"
@@ -34218,8 +34218,8 @@
             ]
         },
         "relationship": [
-            "half_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "tags": [
             "you_adult"
@@ -34251,9 +34251,9 @@
             ]
         },
         "relationship": [
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "tags": [
             "you_adult"
@@ -39319,9 +39319,9 @@
         },
         "relationship": [
             "max_comfort_15",
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "Other cats always told me that as I got older, I'd be amazed by what my siblings could do.",

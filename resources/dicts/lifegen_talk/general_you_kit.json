@@ -8504,9 +8504,9 @@
             ]
         },
         "relationship": [
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "[t_c smiles as you follow behind {PRONOUN/t_c/object}, marching in sync. Other cats stop and stare at the pair of you strutting around camp. t_c chuckles to {PRONOUN/t_c/object}self.]",
@@ -8528,9 +8528,9 @@
             ]
         },
         "relationship": [
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "High paw!",
@@ -8560,9 +8560,9 @@
             ]
         },
         "relationship": [
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "Huh- look at that, there's a storm brewing.",
@@ -8773,9 +8773,9 @@
         },
         "relationship": [
             "min_platonic_10",
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "[You can feel t_c curl into your nest around you, looking for any sort of comfort.]"

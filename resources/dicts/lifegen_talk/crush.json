@@ -868,9 +868,9 @@
             ]
         },
         "relationship": [
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "tags": [
             "you_adult"

@@ -1510,8 +1510,8 @@
         },
         "relationship": [
             "min_platonic_20",
-            "half_sibling",
-            "adopted_sibling"
+            "adopted_sibling",
+            "half_sibling"
         ],
         "intro": [
             "*Huff* *Huff*",
@@ -1545,9 +1545,9 @@
         },
         "relationship": [
             "min_platonic_20",
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "My {PRONOUN/y_c/sibling}, the medicine cat apprentice! Hehe, who would've thought? I guess you always were the smartest out of all of us.",
@@ -1580,9 +1580,9 @@
         },
         "relationship": [
             "min_platonic_20",
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "My {PRONOUN/y_c/sibling}, the mediator apprentice! Hehe, who would've thought? I guess you always were the smartest out of all of us.",
@@ -1614,9 +1614,9 @@
         },
         "relationship": [
             "min_platonic_20",
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "My {PRONOUN/y_c/sibling}, the queen's apprentice! Hehe, who would've thought? I guess you always were the smartest out of all of us.",
@@ -1745,9 +1745,9 @@
         "relationship": [
             "min_dislike_50",
             "neutral",
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "Look, just because we're siblings doesn't mean that we're, like, friends, or anything.",
@@ -4188,9 +4188,9 @@
             ]
         },
         "relationship": [
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "Hello little one.",
@@ -4220,9 +4220,9 @@
             ]
         },
         "relationship": [
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "Shhh, shhh, I know the parents aren't here right now- but it's okay, I'm here, and I'm not going anywhere.",

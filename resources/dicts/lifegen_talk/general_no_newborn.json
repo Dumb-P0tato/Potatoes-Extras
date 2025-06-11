@@ -835,10 +835,10 @@
             ]
         },
         "relationship": [
-            "half_sibling",
             "adopted_sibling",
             "from_parent",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "Little y_c... where did you go?",

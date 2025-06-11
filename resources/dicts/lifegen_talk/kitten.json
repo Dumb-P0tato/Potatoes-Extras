@@ -10927,9 +10927,9 @@
             ]
         },
         "relationship": [
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "[t_c rolls a moss ball to you, hitting the side of your head.]",
@@ -12245,9 +12245,9 @@
         },
         "relationship": [
             "min_platonic_20",
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "tags": [
             "you_adult"

@@ -4037,9 +4037,9 @@
             ]
         },
         "relationship": [
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "[t_c approaches you outside your nest one day, looking shy and a little embarrassed.]",

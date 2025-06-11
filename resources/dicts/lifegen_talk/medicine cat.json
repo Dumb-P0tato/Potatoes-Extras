@@ -1084,9 +1084,9 @@
         },
         "relationship": [
             "min_platonic_20",
-            "half_sibling",
             "adopted_sibling",
-            "sibling"
+            "sibling",
+            "half_sibling"
         ],
         "intro": [
             "Hey. Bet I could beat ya in a fight!",
