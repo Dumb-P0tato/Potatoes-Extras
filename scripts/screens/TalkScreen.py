@@ -32,6 +32,8 @@ from ..ui.generate_button import ButtonStyles, get_button_dict
 from ..ui.get_arrow import get_arrow
 from ..ui.icon import Icon
 
+from scripts.cat.cats import Cat, ILLNESSES, INJURIES, PERMANENT
+
 class TalkScreen(Screens):
 
     def __init__(self, name=None):
@@ -736,18 +738,18 @@ class TalkScreen(Screens):
             "you_abandoned",
             "you_ancientspirit"
         ]
-        they_backstory_list = ["they_clanfounder",
-            "they_clanborn",
-            "they_outsiderroots",
-            "they_half-clan",
-            "they_formerlyaloner",
-            "they_formerlyarogue",
-            "they_formerlyakittypet",
-            "they_formerlyaoutsider",
-            "they_originallyfromanotherclan",
-            "they_orphaned",
-            "they_abandoned",
-            "they_ancientspirit"
+        they_backstory_list = ["clanfounder",
+            "clanborn",
+            "outsiderroots",
+            "half-clan",
+            "formerlyaloner",
+            "formerlyarogue",
+            "formerlyakittypet",
+            "formerlyaoutsider",
+            "originallyfromanotherclan",
+            "orphaned",
+            "abandoned",
+            "ancientspirit"
         ]
         skill_list = [
             'teacher', 'hunter', 'fighter', 'runner', 'climber', 'swimmer', 'speaker',
@@ -759,245 +761,211 @@ class TalkScreen(Screens):
         ]
         special_date = get_special_date()
         for talk_key, talk in possible_texts.items():
-            tags = talk["tags"] if "tags" in talk else talk[0]
-            for i in range(len(tags)):
-                tags[i] = tags[i].lower()
+            TAGS = talk["tags"] if "tags" in talk else {}
 
+            # NEW
+            YOU = talk["y_c"] if "y_c" in talk else {}
+            CAT = talk["t_c"] if "t_c" in talk else {}
+            REL = talk["relationship"] if "relationship" in talk else {}
+            SEASON = talk["season"] if "season" in talk else {}
+            BIOME = talk["biome"] if "biome" in talk else {}
+
+            for i in range(len(TAGS)):
+                TAGS[i] = TAGS[i].lower()
+
+            # what if i just start over
+            # old stuff
             if "debug_ensure_dialogue" in game.config and game.config["debug_ensure_dialogue"]:
                 if game.config["debug_ensure_dialogue"] == talk_key:
                     pass
-
-            if contains_special_date_tag(tags):
-                if not special_date or special_date.patrol_tag not in tags:
+            
+            if contains_special_date_tag(TAGS):
+                if not special_date or special_date.patrol_tag not in TAGS:
                     continue
 
-            if game.switches["talk_category"] == "talk" and ("insult" in tags or "reject" in tags or "accept" in tags):
+            if game.switches["talk_category"] == "talk" and (
+                "insult" in TAGS or "reject" in TAGS or "accept" in TAGS
+                ):
                 continue
 
-            if game.switches["talk_category"] == "insult" and ("insult" not in tags or cat.status == "newborn" and "they_newborn" not in tags):
+            if game.switches["talk_category"] == "insult" and (
+                "insult" not in TAGS or cat.status == "newborn" and "they_newborn" not in CAT["status"]
+                ):
                 continue
 
-            if game.switches["talk_category"] == "flirt" and ("insult" in tags or ("reject" not in tags and "accept" not in tags)):
+            if game.switches["talk_category"] == "flirt" and (
+                "insult" in TAGS or ("reject" not in TAGS and "accept" not in TAGS)
+                ):
                 continue
 
-            if you.moons == 0 and "newborn" not in tags and "you_newborn" not in tags:
-                continue
+            # NEW CODE
+            possible_statuses = [
+                "leader", "deputy", "mediator", "queen", "warrior", "medicine cat"
+            ]
+            # STATUS
+            if "status" in YOU:
+                if f"not_{you.status}" in YOU["status"]:
+                    continue
 
-            if "sc_faith" in tags and cat.faith < 0:
-                continue
-            if "df_faith" in tags and cat.faith > 0:
-                continue
+                # PREV STATUS
+                prev_status_skip = False
+                for status in possible_statuses:
+                    if f"previously_{status}" in YOU["status"] and you.old_status != status:
+                        prev_status_skip = True
+                if prev_status_skip:
+                    continue
+
+                # DF TRAINEE
+                if "df_trainee" in YOU["status"]:
+                    if not you.joined_df:
+                        continue
+                if "not_df_trainee" in YOU["status"]:
+                    if you.joined_df:
+                        continue
+
+                # GUIDE
+                if "guide" in YOU["status"]:
+                    if you.ID not in [game.clan.instructor.ID, game.clan.demon.ID]:
+                        continue
+
+                if "any" not in YOU["status"] and you.status not in YOU["status"]:
+                    continue
+            
+            if "status" in CAT:
+                if f"not_{cat.status}" in CAT["status"]:
+                    continue
+
+                # OUTSIDE STATUSES
+                # this is unique because theyre exclusive. no overlap between outsider dialogue and clancat dialogue
+                if "they_kittypet" in CAT["status"] and not cat.status == "kittypet":
+                    continue
+                if "they_rogue" in CAT["status"] and not cat.status == "rogue":
+                    continue
+                if "they_loner" in CAT["status"] and not cat.status == "loner":
+                    continue
+
+                prev_status_skip = False
+                for status in possible_statuses:
+                    if f"previously_{status}" in CAT["status"] and cat.old_status != status:
+                        prev_status_skip = True
+                if prev_status_skip:
+                    continue
+
+                if "df_trainee" in CAT["status"]:
+                    if not cat.joined_df:
+                        continue
+                if "not_df_trainee" in CAT["status"]:
+                    if cat.joined_df:
+                        continue
+
+                if "guide" in CAT["status"]:
+                    if cat.ID not in [game.clan.instructor.ID, game.clan.demon.ID]:
+                        continue
+
+                if "any" not in CAT["status"] and cat.status not in CAT["status"]:
+                    continue
+
+            # AGE
+            if "age" in YOU:
+                if f"not_{you.age}" in YOU["age"]:
+                    continue
+                if "not_kitten" in YOU["age"] and you.status == "newborn":
+                    continue
+
+                if "younger" in YOU["age"] and not (you.moons < cat.moons):
+                    continue
+                if "sameage" in YOU["age"] and not (you.age == cat.age):
+                    continue
+                if "older" in YOU["age"] and not (you.moons > cat.moons):
+                    continue
+
+                if "any" not in YOU["age"] and you.age not in YOU["age"]:
+                    continue
+            if "age" in CAT:
+                if f"not_{cat.age}" in CAT["age"]:
+                    continue
+                if "not_kitten" in CAT["age"] and cat.status == "newborn":
+                    continue
+
+                if "younger" in CAT["age"] and not (cat.moons < you.moons):
+                    continue
+                if "sameage" in CAT["age"] and not (cat.age == you.age):
+                    continue
+                if "older" in CAT["age"] and not (cat.moons > you.moons):
+                    continue
+
+                if "any" not in CAT["age"] and cat.status not in CAT["age"]:
+                    continue
+
+            # FAITH
+            if "min_max_faith" in YOU:
+                if YOU["min_max_faith"][0] < you.faith:
+                    continue
+                if YOU["min_max_faith"][1] > you.faith:
+                    continue
+            if "min_max_faith" in CAT:
+                if CAT["min_max_faith"][0] < cat.faith:
+                    continue
+                if CAT["min_max_faith"][1] > cat.faith:
+                    continue
 
             if game.switches["talk_category"] == "flirt":
                 success = self.is_flirt_success(cat)
-                if "heartbroken" not in cat.illnesses.keys() and "heartbroken" in tags:
+                if "heartbroken" not in cat.illnesses.keys() and "heartbroken" in CAT["condition"]:
                     continue
-                elif not success and "reject" not in tags:
+                elif not success and "reject" not in TAGS:
                     continue
-                elif success and "reject" in tags:
+                elif success and "reject" in TAGS:
                     continue
-                elif not success and "reject" not in tags:
+                elif not success and "reject" not in TAGS:
                     continue
 
-            # Status tags
-
-            if game.clan.your_cat.shunned != 0:
-                murder_history = History.get_murders(game.clan.your_cat)
+            # DEMOTED FROM STATUS
+            # this allows cats who were shunned and demoted from leader to
+            # still get leaderlike dialogue
+            if you.shunned != 0:
+                murder_history = History.get_murders(you)
                 history = None
-                your_status = game.clan.your_cat.status
+                your_status = you.status
                 if "is_murderer" in murder_history:
                     history = murder_history["is_murderer"]
                 else:
-                    your_status = game.clan.your_cat.status
+                    your_status = you.status
                 if history:
                     if "demoted_from" in history[-1] and history[-1]["demoted_from"]:
                         your_status = history[-1]["demoted_from"]
                     else:
-                        your_status = game.clan.your_cat.status
+                        your_status = you.status
                 else:
-                    your_status = game.clan.your_cat.status
+                    your_status = you.status
             else:
-                your_status = game.clan.your_cat.status
-
-            if (
-                your_status not in tags
-                and "any" not in tags
-                and f"you_{your_status}" not in tags
-                and f"you_{(your_status).replace(' ', '_')}" not in tags
-                and "they_young_elder" not in tags
-                and "you_young_elder" not in tags
-                and "no_kit" not in tags
-                and "no_newborn" not in tags
-                and "you_any" not in tags
-                and "they_app" not in tags
-                and "you_app" not in tags
-                and "they_adult" not in tags
-                and "they_not_kit" not in tags
-                and "you_adult" not in tags
-                ):
-                continue
-            elif "they_young_elder" in tags and cat.status == 'elder' and cat.moons >= 100:
-                continue
-            elif "you_young_elder" in tags and you.status == 'elder' and you.moons >= 100:
-                continue
-            elif "no_kit" in tags and (you.status in ['kitten', 'newborn'] or cat.status in ['kitten', 'newborn']):
-                continue
-            elif "no_newborn" in tags and (you.status == "newborn" or cat.status == "newborn"):
-                continue
-            elif "newborn" in tags and "kitten" not in tags and you.moons != 0:
-                continue
-
-            if f"they_not_{cat.status.replace(' ', '')}" in tags:
-                continue
-            if f"you_not_{game.clan.your_cat.status.replace(' ', '')}" in tags:
-                continue
-
-            if "they_adult" in tags and cat.status in [
-                'apprentice', 'medicine cat apprentice', 'mediator apprentice',
-                "queen's apprentice", "kitten", "newborn"
-                ]:
-                continue
-
-            if "you_adult" in tags and you.status in [
-                'apprentice', 'medicine cat apprentice', 'mediator apprentice',
-                "queen's apprentice", "kitten", "newborn"
-                ]:
-                continue
-
-            if "they_app" in tags and cat.status not in [
-                'apprentice', 'medicine cat apprentice',
-                'mediator apprentice', "queen's apprentice"
-                ]:
-                continue
-
-            if "you_app" in tags and you.status not in [
-                'apprentice', 'medicine cat apprentice',
-                'mediator apprentice', "queen's apprentice"
-                ]:
-                continue
-            
-            if not any(t in tags for t in ["they_dead", "they_sc", "they_df", "they_ur"]) and cat.dead:
-                continue
-            if not any(t in tags for t in ["you_dead", "you_sc", "you_df", "you_ur"]) and you.dead:
-                continue
-
-            if any(t in tags for t in ["they_dead", "they_sc", "they_df", "they_ur"]) and not cat.dead:
-                continue
-            if any(t in tags for t in ["you_dead", "you_sc", "you_df", "you_ur"]) and not you.dead:
-                continue
-
-
-            if "they_kittypet" in tags and not cat.status == "kittypet":
-                continue
-            if "they_rogue" in tags and not cat.status == "rogue":
-                continue
-            if "they_loner" in tags and not cat.status == "loner":
-                continue
-
-            # Cluster tags
-            if any(i in self.get_cluster_list() for i in tags) or any(i in self.get_cluster_list_they() for i in tags):
-                if cluster1 not in tags and cluster2 not in tags and\
-                (("they_"+cluster1) not in tags) and (("they_"+cluster2) not in tags):
-                    continue
-            if any(i in self.get_cluster_list_you() for i in tags):
-                if ("you_"+cluster3) not in tags and ("you_"+cluster4) not in tags:
-                    continue
-
-            # if "they_kittypet" not in tags and cat.status == "kittypet":
-            #     continue
-            # if "they_rogue" not in tags and cat.status == "rogue":
-            #     continue
-            # if "they_loner" not in tags and cat.status == "loner":
-            #     continue
-
-            # the status files already separate these, so statuses can be untagged in general
-
-            if "they_outside" in tags and not cat.outside:
-                continue
-            if "they_dead" in tags and not cat.dead:
-                continue
-            if "you_dead" in tags and not you.dead:
-                continue
-
-            if "you_dftrainee" in tags and not you.joined_df:
-                continue
-
-            if "they_dftrainee" in tags and not cat.joined_df:
-                continue
-
-            if "you_not_dftrainee" in tags and cat.joined_df:
-                continue
-                
-            if "they_not_dftrainee" in tags and cat.joined_df:
-                continue
-
-            if "they_df" in tags and (not cat.df or cat.outside):
-                continue
-            if "you_df" in tags and (not you.df or you.outside):
-                continue
-            if "they_sc" in tags and (cat.df or cat.outside):
-                continue
-            if "you_sc" in tags and (you.df or you.outside):
-                continue
-            if "they_ur" in tags and not cat.outside:
-                continue
-            if "you_ur" in tags and not you.outside:
-                continue
-            if "they_dead" in tags and not cat.dead:
-                continue
-
-            murdered_them = False
-            if you.history:
-                if you.history.murder:
-                    if "is_murderer" in you.history.murder:
-                        for murder_event in you.history.murder["is_murderer"]:
-                            if cat.ID == murder_event.get("victim"):
-                                murdered_them = True
-                                break
-
-            # if murdered_them and "murderedthem" not in tags:
-            #     continue
-
-            if "murderedthem" in tags and not murdered_them:
-                continue
-
-            murdered_you = False
-            if cat.history:
-                if cat.history.murder:
-                    if "is_murderer" in cat.history.murder:
-                        for murder_event in cat.history.murder["is_murderer"]:
-                            if you.ID == murder_event.get("victim"):
-                                murdered_you = True
-                                break
-
-            # if murdered_you and "murderedyou" not in tags:
-            #     continue
-
-            if "murderedyou" in tags and not murdered_you:
-                continue
+                your_status = you.status
 
             if "grief stricken" in cat.illnesses:
                 dead_cat = Cat.all_cats.get(cat.illnesses['grief stricken'].get("grief_cat"))
                 if dead_cat:
-                    if "grievingyou" in tags:
+                    if "grievingyou" in REL:
                         if dead_cat.ID != game.clan.your_cat.ID:
                             continue
                     else:
                         if dead_cat.ID == game.clan.your_cat.ID:
                             continue
+            elif "grievingyou" in REL:
+                continue
 
             if "grief stricken" in you.illnesses:
                 dead_cat = Cat.all_cats.get(you.illnesses['grief stricken'].get("grief_cat"))
                 if dead_cat:
-                    if "grievingthem" in tags:
+                    if "grievingthem" in REL:
                         if dead_cat.name != cat.name:
                             continue
                     else:
                         if dead_cat.name == cat.name:
                             continue
+            elif "grievingthem" in REL:
+                continue
             
             # FORGIVEN TAGS
-
             youreforgiven = False
             theyreforgiven = False
 
@@ -1007,262 +975,216 @@ class TalkScreen(Screens):
             if cat.forgiven < 11 and cat.forgiven > 0:
                 theyreforgiven = True
             
-            if "you_forgiven" in tags and (you.shunned > 0 or not youreforgiven):
+            if "forgiven" in YOU and YOU["forgiven"] is True and (you.shunned > 0 or not youreforgiven):
                 continue
 
-            if "they_forgiven" in tags and (cat.shunned > 0 or not theyreforgiven):
-                continue
-            
-            roles = [
-                "you_kitten", "you_apprentice", "you_medicine_cat_apprentice",
-                "you_mediator_apprentice", "you_queen's_apprentice", "you_warrior",
-                "you_mediator", "you_medicine_cat", "you_queen", "you_deputy",
-                "you_leader", "you_elder", "you_newborn"
-            ]
-
-            # does this do anything???
-
-            if any(r in roles for r in tags):
-                has_role = False
-                if "you_kitten" in tags and your_status == "kitten":
-                    has_role = True
-                elif "you_apprentice" in tags and your_status == "apprentice":
-                    has_role = True
-                elif "you_medicine_cat_apprentice" in tags and your_status == "medicine cat apprentice":
-                    has_role = True
-                elif "you_mediator_apprentice" in tags and your_status == "mediator apprentice":
-                    has_role = True
-                elif "you_queen's_apprentice" in tags and your_status == "queen's apprentice":
-                    has_role = True
-                elif "you_warrior" in tags and your_status == "warrior":
-                    has_role = True
-                elif "you_mediator" in tags and your_status == "mediator":
-                    has_role = True
-                elif "you_medicine_cat" in tags and your_status == "medicine cat":
-                    has_role = True
-                elif "you_queen" in tags and your_status == "queen":
-                    has_role = True
-                elif "you_deputy" in tags and your_status == "deputy":
-                    has_role = True
-                elif "you_leader" in tags and your_status == "leader":
-                    has_role = True
-                elif "you_elder" in tags and your_status == "elder":
-                    has_role = True
-                elif "you_newborn" in tags and your_status == "newborn":
-                    has_role = True
-                if not has_role:
-                    continue
-
-            roles = [
-                "they_kitten", "they_apprentice", "they_medicine_cat_apprentice",
-                "they_mediator_apprentice", "they_queen's_apprentice", "they_warrior",
-                "they_mediator", "they_medicine_cat", "they_queen", "they_deputy",
-                "they_leader", "they_elder", "they_newborn", "they_guide"
-            ]
-            if any(r in roles for r in tags):
-                has_role = False
-                if "they_kitten" in tags and cat.status == "kitten":
-                    has_role = True
-                elif "they_apprentice" in tags and cat.status == "apprentice":
-                    has_role = True
-                elif "they_medicine_cat_apprentice" in tags and cat.status == "medicine cat apprentice":
-                    has_role = True
-                elif "they_mediator_apprentice" in tags and cat.status == "mediator apprentice":
-                    has_role = True
-                elif "they_queen's_apprentice" in tags and cat.status == "queen's apprentice":
-                    has_role = True
-                elif "they_warrior" in tags and cat.status == "warrior":
-                    has_role = True
-                elif "they_mediator" in tags and cat.status == "mediator":
-                    has_role = True
-                elif "they_medicine_cat" in tags and cat.status == "medicine cat":
-                    has_role = True
-                elif "they_queen" in tags and cat.status == "queen":
-                    has_role = True
-                elif "they_deputy" in tags and cat.status == "deputy":
-                    has_role = True
-                elif "they_leader" in tags and cat.status == "leader":
-                    has_role = True
-                elif "they_elder" in tags and cat.status == "elder":
-                    has_role = True
-                elif "they_newborn" in tags and cat.status == "newborn":
-                    has_role = True
-                elif "they_guide" in tags and (game.clan.instructor.ID == cat.ID or game.clan.demon.ID == cat.ID):
-                    has_role = True
-                if not has_role:
-                    continue
-            
-            roles = [
-                "they_kitten", "they_apprentice", "they_medicine_cat_apprentice",
-                "they_mediator_apprentice", "they_queen's_apprentice", "they_warrior",
-                "they_mediator", "they_medicine_cat", "they_queen", "they_deputy",
-                "they_leader", "they_elder", "they_newborn"]
-            if any(r in roles for r in tags):
-                has_role = False
-                if "they_previously_kitten" in tags and cat.old_status == "kitten":
-                    has_role = True
-                elif "they_previously_apprentice" in tags and cat.old_status == "apprentice":
-                    has_role = True
-                elif "they_previously_medicine_cat_apprentice" in tags and cat.old_status == "medicine cat apprentice":
-                    has_role = True
-                elif "they_previously_mediator_apprentice" in tags and cat.old_status == "mediator apprentice":
-                    has_role = True
-                elif "they_previously_queen's_apprentice" in tags and cat.old_status == "queen's apprentice":
-                    has_role = True
-                elif "they_previously_warrior" in tags and cat.old_status == "warrior":
-                    has_role = True
-                elif "they_previously_mediator" in tags and cat.old_status == "mediator":
-                    has_role = True
-                elif "they_previously_medicine_cat" in tags and cat.old_status == "medicine cat":
-                    has_role = True
-                elif "they_previously_queen" in tags and cat.old_status == "queen":
-                    has_role = True
-                elif "they_previously_deputy" in tags and cat.old_status == "deputy":
-                    has_role = True
-                elif "they_previously_leader" in tags and cat.old_status == "leader":
-                    has_role = True
-                elif "they_previously_elder" in tags and cat.old_status == "elder":
-                    has_role = True
-                elif "they_previously_newborn" in tags and cat.old_status == "newborn":
-                    has_role = True
-                if not has_role:
-                    continue
-
-            if "they_grieving" not in tags and "grief stricken" in cat.illnesses and not cat.dead:
+            if "forgiven" in CAT and CAT["forgiven"] is True and (cat.shunned > 0 or not theyreforgiven):
                 continue
 
-            if "you_grieving" in tags and "grief stricken" not in you.illnesses and not you.dead:
-                continue
-
-            if "they_recovering_from_birth" in tags and "recovering from birth" not in cat.injuries:
-                continue
-
-            if "you_recovering_from_birth" in tags and "recovering from birth" not in you.injuries:
-                continue
-
-            if "you_not_kit" in tags and game.clan.your_cat.moons < 6:
-                continue
-
-            if "they_not_kit" in tags and cat.moons < 6:
-                continue
-
-
-            # Trait tags
-            if any(i in you_trait_list for i in tags):
-                ts = you_trait_list
-                for j in range(len(ts)):
-                    ts[j] = ts[j][3:]
-                if you.personality.trait == "sweet" and "you_sweet_trait" not in ts:
+            # SHUNNED TAGS
+            if "shunned" in YOU:
+                if YOU["shunned"] is True and you.shunned == 0:
                     continue
-                if you.personality.trait not in ts:
+                if YOU["shunned"] is False and you.shunned > 0:
+                    continue
+            else:
+                if you.shunned > 0:
+                    continue
+            if "shunned" in CAT:
+                if CAT["shunned"] is True and cat.shunned == 0:
+                    continue
+                if CAT["shunned"] is False and cat.shunned > 0:
+                    continue
+            else:
+                if cat.shunned > 0:
                     continue
 
-            if any(i in their_trait_list for i in tags):
-                if cat.personality.trait not in tags or (cat.personality.trait == "sweet" and "sweet_trait" not in tags):
+            # CONDITIONS
+            # grief
+            if "grief stricken" in you.illnesses and (
+                "condition" not in YOU or
+                ("condition" in YOU and "grief stricken" not in YOU["condition"])
+            ):
+                continue
+            if "grief stricken" in cat.illnesses and (
+                "condition" not in CAT or
+                ("condition" in CAT and "grief stricken" not in CAT["condition"])
+            ):
+                continue
+
+            if "condition" in CAT:
+                has_condition = False
+
+                if "injury:any" in CAT["condition"] and not cat.is_injured():
+                    continue
+                if "illness:any" in CAT["condition"] and not cat.is_ill():
                     continue
 
-            # Backstory tags
-            if any(i in you_backstory_list for i in tags):
-                bs_text = self.backstory_text(game.clan.your_cat).replace(" ", "").lower()
-                if f"you_{bs_text}" not in tags:
+                condition_skip = False
+                for tag in CAT["condition"]:
+                    if ":" in tag:
+                        # other than x:any, permanent condition tags are the only ones with colons
+                        attributes = tag.split(":")
+                        perm_skip = False
+                        for condition in PERMANENT:
+                            if attributes[0] == condition:
+                                if condition in cat.permanent_condition:
+                                    # is the born_with correct?
+                                    if cat.permanent_condition[condition]["born_with"] is False and attributes[1] == "true":
+                                        perm_skip = True
+                                    if cat.permanent_condition[condition]["born_with"] is True and attributes[1] == "false":
+                                        perm_skip = True
+                                # exclusive?
+                                else:
+                                    if len(attributes) > 2 and attributes[2] == "true":
+                                        perm_skip = True
+                        if perm_skip:
+                            condition_skip = True
+                    else:
+                        # regular conditions
+                        if tag in INJURIES:
+                            if tag in cat.injuries:
+                                has_condition = True
+                        elif tag in ILLNESSES:
+                            if tag in cat.illnesses:
+                                has_condition = True
+                        elif tag in PERMANENT:
+                            if tag in cat.permanent_condition:
+                                has_condition = True
+                        elif tag == "hearing":
+                            if "deaf" in cat.permanent_condition:
+                                perm_skip = True
+                        else:
+                            print("Incorrect t_c condition tag in", talk_key, ":", tag)
+                            condition_skip = True
+                        if not has_condition:
+                            condition_skip = True
+                if condition_skip:
                     continue
 
-            if any(i in they_backstory_list for i in tags):
-                bs_text = self.backstory_text(cat).replace(" ", "").lower()
-                if f"they_{bs_text}" not in tags:
+            condition_skip = False
+            if "condition" in YOU:
+                has_condition = False
+
+                if "injury:any" in YOU["condition"] and not you.is_injured():
+                    continue
+                if "illness:any" in YOU["condition"] and not you.is_ill():
                     continue
 
-            # Skill tags
-            skip1 = False
-            skip2 = False
-            for i in skill_list:
-                if i == "mediator1":
-                    skill = "mediator"
-                else:
-                    skill = i
-                if f"you_{i}" in tags:
+                for tag in YOU["condition"]:
+                    if ":" in tag:
+                        # other than x:any, permanent condition tags are the only ones with colons
+                        attributes = tag.split(":")
+                        perm_skip = False
+                        for condition in PERMANENT:
+                            if attributes[0] == condition:
+                                if condition in you.permanent_condition:
+                                    # is the born_with correct?
+                                    if you.permanent_condition[condition]["born_with"] is False and attributes[1] == "true":
+                                        perm_skip = True
+                                    if you.permanent_condition[condition]["born_with"] is True and attributes[1] == "false":
+                                        perm_skip = True
+                                # exclusive?
+                                else:
+                                    if len(attributes) > 2 and attributes[2] == "true":
+                                        perm_skip = True
+                        if perm_skip:
+                            condition_skip = True
+                    else:
+                        # regular conditions
+                        if tag in INJURIES:
+                            if tag in you.injuries:
+                                has_condition = True
+                        elif tag in ILLNESSES:
+                            if tag in you.illnesses:
+                                has_condition = True
+                        elif tag in PERMANENT:
+                            if tag in you.permanent_condition:
+                                has_condition = True
+                        elif tag == "hearing":
+                            if "deaf" in you.permanent_condition:
+                                condition_skip = True
+                        else:
+                            print("Incorrect y_c condition tag in", talk_key, ":", tag)
+                            condition_skip = True
+                        if not has_condition:
+                            condition_skip = True
+                if condition_skip:
+                    continue
+
+            # CLUSTER/TRAITS
+            if "cluster" in YOU:
+                if any(i in self.get_cluster_list() for i in YOU["cluster"]):
+                    if (cluster3) not in YOU["cluster"] and (cluster4) not in YOU["cluster"]:
+                        continue
+                
+                if any(i in their_trait_list for i in YOU["cluster"]):
                     if (
-                        skill.upper() not in str(you.skills.primary.path)
-                        and (you.skills.secondary is None or (you.skills.secondary
-                        and skill.upper() not in str(you.skills.secondary.path)))
+                        you.personality.trait not in YOU["cluster"] or
+                        (you.personality.trait == "sweet" and "sweet_trait" not in YOU["cluster"])
                         ):
-                        skip1 = True
-                if f"they_{i}" in tags:
+                        continue
+            if "cluster" in CAT:
+                if any(i in self.get_cluster_list() for i in CAT["cluster"]):
+                    if (cluster1) not in CAT["cluster"] and (cluster2) not in CAT["cluster"]:
+                        continue
+                
+                if any(i in their_trait_list for i in CAT["cluster"]):
                     if (
-                        skill.upper() not in str(cat.skills.primary.path)
-                        and (cat.skills.secondary is None or (cat.skills.secondary
-                        and skill.upper() not in str(cat.skills.secondary.path)))
+                        cat.personality.trait not in CAT["cluster"] or
+                        (cat.personality.trait == "sweet" and "sweet_trait" not in CAT["cluster"])
                         ):
-                        skip2 = True
-            if skip1 is True:
-                continue
-            if skip2 is True:
-                continue
+                        continue
+            
+            # BACKSTORY
+            if "backstory" in YOU:
+                if any(i in they_backstory_list for i in YOU["backstory"]):
+                    bs_text = self.backstory_text(you).replace(" ", "").lower()
+                    if not bs_text:
+                        continue
+                    if bs_text and bs_text not in YOU["backstory"]:
+                        continue
+            if "backstory" in CAT:
+                if any(i in they_backstory_list for i in CAT["backstory"]):
+                    bs_text = self.backstory_text(cat).replace(" ", "").lower()
+                    if not bs_text:
+                        continue
+                    if bs_text and bs_text not in CAT["backstory"]:
+                        continue
 
-            # Season tags
-            # if ('leafbare' in tags and game.clan.current_season != 'Leaf-bare') or ('newleaf' in tags and game.clan.current_season != 'Newleaf') or ('leaffall' in tags and game.clan.current_season != 'Leaf-fall') or ('greenleaf' in tags and game.clan.current_season != 'Greenleaf'):
-            #     continue
 
-            if any(i in ["leafbare", "newleaf", "leaffall", "greenleaf"] for i in tags):
+            # SKILL
+            if "skill" in YOU:
+                has_skill = False
+                for skill in YOU["skill"]:
+                    split = skill.split(",")
+                    if you.skills.meets_skill_requirement(split[0], int(split[1])):
+                        has_skill = True
+                if not has_skill:
+                    continue
+
+            if "skill" in CAT:
+                has_skill = False
+                for skill in CAT["skill"]:
+                    split = skill.split(",")
+                    if cat.skills.meets_skill_requirement(split[0], int(split[1])):
+                        has_skill = True
+                if not has_skill:
+                    continue
+
+            # SEASON
+            if SEASON:
                 season = game.clan.current_season.replace("-", "")
-                if season.lower() not in tags:
-                    continue
-            # Biome tags
-            if any(i in ['beach', 'forest', 'plains', 'mountainous', 'wetlands', 'desert'] for i in tags):
-                if game.clan.biome.lower() not in tags:
+                if season.lower() not in SEASON:
                     continue
 
-            # Injuries, grieving and illnesses tags
-
-            if "you_pregnant" in tags and "pregnant" not in you.injuries:
-                continue
-            if "they_pregnant" in tags and "pregnant" not in cat.injuries:
-                continue
-
-            if "grief stricken" not in you.illnesses and "you_grieving" in tags and not you.dead:
-                continue
-            if "grief stricken" not in cat.illnesses and "they_grieving" in tags and not cat.dead:
-                continue
-
-            if "starving" not in you.illnesses and "you_starving" in tags:
-                continue
-            if "starving" not in cat.illnesses and "they_starving" in tags:
-                continue
-
-
-            if any(i in ["you_ill", "you_injured"] for i in tags):
-                ill_injured = False
-
-                if you.is_ill() and "you_ill" in tags and "grief stricken" not in you.illnesses:
-                    for illness in you.illnesses:
-                        if you.illnesses[illness]['severity'] != 'minor':
-                            ill_injured = True
-                if you.is_injured() and "you_injured" in tags and "pregnant" not in you.injuries\
-                and "recovering from birth" not in you.injuries and "sprain" not in you.injuries:
-                    for injury in you.injuries:
-                        if you.injuries[injury]['severity'] != 'minor':
-                            ill_injured = True
-
-                if not ill_injured:
-                    continue
-
-            if any(i in ["they_ill", "they_injured"] for i in tags):
-                ill_injured = False
-
-                if cat.is_ill() and "they_ill" in tags and "grief stricken" not in cat.illnesses and "guilty" not in cat.illnesses:
-                    for illness in cat.illnesses:
-                        if cat.illnesses[illness]['severity'] != 'minor':
-                            ill_injured = True
-                if cat.is_injured() and "they_injured" in tags and "pregnant" not in cat.injuries\
-                and "recovering from birth" not in cat.injuries and "sprain" not in cat.injuries:
-                    for injury in cat.injuries:
-                        if cat.injuries[injury]['severity'] != 'minor':
-                            ill_injured = True
-
-                if not ill_injured:
+            # BIOME
+            if BIOME:
+                biome = game.clan.biome.lower()
+                if biome not in BIOME:
                     continue
             
-            # Connected dialogue keys:
+            # CONNECTED DIALOGUE
             if "~" in talk_key:
                 talk_key_split = talk_key.split("~")
                 if talk_key_split[0] in cat.connected_dialogue.keys():
@@ -1271,132 +1193,164 @@ class TalkScreen(Screens):
                 elif int(talk_key_split[1]) != 1:
                     continue
 
-            # Relationships
-            # Family tags:
-            if any(i in [
-                "from_your_parent", "from_adopted_parent", "adopted_parent", "half sibling",
-                "littermate", "siblings_mate", "cousin", "adopted_sibling", "parents_siblings",
-                "from_mentor", "from_df_mentor", "from_your_kit", "from_your_apprentice",
-                "from_df_apprentice", "from_mate", "from_parent", "adopted_parent", "from_kit",
-                "sibling", "from_adopted_kit"
-                ] for i in tags):
+            # REL
+            # Misc
+            if REL:
+                murdered_them = False
+                if you.history:
+                    if you.history.murder:
+                        if "is_murderer" in you.history.murder:
+                            for murder_event in you.history.murder["is_murderer"]:
+                                if cat.ID == murder_event.get("victim"):
+                                    murdered_them = True
+                                    break
+                murdered_you = False
+                if cat.history:
+                    if cat.history.murder:
+                        if "is_murderer" in cat.history.murder:
+                            for murder_event in cat.history.murder["is_murderer"]:
+                                if you.ID == murder_event.get("victim"):
+                                    murdered_you = True
+                                    break
 
-                fam = False
-                if "from_mentor" in tags:
-                    if you.mentor == cat.ID:
-                        fam = True
-                if "from_df_mentor" in tags:
-                    if you.df_mentor == cat.ID:
-                        fam = True
-                if "from_your_apprentice" in tags:
-                    if cat.mentor == you.ID:
-                        fam = True
-                if "from_df_apprentice" in tags:
-                    if cat.df_mentor == you.ID:
-                        fam = True
-                if "from_mate" in tags:
-                    if cat.ID in you.mate:
-                        fam = True
-                if "from_parent" in tags or "from_your_parent" in tags:
-                    if you.parent1:
-                        if you.parent1 == cat.ID:
-                            fam = True
-                    if you.parent2:
-                        if you.parent2 == cat.ID:
-                            fam = True
-                if "adopted_parent" in tags or "from adopted_parent" in tags or "from_adopted_parent" in tags:
-                    if cat.ID in you.inheritance.get_adoptive_parents():
-                        fam = True
-                if "from_kit" in tags or "from_your_kit" in tags:
-                    if cat.ID in you.inheritance.get_blood_kits():
-                        fam = True
-                if "from_adopted_kit" in tags:
-                    if cat.ID in you.inheritance.get_not_blood_kits():
-                        fam = True
-                if "littermate" in tags:
-                    if cat.ID in you.inheritance.get_siblings() and cat.moons == you.moons:
-                        fam = True
-                if "sibling" in tags:
-                    if cat.ID in you.inheritance.get_siblings():
-                        fam = True
-                if "half sibling" in tags:
-                    c_p1 = cat.parent1
-                    if not c_p1:
-                        c_p1 = "no_parent1_cat"
-                    c_p2 = cat.parent2
-                    if not c_p2:
-                        c_p2 = "no_parent2_cat"
-                    y_p1 = you.parent1
-                    if not y_p1:
-                        y_p1 = "no_parent1_you"
-                    y_p2 = you.parent2
-                    if not y_p2:
-                        y_p2 = "no_parent2_you"
-                    if ((c_p1 == y_p1 or c_p1 == y_p2) or\
-                        (c_p2 == y_p1 or c_p2 == y_p2)) and not\
-                        (c_p1 == y_p1 and c_p2 == y_p2) and not\
-                        (c_p2 == y_p1 and c_p1 == y_p2) and not\
-                        (c_p1 == y_p2 and c_p2 == y_p1):
-                        fam = True
-                if "adopted_sibling" in tags:
-                    if cat.ID in you.inheritance.get_no_blood_siblings():
-                        fam = True
-                if "parents_siblings" in tags:
-                    if cat.ID in you.inheritance.get_parents_siblings():
-                        fam = True
-                if "cousin" in tags:
-                    if cat.ID in you.inheritance.get_cousins():
-                        fam = True
-                if "siblings_mate" in tags:
-                    if cat.ID in you.inheritance.get_siblings_mates():
-                        fam = True
-                if "they_grandparent" in tags:
-                    if cat.is_grandparent(game.clan.your_cat):
-                        fam = True
-                if "they_grandchild" in tags:
-                    if game.clan.your_cat.is_grandparent(cat):
-                        fam = True
-                if not fam:
+                if "murderedthem" in REL and not murdered_them:
+                    continue
+                if "murderedyou" in REL and not murdered_you:
                     continue
 
-            if "former_mate" in tags and cat.ID not in you.previous_mates:
-                continue
+                if "non-related" in REL:
+                    if cat.ID in you.get_relatives():
+                        continue
+                if "non-mates" in REL:
+                    if you.ID in cat.mate:
+                        continue
+
+                # Family tags:
+                if any(i in [
+                    "from_your_parent", "from_adopted_parent", "adopted_parent", "half_sibling",
+                    "littermate", "siblings_mate", "cousin", "adopted_sibling", "parents_siblings",
+                    "from_mentor", "from_df_mentor", "from_your_kit", "from_your_apprentice",
+                    "from_df_apprentice", "from_mate", "from_parent", "adopted_parent", "from_kit",
+                    "sibling", "from_adopted_kit"
+                    ] for i in REL):
+
+                    fam = False
+                    if "from_mentor" in REL:
+                        if you.mentor == cat.ID:
+                            fam = True
+                    if "from_df_mentor" in REL:
+                        if you.df_mentor == cat.ID:
+                            fam = True
+                    if "from_your_apprentice" in REL:
+                        if cat.mentor == you.ID:
+                            fam = True
+                    if "from_df_apprentice" in REL:
+                        if cat.df_mentor == you.ID:
+                            fam = True
+                    if "from_mate" in REL:
+                        if cat.ID in you.mate:
+                            fam = True
+                    if "from_parent" in REL or "from_your_parent" in REL:
+                        if you.parent1:
+                            if you.parent1 == cat.ID:
+                                fam = True
+                        if you.parent2:
+                            if you.parent2 == cat.ID:
+                                fam = True
+                    if "adopted_parent" in REL or "from adopted_parent" in REL or "from_adopted_parent" in REL:
+                        if cat.ID in you.inheritance.get_adoptive_parents():
+                            fam = True
+                    if "from_kit" in REL or "from_your_kit" in REL:
+                        if cat.ID in you.inheritance.get_blood_kits():
+                            fam = True
+                    if "from_adopted_kit" in REL:
+                        if cat.ID in you.inheritance.get_not_blood_kits():
+                            fam = True
+                    if "littermate" in REL:
+                        if cat.ID in you.inheritance.get_siblings() and cat.moons == you.moons:
+                            fam = True
+                    if "sibling" in REL:
+                        if cat.ID in you.inheritance.get_siblings():
+                            fam = True
+                    if "half_sibling" in REL:
+                        c_p1 = cat.parent1
+                        if not c_p1:
+                            c_p1 = "no_parent1_cat"
+                        c_p2 = cat.parent2
+                        if not c_p2:
+                            c_p2 = "no_parent2_cat"
+                        y_p1 = you.parent1
+                        if not y_p1:
+                            y_p1 = "no_parent1_you"
+                        y_p2 = you.parent2
+                        if not y_p2:
+                            y_p2 = "no_parent2_you"
+                        if ((c_p1 == y_p1 or c_p1 == y_p2) or\
+                            (c_p2 == y_p1 or c_p2 == y_p2)) and not\
+                            (c_p1 == y_p1 and c_p2 == y_p2) and not\
+                            (c_p2 == y_p1 and c_p1 == y_p2) and not\
+                            (c_p1 == y_p2 and c_p2 == y_p1):
+                            fam = True
+                    if "adopted_sibling" in REL:
+                        if cat.ID in you.inheritance.get_no_blood_siblings():
+                            fam = True
+                    if "parents_siblings" in REL:
+                        if cat.ID in you.inheritance.get_parents_siblings():
+                            fam = True
+                    if "cousin" in REL:
+                        if cat.ID in you.inheritance.get_cousins():
+                            fam = True
+                    if "siblings_mate" in REL:
+                        if cat.ID in you.inheritance.get_siblings_mates():
+                            fam = True
+                    if "they_grandparent" in REL:
+                        if cat.is_grandparent(game.clan.your_cat):
+                            fam = True
+                    if "they_grandchild" in REL:
+                        if game.clan.your_cat.is_grandparent(cat):
+                            fam = True
+                    if not fam:
+                        continue
+
+                if "former_mate" in REL and cat.ID not in you.previous_mates:
+                    continue
 
             # MURDER STUFF
+            # this is all staying in tags for now
             if game.clan.murdered != {} and game.clan.age - game.clan.murdered["moon"] <= 5:
                 # accomplice
                 if cat.ID == game.clan.murdered["accomplice"][0]:
-                    if "accomplice_agreed" in tags and game.clan.murdered["accomplice"][1] is False:
+                    if "accomplice_agreed" in TAGS and game.clan.murdered["accomplice"][1] is False:
                         continue
-                    if "accomplice_refused" in tags and game.clan.murdered["accomplice"][1] is True:
+                    if "accomplice_refused" in TAGS and game.clan.murdered["accomplice"][1] is True:
                         continue
-                    if "not_accomplice" in tags:
+                    if "not_accomplice" in TAGS:
                         continue
                 else:
-                    if any(t in tags for t in ["accomplice", "accomplice_refused", "accomplice_agreed"]):
+                    if any(t in TAGS for t in ["accomplice", "accomplice_refused", "accomplice_agreed"]):
                         continue
                 
                 # victim
                 if cat.ID == game.clan.murdered["victim"][0]:
-                    if "murder_victim" in tags and cat.ID != game.clan.murdered["victim"]:
+                    if "murder_victim" in TAGS and cat.ID != game.clan.murdered["victim"]:
                         continue
-                    elif "not_murder_victim" in tags and cat.ID == game.clan.murdered["victim"]:
+                    elif "not_murder_victim" in TAGS and cat.ID == game.clan.murdered["victim"]:
                         continue
                 
                 # success/fail
-                if "murder_success" in tags and game.clan.murdered["success"] is False:
+                if "murder_success" in TAGS and game.clan.murdered["success"] is False:
                     continue
-                if "murder_fail" in tags and game.clan.murdered["success"] is True:
+                if "murder_fail" in TAGS and game.clan.murdered["success"] is True:
                     continue
 
                 # discovered
-                if "murder_discovered" in tags and game.clan.murdered["discovered"] is False:
+                if "murder_discovered" in TAGS and game.clan.murdered["discovered"] is False:
                     continue
-                if "murder_not_discovered" in tags and game.clan.murdered["discovered"] is True:
+                if "murder_not_discovered" in TAGS and game.clan.murdered["discovered"] is True:
                     continue
 
 
-                if any(tag in tags for tag in [
+                if any(tag in TAGS for tag in [
                     "accomplice_agreed", "accomplice_refused",
                     "accomplice", "murder_victim",
                     "not_murder_victim", "murder_success",
@@ -1405,7 +1359,7 @@ class TalkScreen(Screens):
                     if game.clan.murdered["murderer"] != game.clan.your_cat.ID:
                         continue
             else:
-                if any(tag in tags for tag in [
+                if any(tag in TAGS for tag in [
                     "accomplice_agreed", "accomplice_refused",
                     "accomplice", "murder_victim",
                     "not_murder_victim", "murder_success",
@@ -1414,19 +1368,12 @@ class TalkScreen(Screens):
                     continue
 
             # ---
-            if "non-related" in tags:
-                if cat.ID in you.get_relatives():
-                    continue
 
-            if "war" in tags:
+            if "war" in TAGS:
                 if game.clan.war.get("at_war", False):
                     continue
 
-            if "non-mates" in tags:
-                if you.ID in cat.mate:
-                    continue
-
-            if "clan_has_kits" in tags:
+            if "clan_has_kits" in TAGS:
                 clan_has_kits = False
                 for c in Cat.all_cats_list:
                     if c.status == "kitten" and not c.dead and not c.outside:
@@ -1434,356 +1381,130 @@ class TalkScreen(Screens):
                 if not clan_has_kits:
                     continue
 
-            if "they_older" in tags:
-                if you.age == cat.age or cat.moons < you.moons:
-                    continue
-
-            if "they_sameage" in tags:
-                if you.age != cat.age:
-                    continue
-
-            if "they_younger" in tags:
-                if you.age == cat.age or cat.moons > you.moons:
-                    continue
-
-            if "they_shunned" in tags:
-                if cat.shunned == 0:
-                    continue
-
-            if "you_shunned" in tags:
-                if you.shunned == 0:
-                    continue
-            
-            if "both_shunned" in tags or ("they_shunned" in tags and "you_shunned" in tags):
-                if cat.shunned == 0 or you.shunned == 0:
-                    continue
-
-            if cat.shunned > 0 and you.shunned == 0 and "they_shunned" not in tags:
-                continue
-
-            if you.shunned > 0 and cat.shunned == 0 and "you_shunned" not in tags:
-                continue
-
-            if you.shunned > 0 and cat.shunned > 0 and (
-                "both_shunned" not in tags and
-                ("you_shunned" not in tags and "they_shunned" not in tags)
-                ):
-                continue
-
-            if "guilty" in tags and "guilt" not in cat.illnesses:
-                continue
-
-            # PERMANENT CONDITIONS
-            # the exclusive deaf/blind ones
-
-            if "only_they_born_deaf" in tags:
-                if "deaf" not in cat.permanent_condition:
-                    continue
-                if "deaf" in cat.permanent_condition and cat.permanent_condition["deaf"]["born_with"] is False:
-                    continue
-            if "only_they_went_deaf" in tags:
-                if "deaf" not in cat.permanent_condition:
-                    continue
-                if "deaf" in cat.permanent_condition and cat.permanent_condition["deaf"]["born_with"] is True:
-                    continue
-            if "only_they_deaf" in tags and "deaf" not in cat.permanent_condition:
-                continue
-
-            if "only_they_born_blind" in tags:
-                if "blind" not in cat.permanent_condition:
-                    continue
-                if "blind" in cat.illnesses and cat.permanent_condition["blind"]["born_with"] is False:
-                    continue
-
-            if "only_they_went_blind" in tags:
-                if "blind" not in cat.permanent_condition:
-                    continue
-                if "blind" in cat.permanent_condition and cat.permanent_condition["blind"]["born_with"] is True:
-                    continue
-
-            if "only_they_blind" in tags and "blind" not in cat.permanent_condition:
-                continue
-
-            if "only_you_born_deaf" in tags:
-                if "deaf" not in you.permanent_condition:
-                    continue
-                if "deaf" in you.permanent_condition and you.permanent_condition["deaf"]["born_with"] is False:
-                    continue
-            if "only_you_went_deaf" in tags:
-                if "deaf" not in you.permanent_condition:
-                    continue
-                if "deaf" in you.permanent_condition and you.permanent_condition["deaf"]["born_with"] is True:
-                    continue
-            if "only_you_deaf" in tags and "deaf" not in you.permanent_condition:
-                continue
-
-            if "only_you_born_blind" in tags:
-                if "blind" not in you.permanent_condition:
-                    continue
-                if "blind" in you.permanent_condition and you.permanent_condition["blind"]["born_with"] is False:
-                    continue
-            if "only_you_went_blind" in tags:
-                if "blind" not in you.permanent_condition:
-                    continue
-                if "blind" in you.permanent_condition and you.permanent_condition["blind"]["born_with"] is True:
-                    continue
-            if "only_you_blind" in tags and "blind" not in you.permanent_condition:
-                continue
-
-            # non-exclusive deaf/blind
-            if "deaf" in cat.permanent_condition:
-                if cat.permanent_condition["deaf"]["born_with"] is True:
-                    if "they_born_deaf" not in tags and "only_they_born_deaf" not in tags:
-                        if "they_deaf" not in tags and "only_they_deaf" not in tags:
-                            continue
-                else:
-                    if "they_born_deaf" in tags or "only_they_born_deaf" not in tags:
-                        if "they_deaf" not in tags and "only_they_deaf" not in tags:
-                            continue
-                if "they_hearing" in tags:
-                    continue
-                # cats who went deaf later in life can get pretty much all normal dialogue, as they're able to talk regularly.
-                # they_hearing is for dialogue that explicitly mentions that t_c can hear,
-                # so it can be filtered out for cats who went deaf.
-                # "did you hear that?" "i just heard..." "r_k is so loud!" yanno
-
-            if "deaf" in you.permanent_condition:
-                if you.permanent_condition["deaf"]["born_with"] is True:
-                    if "you_born_deaf" not in tags and "only_you_born_deaf" not in tags:
-                        if "you_deaf" not in tags and "only_you_deaf" not in tags:
-                            continue
-                else:
-                    if "you_born_deaf" in tags or "only_you_born_deaf" in tags:
-                        continue
-                    if "you_went_deaf" not in tags and "only_you_went_deaf" not in tags:
-                        if "you_deaf" not in tags and "only_you_deaf" not in tags:
-                            continue
-            
-            # blind
-            if "blind" in cat.permanent_condition:
-                if cat.permanent_condition["blind"]["born_with"] is True:
-                    if "they_born_blind" not in tags and "only_they_born_blind" not in tags:
-                        if "they_blind" not in tags and "only_they_blind" not in tags:
-                            continue
-                else:
-                    if "they_born_blind" in tags or "only_they_born_blind" in tags:
-                        continue
-                    if "they_went_blind" not in tags and "only_they_went_blind" not in tags:
-                        if "they_blind" not in tags and "only_they_blind" not in tags:
-                            continue
-
-            if "blind" in you.permanent_condition:
-                if you.permanent_condition["blind"]["born_with"] is True:
-                    if "you_born_blind" not in tags and "only_you_born_blind" not in tags:
-                        if "you_blind" not in tags and "only_you_blind" not in tags:
-                            continue
-                else:
-                    if "you_born_blind" in tags or "only_you_born_blind" in tags:
-                        continue
-                    if "you_went_blind" not in tags and "only_you_went_blind" not in tags:
-                        if "you_blind" not in tags and "only_you_blind" not in tags:
-                            continue
-
-            if "you_allergies" in tags and "allergies" not in you.permanent_condition:
-                continue
-            if "they_allergies" in tags and "allergies" not in cat.permanent_condition:
-                continue
-
-            if "you_jointpain" in tags and "constant joint pain" not in you.illnesses:
-                continue
-            if "they_jointpain" in tags and "constant join pain" not in cat.illnesses:
-                continue
-
-            if "you_dizzy" in tags and "constantly dizzy" not in you.permanent_condition:
-                continue
-            if "they_dizzy" in tags and "constantly dizzy" not in cat.permanent_condition:
-                continue
-
-            if "you_nightmares" in tags and "constant nightmares" not in you.permanent_condition:
-                continue
-            if "they_nightmares" in tags and "constant nightmares" not in cat.permanent_condition:
-                continue
-
-            if "you_crookedjaw" in tags and "crooked jaw" not in you.permanent_condition:
-                continue
-            if "they_crookedjaw" in tags and "crooked jaw" not in cat.permanent_condition:
-                continue
-
-            if "you_failingeyesight" in tags and "failing eyesight" not in you.permanent_condition:
-                continue
-            if "they_failingeyesight" in tags and "failing eyesight" not in cat.permanent_condition:
-                continue
-
-            if "you_lastinggrief" in tags and "lasting grief" not in you.permanent_condition:
-                continue
-            if "they_lastinggrief" in tags and "lasting grief" not in cat.permanent_condition:
-                continue
-
-            # if "you_missingleg" in tags and "lost a leg" not in you.permanent_condition and "born without a leg" not in you.permanent_condition:
-            #     continue
-            # if "they_missingleg" in tags and "lost a leg" not in cat.permanent_condition and "born without a leg" not in cat.permanent_condition:
-            #     continue
-
-            # if "you_missingtail" in tags and "lost their tail" not in you.permanent_condition and "born without a tail" not in you.permanent_condition:
-            #     continue
-            # if "they_missingtail" in tags and "lost their tail" not in cat.permanent_condition and "born without a tail" not in cat.permanent_condition:
-            #     continue
-
-            if "you_paralyzed" in tags and "paralyzed" not in you.permanent_condition:
-                continue
-            if "they_paralyzed" in tags and "paralyzed" not in cat.permanent_condition:
-                continue
-
-            if "you_hearingloss" in tags and "partial hearing loss" not in you.permanent_condition:
-                continue
-            if "they_hearingloss" in tags and "partial hearing loss" not in cat.permanent_condition:
-                continue
-
-            if "you_headaches" in tags and "persistent headaches" not in you.permanent_condition:
-                continue
-            if "they_headaches" in tags and "persistent headaches" not in cat.illnesses:
-                continue
-
-            if "you_raspylungs" in tags and "raspy lungs" not in you.permanent_condition:
-                continue
-            if "they_raspylungs" in tags and "raspy lungs" not in cat.permanent_condition:
-                continue
-
-            if "you_recurringshock" in tags and "recurring shock" not in you.permanent_condition:
-                continue
-            if "they_recurringshock" in tags and "recurring shock" not in cat.permanent_condition:
-                continue
-
-            if "you_seizureprone" in tags and "seizure prone" not in you.permanent_condition:
-                continue
-            if "they_seizureprone" in tags and "seizure prone" not in cat.permanent_condition:
-                continue
-
-            if "you_wastingdisease" in tags and "wasting disease" not in you.permanent_condition:
-                continue
-            if "they_wastingdisease" in tags and "wasting disease" not in cat.permanent_condition:
-                continue
 
             # Relationship conditions
-            if you.ID in cat.relationships:
-                # intial relationship stuff
-                if cat.relationships[you.ID].dislike < 30 and 'hate' in tags:
-                    continue
-                if cat.relationships[you.ID].romantic_love < 15 and 'romantic_like' in tags:
-                    continue
-                if cat.relationships[you.ID].platonic_like < 25 and 'platonic_like' in tags:
-                    continue
-                if cat.relationships[you.ID].platonic_like < 40 and 'platonic_love' in tags:
-                    continue
-                if cat.relationships[you.ID].jealousy < 5 and 'jealousy' in tags:
-                    continue
-                if cat.relationships[you.ID].dislike < 20 and 'dislike' in tags:
-                    continue
-                if cat.relationships[you.ID].comfortable < 40 and 'comfort' in tags:
-                    continue
-                if cat.relationships[you.ID].admiration < 40 and 'respect' in tags:
-                    continue
-                if cat.relationships[you.ID].trust < 40 and 'trust' in tags:
-                    continue
-                if (cat.relationships[you.ID].platonic_like > 20 or cat.relationships[you.ID].dislike > 20) and "neutral" in tags:
-                    continue
+            if REL:
+                if you.ID in cat.relationships:
+                    # intial relationship stuff
+                    # these tags shouldnt be used anymore-- they should be replace with min/max tags
+                    if cat.relationships[you.ID].dislike < 30 and 'hate' in REL:
+                        continue
+                    if cat.relationships[you.ID].romantic_love < 15 and 'romantic_like' in REL:
+                        continue
+                    if cat.relationships[you.ID].platonic_like < 25 and 'platonic_like' in REL:
+                        continue
+                    if cat.relationships[you.ID].platonic_like < 40 and 'platonic_love' in REL:
+                        continue
+                    if cat.relationships[you.ID].jealousy < 5 and 'jealousy' in REL:
+                        continue
+                    if cat.relationships[you.ID].dislike < 20 and 'dislike' in REL:
+                        continue
+                    if cat.relationships[you.ID].comfortable < 40 and 'comfort' in REL:
+                        continue
+                    if cat.relationships[you.ID].admiration < 40 and 'respect' in REL:
+                        continue
+                    if cat.relationships[you.ID].trust < 40 and 'trust' in REL:
+                        continue
+                    if (cat.relationships[you.ID].platonic_like > 20 or cat.relationships[you.ID].dislike > 20) and "neutral" in REL:
+                        continue
 
-                # new relationship stuff!
-                skip_rel = False
-                for tag in tags:
-                    if tag.startswith("min_platonic_"):
-                        min_value = int(tag.split("_")[-1])
-                        if cat.relationships[you.ID].platonic_like < min_value:
-                            skip_rel = True
-                            break
-                    elif tag.startswith("max_platonic_"):
-                        max_value = int(tag.split("_")[-1])
-                        if cat.relationships[you.ID].platonic_like > max_value:
-                            skip_rel = True
-                            break
+                    # new relationship stuff!
+                    skip_rel = False
+                    for tag in REL:
+                        if tag.startswith("min_platonic_"):
+                            min_value = int(tag.split("_")[-1])
+                            if cat.relationships[you.ID].platonic_like < min_value:
+                                skip_rel = True
+                                break
+                        elif tag.startswith("max_platonic_"):
+                            max_value = int(tag.split("_")[-1])
+                            if cat.relationships[you.ID].platonic_like > max_value:
+                                skip_rel = True
+                                break
 
-                    if tag.startswith("min_romantic_"):
-                        min_value = int(tag.split("_")[-1])
-                        if cat.relationships[you.ID].romantic_love < min_value:
-                            skip_rel = True
-                            break
-                    elif tag.startswith("max_romantic_"):
-                        max_value = int(tag.split("_")[-1])
-                        if cat.relationships[you.ID].romantic_love > max_value:
-                            skip_rel = True
-                            break
+                        if tag.startswith("min_romantic_"):
+                            min_value = int(tag.split("_")[-1])
+                            if cat.relationships[you.ID].romantic_love < min_value:
+                                skip_rel = True
+                                break
+                        elif tag.startswith("max_romantic_"):
+                            max_value = int(tag.split("_")[-1])
+                            if cat.relationships[you.ID].romantic_love > max_value:
+                                skip_rel = True
+                                break
 
-                    if tag.startswith("min_dislike_"):
-                        min_value = int(tag.split("_")[-1])
-                        if cat.relationships[you.ID].dislike < min_value:
-                            skip_rel = True
-                            break
-                    elif tag.startswith("max_dislike_"):
-                        max_value = int(tag.split("_")[-1])
-                        if cat.relationships[you.ID].dislike > max_value:
-                            skip_rel = True
-                            break
+                        if tag.startswith("min_dislike_"):
+                            min_value = int(tag.split("_")[-1])
+                            if cat.relationships[you.ID].dislike < min_value:
+                                skip_rel = True
+                                break
+                        elif tag.startswith("max_dislike_"):
+                            max_value = int(tag.split("_")[-1])
+                            if cat.relationships[you.ID].dislike > max_value:
+                                skip_rel = True
+                                break
 
-                    if tag.startswith("min_jealousy_"):
-                        min_value = int(tag.split("_")[-1])
-                        if cat.relationships[you.ID].jealousy < min_value:
-                            skip_rel = True
-                            break
-                    elif tag.startswith("max_jealousy_"):
-                        max_value = int(tag.split("_")[-1])
-                        if cat.relationships[you.ID].jealousy > max_value:
-                            skip_rel = True
-                            break
+                        if tag.startswith("min_jealousy_"):
+                            min_value = int(tag.split("_")[-1])
+                            if cat.relationships[you.ID].jealousy < min_value:
+                                skip_rel = True
+                                break
+                        elif tag.startswith("max_jealousy_"):
+                            max_value = int(tag.split("_")[-1])
+                            if cat.relationships[you.ID].jealousy > max_value:
+                                skip_rel = True
+                                break
 
-                    if tag.startswith("min_trust_"):
-                        min_value = int(tag.split("_")[-1])
-                        if cat.relationships[you.ID].trust < min_value:
-                            skip_rel = True
-                            break
-                    elif tag.startswith("max_trust_"):
-                        max_value = int(tag.split("_")[-1])
-                        if cat.relationships[you.ID].trust > max_value:
-                            skip_rel = True
-                            break
+                        if tag.startswith("min_trust_"):
+                            min_value = int(tag.split("_")[-1])
+                            if cat.relationships[you.ID].trust < min_value:
+                                skip_rel = True
+                                break
+                        elif tag.startswith("max_trust_"):
+                            max_value = int(tag.split("_")[-1])
+                            if cat.relationships[you.ID].trust > max_value:
+                                skip_rel = True
+                                break
 
-                    if tag.startswith("min_comfort_"):
-                        min_value = int(tag.split("_")[-1])
-                        if cat.relationships[you.ID].comfortable < min_value:
-                            skip_rel = True
-                            break
-                    elif tag.startswith("max_comfort_"):
-                        max_value = int(tag.split("_")[-1])
-                        if cat.relationships[you.ID].comfortable > max_value:
-                            skip_rel = True
-                            break
+                        if tag.startswith("min_comfort_"):
+                            min_value = int(tag.split("_")[-1])
+                            if cat.relationships[you.ID].comfortable < min_value:
+                                skip_rel = True
+                                break
+                        elif tag.startswith("max_comfort_"):
+                            max_value = int(tag.split("_")[-1])
+                            if cat.relationships[you.ID].comfortable > max_value:
+                                skip_rel = True
+                                break
 
-                    if tag.startswith("min_respect_"):
-                        min_value = int(tag.split("_")[-1])
-                        if cat.relationships[you.ID].admiration < min_value:
-                            skip_rel = True
-                            break
-                    elif tag.startswith("max_respect_"):
-                        max_value = int(tag.split("_")[-1])
-                        if cat.relationships[you.ID].admiration > max_value:
-                            skip_rel = True
-                            break
-                if skip_rel:
-                    continue
-            else:
-                if any(i in [
-                    "hate","romantic_like","platonic_like","jealousy",
-                    "dislike","comfort","respect","trust"
-                    ] for i in tags):
-                    continue
-                values = ["platonic", "romantic", "dislike", "jealousy", "comfort", "trust", "respect"]
-                for v in values:
-                    for tag in tags:
-                        if tag.startswith(f"max_{v}_"):
-                            continue
-                        if tag.startswith(f"min_{v}_"):
-                            continue
+                        if tag.startswith("min_respect_"):
+                            min_value = int(tag.split("_")[-1])
+                            if cat.relationships[you.ID].admiration < min_value:
+                                skip_rel = True
+                                break
+                        elif tag.startswith("max_respect_"):
+                            max_value = int(tag.split("_")[-1])
+                            if cat.relationships[you.ID].admiration > max_value:
+                                skip_rel = True
+                                break
+                    if skip_rel:
+                        continue
+                else:
+                    if any(i in [
+                        "hate","romantic_like","platonic_like","jealousy",
+                        "dislike","comfort","respect","trust"
+                        ] for i in REL):
+                        continue
+                    values = ["platonic", "romantic", "dislike", "jealousy", "comfort", "trust", "respect"]
+                    for v in values:
+                        for tag in REL:
+                            if tag.startswith(f"max_{v}_"):
+                                continue
+                            if tag.startswith(f"min_{v}_"):
+                                continue
             
-            if game.clan.focus and game.clan.focus == "leader" and "focus" in tags:
+            # FOCUS TAGS
+            if game.clan.focus and game.clan.focus == "leader" and "focus" in TAGS:
                 leader_id = game.clan.leader.ID
                 if leader_id not in cat.relationships or cat.ID == leader_id:
                     continue
@@ -1793,9 +1514,9 @@ class TalkScreen(Screens):
                     continue
             
             if game.clan.focus_cat:
-                if "you_focuscat" in tags and game.clan.focus_cat.ID != game.clan.your_cat.ID:
+                if "you_focuscat" in TAGS and game.clan.focus_cat.ID != game.clan.your_cat.ID:
                     continue
-                if "they_focuscat" in tags and cat.ID != game.clan.focus_cat.ID:
+                if "they_focuscat" in TAGS and cat.ID != game.clan.focus_cat.ID:
                     continue
                 if game.clan.focus == "unknown_murder":
                     focus_cat = game.clan.focus_cat
@@ -1816,45 +1537,67 @@ class TalkScreen(Screens):
                     else:
                         murdered_them = False
 
-                    if "you_murderer" in tags and murdered_them is False:
+                    if "you_murderer" in TAGS and murdered_them is False:
                         continue
-                    if "you_not_murderer" in tags and murdered_them:
+                    if "you_not_murderer" in TAGS and murdered_them:
                         continue
 
             # dead moons tags!
-            if you.dead or cat.dead:
-                fadedage = game.config["fading"]["age_to_fade"]
-                
-                skip_processing = False
+            fadedage = game.config["fading"]["age_to_fade"]
+            skip_processing = False
 
+            if "dead" in YOU:
+                if not you.dead:
+                    continue
+                # residence
+                if "any" not in YOU["dead"]:
+                    if any(t in ["ur", "sc", "df"] for t in YOU["dead"]):
+                        if you.df and "df" not in YOU["dead"]:
+                            continue
+                        elif you.outside and "ur" not in YOU["dead"]:
+                            continue
+                        elif "sc" not in YOU["dead"]:
+                            continue
                 if you.dead:
-                    for tag in tags:
-                        if tag.startswith("min_you_deadfor_"):
+                    for tag in YOU["dead"]:
+                        if tag.startswith("min_deadfor_"):
                             min_value = int(tag.split("_")[-1])
                             if you.dead_for < min_value:
                                 skip_processing = True
                                 break
-                        elif tag.startswith("max_you_deadfor_"):
+                        elif tag.startswith("max_deadfor_"):
                             max_value = int(tag.split("_")[-1])
                             if you.dead_for > max_value:
                                 skip_processing = True
                                 break
 
+            if "dead" in CAT:
+                if not cat.dead:
+                    continue
+                if "any" not in CAT["dead"]:
+                    if any(t in ["ur", "sc", "df"] for t in CAT["dead"]):
+                        if cat.df and "df" not in CAT["dead"]:
+                            continue
+                        elif cat.outside and "ur" not in CAT["dead"]:
+                            continue
+                        elif "sc" not in CAT["dead"]:
+                            continue
                 if cat.dead and not skip_processing:
-                    for tag in tags:
-                        if tag.startswith("min_they_deadfor_"):
+                    for tag in CAT["dead"]:
+                        if tag.startswith("min_deadfor_"):
                             min_value = int(tag.split("_")[-1])
                             if cat.dead_for < min_value:
                                 skip_processing = True
                                 break
-                        elif tag.startswith("max_they_deadfor_"):
+                        elif tag.startswith("max_deadfor_"):
                             max_value = int(tag.split("_")[-1])
                             if cat.dead_for > max_value:
                                 skip_processing = True
                                 break
 
-                if skip_processing:
-                    continue
+            if skip_processing:
+                continue
+
             texts_list[talk_key] = talk
 
         return self.choose_text(cat, texts_list)
@@ -1901,12 +1644,12 @@ class TalkScreen(Screens):
             if "deaf" in cat.permanent_condition:
                 add_on2 += " d"
             t_c_text += add_on2
-            possible_texts['general'][1][0] += f" {VERSION_NAME} {(game.switches['talk_category']).upper()}"
-            possible_texts['general'][1][0] += "\n"
-            possible_texts['general'][1][0] += y_c_text + f" {you.moons}"
-            possible_texts['general'][1][0] += "\n"
-            possible_texts['general'][1][0] += t_c_text + f" {cat.moons}"
-            possible_texts['general'][1][0] += "\n"
+            possible_texts['general']["intro"][0] += f" {VERSION_NAME} {(game.switches['talk_category']).upper()}"
+            possible_texts['general']["intro"][0] += "\n"
+            possible_texts['general']["intro"][0] += y_c_text + f" {you.moons}"
+            possible_texts['general']["intro"][0] += "\n"
+            possible_texts['general']["intro"][0] += t_c_text + f" {cat.moons}"
+            possible_texts['general']["intro"][0] += "\n"
             
             
         return possible_texts['general']
@@ -1940,7 +1683,7 @@ class TalkScreen(Screens):
         weights = []
 
         for item in texts_list.values():
-            tags = item["tags"] if "tags" in item else item[0]
+            tags = item["tags"] if "tags" in item else {}
             weight = 1
             if any(tag in weighted_tags for tag in tags):
                 weight += 3
@@ -1960,7 +1703,10 @@ class TalkScreen(Screens):
                 if "~" in text_chosen_key:
                     text_chosen_key_split = text_chosen_key.split("~")
                     cat.connected_dialogue[text_chosen_key_split[0]] = int(text_chosen_key_split[1])
+                print("Debug:", text_chosen_key)
                 return new_text
+            print("Could not find debug ensure dialogue within possible dialogues")
+        elif game.config["debug_ensure_dialogue"]:
             print("Could not find debug ensure dialogue within possible dialogues")
 
 
@@ -1991,7 +1737,7 @@ class TalkScreen(Screens):
         # If no valid text found, choose one based on tag weights
         weights = []
         for item in texts_list.values():
-            tags = item["tags"] if "tags" in item else item[0]
+            tags = item["tags"] if "tags" in item else {}
             weights.append(len(tags))
         text_chosen_key = choices(list(texts_list.keys()), weights=weights)[0]
         text = texts_list[text_chosen_key]["intro"] if "intro" in texts_list[text_chosen_key] else texts_list[text_chosen_key][1]

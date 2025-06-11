@@ -3978,7 +3978,8 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                         [Cat.fetch_cat(game.clan.your_cat.illnesses['grief stricken']["grief_cat"])]
                     ) if "grief stricken" in game.clan.your_cat.illnesses else []
                 else:
-                    print("Unknown LifeGen abbrev:", abbrev_string)
+                    if abbrev_string not in abbrevs:
+                        print("Unknown LifeGen abbrev:", abbrev_string)
                     cat_choices = alive_cats
 
                 if cat_choices is None:
@@ -3987,6 +3988,9 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 try:
                     alive_cat = choice(cat_choices)
                 except IndexError:
+                    return ""
+
+                if alive_cat is None:
                     return ""
 
                 new_abbrevs = lifegen_abbrevs(Cat, text, you, cat, alive_cat, cat_dict)
