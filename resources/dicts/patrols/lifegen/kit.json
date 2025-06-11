@@ -723,5 +723,55 @@
                 "weight": 20
             }
         ]
+    },
+    {
+        "patrol_id": "lifegen_kit_R1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [],
+        "patrol_art": "lg_kit_default",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "It's time for some mischief! You've managed to slip away from keen eyes, and now you've found a private spot in the camp. What's next? Can you sneak out of camp from here?",
+        "decline_text": "It's not very fun by yourself. You return to the nursery for company.",
+        "chance_of_success": 60,
+        "success_outcomes": [
+            {
+                "text": "You scrabble your way through the camp wall and are rewarded with fresh new sights! You play make believe for ages before a patrol finds you. Their relief doesn't negate their scolding - but that can't dampen your joy. This was so worth it!",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "Sneaking out of camp sounds fun, but you know the risk outweighs the reward. It isn't worth it. Instead, you come up with a fun make believe game until you grow tired. The queens actually jump when you reappear - and before they can scold you you're fast asleep in your nest.",
+                "exp": 0,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You try to make your way through the camp wall, but r_c_unlawful catches you before you can get through. {PRONOUN/r_c_unlawful/subject}{VERB/r_c_unlawful/'re/'s} seemingly a little impressed you found this spot - but reminds you of the dangers beyond the camp walls. Despite the scolding, you're indulged in a game, and you have a new respect for r_c_unlawful.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "You try to make your way through the camp wall, but it's just too strong. You entertain yourself with a make believe game about spying on an enemy clan until you're caught by r_w and returned to the nursery with a scolding.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "Sneaking out of camp sounds fun, but you know the risk outweighs the reward. Just as you decide to entertain yourself here, r_w finds you and gives you a scolding. Could have been worse...",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
     }
 ]

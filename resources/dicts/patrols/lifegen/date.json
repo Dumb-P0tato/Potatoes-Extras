@@ -2434,5 +2434,274 @@
                 "weight": 20
             }
         ]
-    }
+    },
+    {
+        "patrol_id": "poly_date_J4",
+        "biome": [
+            "mountainous"
+        ],
+        "season": [
+            "leafbare"
+        ],
+        "types": [
+            "date"
+        ],
+        "tags": [],
+        "patrol_art": "poly_date_default",
+        "min_cats": 3,
+        "max_cats": 3,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "There's a beautiful sight in the sky this afternoon-- a shining ring seems to have formed around the sun! Two cats spring to mind immediately-- r_c and o_c1. They'll want to see this! You wonder if you'll be able to track them down in time to show them.",
+        "decline_text": "You decide to stay put and enjoy the moment alone. Wherever they are, you're sure they can see it for themselves.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You jump down quickly from your seat in a tree at the edge of camp. You duck your head into dens until you've located the two, gesturing for them to follow you. Soon, all three of you are side by side on a branch, pelts fluffed up together against the cold, enjoying the unique sight.",
+                "exp": 5,
+                "weight": 20,
+                "relationships": [
+                    {
+                        "cats_to": [
+                            "patrol"
+                        ],
+                        "cats_from": [
+                            "patrol"
+                        ],
+                        "mutual": true,
+                        "values": [
+                            "romantic"
+                        ],
+                        "amount": 5
+                    }
+                ]
+            },
+            {
+                "text": "Turns out, you don't need to fetch them! r_c and o_c1's voices reach your ears, in awe of the phenomenon before them. The three of you lay in the snow and talk about all sorts of things to pass the time, wondering if the rings will ever dissipate. Before then, r_c yawns and claims {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} tired. It's time to travel back to camp.",
+                "exp": 0,
+                "weight": 20,
+                "relationships": [
+                    {
+                        "cats_to": [
+                            "patrol"
+                        ],
+                        "cats_from": [
+                            "patrol"
+                        ],
+                        "mutual": true,
+                        "values": [
+                            "romantic"
+                        ],
+                        "amount": 5
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You race back into camp from where you'd seen the sight just outside of it. However, as much as you search, you're only to locate o_c1, and by the time you get back to your spot, the sun just looks normal again. o_c1 still appreciates the gesture.",
+                "exp": 0,
+                "weight": 20,
+                "relationships": [
+                    {
+                        "cats_to": [
+                            "p_l"
+                        ],
+                        "cats_from": [
+                            "o_c1"
+                        ],
+                        "mutual": false,
+                        "values": [
+                            "romantic"
+                        ],
+                        "amount": 3
+                    }
+                ]
+            },
+            {
+                "text": "You wander around looking for r_c and o_c1, but they're nowhere to be found! With some contemplation, you decide to enjoy the rings around the sun yourself. Hopefully r_c and o_c1 don't mind.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "Although the rings around the sun are extremely cool, you have to squint to not burn your eyes from the sheer brightness it reflects off the snow. You assume r_c and o_c1 may appreciate the experience, but you would hate to hurt their eyes and decide to continue whatever you were doing before instead of fetching them.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "poly_date_SQ1",
+        "biome": [
+            "mountainous"
+        ],
+        "season": [
+            "newleaf"
+        ],
+        "types": [
+            "date"
+        ],
+        "tags": [],
+        "patrol_art": "poly_date_default",
+        "min_cats": 3,
+        "max_cats": 3,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "After several days of rainfall, temporary waterfalls have sprung up all over the mountainside. You stumble across a particularly beautiful one while on a walk, and consider taking r_c and o_c1 to see it.",
+        "decline_text": "The waterfalls dry up as quickly as they appeared, and you miss the chance to show r_c and o_c1 any of them. Oh well. There'll be other chances.",
+        "chance_of_success": 70,
+        "success_outcomes": [
+            {
+                "text": "After a long day, you lead r_c and o_c1 to the waterfall. o_c1 gasps at the sight, especially after the sun breaks through the clouds and creates rainbows in the mist coming off of the water. The three of you find a rock to admire the view and you press against each other, purring, as the sun sets.",
+                "exp": 5,
+                "weight": 20,
+                "relationships": [
+                    {
+                        "cats_to": [
+                            "patrol"
+                        ],
+                        "cats_from": [
+                            "patrol"
+                        ],
+                        "mutual": false,
+                        "values": [
+                            "romantic",
+                            "platonic"
+                        ],
+                        "amount": 5
+                    }
+                ]
+            },
+            {
+                "text": "You lead o_c1 and r_c to a rock with a great view of the waterfall and lie there together, admiring it. After a bit, o_c1 glimpses water collecting at the base of the waterfall, and the three of you decide to take a look. You climb down to find a perfectly clear pool, and have fun splashing each other and searching for insects. You return to camp soaked and happy. ",
+                "exp": 5,
+                "weight": 20,
+                "relationships": [
+                    {
+                        "cats_to": [
+                            "patrol"
+                        ],
+                        "cats_from": [
+                            "patrol"
+                        ],
+                        "mutual": false,
+                        "values": [
+                            "romantic",
+                            "platonic"
+                        ],
+                        "amount": 5
+                    }
+                ]
+            },
+            {
+                "text": "You... aren't really sure whether r_c and o_c1 will be interested. They've seen waterfalls before, after all! Still, you nervously lead them to the scene and are rewarded with their amazed gasps. The three of you relax on a nearby rock, watching water cascade from far above, and you feel warm when r_c and o_c1 agree that this is one of the most beautiful things they've ever seen.",
+                "exp": 5,
+                "weight": 20,
+                "stat_trait": [
+                    "careful",
+                    "nervous",
+                    "insecure",
+                    "meek",
+                    "cowardly",
+                    "reserved",
+                    "emotional",
+                    "lonesome"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ],
+            "relationships": [
+                {
+                    "cats_to": [
+                        "patrol"
+                    ],
+                    "cats_from": [
+                        "patrol"
+                    ],
+                    "mutual": false,
+                    "values": [
+                        "romantic",
+                        "platonic"
+                    ],
+                    "amount": 5
+                }
+            ]
+        },
+        {
+            "text": "You lead r_c and o_c1 to a rock with a great view of the waterfall and lounge in the sun together, sharing tongues. After a while, the three of you decide to venture closer. You carefully leap across the nearby boulders until you reach the veil of mist coming off of the waterfall, and you admire how the sun sparkles off of the droplets. The extra moisture means moss is growing on the surrounding stones, and r_c gently pulls off some flower-dappled pieces to give you and o_c1.",
+            "exp": 5,
+            "weight": 15,
+            "accessory": [
+                {
+                    "cats": [
+                        "y_c",
+                        "o_c1",
+                        "r_c"
+                    ],
+                    "accessory": [
+                        "FLOWER MOSS"
+                    ]
+                }
+            ],
+            "relationships": [
+                {
+                    "cats_to": [
+                        "patrol"
+                    ],
+                    "cats_from": [
+                        "patrol"
+                    ],
+                    "mutual": false,
+                    "values": [
+                        "romantic",
+                        "platonic"
+                    ],
+                    "amount": 5
+                }
+            ]
+        }
+    ],
+    "fail_outcomes": [
+        {
+            "text": "You lead r_c and o_c1 to the waterfall the day after you discover it, but find that it's already dried up. The three of you take a long walk through the territory instead, but you can't escape the feeling that you missed a chance to show r_c and o_c1 something special.",
+            "exp": 0,
+            "weight": 20,
+            "relationships": [
+                {
+                    "cats_to": [
+                        "patrol"
+                    ],
+                    "cats_from": [
+                        "patrol"
+                    ],
+                    "mutual": false,
+                    "values": [
+                        "platonic"
+                    ],
+                    "amount": 3
+                }
+            ]
+        },
+        {
+            "text": "You lead r_c and o_c1 to the waterfall but find that it's grown significantly since you first visited. Instead of a gentle mist around the falls, water sprays in all directions, and you can't find anywhere with a good view where you won't get soaked. You give up on the attempt, though r_c and o_c1 assure you that they appreciate the thought.",
+            "exp": 0,
+            "weight": 20,
+            "relationships": [
+                {
+                    "cats_to": [
+                        "patrol"
+                    ],
+                    "cats_from": [
+                        "patrol"
+                    ],
+                    "mutual": false,
+                    "values": [
+                        "platonic"
+                    ],
+                    "amount": 3
+                }
+            ]
+        }
+    ]
+}
 ]

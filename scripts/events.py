@@ -30,21 +30,20 @@ from scripts.conditions import (
 )
 from scripts.game_structure.game_essentials import game
 from scripts.events_module.generate_events import GenerateEvents, generate_events
-from scripts.clan_resources.freshkill import FreshkillPile, Nutrition
+from scripts.clan_resources.freshkill import FreshkillPile
 from scripts.events_module.short.condition_events import Condition_Events
 from scripts.events_module.short.handle_short_events import handle_short_events
 from scripts.events_module.relationship.relation_events import Relation_Events
 from scripts.events_module.relationship.pregnancy_events import Pregnancy_Events
 from scripts.game_structure.windows import SaveError
-from scripts.game_structure.windows import RetireScreen, DeputyScreen, NameKitsWindow, PickPath
-from enum import Enum, auto
+from scripts.game_structure.windows import RetireScreen, DeputyScreen, NameKitsWindow
+from enum import Enum
 
 from scripts.events_module.patrol.patrol import Patrol
 from scripts.utility import (
     change_clan_relations,
     change_clan_reputation,
     get_alive_status_cats,
-    get_living_clan_cat_count,
     get_random_moon_cat,
     ceremony_text_adjust,
     get_current_season,
@@ -116,6 +115,7 @@ class Events:
         Patrol.used_patrols.clear()
         game.patrolled.clear()
         game.just_died.clear()
+        game.dated_cats.clear()
         # 1 = reg patrol 2 = lifegen patrol 3 = df patrol 4 = date
         game.switches['patrolled'] = []
         game.switches['window_open'] = False
@@ -524,7 +524,9 @@ class Events:
             game.clan.focus_cat = None
             
         if not game.clan.focus:
-            if game.clan.war.get("at_war"):
+            if "debug_ensure_focus" in game.config and game.config["debug_ensure_focus"] and game.config["debug_ensure_focus"] in dialogue_focuses:
+                game.clan.focus = game.config["debug_ensure_focus"]
+            elif game.clan.war.get("at_war"):
                 game.clan.focus = "war"
             elif game.clan.freshkill_pile.total_amount < game.clan.freshkill_pile.amount_food_needed()*0.5:
                 game.clan.focus = "starving"
@@ -906,6 +908,7 @@ class Events:
 
         def handle_backstory(siblings):
             '''Handles creating backstories for your cat'''
+            backstory = ""
             if birth_type in [BirthType.NO_PARENTS, BirthType.ONE_ADOPTIVE_PARENT, BirthType.TWO_ADOPTIVE_PARENTS]:
                 backstory = random.choice(["abandoned1", "abandoned2", "abandoned4", "loner3", "orphaned1", "orphaned2", "orphaned3", "orphaned4", "orphaned5", "orphaned6", "orphaned7", "outsider1"])
             elif birth_type == BirthType.ONE_PARENT:
@@ -1222,7 +1225,7 @@ class Events:
             
             game.cur_events_list.insert(0, Single_Event(ceremony_txt, ["alert", "ceremony"], game.clan.your_cat.ID))
         except Exception as e:
-            print("ERROR with app ceremony" + e)
+            print("ERROR with app ceremony" + str(e))
                 
     def generate_ceremony(self):
         if game.clan.your_cat.former_mentor:
@@ -1505,7 +1508,10 @@ class Events:
             
     def generate_df_events(self):
         if random.randint(1,3) == 1:
-            evt = self.process_text(random.choice(self.df_txt["general"]))
+            possible_events = self.df_txt["general"]
+            if not game.clan.your_cat.graduated_df:
+                possible_events += self.df_txt["mentor"]
+            evt = self.process_text(random.choice(possible_events))
             if evt:
                 involved_cats = []
                 involved_cats.append(game.clan.your_cat.ID)
@@ -1524,6 +1530,7 @@ class Events:
                 r_clanmate = Cat.all_cats.get(random.choice(game.clan.clan_cats))
             
             r_clanmate.joined_df = True
+            r_clanmate.df_join_moon = game.clan.age
             r_clanmate.faith -= 1
             r_clanmate.update_df_mentor()
             self.cat_dict["c_m"] = r_clanmate
@@ -1537,6 +1544,22 @@ class Events:
             evt = Single_Event(evt_txt, ["alert"], r_clanmate.ID)
             if evt not in game.cur_events_list:
                 game.cur_events_list.insert(0, evt)
+        
+        
+        if game.clan.your_cat.df_patrols >= 5 and game.clan.age - game.clan.your_cat.df_join_moon >= 12 and not game.clan.your_cat.graduated_df:
+            game.clan.your_cat.graduated_df = True
+            evt = self.process_text(random.choice(self.df_txt["graduate"]))
+            if evt:
+                involved_cats = []
+                involved_cats.append(game.clan.your_cat.ID)
+                for i in self.cat_dict.items():
+                    involved_cats.append(i[1].ID)
+                evt = Single_Event(evt, ["alert"], [i for i in involved_cats])
+                if evt not in game.cur_events_list:
+                    game.cur_events_list.insert(0, evt)
+            Cat.all_cats[game.clan.your_cat.df_mentor].df_apprentices.remove(game.clan.your_cat.ID)
+            game.clan.your_cat.df_mentor = None
+            
 
     def handle_lead_den_event(self):
         """

@@ -71,7 +71,7 @@ class AffairScreen(Screens):
                     # resetting selected cat so theyre not still in the box when reentering the affair screen next moon
                     self.selected_cat = None
             elif event.ui_element == self.back_button:
-                self.change_screen('events screen')
+                self.change_screen('profile screen')
             elif event.ui_element == self.next_cat_button:
                 if isinstance(Cat.fetch_cat(self.next_cat), Cat):
                     game.switches['cat'] = self.next_cat
@@ -115,8 +115,13 @@ class AffairScreen(Screens):
                                                                 "resources/images/affair_select.png").convert_alpha(),
                                                             (298, 220)), manager=MANAGER)
 
-        self.back_button = UIImageButton(
-            ui_scale(pygame.Rect((25, 645), (105, 30))), "", object_id="#back_button")
+        self.back_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((25, 25), (105, 30))),
+            get_arrow(2) + " Back",
+            get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER,
+        )
         self.confirm_mentor = UIImageButton(ui_scale(pygame.Rect((150, 302), (104, 26))), "",
                                             object_id="#patrol_select_button")
 
@@ -441,11 +446,13 @@ class AffairScreen(Screens):
 
         # Behold! The uglest list comprehension ever created!
         valid_mates = [i for i in Cat.all_cats_list if
-                    not i.faded
-                    and self.the_cat.is_potential_mate(
-                        i, for_love_interest=False,
-                        age_restriction=True)
-                    and i.ID not in self.the_cat.mate]
+                       not i.faded
+                       and self.the_cat.is_potential_mate(
+                           i, for_love_interest=False,
+                           age_restriction=True
+                       )
+                       and i.ID not in self.the_cat.mate
+                       and i.outside == self.the_cat.outside]
 
         return valid_mates
 

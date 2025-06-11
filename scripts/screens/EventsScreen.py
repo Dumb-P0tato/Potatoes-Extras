@@ -15,7 +15,6 @@ from scripts.game_structure.ui_elements import (
     UISurfaceImageButton,
     CatButton,
 )
-from scripts.game_structure.windows import GameOver
 from scripts.screens.Screens import Screens
 from scripts.ui.generate_box import BoxStyles, get_box
 from scripts.ui.generate_button import get_button_dict, ButtonStyles
@@ -164,9 +163,9 @@ class EventsScreen(Screens):
                         and not game.clan.your_cat.outside
                         and not game.clan.your_cat.dead
                         and game.clan.your_cat.status == "kitten"
-                        ):
+                        ) or not game.clan.your_cat.status:
                     PickPath('events screen')
-                else:
+                elif game.clan.your_cat.status:
                     self.events_thread = self.loading_screen_start_work(
                         events_class.one_moon
                     )

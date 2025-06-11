@@ -7,12 +7,13 @@ TODO: Docs
 """  # pylint: enable=line-too-long
 
 import logging
+import os
 import re
 from itertools import combinations
 from math import floor
 from random import choice, choices, randint, random, sample, randrange, getrandbits, gauss
 from sys import exit as sys_exit
-from typing import List, Tuple
+from typing import List, Tuple, TYPE_CHECKING, Type, Union
 
 import pygame
 import ujson
@@ -26,6 +27,9 @@ from scripts.cat.pelts import Pelt
 from scripts.cat.sprites import sprites
 from scripts.game_structure.game_essentials import game
 import scripts.game_structure.screen_settings  # must be done like this to get updates when we change screen size etc
+
+if TYPE_CHECKING:
+    from scripts.cat.cats import Cat
 
 
 # ---------------------------------------------------------------------------- #
@@ -281,7 +285,10 @@ def change_clan_reputation(difference):
     will change the Clan's reputation with outsider cats according to the difference parameter.
     """
     game.clan.reputation += difference
-
+    if game.clan.reputation < 0:
+        game.clan.reputation = 0 # clamp to 0
+    elif game.clan.reputation > 100:
+        game.clan.reputation = 100 # clamp to 100
 
 def change_clan_relations(other_clan, difference):
     """
@@ -493,17 +500,21 @@ def create_new_cat_block(
     # CHOOSE DEFAULT BACKSTORY BASED ON CAT TYPE, STATUS
    
     if status in ("kitten", "newborn"):
-        chosen_backstory = choice(BACKSTORIES["backstory_categories"]["abandoned_backstories"])
-    if status == "medicine cat":
-        if cat_type == "former Clancat":
-            chosen_backstory = choice(["medicine_cat", "disgraced1"])
-        else:
-            chosen_backstory = choice(["wandering_healer1", "wandering_healer2"])
-    if cat_type == "former Clancat":
-        x = "former_clancat"
+        chosen_backstory = choice(
+            BACKSTORIES["backstory_categories"]["abandoned_backstories"]
+        )
+    elif status == "medicine cat" and cat_type == "former Clancat":
+        chosen_backstory = choice(["medicine_cat", "disgraced1"])
+    elif status == "medicine cat":
+        chosen_backstory = choice(["wandering_healer1", "wandering_healer2"])
     else:
-        x = cat_type
-    chosen_backstory = choice(BACKSTORIES["backstory_categories"].get(f"{x}_backstories", ["outsider1"]))
+        if cat_type == "former Clancat":
+            x = "former_clancat"
+        else:
+            x = cat_type
+        chosen_backstory = choice(
+            BACKSTORIES["backstory_categories"].get(f"{x}_backstories", ["outsider1"])
+        )
 
     # OPTION TO OVERRIDE DEFAULT BACKSTORY
     bs_override = False
@@ -511,15 +522,25 @@ def create_new_cat_block(
     for _tag in attribute_list:
         match = re.match(r"backstory:(.+)", _tag)
         if match:
-            bs_list = [x for x in match.group(1).split(",")]
+            bs_list = [x for x in re.split(r", ?", match.group(1))]
             stor = []
             for story in bs_list:
-                if story in BACKSTORIES["backstories"]:
+                if story in set(
+                        [
+                            backstory
+                            for backstory_block in BACKSTORIES[
+                            "backstory_categories"
+                        ].values()
+                            for backstory in backstory_block
+                        ]
+                ):
                     stor.append(story)
                 elif story in BACKSTORIES["backstory_categories"]:
                     stor.extend(BACKSTORIES["backstory_categories"][story])
             bs_override = True
             break
+    if bs_override:
+        chosen_backstory = choice(stor)
 
     # KITTEN THOUGHT
     if status in ["kitten", "newborn"]:
@@ -939,6 +960,7 @@ def create_new_cat(
             # give em a collar if they got one
             if accessory:
                 new_cat.pelt.accessories.append(accessory)
+                new_cat.pelt.inventory.append(accessory)
         # give apprentice aged cat a mentor
         if new_cat.age == "adolescent":
             new_cat.update_mentor()
@@ -1488,9 +1510,9 @@ def gather_cat_objects(
             print(abbr_list)
             if kitty[0] in abbr_list:
                 out_set.add(kitty[1])
-    except AttributeError:
+    except Exception as e:
+        # print(e)
         pass
-    # im so lazy but this works lmfao
     # ----------------------------------------
 
     return list(out_set)
@@ -1741,27 +1763,27 @@ def change_relationship_values(
                         rel.log.append(log_text)
 
 def get_cluster(trait):
-        # Mapping traits to their respective clusters
-        trait_to_clusters = {
-            "assertive": ["bloodthirsty", "fierce", "bold", "daring", "confident", "arrogant", "competitive", "smug", "impulsive", "noisy"],
-            "brooding": ["bloodthirsty", "cold", "gloomy", "strict", "vengeful", "grumpy", "bullying", "secretive", "aloof", "stoic", "reserved"],
-            "cool": ["charismatic", "cunning", "arrogant", "charming", "manipulative", "leader-like", "passionate", "witty", "flexible", "mellow", "flamboyant"],
-            "upstanding": ["righteous", "ambitious", "strict", "competitive", "responsible", "bossy", "know-it-all", "leader-like", "smug", "loyal", "justified", "methodical"],
-            "introspective": ["lonesome", "righteous", "calm", "wise", "thoughtful", "quiet", "daydreamer", "flexible", "mellow", "Self-conscious"],
-            "neurotic": ["nervous", "insecure", "lonesome", "quiet", "secretive", "careful", "meek", "cowardly", "emotional", "self-conscious", "skittish"],
-            "silly": ["troublesome", "childish", "playful", "strange", "noisy", "attention-seeker", "rebellious", "bouncy", "energetic", "spontaneous"],
-            "stable": ["loyal", "responsible", "wise", "faithful", "polite", "disciplined", "patient", "passionate", "witty", "trusting"],
-            "sweet": ["compassionate", "faithful", "loving", "oblivious", "sincere", "sweet", "polite", "daydreamer", "trusting", "humble", "emotional"],
-            "unabashed": ["childish", "confident", "bold", "shameless", "strange", "oblivious", "flamboyant", "impulsive", "noisy", "honest", "spontaneous", "fearless"],
-            "unlawful": ["adventurous", "sneaky", "rebellious", "manipulative", "obsessive", "aloof", "stoic", "cunning", "troublesome", "unruly"]
-        }
-        clusters = [key for key, values in trait_to_clusters.items() if trait in values]
+    # Mapping traits to their respective clusters
+    trait_to_clusters = {
+        "assertive": ["bloodthirsty", "fierce", "bold", "daring", "confident", "arrogant", "competitive", "smug", "impulsive", "noisy"],
+        "brooding": ["bloodthirsty", "cold", "gloomy", "strict", "vengeful", "grumpy", "bullying", "secretive", "aloof", "stoic", "reserved"],
+        "cool": ["charismatic", "cunning", "arrogant", "charming", "manipulative", "leader-like", "passionate", "witty", "flexible", "mellow", "flamboyant"],
+        "upstanding": ["righteous", "ambitious", "strict", "competitive", "responsible", "bossy", "know-it-all", "leader-like", "smug", "loyal", "justified", "methodical"],
+        "introspective": ["lonesome", "righteous", "calm", "wise", "thoughtful", "quiet", "daydreamer", "flexible", "mellow", "self-conscious"],
+        "neurotic": ["nervous", "insecure", "lonesome", "quiet", "secretive", "careful", "meek", "cowardly", "emotional", "self-conscious", "skittish", "shy"],
+        "silly": ["troublesome", "childish", "playful", "strange", "noisy", "attention-seeker", "rebellious", "bouncy", "energetic", "spontaneous"],
+        "stable": ["loyal", "responsible", "wise", "faithful", "polite", "disciplined", "patient", "passionate", "witty", "trusting"],
+        "sweet": ["compassionate", "faithful", "loving", "oblivious", "sincere", "sweet", "polite", "daydreamer", "trusting", "humble", "emotional"],
+        "unabashed": ["childish", "confident", "bold", "shameless", "strange", "oblivious", "flamboyant", "impulsive", "noisy", "honest", "spontaneous", "fearless"],
+        "unlawful": ["adventurous", "sneaky", "rebellious", "manipulative", "obsessive", "aloof", "stoic", "cunning", "troublesome", "unruly"]
+    }
+    clusters = [key for key, values in trait_to_clusters.items() if trait in values]
 
-        # Assign cluster and second_cluster based on the length of clusters list
-        cluster = clusters[0] if clusters else ""
-        second_cluster = clusters[1] if len(clusters) > 1 else ""
+    # Assign cluster and second_cluster based on the length of clusters list
+    cluster = clusters[0] if clusters else ""
+    second_cluster = clusters[1] if len(clusters) > 1 else ""
 
-        return cluster, second_cluster
+    return cluster, second_cluster
 
 
 # ---------------------------------------------------------------------------- #
@@ -2621,43 +2643,26 @@ def clan_symbol_sprite(clan, return_string=False, force_light=False):
     :param return_string: default False, set True if the sprite name string is required rather than the sprite image
     :param force_light: Set true if you want this sprite to override the dark/light mode changes with the light sprite
     """
-    clan_name = clan.name
-    if clan.chosen_symbol:
-        if return_string:
-            return clan.chosen_symbol
-        else:
-            if game.settings["dark mode"] and not force_light:
-                return sprites.dark_mode_symbol(sprites.sprites[clan.chosen_symbol])
-            else:
-                return sprites.sprites[clan.chosen_symbol]
-    else:
+    if not clan.chosen_symbol:
         possible_sprites = []
         for sprite in sprites.clan_symbols:
             name = sprite.strip("1234567890")
-            if f"symbol{clan_name.upper()}" == name:
+            if f"symbol{clan.name.upper()}" == name:
                 possible_sprites.append(sprite)
-        if return_string:  # returns the str of the symbol
-            if possible_sprites:
-                return choice(possible_sprites)
-            else:
-                # give random symbol if no matching symbol exists
-                print(
-                    f"WARNING: attempted to return symbol string, but there's no clan symbol for {clan_name.upper()}.  Random symbol string returned."
-                )
-                return f"{choice(sprites.clan_symbols)}"
-
-        # returns the actual sprite of the symbol
         if possible_sprites:
-            if game.settings["dark mode"] and not force_light:
-                return sprites.dark_mode_symbol(sprites.sprites[choice(possible_sprites)])
-            else:
-                return sprites.sprites[choice(possible_sprites)]
+            clan.chosen_symbol = choice(possible_sprites)
         else:
             # give random symbol if no matching symbol exists
             print(
-                f"WARNING: attempted to return symbol sprite, but there's no clan symbol for {clan_name.upper()}.  Random symbol sprite returned."
+                f"WARNING: attempted to return symbol, but there's no clan symbol for {clan.name.upper()}. "
+                f"Random chosen."
             )
-            return sprites.dark_mode_symbol(sprites.sprites[f"{choice(sprites.clan_symbols)}"])
+            clan.chosen_symbol = choice(sprites.clan_symbols)
+
+    if return_string:
+        return clan.chosen_symbol
+    else:
+        return sprites.get_symbol(clan.chosen_symbol, force_light=force_light)
 
 
 def generate_sprite(
@@ -4013,15 +4018,15 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
 
     # Other Clan
     if o_c_allowed is True:
-        if "o_c" in text:
-            if "o_c" in other_dict:
-                text = re.sub(r'(?<!\/)o_c(?!\/)', str(other_dict["o_c"].name), text)
+        if "o_c_n" in text:
+            if "o_c_n" in other_dict:
+                text = re.sub(r'(?<!\/)o_c_n(?!\/)', str(other_dict["o_c_n"].name) + "Clan", text)
             else:
                 other_clan = choice(game.clan.all_clans)
                 if not other_clan:
                     return ""
-                other_dict["o_c"] = other_clan
-                text = re.sub(r'(?<!\/)o_c(?!\/)', str(other_clan.name), text)
+                other_dict["o_c_n"] = other_clan
+                text = re.sub(r'(?<!\/)o_c_n(?!\/)', str(other_clan.name) + "Clan", text)
     # Warring Clan
     if "w_cClan" in text:
         if game.clan.war.get("at_war", False):
@@ -4060,5 +4065,7 @@ with open(f"resources/dicts/snippet_collections.json", "r") as read_file:
 with open(f"resources/dicts/prey_text_replacements.json", "r") as read_file:
     PREY_LISTS = ujson.loads(read_file.read())
 
-with open(f"resources/dicts/backstories.json", "r") as read_file:
+with open(
+        os.path.normpath("resources/dicts/backstories.json"), "r", encoding="utf-8"
+) as read_file:
     BACKSTORIES = ujson.loads(read_file.read())
