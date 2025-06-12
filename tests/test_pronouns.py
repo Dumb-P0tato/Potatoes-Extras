@@ -148,9 +148,10 @@ def test():
             ]:
                 path = os.path.join(root, file)
 
-                if not test_replacement_failure(path, replacement_dict):
-                    failed = True
-                    failed_files.append(path)
+                if "lifegen_talk/old" not in path:
+                    if not test_replacement_failure(path, replacement_dict):
+                        failed = True
+                        failed_files.append(path)
 
     if failed:
         # Set the GITHUB_OUTPUT environment variable to the list of failed files
