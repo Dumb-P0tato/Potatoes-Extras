@@ -39,7 +39,7 @@ class TalkScreen(Screens):
     def __init__(self, name=None):
         super().__init__(name)
         self.back_button = None
-        self.resource_dir = "resources/dicts/lifegen_talk/new/"
+        self.resource_dir = "resources/dicts/lifegen_talk/"
         self.texts = ""
         self.text_frames = [[text[:i+1] for i in range(len(text))] for text in self.texts]
         self.scroll_container = None
@@ -606,7 +606,7 @@ class TalkScreen(Screens):
 
 
     def load_texts(self, cat):
-        resource_dir = "resources/dicts/lifegen_talk/new/"
+        resource_dir = "resources/dicts/lifegen_talk/"
         possible_texts = {}
         you = game.clan.your_cat
 
@@ -1594,7 +1594,7 @@ class TalkScreen(Screens):
     def choose_text(self, cat, texts_list):
         MAX_RETRIES = 30
         you = game.clan.your_cat
-        resource_dir = "resources/dicts/lifegen_talk/new/"
+        resource_dir = "resources/dicts/lifegen_talk/"
 
         if not texts_list:
             texts_list['general'] = self.load_and_replace_placeholders(f"{resource_dir}general.json", cat, you)

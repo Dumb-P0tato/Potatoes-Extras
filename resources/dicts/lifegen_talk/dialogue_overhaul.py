@@ -263,11 +263,11 @@ def underscore_replace(string, dialogue_id=""):
 
 for FILE in file_names:
     # new file location
-    file_path = f'resources/dicts/lifegen_talk/new/{FILE}.json'
+    file_path = f'resources/dicts/lifegen_talk/{FILE}.json'
     file_nums[FILE] = 0
     dialogue_json = None
     # old file location
-    with open(f"resources/dicts/lifegen_talk/{FILE}.json", 'r') as read_file:
+    with open(f"resources/dicts/lifegen_talk/old/{FILE}.json", 'r') as read_file:
         dialogue_json = json.loads(read_file.read())
 
     dialogue_dict = {}

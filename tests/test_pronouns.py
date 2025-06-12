@@ -137,11 +137,9 @@ def test():
 
     for root, _, files in os.walk("resources"):
         for file in files:
-            if root == "resources\\dicts\\lifegen_talk":
-                # print("Skipping", root + "/" + file)
+            if root == "resources\\dicts\\lifegen_talk\\old\\focuses":
                 continue
-            if root == "resources\\dicts\\lifegen_talk\\focuses":
-                # print("Skipping", root + "/" + file)
+            if root == "resources\\dicts\\lifegen_talk\\old":
                 continue
             if file.endswith(".json") and file not in [
                 "credits_text.json",
