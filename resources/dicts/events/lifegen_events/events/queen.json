@@ -36,23 +36,23 @@
     "queen assertive": [],
     "queen brooding": [],
     "queen cool": [
-        "With all the respect you can muster, you do not judge dislike_r_w as {PRONOUN/dislike_r_w/subject} {VERB/dislike_r_w/walk/walks} through the camp covered in thorns. And you <i>totally</i> don't whisper to the kittens that dislike_r_w turned into a porcupine overnight. Totally not.",
+        "With all the respect you can muster, you do not judge dislike-r_w as {PRONOUN/dislike-r_w/subject} {VERB/dislike-r_w/walk/walks} through the camp covered in thorns. And you <i>totally</i> don't whisper to the kittens that dislike-r_w turned into a porcupine overnight. Totally not.",
         "You boast to r_q about how the kittens prefer you as their caregiver, and it's not even that hard!"
     ],
     "queen upstanding": [],
     "queen introspective": [
-        "r_k_assertive calls you bossy after a long scolding, saying you're ruining the fun in things. Are you really bossy? Or is r_k_assertive just trying to deviate your focus from {PRONOUN/r_k_assertive/poss} actions?",
+        "r_k-assertive calls you bossy after a long scolding, saying you're ruining the fun in things. Are you really bossy? Or is r_k-assertive just trying to deviate your focus from {PRONOUN/r_k-assertive/poss} actions?",
         "Overwhelmed, you take a break from the loud nursery and chase bugs by yourself on the outskirts of c_nClan.",
         "After a rough moon of watching over the kittens, you flee to r_m to ask for herbs to help with your growing headache. Thankfully, r_m pities you enough to spare a few.",
         "There's pride in finally learning about a kitten enough to silently care for them. When r_k seems to be having a bad day, all you need to do is let r_k cling to you. The simplicity is amazing.",
         "r_k seems to be having a bad day. To attempt to calm {PRONOUN/r_k/poss} emotions, you invite {PRONOUN/r_k/object} to watch the clouds with you. Thankfully, your quiet observations of the clouds' shapes puts r_k into a well-needed nap.",
-        "You feel distracted today. Staring off into space while in-charge of watching over the kittens is not a good idea, and you learn this brutally as r_k_assertive pulls a dirty prank on you."
+        "You feel distracted today. Staring off into space while in-charge of watching over the kittens is not a good idea, and you learn this brutally as r_k-assertive pulls a dirty prank on you."
     ],
     "queen neurotic": [
         "Overwhelmed, you take a break from the loud nursery and chase bugs by yourself on the outskirts of c_nClan."
     ],
     "queen silly": [
-        "With all the respect you can muster, you do not judge dislike_r_w as {PRONOUN/dislike_r_w/subject} {VERB/dislike_r_w/walk/walks} through the camp covered in thorns. And you <i>totally</i> don't whisper to the kittens that dislike_r_w turned into a porcupine overnight. Totally not."
+        "With all the respect you can muster, you do not judge dislike-r_w as {PRONOUN/dislike-r_w/subject} {VERB/dislike-r_w/walk/walks} through the camp covered in thorns. And you <i>totally</i> don't whisper to the kittens that dislike-r_w turned into a porcupine overnight. Totally not."
     ],
     "queen stable": [],
     "queen sweet": [],

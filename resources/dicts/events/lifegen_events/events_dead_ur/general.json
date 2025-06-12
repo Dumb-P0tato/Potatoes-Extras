@@ -43,6 +43,6 @@
     "general unabashed": [],
     "general unlawful": [],
     "general rare": [
-        "You're wandering around c_nClan, when r_k_ghost stares right into your eyes, almost as if {PRONOUN/r_k_ghost/subject} could see you. As you're about to approach {PRONOUN/r_k_ghost/object}, {PRONOUN/r_k_ghost/subject} {VERB/r_k_ghost/get/gets} pulled away by r_q. You wonder if there are other cats in c_nClan that can see you."
+        "You're wandering around c_nClan, when r_k-ghost stares right into your eyes, almost as if {PRONOUN/r_k-ghost/subject} could see you. As you're about to approach {PRONOUN/r_k-ghost/object}, {PRONOUN/r_k-ghost/subject} {VERB/r_k-ghost/get/gets} pulled away by r_q. You wonder if there are other cats in c_nClan that can see you."
     ]
 }

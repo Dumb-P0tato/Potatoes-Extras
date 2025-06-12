@@ -1139,7 +1139,7 @@ class Events:
                 current_event = self.process_text(event)
 
                 while current_event == "":
-                    print("Chosen event returned empty. Rerolling")
+                    # print("Chosen event returned empty. Rerolling")
                     event = random.choice(possible_events)
                     current_event = self.process_text(event)
 

@@ -1835,6 +1835,18 @@ def pronoun_repl(m, cat_pronouns_dict, raise_exception=False):
     inner_details = m.group(1).split("/")
 
     try:
+        # LG
+        # addon pronoun test stuff
+        if raise_exception:
+            abbrev = inner_details[1]
+            if "-" in abbrev:
+                fragments = abbrev.split("-")
+                for f in fragments:
+                    if "_" in f:
+                        # print("RAISE EXC-- CHANGING:", abbrev, "=>", f)
+                        inner_details[1] = f
+                        break
+        # ---
         d = cat_pronouns_dict[inner_details[1]][1]
         if inner_details[0].upper() == "PRONOUN":
             pro = d[inner_details[2]]
@@ -1854,6 +1866,7 @@ def pronoun_repl(m, cat_pronouns_dict, raise_exception=False):
         return "error1"
     except (KeyError, IndexError) as e:
         if raise_exception:
+            # print("ERROR HERE:", e)
             raise
 
         logger.exception("Failed to find pronoun: " + m.group(1))
@@ -3453,24 +3466,6 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID not in cat.inheritance.get_parents()
     ) else True
 
-    t_p_negative = False if (
-        chosen_cat.ID == you.ID or
-        chosen_cat.ID == cat.ID or
-        chosen_cat.dead or
-        chosen_cat.outside or
-        chosen_cat.ID not in cat.inheritance.get_parents() or
-        (cat in chosen_cat.relationships and chosen_cat.relationships[cat.ID].dislike < 10)
-    ) else True
-
-    t_p_positive = False if (
-        chosen_cat.ID == you.ID or
-        chosen_cat.ID == cat.ID or
-        chosen_cat.dead or
-        chosen_cat.outside or
-        chosen_cat.ID not in cat.inheritance.get_parents() or
-        (cat in chosen_cat.relationships and chosen_cat.relationships[cat.ID].platonic_like < 10)
-    ) else True
-
     # Your mate
     y_m = False if (
         chosen_cat.ID == you.ID or
@@ -3836,8 +3831,6 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         "t_a": t_a,
         "y_p": y_p,
         "t_p": t_p,
-        "t_p_negative": t_p_negative,
-        "t_p_positive": t_p_positive,
         "y_m": y_m,
         "t_m": t_m,
         "t_k": t_k,
@@ -3899,8 +3892,6 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
             if abbrev_string == "r_w" and "r_w1" in text:
                 continue
             if abbrev_string == "t_k" and ("t_ka" in text or "t_kk" in text):
-                continue
-            if abbrev_string == "t_p" and ("t_p_negative" in text or "t_p_positive" in text):
                 continue
 
             # find cluster and rel addons if theyre there

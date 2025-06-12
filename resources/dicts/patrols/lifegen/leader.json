@@ -433,29 +433,29 @@
         "max_cats": 6,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "While in your den, r_w_upstanding bursts in, frustrated. {PRONOUN/r_w-upstanding/subject/CAP} exclaims that r_w chased and caught prey over the o_c_n border but d_n doesn't see the issue! Something needs to be done about this.",
-        "decline_text": "You're too busy for this. r_w_upstanding is dismissed so you can focus.",
+        "intro_text": "While in your den, r_w-upstanding bursts in, frustrated. {PRONOUN/r_w-upstanding/subject/CAP} exclaims that r_w chased and caught prey over the o_c_n border but d_n doesn't see the issue! Something needs to be done about this.",
+        "decline_text": "You're too busy for this. r_w-upstanding is dismissed so you can focus.",
         "chance_of_success": 70,
         "success_outcomes": [
             {
-                "text": "Gently, you assure r_w_upstanding that one mistake isn't going to cause problems. To make {PRONOUN/r_w-upstanding/object} feel more at ease, you agree to mention this to r_d. {PRONOUN/r_w-upstanding/subject/CAP} {VERB/r_w-upstanding/aren't/isn't} totally satisfied by this but is more assured as {PRONOUN/r_w-upstanding/subject} {VERB/r_w-upstanding/walk/walks} away.",
+                "text": "Gently, you assure r_w-upstanding that one mistake isn't going to cause problems. To make {PRONOUN/r_w-upstanding/object} feel more at ease, you agree to mention this to r_d. {PRONOUN/r_w-upstanding/subject/CAP} {VERB/r_w-upstanding/aren't/isn't} totally satisfied by this but is more assured as {PRONOUN/r_w-upstanding/subject} {VERB/r_w-upstanding/walk/walks} away.",
                 "exp": 10,
                 "weight": 20
             },
             {
-                "text": "You summon r_w and d_n to your den after assuring r_w_upstanding you'll take care of it. The two receive an earful from you for the trespassing and dismissal of r_w_upstanding. ",
+                "text": "You summon r_w and d_n to your den after assuring r_w-upstanding you'll take care of it. The two receive an earful from you for the trespassing and dismissal of r_w-upstanding. ",
                 "exp": 10,
                 "weight": 20
             }
         ],
         "fail_outcomes": [
             {
-                "text": "r_w_upstanding is so frustrated and flustered that it's hard to understand exactly what's happening. You send {PRONOUN/r_w-upstanding/object} to r_d, who is better equipped for whatever is happening.",
+                "text": "r_w-upstanding is so frustrated and flustered that it's hard to understand exactly what's happening. You send {PRONOUN/r_w-upstanding/object} to r_d, who is better equipped for whatever is happening.",
                 "exp": 0,
                 "weight": 20
             },
             {
-                "text": "It's rude to enter the leader's den without permission. You scold r_w_upstanding for bursting in and making a fuss about something minor. If d_n said it was fine, then it was fine. r_w_upstanding leaves with {PRONOUN/r_w-upstanding/poss} tail lashing and ears pinned back in anger.",
+                "text": "It's rude to enter the leader's den without permission. You scold r_w-upstanding for bursting in and making a fuss about something minor. If d_n said it was fine, then it was fine. r_w-upstanding leaves with {PRONOUN/r_w-upstanding/poss} tail lashing and ears pinned back in anger.",
                 "exp": 0,
                 "weight": 20
             }

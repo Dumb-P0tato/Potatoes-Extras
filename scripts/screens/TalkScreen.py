@@ -39,7 +39,7 @@ class TalkScreen(Screens):
     def __init__(self, name=None):
         super().__init__(name)
         self.back_button = None
-        self.resource_dir = "resources/dicts/lifegen_talk/"
+        self.resource_dir = "resources/dicts/lifegen_talk/new/"
         self.texts = ""
         self.text_frames = [[text[:i+1] for i in range(len(text))] for text in self.texts]
         self.scroll_container = None
@@ -390,7 +390,7 @@ class TalkScreen(Screens):
                 print("Them: ", dialogue[0].name)
                 if self.the_cat == dialogue[0]:
                     text = self.load_and_replace_placeholders(
-                        "resources/dicts/lifegen_talk/general.json",
+                        self.resource_dir + "general.json",
                         self.the_cat,
                         game.clan.your_cat
                         )[1]
@@ -606,7 +606,7 @@ class TalkScreen(Screens):
 
 
     def load_texts(self, cat):
-        resource_dir = "resources/dicts/lifegen_talk/"
+        resource_dir = "resources/dicts/lifegen_talk/new/"
         possible_texts = {}
         you = game.clan.your_cat
 
@@ -678,7 +678,6 @@ class TalkScreen(Screens):
 
                     
         return self.filter_texts(cat, possible_texts)
-
 
     def filter_texts(self, cat, possible_texts):
         text = ""
@@ -799,102 +798,21 @@ class TalkScreen(Screens):
                 continue
 
             # NEW CODE
-            possible_statuses = [
-                "leader", "deputy", "mediator", "queen", "warrior", "medicine cat"
-            ]
             # STATUS
             if "status" in YOU:
-                if f"not_{you.status}" in YOU["status"]:
+                if not self.validate_status(YOU, you):
                     continue
-
-                # PREV STATUS
-                prev_status_skip = False
-                for status in possible_statuses:
-                    if f"previously_{status}" in YOU["status"] and you.old_status != status:
-                        prev_status_skip = True
-                if prev_status_skip:
-                    continue
-
-                # DF TRAINEE
-                if "df_trainee" in YOU["status"]:
-                    if not you.joined_df:
-                        continue
-                if "not_df_trainee" in YOU["status"]:
-                    if you.joined_df:
-                        continue
-
-                # GUIDE
-                if "guide" in YOU["status"]:
-                    if you.ID not in [game.clan.instructor.ID, game.clan.demon.ID]:
-                        continue
-
-                if "any" not in YOU["status"] and you.status not in YOU["status"]:
-                    continue
-            
             if "status" in CAT:
-                if f"not_{cat.status}" in CAT["status"]:
-                    continue
-
-                # OUTSIDE STATUSES
-                # this is unique because theyre exclusive. no overlap between outsider dialogue and clancat dialogue
-                if "they_kittypet" in CAT["status"] and not cat.status == "kittypet":
-                    continue
-                if "they_rogue" in CAT["status"] and not cat.status == "rogue":
-                    continue
-                if "they_loner" in CAT["status"] and not cat.status == "loner":
-                    continue
-
-                prev_status_skip = False
-                for status in possible_statuses:
-                    if f"previously_{status}" in CAT["status"] and cat.old_status != status:
-                        prev_status_skip = True
-                if prev_status_skip:
-                    continue
-
-                if "df_trainee" in CAT["status"]:
-                    if not cat.joined_df:
-                        continue
-                if "not_df_trainee" in CAT["status"]:
-                    if cat.joined_df:
-                        continue
-
-                if "guide" in CAT["status"]:
-                    if cat.ID not in [game.clan.instructor.ID, game.clan.demon.ID]:
-                        continue
-
-                if "any" not in CAT["status"] and cat.status not in CAT["status"]:
+                if not self.validate_status(CAT, cat):
                     continue
 
             # AGE
             if "age" in YOU:
-                if f"not_{you.age}" in YOU["age"]:
-                    continue
-                if "not_kitten" in YOU["age"] and you.status == "newborn":
+                if not self.validate_age(YOU, you):
                     continue
 
-                if "younger" in YOU["age"] and not (you.moons < cat.moons):
-                    continue
-                if "sameage" in YOU["age"] and not (you.age == cat.age):
-                    continue
-                if "older" in YOU["age"] and not (you.moons > cat.moons):
-                    continue
-
-                if "any" not in YOU["age"] and you.age not in YOU["age"]:
-                    continue
             if "age" in CAT:
-                if f"not_{cat.age}" in CAT["age"]:
-                    continue
-                if "not_kitten" in CAT["age"] and cat.status == "newborn":
-                    continue
-
-                if "younger" in CAT["age"] and not (cat.moons < you.moons):
-                    continue
-                if "sameage" in CAT["age"] and not (cat.age == you.age):
-                    continue
-                if "older" in CAT["age"] and not (cat.moons > you.moons):
-                    continue
-
-                if "any" not in CAT["age"] and cat.status not in CAT["age"]:
+                if not self.validate_age(CAT, cat):
                     continue
 
             # FAITH
@@ -923,6 +841,7 @@ class TalkScreen(Screens):
             # DEMOTED FROM STATUS
             # this allows cats who were shunned and demoted from leader to
             # still get leaderlike dialogue
+            # TODO: this is useless rn. do something
             if you.shunned != 0:
                 murder_history = History.get_murders(you)
                 history = None
@@ -1012,104 +931,15 @@ class TalkScreen(Screens):
             ):
                 continue
 
+                    
             if "condition" in CAT:
-                has_condition = False
-
-                if "injury:any" in CAT["condition"] and not cat.is_injured():
+                if not self.validate_conditions(CAT, cat):
                     continue
-                if "illness:any" in CAT["condition"] and not cat.is_ill():
-                    continue
-
-                condition_skip = False
-                for tag in CAT["condition"]:
-                    if ":" in tag:
-                        # other than x:any, permanent condition tags are the only ones with colons
-                        attributes = tag.split(":")
-                        perm_skip = False
-                        for condition in PERMANENT:
-                            if attributes[0] == condition:
-                                if condition in cat.permanent_condition:
-                                    # is the born_with correct?
-                                    if cat.permanent_condition[condition]["born_with"] is False and attributes[1] == "true":
-                                        perm_skip = True
-                                    if cat.permanent_condition[condition]["born_with"] is True and attributes[1] == "false":
-                                        perm_skip = True
-                                # exclusive?
-                                else:
-                                    if len(attributes) > 2 and attributes[2] == "true":
-                                        perm_skip = True
-                        if perm_skip:
-                            condition_skip = True
-                    else:
-                        # regular conditions
-                        if tag in INJURIES:
-                            if tag in cat.injuries:
-                                has_condition = True
-                        elif tag in ILLNESSES:
-                            if tag in cat.illnesses:
-                                has_condition = True
-                        elif tag in PERMANENT:
-                            if tag in cat.permanent_condition:
-                                has_condition = True
-                        elif tag == "hearing":
-                            if "deaf" in cat.permanent_condition:
-                                perm_skip = True
-                        else:
-                            print("Incorrect t_c condition tag in", talk_key, ":", tag)
-                            condition_skip = True
-                        if not has_condition:
-                            condition_skip = True
-                if condition_skip:
-                    continue
+                
 
             condition_skip = False
             if "condition" in YOU:
-                has_condition = False
-
-                if "injury:any" in YOU["condition"] and not you.is_injured():
-                    continue
-                if "illness:any" in YOU["condition"] and not you.is_ill():
-                    continue
-
-                for tag in YOU["condition"]:
-                    if ":" in tag:
-                        # other than x:any, permanent condition tags are the only ones with colons
-                        attributes = tag.split(":")
-                        perm_skip = False
-                        for condition in PERMANENT:
-                            if attributes[0] == condition:
-                                if condition in you.permanent_condition:
-                                    # is the born_with correct?
-                                    if you.permanent_condition[condition]["born_with"] is False and attributes[1] == "true":
-                                        perm_skip = True
-                                    if you.permanent_condition[condition]["born_with"] is True and attributes[1] == "false":
-                                        perm_skip = True
-                                # exclusive?
-                                else:
-                                    if len(attributes) > 2 and attributes[2] == "true":
-                                        perm_skip = True
-                        if perm_skip:
-                            condition_skip = True
-                    else:
-                        # regular conditions
-                        if tag in INJURIES:
-                            if tag in you.injuries:
-                                has_condition = True
-                        elif tag in ILLNESSES:
-                            if tag in you.illnesses:
-                                has_condition = True
-                        elif tag in PERMANENT:
-                            if tag in you.permanent_condition:
-                                has_condition = True
-                        elif tag == "hearing":
-                            if "deaf" in you.permanent_condition:
-                                condition_skip = True
-                        else:
-                            print("Incorrect y_c condition tag in", talk_key, ":", tag)
-                            condition_skip = True
-                        if not has_condition:
-                            condition_skip = True
-                if condition_skip:
+                if not self.validate_conditions(YOU, you):
                     continue
 
             # CLUSTER/TRAITS
@@ -1601,7 +1431,114 @@ class TalkScreen(Screens):
             texts_list[talk_key] = talk
 
         return self.choose_text(cat, texts_list)
+    
+    # Filter Helpers
+    def validate_status(self, BLOCK, cat):
+        """
+        checks the "status" list
+        """
 
+        possible_statuses = [
+            "leader", "deputy", "mediator", "queen", "warrior", "medicine cat"
+        ]
+
+        if f"not_{cat.status}" in BLOCK["status"]:
+            return False
+
+        prev_status_skip = False
+        for status in possible_statuses:
+            if f"previously_{status}" in BLOCK["status"] and cat.old_status != status:
+                prev_status_skip = True
+        if prev_status_skip:
+            return False
+
+        if "df_trainee" in BLOCK["status"]:
+            if not cat.joined_df:
+                return False
+        if "not_df_trainee" in BLOCK["status"]:
+            if cat.joined_df:
+                return False
+
+        if "guide" in BLOCK["status"]:
+            if cat.ID not in [game.clan.instructor.ID, game.clan.demon.ID]:
+                return False
+
+        if BLOCK["status"] and cat.status not in BLOCK["status"]:
+            return False
+        return True
+
+    def validate_age(self, BLOCK, cat):
+        """ checks the "age" list
+        """
+        if f"not_{cat.age}" in BLOCK["age"]:
+            return False
+        if "not_kitten" in BLOCK["age"] and cat.status == "newborn":
+            return False
+
+        if "younger" in BLOCK["age"] and not (cat.moons < cat.moons):
+            return False
+        if "sameage" in BLOCK["age"] and not (cat.age == cat.age):
+            return False
+        if "older" in BLOCK["age"] and not (cat.moons > cat.moons):
+            return False
+
+        if BLOCK["age"] and cat.age not in BLOCK["age"]:
+            return False
+        return True
+
+    def validate_conditions(self, BLOCK, cat):
+        """
+        Checks the condition list
+        """
+        has_condition = False
+
+        if "injury:any" in BLOCK["condition"] and not cat.is_injured():
+            return False
+        if "illness:any" in BLOCK["condition"] and not cat.is_ill():
+            return False
+
+        condition_skip = False
+        for tag in BLOCK["condition"]:
+            if ":" in tag:
+                # other than x:any, permanent condition tags are the only ones with colons
+                attributes = tag.split(":")
+                perm_skip = False
+                for condition in PERMANENT:
+                    if attributes[0] == condition:
+                        if condition in cat.permanent_condition:
+                            # is the born_with correct?
+                            if cat.permanent_condition[condition]["born_with"] is False and attributes[1] == "true":
+                                perm_skip = True
+                            if cat.permanent_condition[condition]["born_with"] is True and attributes[1] == "false":
+                                perm_skip = True
+                        # exclusive?
+                        else:
+                            if len(attributes) > 2 and attributes[2] == "true":
+                                perm_skip = True
+                if perm_skip:
+                    condition_skip = True
+            else:
+                # regular conditions
+                if tag in INJURIES:
+                    if tag in cat.injuries:
+                        has_condition = True
+                elif tag in ILLNESSES:
+                    if tag in cat.illnesses:
+                        has_condition = True
+                elif tag in PERMANENT:
+                    if tag in cat.permanent_condition:
+                        has_condition = True
+                elif tag == "hearing":
+                    if "deaf" in cat.permanent_condition:
+                        perm_skip = True
+                else:
+                    print("Incorrect condition tag:", tag)
+                    condition_skip = True
+                if not has_condition:
+                    condition_skip = True
+        if condition_skip:
+            return False
+        return True
 
     def load_and_replace_placeholders(self, file_path, cat, you):
         with open(file_path, 'r') as read_file:
@@ -1657,7 +1594,7 @@ class TalkScreen(Screens):
     def choose_text(self, cat, texts_list):
         MAX_RETRIES = 30
         you = game.clan.your_cat
-        resource_dir = "resources/dicts/lifegen_talk/"
+        resource_dir = "resources/dicts/lifegen_talk/new/"
 
         if not texts_list:
             texts_list['general'] = self.load_and_replace_placeholders(f"{resource_dir}general.json", cat, you)
@@ -1705,10 +1642,9 @@ class TalkScreen(Screens):
                     cat.connected_dialogue[text_chosen_key_split[0]] = int(text_chosen_key_split[1])
                 print("Debug:", text_chosen_key)
                 return new_text
-            print("Could not find debug ensure dialogue within possible dialogues")
+            print("Could not find debug ensure dialogue '" + game.config["debug_ensure_dialogue"] + "' within possible dialogues")
         elif game.config["debug_ensure_dialogue"]:
-            print("Could not find debug ensure dialogue within possible dialogues")
-
+            print("Could not find debug ensure dialogue '" + game.config["debug_ensure_dialogue"] + "' within possible dialogues")
 
         # Try to find a valid, unused text
         for _ in range(MAX_RETRIES):
