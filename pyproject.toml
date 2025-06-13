@@ -1,7 +1,7 @@
 [tool.poetry]
 
-name = "clangen"
-version = "0.7.9"
+name = "lifegen"
+version = "0.7"
 description = "Fan-edit of the warrior cat clangen game"
 license = "MPL-2.0"
 authors = [
