@@ -5,7 +5,7 @@
             "any"
         ],
         [
-            "I heard some of c_nClan's cats whisper about wisps. It was under their breath, as if they wanted the topic of wisps to be a secret. Supposedly, they've been appearing more often lately.",
+            "I heard some of c_n's cats whisper about wisps. It was under their breath, as if they wanted the topic of wisps to be a secret. Supposedly, they've been appearing more often lately.",
             "[t_c gathers {PRONOUN/t_c/poss} thoughts for a moment and glances at you.]",
             "... Have you heard about wisps? No?",
             "I was told by my parent that wisps are the cats who never make it to the afterlife. They float around aimlessly to help those in the living. Something about fate and destiny being weaved together like a cloth, whatever that means.",
@@ -361,7 +361,7 @@
             "they_deaf"
         ],
         [
-            "[t_c is busy debating with another cat about which omen to send c_nClan.]",
+            "[t_c is busy debating with another cat about which omen to send c_n.]",
             "[You probably shouldn't bother {PRONOUN/t_c/object}.]"
         ]
     ],
@@ -1424,7 +1424,7 @@
         ],
         [
             "[Every time you sign at {PRONOUN/t_c/object}, t_c just blinks at you curiously.]",
-            "[You'd expected such an ancient dead cat to have all of the knowledge in the world, but maybe c_nClan sign language didn't exist back in {PRONOUN/t_c/poss} day.]",
+            "[You'd expected such an ancient dead cat to have all of the knowledge in the world, but maybe c_n sign language didn't exist back in {PRONOUN/t_c/poss} day.]",
             "[Maybe you should teach {PRONOUN/t_c/object} sometime.]"
         ]
     ],
@@ -1721,7 +1721,7 @@
         ],
         [
             "Sometimes I like to climb onto the highest surfaces of the camp in the middle of the night when only the guards can see.",
-            "It's really peaceful, actually. Everycat in c_nClan is in their dens, and it's completely quiet, save for the murmurs of the guards and the night animals.",
+            "It's really peaceful, actually. Everycat in c_n is in their dens, and it's completely quiet, save for the murmurs of the guards and the night animals.",
             "Actually, speaking of \"the murmurs of the guards,\" do you want to hear some info I caught on r_c while eavesdropping? Don't worry, it's not incriminating."
         ]
     ],
@@ -1904,7 +1904,7 @@
         ],
         [
             "There is so much hate within your presence, it darkens our pure clouds.",
-            "c_nClan was right to shun you, y_c.",
+            "c_n was right to shun you, y_c.",
             "You must realize that to be at peace."
         ]
     ],
@@ -2655,7 +2655,7 @@
         [
             "dislike_l_n_neurotic is a little too... sensitive, don't you think?",
             "Leaders should be strong! Unyielding! dislike_l_n_neurotic would lie down and let the other leaders walk all over {PRONOUN/dislike_l_n_neurotic/object} if they just asked.",
-            "{PRONOUN/dislike_l_n_neurotic/subject/CAP} {VERB/dislike_l_n_neurotic/make/makes} c_nClan seem weak."
+            "{PRONOUN/dislike_l_n_neurotic/subject/CAP} {VERB/dislike_l_n_neurotic/make/makes} c_n seem weak."
         ]
     ],
     "about_neurotic_SQ7": [
@@ -2685,7 +2685,7 @@
         [
             "I like having a leader who's a bit more cautious.",
             "Leaders who jump into every decision paws-first are all well and good, but they leave more room for mistakes.",
-            "At least with trust_l_n_neurotic, I trust {PRONOUN/trust_l_n_neurotic/subject}{VERB/trust_l_n_neurotic/'ve/'s} fully thought through whether a choice is best for c_nClan."
+            "At least with trust_l_n_neurotic, I trust {PRONOUN/trust_l_n_neurotic/subject}{VERB/trust_l_n_neurotic/'ve/'s} fully thought through whether a choice is best for c_n."
         ]
     ],
     "about_neurotic_SQ9": [
