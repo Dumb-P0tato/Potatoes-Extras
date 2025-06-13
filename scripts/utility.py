@@ -1261,7 +1261,10 @@ def filter_relationship_type(
     """
     # keeping this list here just for quick reference of what tags are handled here
     possible_rel_types = ["siblings", "mates", "mates_with_pl", "not_mates", "parent/child", "child/parent",
-                          "mentor/app", "app/mentor"]
+                          "mentor/app", "app/mentor"
+                          # New LG tags
+                          "df_app/df_mentor", "df_mentor/df_app", "strangers"
+                          ]
 
     possible_value_types = ["romantic", "platonic", "dislike", "comfortable", "jealousy", "trust", "admiration"]
 
@@ -1356,6 +1359,23 @@ def filter_relationship_type(
         # test for parentage
         if not group[0].ID in group[1].apprentice:
             return False
+    
+    # lifegen
+    if "df_app/df_mentor" in filter_types:
+        if len(group) != 2:
+            return False
+        if not group[0].ID in group[1].df_apprentices:
+            return False
+    if "df_mentor/df_app" in filter_types:
+        if len(group) != 2:
+            return False
+        if not group[1].ID in group[0].df_apprentices:
+            return False
+
+    relationship = group[0].relationships[group[1].ID]
+    if "strangers" in filter_types and relationship and (
+            relationship.platonic_like < 1 or relationship.romantic_love < 1):
+        return False
 
     # Filtering relationship values
     break_loop = False
