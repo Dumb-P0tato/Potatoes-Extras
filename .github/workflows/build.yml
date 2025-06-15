@@ -64,7 +64,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Clean up old Poetry venv
-      - run: poetry env remove python || true
+        run: poetry env remove python || true
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
