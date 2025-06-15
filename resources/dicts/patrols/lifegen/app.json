@@ -2350,6 +2350,50 @@
                 "weight": 10
             }
         ]
+    },
+    {
+        "patrol_id": "life_df_sam2",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "df_lifegen"
+        ],
+        "tags": [],
+        "patrol_art": "lg_default_df",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "You're doing battle training on your own, as usual, when a living Dark Forest trainee shows up. Their mentor is nowhere to be seen.",
+        "decline_text": "It's not your problem that their mentor isn't around. You walk away to train somewhere else.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You offer to train them, and they accept graciously. You may not have been a full-fledged warrior in life, but you're a much better warrior than most of the c_n cats anyways.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "You offer to train them, and just as they're about to accept, their mentor shows up. Well, win-win situation, you guess. You don't have to train with some probably incompetent cat, and they don't have to train with a stranger.",
+                "exp": 0,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You offer to train them, but they hiss and run away. You just wanted to help them train, why are they so mean?",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "You're bored, so you decide to offer to train them instead. You quickly discover that you're either a bad teacher, or that they're just a really bad apprentice.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
     }
-
 ]

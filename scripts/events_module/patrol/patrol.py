@@ -174,7 +174,7 @@ class Patrol:
                 self.patrol_statuses[cat.status] = 1
 
             # LG ---
-            if cat.dead and cat.df:
+            if cat.dead and cat.df and cat != game.clan.your_cat:
                 if "df" in self.patrol_statuses:
                     self.patrol_statuses["df"] += 1
                 else:
