@@ -10,12 +10,11 @@ import pygame_gui
 from pygame_gui.core import ObjectID
 
 import scripts.screens.screens_core.screens_core
-from scripts.cat.cats import create_example_cats, create_cat, Cat
+from scripts.cat.cats import create_example_cats, Cat
 from scripts.cat.pelts import Pelt
 from scripts.cat.personality import Personality
 from scripts.cat.names import names
 from scripts.clan import Clan
-from scripts.game_structure import image_cache
 from scripts.game_structure.game_essentials import (
     game,
 )
@@ -145,6 +144,7 @@ class MakeClanScreen(Screens):
 
     def screen_switches(self):
         super().screen_switches()
+        self.set_mute_button_position("topright")
         self.show_mute_buttons()
         self.set_bg("default", "mainmenu_bg")
 
@@ -841,6 +841,7 @@ class MakeClanScreen(Screens):
         self.rolls_left = game.config["clan_creation"]["rerolls"]
         self.fullscreen_bgs = {}
         self.game_bgs = {}
+        self.set_mute_button_position("bottomright")
         return super().exit_screen()
 
     def on_use(self):
@@ -2710,7 +2711,7 @@ class MakeClanScreen(Screens):
                         manager=MANAGER
                         )
                     self.eye_colour_names[colour] = pygame_gui.elements.UITextBox(
-                        str(colour).lower().capitalize(),
+                        str(Cat.describe_eyes(self.selected_cat, colour)).lower().capitalize(),
                         ui_scale(pygame.Rect((0 + 32, eye_y_pos), (200, 34))),
                         object_id=get_text_box_theme("#text_box_30_horizleft"),
                         container=self.elements["scroll_container"],
@@ -2728,7 +2729,7 @@ class MakeClanScreen(Screens):
                         manager=MANAGER
                         )
                     self.heterochromia_names[str(colour)] = pygame_gui.elements.UITextBox(
-                        str(colour).lower().capitalize(),
+                        str(Cat.describe_eyes(self.selected_cat, colour)).lower().capitalize(),
                         ui_scale(pygame.Rect((0 + 32, eye_y_pos), (200, 34))),
                         object_id=get_text_box_theme("#text_box_30_horizleft"),
                         container=self.elements["scroll_container"],
@@ -3121,7 +3122,10 @@ class MakeClanScreen(Screens):
                             new_patch_list = patch_list
 
                         patches = ["None"] + new_patch_list
-                        current_index = patches.index(str(self.white_patches))
+                        try:
+                            current_index = patches.index(str(self.white_patches))
+                        except ValueError:
+                            current_index = 0
                         next_index = (current_index + num) % len(patches)
                         if patches[next_index] == "None":
                             self.white_patches = None
@@ -3247,7 +3251,10 @@ class MakeClanScreen(Screens):
                                 if i[0] in new_acc_list or i[0] in self.accessories:
                                     new_acc_list.remove(i[0])
                         accs = ["None"] + new_acc_list
-                        current_index = accs.index(self.accessories[0]) if self.accessories else 0
+                        try:
+                            current_index = accs.index(self.accessories[0]) if self.accessories else 0
+                        except ValueError:
+                            current_index = 0
                         next_index = (current_index + num) % len(accs)
                         if accs[next_index] == "None":
                             next_acc = []
