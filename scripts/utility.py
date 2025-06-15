@@ -1372,10 +1372,14 @@ def filter_relationship_type(
         if not group[1].ID in group[0].df_apprentices:
             return False
 
-    relationship = group[0].relationships[group[1].ID]
-    if "strangers" in filter_types and relationship and (
-            relationship.platonic_like < 1 or relationship.romantic_love < 1):
-        return False
+    if len(group) == 2:
+        relationship = group[0].relationships[group[1].ID]
+        if "strangers" in filter_types and relationship and (
+                relationship.platonic_like < 1 or relationship.romantic_love < 1):
+            return False
+    else:
+        if "strangers" in filter_types:
+            return False
 
     # Filtering relationship values
     break_loop = False
@@ -2089,7 +2093,7 @@ def history_text_adjust(text,
         text = text.replace("o_c_n", str(other_clan_name))
 
     if "c_n" in text:
-        text = text.replace("c_n", str(clan) + "Clan")
+        text = text.replace("c_n", str(game.clan.name) + "Clan")
     if "r_c" in text and other_cat_rc:
         text = selective_replace(text, "r_c", str(other_cat_rc.name))
     return text
