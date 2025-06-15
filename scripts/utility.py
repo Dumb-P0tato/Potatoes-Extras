@@ -2089,7 +2089,7 @@ def history_text_adjust(text,
         text = text.replace("o_c_n", str(other_clan_name))
 
     if "c_n" in text:
-        text = text.replace("c_n", str(clan_name) + "Clan")
+        text = text.replace("c_n", str(clan) + "Clan")
     if "r_c" in text and other_cat_rc:
         text = selective_replace(text, "r_c", str(other_cat_rc.name))
     return text
