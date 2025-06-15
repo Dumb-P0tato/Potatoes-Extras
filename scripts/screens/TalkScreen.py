@@ -4,6 +4,7 @@ import ujson
 import re
 
 from .Screens import Screens
+from scripts.game_structure.audio import sound_manager
 
 from scripts.cat.cats import Cat, ILLNESSES, INJURIES, PERMANENT
 from ..cat.history import History
@@ -70,6 +71,7 @@ class TalkScreen(Screens):
         self.other_dict = {}
 
         self.testing = False
+        self.meow = False
 
     def screen_switches(self):
         super().screen_switches()
@@ -83,6 +85,9 @@ class TalkScreen(Screens):
         self.choicepanel = False
         self.created_choice_buttons = False
         self.profile_elements = {}
+
+        self.meow = False
+
         self.clan_name_bg = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((115, 438), (190, 35))),
             pygame.transform.scale(
@@ -329,6 +334,7 @@ class TalkScreen(Screens):
             if now >= self.next_frame_time and self.frame_index < len(self.text_frames[self.text_index]) - 1:
                 self.frame_index += 1
                 self.next_frame_time = now + self.typing_delay
+                sound_manager.play("button_press")
         if self.text_index == len(self.text_frames) - 1:
             if self.frame_index == len(self.text_frames[self.text_index]) - 1:
                 if self.text_type != "choices":
@@ -336,6 +342,10 @@ class TalkScreen(Screens):
                 if not self.created_choice_buttons and self.text_type == "choices":
                     self.create_choice_buttons()
                     self.created_choice_buttons = True
+                if not self.meow:
+                    # sound_manager.play("dialogue")
+                    # this plays One meow sound effect at the end of dialogue
+                    self.meow = True
 
 
         # Always render the current frame
