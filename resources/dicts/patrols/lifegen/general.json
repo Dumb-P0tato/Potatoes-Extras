@@ -1112,7 +1112,7 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "To stir up some trouble, you appear in r_w's path and claim you know where l_c went, pointing in a random direction. The warrior seems suspicious, but asks again for confirmation. You act like you have no idea what {PRONOUN/r_w/subject}{VERB/r_w/'re's} talking about or who {PRONOUN/r_w/subject}{VERB/r_w/'re's} searching for, despite clearly knowing. The warrior walks off in frustration.",
+                "text": "To stir up some trouble, you appear in r_w's path and claim you know where l_c went, pointing in a random direction. The warrior seems suspicious, but asks again for confirmation. You act like you have no idea what {PRONOUN/r_w/subject}{VERB/r_w/'re/'s} talking about or who {PRONOUN/r_w/subject}{VERB/r_w/'re/'s} searching for, despite clearly knowing. The warrior walks off in frustration.",
                 "exp": 0,
                 "weight": 20
             },
@@ -1180,7 +1180,7 @@
                 "weight": 20
             },
 {
-                "text": "You expect no one to be able to see you, but as you enter the c_n camp, you lock eyes with r_k. You've spoken with this kit before. {PRONOUN/r_k/subject}{VERB/r_k/'re/'s} special. You play a quick game of moss-ball with the little fluffball before a queen drags {PRONOUN/r_k/object} away.",
+                "text": "You expect no one to be able to see you, but as you enter the c_n camp, you lock eyes with r_k. You've spoken with this kit before. {PRONOUN/r_k/subject/CAP}{VERB/r_k/'re/'s} special. You play a quick game of moss-ball with the little fluffball before a queen drags {PRONOUN/r_k/object} away.",
                 "exp": 0,
                 "weight": 20,
 	    "can_have_stat": ["r_k"],
