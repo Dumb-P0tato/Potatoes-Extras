@@ -53,7 +53,7 @@ jobs:
             api_artifact_name: macOS
             
     runs-on: ${{ matrix.os }}
-    if: ${{ !startsWith(github.ref, 'refs/heads/release') }}
+    if: ${{ !startsWith(github.ref, 'ref/heads/release') }}
     env:
       gpg_private_key: ${{ secrets.PACKAGESIGNKEY }}
       gpg_private_key_passphrase: ${{ secrets.PACKAGESIGNKEYPASSPHRASE }}
@@ -63,19 +63,16 @@ jobs:
         shell: bash -l {0}
     steps:
       - uses: actions/checkout@v4
-      - name: Clean up old Poetry venv
-        run: poetry env remove python || true
+      - name: Install poetry
+        uses: abatilo/actions-poetry@v3
+        with:
+          poetry-version: latest
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python_version }}
           architecture: ${{ matrix.python_arch }}
           cache: "poetry"
-      - name: Install poetry
-        uses: abatilo/actions-poetry@v3
-        with:
-          poetry-version: latest
-      
       - name: Install build dependencies (Ubuntu)
         if: startsWith(matrix.os, 'ubuntu')
         run: |
