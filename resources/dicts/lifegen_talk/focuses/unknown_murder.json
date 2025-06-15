@@ -1231,7 +1231,7 @@
     "unkmurder_focus_SQ39": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -2069,7 +2069,7 @@
     "unknown_murder_J12": {
         "y_c": {
             "age": [
-                "you_not_kit"
+                "not_kit"
             ]
         },
         "t_c": {
@@ -2440,7 +2440,7 @@
         ],
         "intro": [
             "Huh? Oh. Yes, I heard about neutral-fc_c.",
-            "[t_c's tone is very dismissive as {PRONOUN/t_c/subject} {VERB/t_c/continue/continues} to stare with heart eyes in their_crush's direction.]",
+            "[t_c's tone is very dismissive as {PRONOUN/t_c/subject} {VERB/t_c/continue/continues} to stare with heart eyes in rlike-r_c's direction.]",
             "[Seems like t_c is too... occupied to talk about neutral-fc_c's murder.]"
         ]
     },
@@ -2524,7 +2524,7 @@
     "introspective_unkmur_H12": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ],
             "condition": [
                 "blind:any:false"

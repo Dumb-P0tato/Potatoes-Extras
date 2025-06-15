@@ -229,11 +229,11 @@
             ],
             "backstory": [
                 "clanfounder",
-                "clanborn",
                 "outsiderroots",
                 "half-clan",
                 "orphaned",
-                "abandoned"
+                "abandoned",
+                "clanborn"
             ]
         },
         "season": [
@@ -2927,9 +2927,9 @@
             ],
             "backstory": [
                 "outsiderroots",
-                "formerlyaloner",
                 "formerlyarogue",
-                "formerlyakittypet"
+                "formerlyakittypet",
+                "formerlyaloner"
             ]
         },
         "t_c": {
@@ -2938,11 +2938,11 @@
             ],
             "backstory": [
                 "clanfounder",
-                "clanborn",
                 "half-clan",
                 "originallyfromanotherclan",
                 "orphaned",
-                "abandoned"
+                "abandoned",
+                "clanborn"
             ]
         },
         "intro": [
@@ -6323,7 +6323,7 @@
     "sweetgrief_yougrief7": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ],
             "condition": [
                 "grief stricken"
@@ -16033,6 +16033,9 @@
             ],
             "age": [
                 "not_kitten"
+            ],
+            "status": [
+                "not_deputy"
             ]
         },
         "intro": [
@@ -24475,7 +24478,7 @@
     "df_trainee_1c": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ],
             "condition": [
                 "blind:any:false"
@@ -24865,7 +24868,7 @@
     "assertive_apprentice7": {
         "y_c": {
             "age": [
-                "you_app",
+                "adolescent",
                 "not_kitten"
             ],
             "condition": [
@@ -25108,7 +25111,7 @@
     "assertive_mentor1": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -25935,7 +25938,7 @@
     "unlawful_bothgriefGuy1": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ],
             "condition": [
                 "grief stricken"
@@ -26175,7 +26178,11 @@
         ]
     },
     "neurotic_aboutkk_SQ1": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -26186,9 +26193,6 @@
         },
         "relationship": [
             "min_platonic_20"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "I can't help but worry about t_kk.",
@@ -27368,7 +27372,7 @@
     "injury_kit_H2": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ],
             "status": [
                 "kitten"
@@ -27393,7 +27397,7 @@
     "injury_kit_H3": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ],
             "status": [
                 "kitten"
@@ -29222,7 +29226,7 @@
     "neurotic_aboutshunned_SQ2": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -29243,11 +29247,12 @@
     },
     "neurotic_aboutshunned_SQ4": {
         "y_c": {
+            "age": [
+                "adult",
+                "not_kitten"
+            ],
             "condition": [
                 "blind:any:false"
-            ],
-            "age": [
-                "not_kitten"
             ]
         },
         "t_c": {
@@ -29264,9 +29269,6 @@
         "relationship": [
             "min_platonic_20"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "y_c... I don't like saying this, but I don't feel comfortable with neutral-rsh_c around.",
             "I feel like I didn't really know {PRONOUN/neutral-rsh_c/object}, even before we learned about... you know. And now I feel like I know {PRONOUN/neutral-rsh_c/object} even less."
@@ -29274,11 +29276,12 @@
     },
     "neurotic_aboutshunned_SQ5": {
         "y_c": {
+            "age": [
+                "adult",
+                "not_kitten"
+            ],
             "condition": [
                 "blind:any:false"
-            ],
-            "age": [
-                "not_kitten"
             ]
         },
         "t_c": {
@@ -29295,20 +29298,18 @@
         "relationship": [
             "min_trust_15"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "[Whenever you and t_c walk through camp, t_c moves so you're between {PRONOUN/t_c/object} and neutral-rsh_c. {PRONOUN/t_c/subject/CAP} {VERB/t_c/haven't/hasn't} been able to relax since neutral-rsh_c was shunned.]"
         ]
     },
     "neurotic_aboutshunned_SQ6": {
         "y_c": {
+            "age": [
+                "adult",
+                "not_kitten"
+            ],
             "condition": [
                 "blind:any:false"
-            ],
-            "age": [
-                "not_kitten"
             ]
         },
         "t_c": {
@@ -29324,9 +29325,6 @@
         },
         "relationship": [
             "min_platonic_20"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "[On your way home after an evening walk, you find t_c relaxing in a sheltered area relatively far from camp. You ask what {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} doing out here.]",
@@ -30585,7 +30583,7 @@
     "neurotic_dfmentor_SQ1": {
         "y_c": {
             "age": [
-                "you_app",
+                "adolescent",
                 "not_kitten"
             ],
             "condition": [
@@ -31029,7 +31027,7 @@
     "neurotic_general_SQ2": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -31076,7 +31074,7 @@
     "neurotic_general_SQ4": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -31217,7 +31215,8 @@
     "neurotic_general_SQ9": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent",
+                "adult"
             ],
             "condition": [
                 "blind:any:false"
@@ -31236,9 +31235,6 @@
         },
         "relationship": [
             "min_platonic_20"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "Do we know for sure how many cats are in o_c_n? Like, we know how many come to Gatherings, but every Clan leaves some cats behind.",
@@ -31369,7 +31365,8 @@
     "neurotic_genconnected_SQ2~1": {
         "y_c": {
             "age": [
-                "you_older"
+                "older",
+                "adult"
             ]
         },
         "t_c": {
@@ -31382,9 +31379,6 @@
         },
         "relationship": [
             "min_platonic_20"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "Do you like your name, y_c? I think it fits you!",
@@ -31400,7 +31394,7 @@
     "neurotic_genconnected_SQ2~2": {
         "y_c": {
             "age": [
-                "you_older"
+                "older"
             ],
             "status": [
                 "any"
@@ -31428,11 +31422,12 @@
     },
     "youdeaf_R75": {
         "y_c": {
+            "age": [
+                "adult",
+                "not_kitten"
+            ],
             "condition": [
                 "deaf:any:true"
-            ],
-            "age": [
-                "not_kitten"
             ]
         },
         "t_c": {
@@ -31446,9 +31441,6 @@
         "relationship": [
             "max_platonic_50",
             "max_dislike_10"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "[t_c dips {PRONOUN/t_c/poss} head politely to you as {PRONOUN/t_c/subject} {VERB/t_c/pass/passes}.]",
@@ -31835,7 +31827,7 @@
     "about_silly_SQ1": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -32150,6 +32142,9 @@
     },
     "neurotic_theygrieving_SQ10": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -32171,9 +32166,6 @@
             "min_platonic_20",
             "max_platonic_50"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "What am I thinking? Having kits right after losing tg_c?",
             "Something's going to happen to these kits, too. I just know it.",
@@ -32182,6 +32174,9 @@
     },
     "neurotic_theygrieving_SQ11": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -32201,9 +32196,6 @@
         "relationship": [
             "min_platonic_40",
             "min_trust_15"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "I don't know how to be a good {PRONOUN/t_c/parent} to t_kk. Not like this.",
@@ -33233,7 +33225,7 @@
                 "not_kitten"
             ],
             "skill": [
-                "KITSITTER,1"
+                "KIT,1"
             ]
         },
         "relationship": [
@@ -33269,7 +33261,7 @@
                 "not_kitten"
             ],
             "skill": [
-                "KITSITTER,1"
+                "KIT,1"
             ]
         },
         "intro": [
@@ -33984,7 +33976,11 @@
         ]
     },
     "they_sillysam1": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "silly"
@@ -33996,9 +33992,6 @@
         "relationship": [
             "min_romantic_40",
             "non-mates"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "Hey, y_c? Can I ask you a question?",
@@ -34061,7 +34054,7 @@
     "TinyTeddy_stable_sibling_theyadult_youapp_01": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -34090,7 +34083,7 @@
     "TinyTeddy_stable_sibling_theyadult_youapp_02": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -34123,7 +34116,7 @@
     "TinyTeddy_stable_sibling_theyadult_youapp_03": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -34149,7 +34142,11 @@
         ]
     },
     "TinyTeddy_stable_sibling_theyadult_youadult_01": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "stable"
@@ -34162,9 +34159,6 @@
             "adopted_sibling",
             "sibling",
             "half_sibling"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "Well, well, well. Look who we have here, if it isn't my {PRONOUN/y_c/sibling} y_c.",
@@ -34180,7 +34174,11 @@
         ]
     },
     "TinyTeddy_stable_sibling_theyadult_youadult_03": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "stable"
@@ -34192,9 +34190,6 @@
         "relationship": [
             "littermate",
             "sibling"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "It's strange to think how far we've come... I still remember when we were in the nursery, playing- gah, what was it again?",
@@ -34208,7 +34203,11 @@
         ]
     },
     "TinyTeddy_stable_sibling_theyadult_youadult_04": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "stable"
@@ -34220,9 +34219,6 @@
         "relationship": [
             "sibling",
             "half_sibling"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "[y_a sits across from you, nodding as you critique {PRONOUN/y_a/object} on {PRONOUN/y_a/poss} lesson. It's just past sunhigh and you thought letting y_a off for the rest of the day would be best.]",
@@ -34241,7 +34237,11 @@
         ]
     },
     "TinyTeddy_stable_sibling_theyadult_youadult_05": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "stable"
@@ -34255,9 +34255,6 @@
             "sibling",
             "half_sibling"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "Hey, I heard that tonight was going to be a beautiful sunset and I was wondering if you wanted to come. You seem like you've been really stressed recently and I just want to make sure that you're alright.",
             "We're family! Even if we're all grown up, I won't ever stop caring about you, y_c, and that's a promise.",
@@ -34267,7 +34264,7 @@
     "TinyTeddy_stable_theyparent_theyany_youapp_01": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -34290,7 +34287,7 @@
     "TinyTeddy_stable_theyparent_theyany_youapp_02": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -34312,7 +34309,7 @@
     "TinyTeddy_stable_theyparent_theyany_youapp_03": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -34336,7 +34333,11 @@
         ]
     },
     "TinyTeddy_stable_theyparent_theyany_youadult_01": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "stable"
@@ -34347,9 +34348,6 @@
         },
         "relationship": [
             "from_parent"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "[You and y_m giggle softly in the clearing, and you listen intently as {PRONOUN/y_m/subject} talks about {PRONOUN/y_m/poss} day. In the corner of your vision, your gaze meets t_c, who's smiling at the two of you.]",
@@ -34358,7 +34356,11 @@
         ]
     },
     "TinyTeddy_stable_theyparent_theyany_youadult_02": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "stable"
@@ -34369,16 +34371,17 @@
         },
         "relationship": [
             "from_parent"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "Remember dear, just because you're all grown up, doesn't mean you can't talk to me if you're feeling upset or stressed. I'm your parent regardless of how old you are. I know you're an adult now and can take care of yourself, but you don't always have to do it alone."
         ]
     },
     "TinyTeddy_stable_theyparent_theyany_youadult_03": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "stable"
@@ -34389,9 +34392,6 @@
         },
         "relationship": [
             "from_parent"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "I'm so lucky to have you as my kit, y_c. You've grown into a wonderful, beautiful and independent cat.",
@@ -34400,7 +34400,11 @@
         ]
     },
     "TinyTeddy_stable_theyparent_theyany_youadult_04": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "stable"
@@ -34413,9 +34417,6 @@
             "min_platonic_30",
             "from_parent"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "[You sigh deeply as you watch y_kk play just outside the nursery, your jaw clenches as you follow {PRONOUN/y_kk/poss} movements. Wild and free, careless and happy. y_m sleeps peacefully inside the nursery, exhausted from being a new parent.]",
             "Hey there sweetie, here's some freshkill, freshly picked! r_w1 just came back from the hunting patrol with r_w2 and r_w3. Seems like they got a good haul. r_w1 has noticed that you seem more tired lately and let me have the first pick to bring it to you.",
@@ -34427,6 +34428,9 @@
     },
     "TinyTeddy_stable_theyparent_theyany_youadult_05": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "status": [
                 "df_trainee"
             ]
@@ -34445,9 +34449,6 @@
         "relationship": [
             "min_platonic_30",
             "from_parent"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "[t_c grooms your fur as you rest in the medicine den. Neither of you have spoken, you don't want to. Silence hangs thickly in the air, you feel like you're choking. Your front leg is wrapped up, after your training session you woke up with some... concerning injuries...]",
@@ -35204,7 +35205,7 @@
     "introspective_crushto_H2": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -35779,13 +35780,13 @@
             "condition": [
                 "blind:any:false"
             ],
-            "backstory": [
-                "formerlyakittypet"
-            ],
             "status": [
                 "warrior",
                 "apprentice",
                 "df_trainee"
+            ],
+            "backstory": [
+                "formerlyakittypet"
             ]
         },
         "t_c": {
@@ -35829,7 +35830,11 @@
         ]
     },
     "neurotic_choice_oldclangathering_SQ41": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -35843,9 +35848,6 @@
         },
         "relationship": [
             "min_platonic_20"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "I don't really want to go to the Gathering this moon. l_n said {PRONOUN/l_n/subject}{VERB/l_n/'re/'s} planning to take me with, and I don't want to let {PRONOUN/l_n/object} down, but...",
@@ -36338,6 +36340,9 @@
     },
     "neurotic_dftrainee_SQ3": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "deaf:any:false"
             ],
@@ -36359,9 +36364,6 @@
                 "df_trainee"
             ]
         },
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "[In the Dark Forest, t_c looks even smaller than usual next to so many muck-pelted, fierce-looking cats.]",
             "[As df_m_n pairs up cats for the night's training, you watch t_c from across the clearing. {PRONOUN/t_c/subject/CAP} {VERB/t_c/look/looks} around with {PRONOUN/t_c/poss} typical nervous expression, and for a moment, {PRONOUN/t_c/subject} {VERB/t_c/seem/seems} ready to bolt.]",
@@ -36370,6 +36372,9 @@
     },
     "neurotic_youpregnant_SQ3": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "deaf:any:false",
                 "pregnant"
@@ -36389,9 +36394,6 @@
         },
         "relationship": [
             "neutral"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "[t_c has been sneaking glances at you today. {VERB/t_c/Are/Is} {PRONOUN/t_c/subject}... Trying to see if your belly is any bigger than it was yesterday?]",
@@ -36813,6 +36815,9 @@
     },
     "neurotic_skillclimber_SQ5": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -36833,9 +36838,6 @@
         },
         "relationship": [
             "min_platonic_30"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "[t_c's ears prick as {PRONOUN/t_c/subject} {VERB/t_c/listen/listens} to the trees creak in the wind.]",
@@ -37001,7 +37003,11 @@
         ]
     },
     "neurotic_skillomen_SQ1": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -37016,9 +37022,6 @@
         "season": [
             "newleaf"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "[t_c stares anxiously at a dead leaf clinging to the end of a branch, surrounded by leaf buds. It's not an uncommon sight in newleaf, but t_c seems perturbed.]",
             "Ah... don't let me worry you, y_c! I'm just overly nervous. Like usual.",
@@ -37030,6 +37033,9 @@
     },
     "neurotic_skillomen_SQ2": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -37049,16 +37055,17 @@
                 "OMEN,1"
             ]
         },
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "[t_c mumbles to {PRONOUN/t_c/self}, not seeming to notice you.]",
             "Maybe this is what that omen was about... I'm sorry, tg_c. I wasn't good enough to understand it. I wasn't good enough to save you."
         ]
     },
     "neurotic_skillsense_SQ1": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -37075,9 +37082,6 @@
         },
         "relationship": [
             "min_platonic_10"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "[t_c sniffs around the edge of camp, frowning. You watch {PRONOUN/t_c/object} pace the same small section several times, keeping {PRONOUN/t_c/poss} face close to the ground.]",
@@ -37347,6 +37351,9 @@
     },
     "neurotic_skillstory_SQ5": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -37374,9 +37381,6 @@
         ],
         "relationship": [
             "min_platonic_20"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "Oof, there're some really cold gusts coming off the water today. Reminds me of that story about the ocean wind that was frigid enough to freeze cats solid... do you remember that one?",
@@ -37559,7 +37563,11 @@
         ]
     },
     "neurotic_about_t_m_SQ1": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -37575,9 +37583,6 @@
         "relationship": [
             "min_platonic_20"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "[t_c sits in a sunbeam, contemplating a bundle of blue flowers between {PRONOUN/t_c/poss} paws. {PRONOUN/t_c/subject/CAP} {VERB/t_c/seem/seems} worried, so you ask what's on {PRONOUN/t_c/poss} mind.]",
             "Ah... well, t_m-unlawful brought me these flowers, but I'm pretty sure they're from o_c_n territory.",
@@ -37590,11 +37595,12 @@
     },
     "neurotic_about_t_m_SQ2": {
         "y_c": {
+            "age": [
+                "adult",
+                "not_kitten"
+            ],
             "condition": [
                 "deaf:any:false"
-            ],
-            "age": [
-                "not_kitten"
             ]
         },
         "t_c": {
@@ -37612,9 +37618,6 @@
             "greenleaf",
             "newleaf"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "[t_c sits just outside of camp, carefully checking a bundle of flowers for discolored petals or tattered leaves. {PRONOUN/t_c/subject/CAP} gently {VERB/t_c/set/sets} the discarded pieces aside in a small pile.]",
             "[You're not surprised when you later see t_c presenting the blossoms to t_m.]"
@@ -37622,6 +37625,9 @@
     },
     "neurotic_about_t_m_SQ4": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -37640,9 +37646,6 @@
         "relationship": [
             "min_platonic_50",
             "non-mates"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "[Last night, t_c declined your offer to take a walk together, saying {PRONOUN/t_c/subject} already had plans with t_m. Now, {PRONOUN/t_c/subject} {VERB/t_c/pad/pads} up to you.]",
@@ -37838,9 +37841,9 @@
                 "neurotic"
             ],
             "backstory": [
-                "clanborn",
                 "formerlyaloner",
-                "formerlyarogue"
+                "formerlyarogue",
+                "clanborn"
             ],
             "age": [
                 "not_kitten"
@@ -37866,9 +37869,9 @@
                 "neurotic"
             ],
             "backstory": [
-                "clanborn",
                 "formerlyaloner",
-                "formerlyarogue"
+                "formerlyarogue",
+                "clanborn"
             ],
             "age": [
                 "not_kitten"
@@ -37894,9 +37897,9 @@
                 "neurotic"
             ],
             "backstory": [
-                "clanborn",
                 "formerlyaloner",
-                "formerlyarogue"
+                "formerlyarogue",
+                "clanborn"
             ],
             "age": [
                 "not_kitten"
@@ -37925,9 +37928,9 @@
                 "neurotic"
             ],
             "backstory": [
-                "clanborn",
                 "formerlyaloner",
-                "formerlyarogue"
+                "formerlyarogue",
+                "clanborn"
             ],
             "age": [
                 "not_kitten"
@@ -37956,9 +37959,9 @@
                 "neurotic"
             ],
             "backstory": [
-                "clanborn",
                 "formerlyaloner",
-                "formerlyarogue"
+                "formerlyarogue",
+                "clanborn"
             ],
             "age": [
                 "not_kitten"
@@ -38093,7 +38096,11 @@
         ]
     },
     "neurotic_general_SQ16": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -38109,9 +38116,6 @@
         "relationship": [
             "min_platonic_20"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "Cloudy nights make me nervous, sometimes. Like... what if that means StarClan isn't watching over us right now?",
             "What if they can't guide us when it's cloudy? What if they can't stop the dangers they'd usually be able to prevent?",
@@ -38120,6 +38124,9 @@
     },
     "neurotic_general_SQ17": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -38141,9 +38148,6 @@
         },
         "relationship": [
             "min_platonic_20"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "If StarClan disappeared... if they abandoned us... it would take a while for us to realize, right?",
@@ -38254,7 +38258,7 @@
     "neurotic_general_SQ23": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -38337,7 +38341,7 @@
                 "neurotic"
             ],
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -38371,7 +38375,7 @@
                 "neurotic"
             ],
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -38401,6 +38405,9 @@
     },
     "neurotic_genconnected_SQ5~1": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "deaf:any:false"
             ]
@@ -38429,16 +38436,17 @@
             "min_platonic_40",
             "min_trust_15"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "[The stars are exceptionally bright tonight. You take a deep breath of cold night air and let your gaze wander across the constellations.]",
             "[It takes you a moment to realize that t_c has joined you. {PRONOUN/t_c/subject/CAP} {VERB/t_c/stare/stares} upwards too, {PRONOUN/t_c/poss} breath escaping in visible wisps, {PRONOUN/t_c/poss} eyes almost... pleading for something.]"
         ]
     },
     "neurotic_genconnected_SQ5~2": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic",
@@ -38457,7 +38465,6 @@
             "min_trust_15"
         ],
         "tags": [
-            "you_adult",
             "connected"
         ],
         "intro": [
@@ -38492,14 +38499,15 @@
     },
     "you_dfsam1": {
         "y_c": {
+            "age": [
+                "adult",
+                "not_kitten"
+            ],
             "condition": [
                 "blind:any:false"
             ],
             "dead": [
                 "df"
-            ],
-            "age": [
-                "not_kitten"
             ]
         },
         "t_c": {
@@ -38513,9 +38521,6 @@
                 "not_kitten"
             ]
         },
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "[You find t_c sobbing in a corner of the Dark Forest. When asked what's wrong, t_c sobs even harder.]",
             "It's tg_c. {PRONOUN/tg_c/subject/CAP}{VERB/tg_c/'re/'s} dead. I can't even concentrate on my training, I loved {PRONOUN/tg_c/object} so much...",
@@ -39320,6 +39325,9 @@
     },
     "pos_shunned_H3": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "shunned": true
         },
         "t_c": {
@@ -39335,7 +39343,6 @@
             "min_trust_30"
         ],
         "tags": [
-            "you_adult",
             "not_accomplice"
         ],
         "intro": [
@@ -40130,6 +40137,9 @@
     },
     "you_shunned_gen_E2": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ],
@@ -40145,8 +40155,7 @@
             "from_parent"
         ],
         "tags": [
-            "not_accomplice",
-            "you_adult"
+            "not_accomplice"
         ],
         "intro": [
             "Oh, my kit.... ",
@@ -40157,7 +40166,7 @@
     "frommentor_theyshunned_silly_rad1": {
         "y_c": {
             "age": [
-                "you_app",
+                "adolescent",
                 "not_kitten"
             ],
             "condition": [
@@ -40308,6 +40317,9 @@
     },
     "neurotic_general_SQ28": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -40326,9 +40338,6 @@
         "relationship": [
             "min_platonic_30"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "I was trying to advise plike-r_a-neurotic about being more confident.",
             "{PRONOUN/plike-r_a-neurotic/subject/CAP} {VERB/plike-r_a-neurotic/were/was} telling me about some of the things {PRONOUN/plike-r_a-neurotic/subject} {VERB/plike-r_a-neurotic/were/was} worried about and I was... honored {PRONOUN/plike-r_a-neurotic/subject}'d choose to talk to me, I guess? But I didn't know what to say.",
@@ -40337,7 +40346,11 @@
         ]
     },
     "neurotic_general_SQ29": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "stable",
@@ -40354,9 +40367,6 @@
         ],
         "relationship": [
             "min_platonic_10"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "Did you see the giant fish respect-r_w-fisher caught today?",
@@ -40429,7 +40439,11 @@
         ]
     },
     "neurotic_general_SQ32": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -40445,9 +40459,6 @@
             "min_platonic_20",
             "min_respect_15"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "I think I overheard neutral-r_c-silly trying to start a snow fight in the middle of camp. Obviously, {PRONOUN/neutral-r_c-silly/subject} {VERB/neutral-r_c-silly/haven't/hasn't} been successful so far, but...",
             "[t_c glances around nervously. {PRONOUN/t_c/subject/CAP} {VERB/t_c/seem/seems} worried that neutral-r_c-silly is nowhere to be found.]",
@@ -40456,7 +40467,11 @@
         ]
     },
     "neurotic_general_SQ33": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -40468,9 +40483,6 @@
         },
         "relationship": [
             "min_platonic_20"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "[You find t_c in the warriors' den, irritatedly cleaning moss scraps off the floor. When you ask {PRONOUN/t_c/object} what happened, {PRONOUN/t_c/subject} {VERB/t_c/groan/groans}.]",
@@ -40892,7 +40904,7 @@
         ],
         "intro": [
             "[t_c anxiously paces back and forth in front of the camp entrance. You're guessing that {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} waiting for plove-r_w to return from patrol.]",
-            "[When t_c notices you watching them, {PRONOUN/t_c/subject} {VERB/t_c/manage/manages} a tight smile and {VERB/t_c/sit/sits} down instead. Several minutes later, though, {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} back to pacing.]"
+            "[When t_c notices you watching {PRONOUN/t_c/object}, {PRONOUN/t_c/subject} {VERB/t_c/manage/manages} a tight smile and {VERB/t_c/sit/sits} down instead. Several minutes later, though, {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} back to pacing.]"
         ]
     },
     "neurotic_neutral_SQ2": {
@@ -40975,7 +40987,11 @@
         ]
     },
     "neurotic_leafbare_SQ13": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -40990,9 +41006,6 @@
         "relationship": [
             "min_platonic_30"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "[t_c watches snowflakes spiral from the sky. {PRONOUN/t_c/subject/CAP} {VERB/t_c/sigh/sighs}.]",
             "Leafbare scares me. I can't help but see snow and worry about all the problems the season brings.",
@@ -41001,7 +41014,11 @@
         ]
     },
     "neurotic_leafbare_SQ14": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -41016,9 +41033,6 @@
         "relationship": [
             "neutral"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "I swear I'm seeing shapes in the snow.",
             "[t_c squints. Outside, snow falls thick and fast, obscuring your view of camp.]",
@@ -41026,20 +41040,24 @@
         ]
     },
     "neurotic_leafbare_SQ15": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
-            ],
-            "backstory": [
-                "clanborn",
-                "formerlyaloner",
-                "formerlyarogue"
             ],
             "status": [
                 "warrior",
                 "deputy",
                 "leader"
+            ],
+            "backstory": [
+                "formerlyaloner",
+                "formerlyarogue",
+                "clanborn"
             ]
         },
         "season": [
@@ -41047,9 +41065,6 @@
         ],
         "relationship": [
             "min_platonic_20"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "There are a bunch of little colored lights around the Twolegplace, like stars. r_w1-assertive, r_w2-stable and I saw them during last night's patrol.",
@@ -41059,6 +41074,9 @@
     },
     "neurotic_leafbare_SQ16": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -41071,9 +41089,9 @@
                 "adult"
             ],
             "backstory": [
-                "clanborn",
                 "formerlyaloner",
-                "formerlyarogue"
+                "formerlyarogue",
+                "clanborn"
             ]
         },
         "season": [
@@ -41081,9 +41099,6 @@
         ],
         "relationship": [
             "min_platonic_30"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "I saw a kittypet at the edge of the territory today. Don't worry, neither of us crossed the border!",
@@ -41118,6 +41133,9 @@
     },
     "neurotic_abouttheircrush_SQ9": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -41136,14 +41154,11 @@
         "relationship": [
             "min_platonic_30"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
-            "So... last night, their_crush-brooding and I were up late talking. It was warm out, so we were just lying outside of camp, watching the fireflies.",
+            "So... last night, rlike-r_c-brooding and I were up late talking. It was warm out, so we were just lying outside of camp, watching the fireflies.",
             "It was... really nice. I think we ended up falling asleep there, even though I know it's dangerous to fall asleep outside of camp...",
-            "But, um, this morning, {PRONOUN/their_crush-brooding/subject}'d disappeared. And now, {PRONOUN/their_crush-brooding/subject}{VERB/their_crush-brooding/'re/'s} back to {PRONOUN/their_crush-brooding/poss} grumpy self.",
-            "I'm trying to decide if I should try to talk to {PRONOUN/their_crush-brooding/object} at all. I hope I didn't do anything wrong."
+            "But, um, this morning, {PRONOUN/rlike-r_c-brooding/subject}'d disappeared. And now, {PRONOUN/rlike-r_c-brooding/subject}{VERB/rlike-r_c-brooding/'re/'s} back to {PRONOUN/rlike-r_c-brooding/poss} grumpy self.",
+            "I'm trying to decide if I should try to talk to {PRONOUN/rlike-r_c-brooding/object} at all. I hope I didn't do anything wrong."
         ]
     },
     "neurotic_abouttheircrush_SQ10": {
@@ -41168,11 +41183,11 @@
         ],
         "intro": [
             "[t_c creeps into camp with a mouthful of colorful, crunchy leaves. {PRONOUN/t_c/subject/CAP} {VERB/t_c/glance/glances} around with the expression of someone about to commit a terrible crime, and {VERB/t_c/stiffen/stiffens} when {PRONOUN/t_c/subject} {VERB/t_c/see/sees} you.]",
-            "Um... hi, y_c! Is their_crush around?",
-            "[t_c's voice is muffled by the leaves. You tell {PRONOUN/t_c/object} that their_crush left to take a walk several minutes ago, and t_c brightens.]",
-            "Oh! Perfect. Um, okay, I want to decorate {PRONOUN/their_crush/poss} nest with these leaves, unless you think that's a bad idea? Could you keep watch and, like, make a bird sound if their_crush comes back?",
-            "[You agree, and sit outside of their_crush's den while t_c sneaks inside. Several minutes later {PRONOUN/t_c/subject} {VERB/t_c/dash/dashes} back out, leaf-free, with the wide eyes of someone fleeing a murder scene.]",
-            "[Hopefully, their_crush's surprise is worth t_c's stress!]"
+            "Um... hi, y_c! Is rlike-r_c around?",
+            "[t_c's voice is muffled by the leaves. You tell {PRONOUN/t_c/object} that rlike-r_c left to take a walk several minutes ago, and t_c brightens.]",
+            "Oh! Perfect. Um, okay, I want to decorate {PRONOUN/rlike-r_c/poss} nest with these leaves, unless you think that's a bad idea? Could you keep watch and, like, make a bird sound if rlike-r_c comes back?",
+            "[You agree, and sit outside of rlike-r_c's den while t_c sneaks inside. Several minutes later {PRONOUN/t_c/subject} {VERB/t_c/dash/dashes} back out, leaf-free, with the wide eyes of someone fleeing a murder scene.]",
+            "[Hopefully, rlike-r_c's surprise is worth t_c's stress!]"
         ]
     },
     "neurotic_abouttheircrush_SQ11": {
@@ -41193,7 +41208,7 @@
             "min_platonic_40"
         ],
         "intro": [
-            "y_c! I just invited their_crush to watch the sunset tomorrow. I know it's kind of what everyone does for a date, but I thought maybe {PRONOUN/their_crush/subject}'d enjoy it anyways...",
+            "y_c! I just invited rlike-r_c to watch the sunset tomorrow. I know it's kind of what everyone does for a date, but I thought maybe {PRONOUN/rlike-r_c/subject}'d enjoy it anyways...",
             "Um, the problem is that I was really nervous, so I ended up saying that I knew a special spot to watch the sunset.",
             "But... I don't actually know a good spot. I don't know why I said that.",
             "Could you come look for a place with me?"
@@ -41217,11 +41232,11 @@
             "min_platonic_30"
         ],
         "intro": [
-            "[t_c has been talking with their_crush-introspective just outside of camp for a while now. Occasionally, t_c nods seriously, but otherwise you can't tell what their conversation's about.]",
-            "[When the two finally part ways, you ask t_c what they were discussing with their_crush-introspective. t_c laughs nervously.]",
-            "Um... honestly, I'm not too sure. We started talking about our days, but then their_crush-introspective moved on to musing about the... weather, I guess? And after that I was lost.",
-            "{PRONOUN/their_crush-introspective/subject/CAP}{VERB/their_crush-introspective/'re/'s} too smart for me, but I just... really like listening to {PRONOUN/their_crush-introspective/object} anyways.",
-            "And I still can't believe their_crush-introspective wants to spend any time at all with me, so please don't tell {PRONOUN/their_crush-introspective/object} I barely understood a thing {PRONOUN/their_crush-introspective/subject} said."
+            "[t_c has been talking with rlike-r_c-introspective just outside of camp for a while now. Occasionally, t_c nods seriously, but otherwise you can't tell what their conversation's about.]",
+            "[When the two finally part ways, you ask t_c what they were discussing with rlike-r_c-introspective. t_c laughs nervously.]",
+            "Um... honestly, I'm not too sure. We started talking about our days, but then rlike-r_c-introspective moved on to musing about the... weather, I guess? And after that I was lost.",
+            "{PRONOUN/rlike-r_c-introspective/subject/CAP}{VERB/rlike-r_c-introspective/'re/'s} too smart for me, but I just... really like listening to {PRONOUN/rlike-r_c-introspective/object} anyways.",
+            "And I still can't believe rlike-r_c-introspective wants to spend any time at all with me, so please don't tell {PRONOUN/rlike-r_c-introspective/object} I barely understood a thing {PRONOUN/rlike-r_c-introspective/subject} said."
         ]
     },
     "neurotic_skillclairvoyant_SQ1": {
@@ -41436,7 +41451,11 @@
         ]
     },
     "neurotic_skillgrace_SQ2": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -41450,9 +41469,6 @@
         },
         "relationship": [
             "min_platonic_20"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "neutral-r_w-assertive was asking me how I move so lightly. {PRONOUN/neutral-r_w-assertive/subject/CAP} asked me to teach {PRONOUN/neutral-r_w-assertive/object}, which felt really good!",
@@ -41491,6 +41507,9 @@
     },
     "neurotic_skillinsightful_SQ1": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -41512,9 +41531,6 @@
         "relationship": [
             "min_platonic_15"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "neutral-l_n called me into {PRONOUN/neutral-l_n/poss} den to give {PRONOUN/neutral-l_n/object} some advice. I don't really get why...",
             "Do you think {PRONOUN/neutral-l_n/subject} just wanted to be nice?",
@@ -41524,7 +41540,11 @@
         ]
     },
     "neurotic_skillinsightful_SQ2": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -41539,9 +41559,6 @@
         "relationship": [
             "neutral"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "Wait, you... want my advice on something?",
             "[t_c blinks, confused. You explain that {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} gained a reputation for having helpful insights, and you could use a second opinion on a decision you're trying to make.]",
@@ -41550,6 +41567,9 @@
     },
     "neurotic_skillsong_SQ9": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -41571,9 +41591,6 @@
         "relationship": [
             "min_platonic_30"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "Hey, y_c. This is a weird request, but if I'm ever singing or humming at a time I shouldn't be, could you let me know?",
             "I just... do it without thinking sometimes, and I'm nervous that one day I'm going to bother everyone.",
@@ -41583,6 +41600,9 @@
     },
     "neurotic_skillstory_SQ9": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -41604,9 +41624,6 @@
         "relationship": [
             "min_platonic_30"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "t_a asked me to tell {PRONOUN/t_a/object} a story, so I'm trying to figure out which one. I can't tell the same ones I tell to kits, right? t_a's not a kit anymore!",
             "But some of the not-for-kits stories are kind of violent, and I don't want to scare t_a! But others are a bit slow, and I don't want to bore {PRONOUN/t_a/object}...",
@@ -41614,7 +41631,11 @@
         ]
     },
     "neurotic_skillstory_SQ10": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -41636,9 +41657,6 @@
         },
         "relationship": [
             "min_platonic_30"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "I went to the nursery to tell r_k a story yesterday, and I just heard a rumor that {PRONOUN/r_k/subject} {VERB/r_k/don't/doesn't} want to listen to r_q's stories anymore because {PRONOUN/r_k/subject} {VERB/r_k/think/thinks} mine were better. That's... not true, right?",
@@ -41841,7 +41859,11 @@
         ]
     },
     "neurotic_choice_aboutsleeper_SQ50": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -41852,9 +41874,6 @@
         },
         "relationship": [
             "min_platonic_15"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "[t_c hovers awkwardly outside the warriors' den. You ask what {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} up to.]",
@@ -41892,7 +41911,11 @@
         ]
     },
     "neurotic_choice_abouttreasure_SQ51": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -41907,9 +41930,6 @@
         "relationship": [
             "min_platonic_15",
             "max_platonic_40"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "y_c? Can I have your opinion on something?",
@@ -42004,7 +42024,7 @@
     "neurotic_choice_unlawfulsibling_SQ53": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -42654,7 +42674,7 @@
     "youdeaf_SQ10": {
         "y_c": {
             "age": [
-                "you_app",
+                "adolescent",
                 "not_kitten"
             ],
             "condition": [
@@ -42835,6 +42855,9 @@
     },
     "youdeaf_SQ16": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "deaf:any:true"
             ]
@@ -42853,9 +42876,6 @@
         },
         "relationship": [
             "min_platonic_20"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "[t_c's paws are stained purple, presumably from gathering or sorting berries for the medicine stores.]",
@@ -42928,7 +42948,7 @@
     "they_failingeyesight_SQ2": {
         "y_c": {
             "age": [
-                "you_older"
+                "older"
             ]
         },
         "t_c": {
@@ -42995,5 +43015,27 @@
             "[Noticing t_c is starting to wander into a crater the kittens have dug over the past moon, you gently guide {PRONOUN/t_c/object} into safety.]",
             "[The rumble of {PRONOUN/t_c/poss} appreciation is felt through your touch.]"
         ]
+    },
+    "multichar_J1": {
+        "y_c": {},
+        "t_c": {
+            "status": ["warrior", "apprentice", "deputy"]
+        },
+        "intro": [
+            "Hey, y_c! Look at this weird Twoleg thing plike-r_w and I found out on patrol.",
+            "|plike-r_w|There weren't even any Twolegs or kittypets around, it was just lying there.",
+            "You should totally try it on!",
+            "|plike-r_w|Try it!",
+            "Try it!",
+            "[You let t_c slip the weird thing over your neck.]",
+            "It looks amazing on you! You're like the coolest kittypet ever!",
+            "[You're not sure if that's a good thing or not...]",
+            "[You've gained a new accessory!]"
+        ],
+        "intro_inventory_changes": {
+            "cats_to": ["y_c"],
+            "accessory": ["CYANBOW", "LIMEBOW", "WHITEBOW", "PINKBOW", "CRIMSONBOW", "RAINBOWBOW"],
+            "addition": "choice"
+        }
     }
 }

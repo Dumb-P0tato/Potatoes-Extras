@@ -654,7 +654,8 @@
     "warfocus_SQ4": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent",
+                "adult"
             ]
         },
         "t_c": {
@@ -669,8 +670,7 @@
             "min_platonic_50"
         ],
         "tags": [
-            "focus",
-            "you_adult"
+            "focus"
         ],
         "intro": [
             "[You hear a scuffle coming from inside the nursery. You peer inside to see t_c alone, swinging {PRONOUN/t_c/poss} little paws at empty air.]",
@@ -742,7 +742,11 @@
         ]
     },
     "warfocus_SQ7": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -756,8 +760,7 @@
             "min_trust_50"
         ],
         "tags": [
-            "focus",
-            "you_adult"
+            "focus"
         ],
         "intro": [
             "I heard r_w saying something like, 'this war's gonna go on forever'.",
@@ -1121,6 +1124,9 @@
     },
     "war_focus_AJ4": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -1140,8 +1146,7 @@
             ]
         },
         "tags": [
-            "focus",
-            "you_adult"
+            "focus"
         ],
         "intro": [
             "[t_c tussles with r_k.]",
@@ -2932,7 +2937,11 @@
         ]
     },
     "neurotic_warfocus_SQ18": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -2947,7 +2956,6 @@
         ],
         "tags": [
             "focus",
-            "you_adult",
             "clan_has_kits"
         ],
         "intro": [

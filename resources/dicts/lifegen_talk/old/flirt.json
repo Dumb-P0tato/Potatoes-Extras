@@ -4179,7 +4179,7 @@
         ],
         [
             "Oh, y_c! Thank you! Do you know who else has gorgeous eyes?",
-            "their_crush!~",
+            "rlike-r_c!~",
             "[t_c sighs blissfully.]"
         ]
     ],
@@ -4192,7 +4192,7 @@
             "flirt"
         ],
         [
-            "Oh, I wish their_crush spoke to me like that!"
+            "Oh, I wish rlike-r_c spoke to me like that!"
         ]
     ],
     "flirt_reject_H22": [
@@ -4205,7 +4205,7 @@
         ],
         [
             "You're really nice, y_c, but...",
-            "I can't get over their_crush. I hope you understand!"
+            "I can't get over rlike-r_c. I hope you understand!"
         ]
     ],
     "flirt_reject_H23": [
@@ -4216,7 +4216,7 @@
             "flirt"
         ],
         [
-            "Sorry, y_c but... I have my eyes set out for their_crush."
+            "Sorry, y_c but... I have my eyes set out for rlike-r_c."
         ]
     ],
     "flirt_reject_H24": [
@@ -5449,7 +5449,7 @@
             "reject"
         ],
         [
-            "[t_c's eyes are fixed on their_crush across camp.]",
+            "[t_c's eyes are fixed on rlike-r_c across camp.]",
             "... Oh, sorry, y_c! What were you saying?"
         ]
     ],

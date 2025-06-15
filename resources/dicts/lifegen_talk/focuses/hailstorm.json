@@ -243,22 +243,29 @@
         ]
     },
     "hail_focus_AJ9": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "status": [
                 "kitten"
             ]
         },
         "tags": [
-            "focus",
-            "you_adult"
+            "focus"
         ],
         "intro": [
             "[t_c and t_l bat a hail pellet back and forth, squealing with laughter.]"
         ]
     },
     "hail_focus_AJ10": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "assertive",
@@ -270,8 +277,7 @@
             ]
         },
         "tags": [
-            "focus",
-            "you_adult"
+            "focus"
         ],
         "intro": [
             "[t_c tries and fails to balance atop a piece of hail, tiny paws scrabbling for balance.]",
@@ -279,7 +285,11 @@
         ]
     },
     "hail_focus_AJ11": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "assertive",
@@ -290,8 +300,7 @@
             ]
         },
         "tags": [
-            "focus",
-            "you_adult"
+            "focus"
         ],
         "intro": [
             "[t_c heaves a giant ball of hail towards the nursery, {PRONOUN/t_c/poss} little pelt soaked through from contact.]",
@@ -506,7 +515,11 @@
         ]
     },
     "hailstorm_focus_J2": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "status": [
                 "queen"
@@ -517,8 +530,7 @@
         ],
         "tags": [
             "focus",
-            "clan_has_kits",
-            "you_adult"
+            "clan_has_kits"
         ],
         "intro": [
             "Ugh, hey, y_c.",
@@ -563,8 +575,9 @@
     "hailstorm_kitten_H1~1": {
         "y_c": {
             "age": [
-                "you_app",
-                "you_older"
+                "adolescent",
+                "older",
+                "adult"
             ]
         },
         "t_c": {
@@ -577,7 +590,6 @@
         },
         "tags": [
             "focus",
-            "you_adult",
             "clan_has_kits"
         ],
         "intro": [
@@ -590,8 +602,9 @@
     "hailstorm_kitten_H1~2": {
         "y_c": {
             "age": [
-                "you_app",
-                "you_older"
+                "adolescent",
+                "older",
+                "adult"
             ]
         },
         "t_c": {
@@ -604,7 +617,6 @@
         },
         "tags": [
             "focus",
-            "you_adult",
             "clan_has_kits",
             "connected"
         ],

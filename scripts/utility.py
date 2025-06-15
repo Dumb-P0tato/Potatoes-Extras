@@ -3177,14 +3177,14 @@ def cat_dict_check(abbrev, cluster, x, rel, r, text, cat_dict):
 
     in_dict = False
     try:
-        if f"{abbrev}_{x}" in cat_dict or f"{abbrev}" in cat_dict or f"{r}_{abbrev}" in cat_dict or f"{r}_{abbrev}_{x}" in cat_dict:
+        if f"{abbrev}-{x}" in cat_dict or f"{abbrev}" in cat_dict or f"{r}-{abbrev}" in cat_dict or f"{r}-{abbrev}-{x}" in cat_dict:
             in_dict = True
             if cluster and rel:
-                text = re.sub(fr'(?<!\/){r}_{abbrev}_{x}(?!\/)', str(cat_dict[f"{r}_{abbrev}_{x}"].name), text)
+                text = re.sub(fr'(?<!\/){r}-{abbrev}-{x}(?!\/)', str(cat_dict[f"{r}-{abbrev}-{x}"].name), text)
             elif cluster and not rel:
-                text = re.sub(fr'(?<!\/){abbrev}_{x}(?!\/)', str(cat_dict[f"{abbrev}_{x}"].name), text)
+                text = re.sub(fr'(?<!\/){abbrev}-{x}(?!\/)', str(cat_dict[f"{abbrev}-{x}"].name), text)
             elif rel and not cluster:
-                text = re.sub(fr'(?<!\/){r}_{abbrev}(?!\/)', str(cat_dict[f"{r}_{abbrev}"].name), text)
+                text = re.sub(fr'(?<!\/){r}-{abbrev}(?!\/)', str(cat_dict[f"{r}-{abbrev}"].name), text)
             else:
                 text = re.sub(fr'(?<!\/){abbrev}(?!\/)', str(cat_dict[f"{abbrev}"].name), text)
     except KeyError:
@@ -3199,24 +3199,13 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
 
     # heres AALLLL the conditions for certain abbrevs to be valid
 
-    your_crush = False if (
+    yourcrush = False if (
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.ID in cat.mate or
         chosen_cat.ID in you.mate or
         chosen_cat.age != you.age or
         len(you.mate) > 0 or
-        chosen_cat.outside or
-        chosen_cat.dead
-    ) else True
-
-    their_crush = False if (
-        chosen_cat.ID == you.ID or
-        chosen_cat.ID == cat.ID or
-        chosen_cat.ID in cat.mate or
-        chosen_cat.ID in you.mate or
-        chosen_cat.age != you.age or
-        len(cat.mate) > 0 or
         chosen_cat.outside or
         chosen_cat.dead
     ) else True
@@ -3793,8 +3782,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
     # now the abbrevs dict!
     # make sure to add new abbrevs here, or they won't get replaced!!!
     abbrevs = {
-        "your_crush": your_crush,
-        "their_crush": their_crush,
+        "yourcrush": yourcrush,
         "r_k": r_k,
         "r_c": r_c,
         "r_w": r_w,
@@ -3875,11 +3863,19 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
     if len(alive_cats) == 0:
         return ""
     chosen_cat = choice(alive_cats)
+
     # this is a throwaway cat just so i can grab the abbrevs dict
     abbrevs = lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict)
 
     for abbrev_string in abbrevs.keys():
         if abbrev_string in text:
+            # dialogue-specific stuff: don't replace an abbrev if its in between | |
+            if "|" in text:
+                if abbrev_string in text.split("|")[1]:
+                    # text = text.split("|")[-1]
+                    continue
+            
+            # ---
             # first, go away if r_c and o_c are being disallowed for clangen reasons
             if abbrev_string == "r_c" and r_c_allowed is False:
                 return ""
@@ -4010,7 +4006,6 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                     if counter >= 30:
                         return ""
                 text = add_to_cat_dict(new_abbrev_string, cluster, x, rel, r, alive_cat, text, cat_dict)
-
     # Other Clan
     if o_c_allowed is True:
         if "o_c_n" in text:

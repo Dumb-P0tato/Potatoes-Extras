@@ -1206,7 +1206,7 @@
     "sweet_queenapp_5": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ],
             "condition": [
                 "blind:any:false"
@@ -1258,7 +1258,7 @@
     "sweet_queenapp_7": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -1996,7 +1996,8 @@
     "neurotic_queenapp_SQ3": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent",
+                "adult"
             ],
             "condition": [
                 "blind:any:false"
@@ -2015,9 +2016,6 @@
         },
         "relationship": [
             "min_platonic_30"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "It feels really weird to become an apprentice, but still spend all my time in the same places I did when I was a kit.",
@@ -2029,7 +2027,8 @@
     "neurotic_queenapp_SQ4": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent",
+                "adult"
             ],
             "condition": [
                 "blind:any:false"
@@ -2048,9 +2047,6 @@
         },
         "relationship": [
             "min_platonic_30"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "r_k-unlawful said {PRONOUN/r_k-unlawful/subject} didn't have to listen to me, because I'm basically still a kit too...",

@@ -19,9 +19,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -44,9 +41,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "leaffall"
             ]
         },
         "season": [
@@ -70,9 +64,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -91,10 +82,7 @@
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "shunned": true,
-            "status": [
-                "ancientspirit"
-            ]
+            "shunned": true
         },
         "intro": [
             "[t_c is playing with a leaf.]"
@@ -112,9 +100,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -134,10 +119,7 @@
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "shunned": true,
-            "status": [
-                "ancientspirit"
-            ]
+            "shunned": true
         },
         "intro": [
             "[You and t_c are taking a nap together.]"
@@ -157,9 +139,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -180,9 +159,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -206,9 +182,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -288,9 +261,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:true"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -311,9 +281,6 @@
         "t_c": {
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -347,9 +314,6 @@
         "t_c": {
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -372,9 +336,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -397,9 +358,6 @@
         "t_c": {
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -428,9 +386,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "intro": [
@@ -447,9 +402,6 @@
             "cluster": [
                 "sweet",
                 "introspective"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -476,9 +428,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -501,9 +450,6 @@
             "condition": [
                 "blind:any:false",
                 "hearing"
-            ],
-            "status": [
-                "leaffall"
             ]
         },
         "season": [
@@ -536,9 +482,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -558,9 +501,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -586,9 +526,6 @@
         "t_c": {
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -613,9 +550,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -666,9 +600,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -688,9 +619,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -741,9 +669,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -770,9 +695,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "intro": [
@@ -788,9 +710,6 @@
             "cluster": [
                 "assertive",
                 "upstanding"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -815,9 +734,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -844,9 +760,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -875,9 +788,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -900,9 +810,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -932,9 +839,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -956,9 +860,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -983,9 +884,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1016,9 +914,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1042,9 +937,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1064,9 +956,6 @@
         "t_c": {
             "cluster": [
                 "assertive"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1092,9 +981,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1125,9 +1011,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1151,9 +1034,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1181,9 +1061,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "intro": [
@@ -1210,9 +1087,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1241,9 +1115,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1272,9 +1143,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1304,9 +1172,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1331,9 +1196,6 @@
         "t_c": {
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1362,9 +1224,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1389,9 +1248,6 @@
                 "assertive",
                 "unlawful",
                 "brooding"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1421,9 +1277,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1450,9 +1303,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1481,9 +1331,6 @@
         "t_c": {
             "condition": [
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1510,9 +1357,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1543,9 +1387,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1577,9 +1418,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1607,9 +1445,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1636,9 +1471,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1657,11 +1489,7 @@
                 "kitten"
             ]
         },
-        "t_c": {
-            "status": [
-                "ancientspirit"
-            ]
-        },
+        "t_c": {},
         "relationship": [
             "min_platonic_20",
             "from_kit",
@@ -1683,11 +1511,7 @@
                 "blind:false:false"
             ]
         },
-        "t_c": {
-            "status": [
-                "ancientspirit"
-            ]
-        },
+        "t_c": {},
         "relationship": [
             "min_platonic_20",
             "from_kit",
@@ -1718,9 +1542,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1752,9 +1573,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1778,9 +1596,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1800,9 +1615,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1827,9 +1639,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1846,9 +1655,6 @@
         "t_c": {
             "cluster": [
                 "introspective"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1877,9 +1683,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1894,9 +1697,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1910,16 +1710,13 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
             "[t_c doesn't seem to notice you at first, sniffling quietly.]",
             "O-Oh! y_c! Um... I didn't want you to see me like this..",
             "I'm sorry- I just... r_c stepped on a poor little bug, and I feel so bad for it!! And then I burst out into tears in front of everycat and now I'm super embarrassed..",
-            "I hope {PRONOUN/r_c/subject} {VERB/r_c/apolose/apologises} to the poor little guy."
+            "I hope {PRONOUN/r_c/subject} {VERB/r_c/apologise/apologises} to the poor little guy."
         ]
     },
     "sweet_kit_3": {
@@ -1935,9 +1732,6 @@
             "condition": [
                 "blind:any:false",
                 "hearing"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1957,9 +1751,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "greenleaf"
             ]
         },
         "season": [
@@ -1987,9 +1778,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2013,9 +1801,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2042,9 +1827,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2071,9 +1853,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2098,9 +1877,6 @@
             "condition": [
                 "blind:any:false",
                 "hearing"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2124,9 +1900,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2147,9 +1920,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2173,9 +1943,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2196,9 +1963,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2226,9 +1990,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2246,9 +2007,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2272,9 +2030,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2298,9 +2053,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2325,9 +2077,6 @@
             "condition": [
                 "blind:any:false",
                 "hearing"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2352,9 +2101,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2379,9 +2125,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2406,9 +2149,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2433,9 +2173,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2455,9 +2192,6 @@
             "cluster": [
                 "sweet",
                 "silly"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2481,9 +2215,6 @@
             "condition": [
                 "blind:any:false",
                 "hearing"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2505,9 +2236,6 @@
             ],
             "condition": [
                 "hearing"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2532,9 +2260,6 @@
             "condition": [
                 "blind:any:false",
                 "hearing"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2557,9 +2282,6 @@
             "condition": [
                 "blind:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2576,9 +2298,6 @@
             ],
             "condition": [
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2601,9 +2320,6 @@
             "condition": [
                 "blind:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2632,9 +2348,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "intro": [
@@ -2654,9 +2367,6 @@
                 "blind:any:false",
                 "deaf:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2679,9 +2389,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2700,9 +2407,6 @@
             "condition": [
                 "deaf:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2720,9 +2424,6 @@
             "condition": [
                 "blind:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2741,9 +2442,6 @@
             "condition": [
                 "blind:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2765,9 +2463,6 @@
             ],
             "condition": [
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -2790,9 +2485,6 @@
             ],
             "condition": [
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -2818,9 +2510,6 @@
             "condition": [
                 "blind:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -2842,9 +2531,6 @@
                 "blind:any:false",
                 "deaf:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2865,9 +2551,6 @@
             "condition": [
                 "deaf:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2888,9 +2571,6 @@
             "condition": [
                 "deaf:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2912,9 +2592,6 @@
             "condition": [
                 "blind:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2932,9 +2609,6 @@
                 "blind:any:false",
                 "deaf:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2952,9 +2626,6 @@
             "condition": [
                 "blind:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2970,9 +2641,6 @@
         "t_c": {
             "condition": [
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2993,9 +2661,6 @@
                 "blind:any:false",
                 "deaf:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3014,9 +2679,6 @@
                 "blind:any:false",
                 "deaf:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3030,9 +2692,6 @@
         "t_c": {
             "condition": [
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3054,9 +2713,6 @@
             "condition": [
                 "blind:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3078,9 +2734,6 @@
             "condition": [
                 "blind:any:false",
                 "injury:any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3103,9 +2756,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3131,9 +2781,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3149,9 +2796,6 @@
         "t_c": {
             "cluster": [
                 "silly"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3166,9 +2810,6 @@
         "t_c": {
             "cluster": [
                 "silly"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3182,9 +2823,6 @@
         "t_c": {
             "cluster": [
                 "silly"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3209,9 +2847,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -3228,9 +2863,6 @@
             "cluster": [
                 "unlawful",
                 "brooding"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -3255,9 +2887,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -3285,9 +2914,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -3312,9 +2938,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3337,9 +2960,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -3374,9 +2994,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -3399,9 +3016,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -3428,9 +3042,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -3454,9 +3065,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -3480,9 +3088,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -3499,9 +3104,6 @@
         "t_c": {
             "cluster": [
                 "brooding"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3523,9 +3125,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -3552,9 +3151,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3568,9 +3164,6 @@
         "t_c": {
             "cluster": [
                 "brooding"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -3596,9 +3189,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3621,9 +3211,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3644,9 +3231,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3675,9 +3259,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "intro": [
@@ -3698,9 +3279,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3722,9 +3300,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3747,9 +3322,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3769,9 +3341,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -3796,9 +3365,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3814,9 +3380,6 @@
         "t_c": {
             "cluster": [
                 "neurotic"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3834,9 +3397,6 @@
         "t_c": {
             "cluster": [
                 "neurotic"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -3854,9 +3414,6 @@
         "t_c": {
             "cluster": [
                 "neurotic"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -3874,9 +3431,6 @@
         "t_c": {
             "cluster": [
                 "neurotic"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -3909,9 +3463,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "intro": [
@@ -3927,9 +3478,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3944,9 +3492,6 @@
         "t_c": {
             "cluster": [
                 "neurotic"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3967,9 +3512,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -3993,9 +3535,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -4020,9 +3559,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -4039,9 +3575,6 @@
         "t_c": {
             "cluster": [
                 "neurotic"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -4066,9 +3599,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -4091,9 +3621,6 @@
         "t_c": {
             "cluster": [
                 "neurotic"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -4120,9 +3647,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4142,9 +3666,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -4160,9 +3681,6 @@
             "cluster": [
                 "introspective",
                 "neurotic"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4189,9 +3707,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4212,9 +3727,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4226,15 +3738,12 @@
     "stable_kit_02": {
         "y_c": {
             "age": [
-                "you_not_kit"
+                "not_kit"
             ]
         },
         "t_c": {
             "cluster": [
                 "stable"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4261,9 +3770,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "intro": [
@@ -4277,9 +3783,6 @@
         "t_c": {
             "cluster": [
                 "stable"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4302,9 +3805,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4329,9 +3829,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4349,9 +3846,6 @@
         "t_c": {
             "cluster": [
                 "stable"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4369,9 +3863,6 @@
         "t_c": {
             "cluster": [
                 "stable"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4391,9 +3882,6 @@
         "t_c": {
             "cluster": [
                 "stable"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4418,9 +3906,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4446,9 +3931,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4476,9 +3958,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4502,9 +3981,6 @@
         "t_c": {
             "cluster": [
                 "stable"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4528,9 +4004,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4554,9 +4027,6 @@
         "t_c": {
             "cluster": [
                 "stable"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4570,9 +4040,6 @@
         "t_c": {
             "cluster": [
                 "stable"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4603,9 +4070,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4626,9 +4090,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4649,9 +4110,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4661,7 +4119,7 @@
     "stable_kit_20": {
         "y_c": {
             "age": [
-                "you_not_kit"
+                "not_kit"
             ],
             "condition": [
                 "deaf:any:false"
@@ -4673,9 +4131,6 @@
             ],
             "condition": [
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4694,9 +4149,6 @@
         "t_c": {
             "cluster": [
                 "stable"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4718,9 +4170,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4745,9 +4194,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4765,9 +4211,6 @@
         "t_c": {
             "cluster": [
                 "neurotic"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4792,9 +4235,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4818,9 +4258,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "intro": [
@@ -4840,9 +4277,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4866,9 +4300,6 @@
         "t_c": {
             "cluster": [
                 "neurotic"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4890,9 +4321,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4919,9 +4347,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4944,9 +4369,6 @@
             "condition": [
                 "blind:any:false",
                 "hearing"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4973,9 +4395,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -4991,9 +4410,6 @@
         "t_c": {
             "cluster": [
                 "unabashed"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -5014,9 +4430,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "intro": [
@@ -5031,9 +4444,6 @@
         "t_c": {
             "cluster": [
                 "cool"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -5063,9 +4473,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -5090,9 +4497,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -5118,9 +4522,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -5143,9 +4544,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -5167,9 +4565,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -5202,9 +4597,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -5230,9 +4622,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "relationship": [
@@ -5258,9 +4647,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "relationship": [
@@ -5285,9 +4671,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -5311,9 +4694,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -5331,9 +4711,6 @@
         "t_c": {
             "condition": [
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -5353,9 +4730,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "relationship": [
@@ -5379,9 +4753,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -5403,9 +4774,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -5428,9 +4796,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -5451,9 +4816,6 @@
         "t_c": {
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -5480,9 +4842,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -5497,11 +4856,7 @@
     },
     "kit_yourkit5": {
         "y_c": {},
-        "t_c": {
-            "status": [
-                "ancientspirit"
-            ]
-        },
+        "t_c": {},
         "intro": [
             "[t_c and t_l are comparing the size of their paws.]",
             "Mine are bigger! Mine are totally bigger than yours! Heehee!"
@@ -5518,9 +4873,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -5542,9 +4894,6 @@
         "t_c": {
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -5573,9 +4922,6 @@
             ],
             "backstory": [
                 "abandoned"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -5600,9 +4946,6 @@
             ],
             "backstory": [
                 "abandoned"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -5627,9 +4970,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "relationship": [
@@ -5659,9 +4999,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -5692,9 +5029,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "relationship": [
@@ -5717,9 +5051,6 @@
             "cluster": [
                 "unabashed",
                 "brooding"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -5740,9 +5071,6 @@
             "cluster": [
                 "introspective",
                 "neurotic"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -5765,9 +5093,6 @@
             "cluster": [
                 "assertive",
                 "silly"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -5789,9 +5114,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -5811,9 +5133,6 @@
         "t_c": {
             "cluster": [
                 "stable"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -5831,9 +5150,6 @@
         "t_c": {
             "cluster": [
                 "stable"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -5851,9 +5167,6 @@
         "t_c": {
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -5876,9 +5189,6 @@
         "t_c": {
             "cluster": [
                 "stable"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -5901,9 +5211,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -5924,9 +5231,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -5950,9 +5254,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -5977,9 +5278,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -5992,9 +5290,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -6014,9 +5309,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -6034,9 +5326,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -6064,9 +5353,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "you_sleeper"
             ]
         },
         "intro": [
@@ -6090,9 +5376,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -6115,9 +5398,6 @@
             "condition": [
                 "blind:any:false",
                 "hearing"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -6135,9 +5415,6 @@
         "t_c": {
             "cluster": [
                 "upstanding"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -6160,9 +5437,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -6188,9 +5462,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -6218,9 +5489,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "intro": [
@@ -6245,9 +5513,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -6267,9 +5532,6 @@
             "condition": [
                 "deaf:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -6294,9 +5556,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -6314,9 +5573,6 @@
             "cluster": [
                 "cool",
                 "upstanding"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -6340,9 +5596,6 @@
             ],
             "condition": [
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -6366,9 +5619,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -6380,9 +5630,6 @@
         "t_c": {
             "cluster": [
                 "cool"
-            ],
-            "status": [
-                "forest"
             ]
         },
         "season": [
@@ -6417,9 +5664,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "intro": [
@@ -6442,9 +5686,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -6468,9 +5709,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -6728,9 +5966,6 @@
             ],
             "condition": [
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -6752,9 +5987,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -6774,9 +6006,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -6801,9 +6030,6 @@
             ],
             "age": [
                 "younger"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -6832,9 +6058,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -6887,6 +6110,9 @@
     },
     "kitten_sh_J16": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -6900,9 +6126,6 @@
                 "kitten"
             ]
         },
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "[You feel awful for the poor kit. What {PRONOUN/t_c/subject} did was probably an accident, yet {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} still being punished.]",
             "y_c, do you hate me?",
@@ -6970,9 +6193,6 @@
         "t_c": {
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -7007,9 +6227,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -7038,9 +6255,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -7064,9 +6278,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -7240,9 +6451,6 @@
         "t_c": {
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -7331,9 +6539,6 @@
         "t_c": {
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -7358,9 +6563,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "leaffall"
             ]
         },
         "season": [
@@ -7498,9 +6700,6 @@
         "t_c": {
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -7524,9 +6723,6 @@
         "t_c": {
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -7794,9 +6990,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -7812,9 +7005,6 @@
         "t_c": {
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -7835,9 +7025,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -7947,9 +7134,6 @@
         "t_c": {
             "condition": [
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -7972,9 +7156,6 @@
                 "blind:any:false",
                 "deaf:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -8545,10 +7726,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "shunned": true,
-            "status": [
-                "ancientspirit"
-            ]
+            "shunned": true
         },
         "intro": [
             "It's not fair! It's not fair!"
@@ -8567,10 +7745,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "shunned": true,
-            "status": [
-                "ancientspirit"
-            ]
+            "shunned": true
         },
         "intro": [
             "It's not fair! It's not fair!",
@@ -8589,9 +7764,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -8613,9 +7785,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -8638,9 +7807,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -8663,9 +7829,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -8689,9 +7852,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -8715,9 +7875,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -8739,9 +7896,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -8766,9 +7920,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -8801,9 +7952,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -8827,9 +7975,6 @@
         "t_c": {
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -8855,9 +8000,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -8883,9 +8025,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -8908,9 +8047,6 @@
             "condition": [
                 "blind:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -8936,9 +8072,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -8956,9 +8089,6 @@
         "t_c": {
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -8981,10 +8111,7 @@
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "forgiven": true,
-            "status": [
-                "ancientspirit"
-            ]
+            "forgiven": true
         },
         "intro": [
             "... ... ..."
@@ -9001,10 +8128,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "shunned": true,
-            "status": [
-                "ancientspirit"
-            ]
+            "shunned": true
         },
         "intro": [
             "They're not mad at you anymore, y_c?",
@@ -9026,9 +8150,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9048,9 +8169,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -9073,9 +8191,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -9100,10 +8215,7 @@
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "forgiven": true,
-            "status": [
-                "ancientspirit"
-            ]
+            "forgiven": true
         },
         "intro": [
             "[t_c looks guilty.]"
@@ -9114,9 +8226,6 @@
         "t_c": {
             "dead": [
                 "ur"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9137,9 +8246,6 @@
             ],
             "dead": [
                 "ur"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9161,9 +8267,6 @@
             ],
             "dead": [
                 "ur"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9184,9 +8287,6 @@
             ],
             "dead": [
                 "ur"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9210,9 +8310,6 @@
             ],
             "dead": [
                 "ur"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9239,9 +8336,6 @@
             ],
             "dead": [
                 "ur"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9264,9 +8358,6 @@
             ],
             "dead": [
                 "ur"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9293,9 +8384,6 @@
             ],
             "dead": [
                 "ur"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9318,9 +8406,6 @@
             ],
             "dead": [
                 "ur"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9343,9 +8428,6 @@
             ],
             "dead": [
                 "ur"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9367,9 +8449,6 @@
             ],
             "dead": [
                 "ur"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9395,9 +8474,6 @@
             ],
             "dead": [
                 "ur"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9415,9 +8491,6 @@
         "t_c": {
             "dead": [
                 "ur"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9441,9 +8514,6 @@
             ],
             "dead": [
                 "ur"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9465,9 +8535,6 @@
             ],
             "dead": [
                 "ur"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9491,9 +8558,6 @@
             ],
             "dead": [
                 "ur"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9512,9 +8576,6 @@
         "t_c": {
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9536,10 +8597,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "shunned": true,
-            "status": [
-                "ancientspirit"
-            ]
+            "shunned": true
         },
         "intro": [
             "y_c, everycat is still mad at me!",
@@ -9558,9 +8616,6 @@
                 "blind:any:false",
                 "deaf:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9577,10 +8632,7 @@
             "condition": [
                 "grief stricken"
             ],
-            "shunned": true,
-            "status": [
-                "ancientspirit"
-            ]
+            "shunned": true
         },
         "intro": [
             "[t_c sniffles into {PRONOUN/t_c/poss} paws. {PRONOUN/t_c/subject/CAP} {VERB/t_c/don't/doesn't} care enough to notice you.]"
@@ -9601,9 +8653,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9628,9 +8677,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9653,9 +8699,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9680,9 +8723,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9699,9 +8739,6 @@
         "t_c": {
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9726,9 +8763,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9751,9 +8785,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9778,9 +8809,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9800,9 +8828,6 @@
         "t_c": {
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9821,9 +8846,6 @@
         "t_c": {
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9839,11 +8861,7 @@
                 "ur"
             ]
         },
-        "t_c": {
-            "status": [
-                "ancientspirit"
-            ]
-        },
+        "t_c": {},
         "intro": [
             "I told r_m about you, but {PRONOUN/r_m/subject} said I was lying.",
             "No one is allowed to see ghosts besides {PRONOUN/r_m/object}, I guess.",
@@ -9862,9 +8880,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -9887,9 +8902,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -10100,9 +9112,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -10120,9 +9129,6 @@
         "t_c": {
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -10145,9 +9151,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -10169,9 +9172,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -10196,10 +9196,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "shunned": true,
-            "status": [
-                "ancientspirit"
-            ]
+            "shunned": true
         },
         "intro": [
             "Why are you here?"
@@ -10222,10 +9219,7 @@
                 "blind:any:false",
                 "grief stricken"
             ],
-            "shunned": true,
-            "status": [
-                "ancientspirit"
-            ]
+            "shunned": true
         },
         "intro": [
             "Why are you here?"
@@ -10247,9 +9241,6 @@
             "condition": [
                 "blind:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -10269,9 +9260,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -10294,9 +9282,6 @@
             ],
             "skill": [
                 "SONG,1"
-            ],
-            "status": [
-                "newleaf"
             ]
         },
         "season": [
@@ -10421,7 +9406,8 @@
     "neurotic_kitten_SQ3": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent",
+                "adult"
             ],
             "skill": [
                 "SONG,1"
@@ -10437,9 +9423,6 @@
         },
         "relationship": [
             "min_platonic_20"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "[You notice t_c sitting in the nursery entrance, watching the camp. When {PRONOUN/t_c/subject} {VERB/t_c/see/sees} you, t_c straightens and nervously motions you over.]",
@@ -10585,7 +9568,7 @@
                 "any"
             ],
             "age": [
-                "you_older"
+                "older"
             ]
         },
         "t_c": {
@@ -10637,7 +9620,7 @@
     "kitten_shunned_CM2": {
         "y_c": {
             "age": [
-                "you_older"
+                "older"
             ]
         },
         "t_c": {
@@ -10655,6 +9638,9 @@
     },
     "deadkitgreeting_connected_J1~1": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "dead": [
                 "sc",
                 "max_you_deadfor_2"
@@ -10678,7 +9664,6 @@
             "non-related"
         ],
         "tags": [
-            "you_adult",
             "connected"
         ],
         "intro": [
@@ -10711,6 +9696,9 @@
     },
     "deadkitgreeting_connected_J1~2": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "dead": [
                 "sc",
                 "min_you_deadfor_2"
@@ -10734,7 +9722,6 @@
             "non-related"
         ],
         "tags": [
-            "you_adult",
             "connected"
         ],
         "intro": [
@@ -10774,6 +9761,9 @@
     },
     "deadkitgreeting_connected_J1~3": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "dead": [
                 "sc",
                 "min_you_deadfor_3"
@@ -10797,7 +9787,6 @@
             "non-related"
         ],
         "tags": [
-            "you_adult",
             "connected"
         ],
         "intro": [
@@ -10870,9 +9859,6 @@
         "t_c": {
             "condition": [
                 "seizure prone:any:true"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -11382,9 +10368,6 @@
         "t_c": {
             "condition": [
                 "hearing"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -11562,7 +10545,11 @@
         ]
     },
     "neurotic_kitten_SQ14": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -11574,9 +10561,6 @@
         "relationship": [
             "min_platonic_20"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "Everycat says that one day, I'll be big enough to take care of myself.",
             "They say that one day I'll explore really far, and hunt my own prey, and fight bad things if I need to...",
@@ -11585,7 +10569,11 @@
         ]
     },
     "neurotic_kitten_SQ15": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -11600,9 +10588,6 @@
         "relationship": [
             "min_platonic_20"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "[With the newleaf rains, flowers have sprung up all around the camp! t_c eyes them warily, never venturing too close.]",
             "plike-r_c-neurotic said I've gotta be careful, because there are bugs in the flowers? And {PRONOUN/plike-r_c-neurotic/subject} said they could sting me...",
@@ -11615,7 +10600,8 @@
     "neurotic_kitten_SQ16": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent",
+                "adult"
             ],
             "condition": [
                 "blind:any:false"
@@ -11637,9 +10623,6 @@
         ],
         "relationship": [
             "min_platonic_20"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "Everycat's talking about 'leafbare', and it seems really scary...",
@@ -11712,7 +10695,11 @@
         ]
     },
     "neurotic_aboutshunned_SQ3": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -11724,9 +10711,6 @@
         "relationship": [
             "min_platonic_15"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "[t_c creeps up to you, nervously glancing neutral-rsh_c's way.]",
             "y_c? neutral-rsh_c did something really, really bad, didn't {PRONOUN/neutral-rsh_c/subject}? That's what everycat says...",
@@ -11734,7 +10718,11 @@
         ]
     },
     "neurotic_skillghost_SQ1~1": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -11748,9 +10736,6 @@
         },
         "relationship": [
             "min_platonic_30"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "y_c, what's that?",
@@ -11761,7 +10746,11 @@
         ]
     },
     "neurotic_skillghost_SQ1~2": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -11777,7 +10766,6 @@
             "min_platonic_30"
         ],
         "tags": [
-            "you_adult",
             "connected"
         ],
         "intro": [
@@ -11791,6 +10779,9 @@
     },
     "neurotic_skilltreasure_SQ1": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "deaf:any:false"
             ]
@@ -11812,9 +10803,6 @@
                 "TREASURE,1"
             ]
         },
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "[You expect kits to play with feathers until they're ruffled and dirty, so it's a surprise to see t_c carefully carrying a bright red one in {PRONOUN/t_c/poss} mouth.]",
             "[You watch {PRONOUN/t_c/object} gently tuck it into {PRONOUN/t_c/poss} nest and fold some moss over it, protecting {PRONOUN/t_c/poss} new treasure.]"
@@ -11872,7 +10860,11 @@
         ]
     },
     "neurotic_theygrieving_SQ9": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -11887,9 +10879,6 @@
         "relationship": [
             "min_platonic_20"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "[t_c's hiding under a pile of moss in the back of the nursery. You try to coax {PRONOUN/t_c/object} out with a feather and the best piece of prey.]",
             "*sniffle* I don't wanna come out. If tg_c's not there, then I don't ever wanna come out.",
@@ -11897,7 +10886,11 @@
         ]
     },
     "about_unlawful_SQ5": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "status": [
                 "kitten"
@@ -11906,9 +10899,6 @@
         "relationship": [
             "min_platonic_20",
             "min_comfort_50"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "[As soon as you enter the nursery, t_c scampers up to you, wailing.]",
@@ -11990,6 +10980,9 @@
     },
     "they_deaf_shunned_J1": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
@@ -12008,9 +11001,6 @@
             ],
             "shunned": true
         },
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "[You can't imagine how such a small cat could have ended a life.]"
         ]
@@ -12030,10 +11020,7 @@
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "shunned": true,
-            "status": [
-                "ancientspirit"
-            ]
+            "shunned": true
         },
         "intro": [
             "[t_c gets excited everytime you come to visit {PRONOUN/t_c/object}.]",
@@ -12055,10 +11042,7 @@
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "shunned": true,
-            "status": [
-                "ancientspirit"
-            ]
+            "shunned": true
         },
         "relationship": [
             "from_your_kit",
@@ -12205,6 +11189,9 @@
     },
     "livingskill_treasure_SQ2": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "deaf:any:false"
             ]
@@ -12224,16 +11211,17 @@
         "season": [
             "leafbare"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "[t_c struggles to pull a giant icicle piece into the nursery to add to {PRONOUN/t_c/poss} collection.]",
             "[You hope {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} not too upset when it melts...]"
         ]
     },
     "neurotic_choice_fromkitsibling_SQ44": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "introspective",
@@ -12248,9 +11236,6 @@
             "adopted_sibling",
             "sibling",
             "half_sibling"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "[One day when you're visiting the nursery, t_c yawns and leans against you. When you look down at {PRONOUN/t_c/object}, {PRONOUN/t_c/poss} eyes are already closing.]",
@@ -12285,7 +11270,11 @@
         ]
     },
     "neurotic_choice_kitflowers_SQ40": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -12300,9 +11289,6 @@
         ],
         "relationship": [
             "max_dislike_10"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "[t_c stares at a cluster of purple flowers. {PRONOUN/t_c/subject/CAP} gently {VERB/t_c/paw/paws} through them, as if searching for something, and you ask what {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} doing.]",
@@ -12982,7 +11968,11 @@
         ]
     },
     "neurotic_skilltime_SQ2": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -12994,9 +11984,6 @@
                 "TIME,1"
             ]
         },
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "plove-t_p said {PRONOUN/plove-t_p/subject} {VERB/plove-t_p/were/was} gonna be back before sunhigh, and now it's sunhigh, but {PRONOUN/plove-t_p/subject} {VERB/plove-t_p/aren't/isn't} here...",
             "[t_c crouches just inside the nursery and stares at the camp entrance. {PRONOUN/t_c/subject/CAP} {VERB/t_c/sniffle/sniffles}.]",
@@ -13006,7 +11993,11 @@
         ]
     },
     "neurotic_skilltunneler_SQ4": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -13026,9 +12017,6 @@
         ],
         "relationship": [
             "min_platonic_10"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "[t_c is digging in the sand! {PRONOUN/t_c/subject/CAP}{VERB/t_c/'ve/'s} excavated a kit-sized hole so far, and it's only getting bigger.]",
@@ -13266,6 +12254,9 @@
     },
     "neurotic_kitten_SQ28": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -13284,9 +12275,6 @@
         "relationship": [
             "min_platonic_10"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "neutral-r_w-neurotic was telling me about all the scary things outside, so I was hiding in the nursery so the bad stuff wouldn't get me.",
             "But... But then plove-t_p said it's actually safe in camp, and I don't have to worry about bad things here?",
@@ -13298,6 +12286,9 @@
             "cluster": [
                 "neurotic"
             ],
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -13315,9 +12306,6 @@
         },
         "relationship": [
             "max_platonic_30"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "[You're always cautious when you enter the nursery, worried you might step on or frighten a kit. t_c is especially jumpy, though, so you've been even more careful recently.]",
@@ -13328,6 +12316,9 @@
         "y_c": {
             "cluster": [
                 "neurotic"
+            ],
+            "age": [
+                "adult"
             ]
         },
         "t_c": {
@@ -13342,7 +12333,6 @@
             "max_platonic_30"
         ],
         "tags": [
-            "you_adult",
             "connected"
         ],
         "intro": [
@@ -13356,6 +12346,9 @@
     },
     "neurotic_skillsong_SQ1": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -13376,9 +12369,6 @@
         },
         "relationship": [
             "min_platonic_15"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "I wanna make a new song, but r_k-upstanding says you can't just <i>make up</i> new ones.",
@@ -14336,12 +13326,12 @@
                 "cool",
                 "upstanding"
             ],
+            "status": [
+                "kitten"
+            ],
             "backstory": [
                 "orphaned",
                 "abandoned"
-            ],
-            "status": [
-                "kitten"
             ]
         },
         "relationship": [
@@ -14368,12 +13358,12 @@
                 "cool",
                 "upstanding"
             ],
+            "status": [
+                "kitten"
+            ],
             "backstory": [
                 "orphaned",
                 "abandoned"
-            ],
-            "status": [
-                "kitten"
             ]
         },
         "relationship": [
@@ -14698,7 +13688,7 @@
     "accomplice_J6": {
         "y_c": {
             "age": [
-                "you_not_kit"
+                "not_kit"
             ],
             "shunned": true
         },
@@ -14886,7 +13876,8 @@
     "from_kitten_youshunned_E1": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent",
+                "adult"
             ],
             "condition": [
                 "blind:any:false"
@@ -14907,16 +13898,17 @@
         "relationship": [
             "min_platonic_30"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "Hey y_c, r_q was just telling me about how you need to 'relearn the Warrior Code.'",
             "Did you forget it? I can teach you if you'd like!"
         ]
     },
     "neurotic_kitten_SQ30": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "secretive"
@@ -14927,9 +13919,6 @@
         },
         "relationship": [
             "neutral"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "[You duck into the nursery just in time to see t_c shove something under a layer of moss in their nest. {PRONOUN/t_c/subject/CAP} {VERB/t_c/freeze/freezes} and {VERB/t_c/stare/stares} at you.]",
@@ -14991,7 +13980,11 @@
         ]
     },
     "neurotic_choice_kitadvice_SQ46": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -15002,9 +13995,6 @@
         },
         "relationship": [
             "min_platonic_15"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "*sniff* I tried to talk to neutral-r_c, but {PRONOUN/neutral-r_c/subject} said {PRONOUN/neutral-r_c/subject} {VERB/neutral-r_c/were/was} busy and couldn't talk right now.",
@@ -15224,6 +14214,9 @@
     },
     "youdeaf_SQ7": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "deaf:any:true"
             ]
@@ -15239,9 +14232,6 @@
         "relationship": [
             "neutral"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "[t_c creeps up to you and clumsily begins signing. You can... mostly understand {PRONOUN/t_c/object}, but then {PRONOUN/t_c/subject} {VERB/t_c/make/makes} a few signs that you can't interpret.]",
             "[When t_c notices that you look confused, {PRONOUN/t_c/subject} {VERB/t_c/stop/stops}. Averting {PRONOUN/t_c/poss} eyes, {PRONOUN/t_c/subject} {VERB/t_c/turn/turns} and {VERB/t_c/scurry/scurries} away.]"
@@ -15249,6 +14239,9 @@
     },
     "youdeaf_SQ8": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "deaf:any:true"
             ]
@@ -15264,9 +14257,6 @@
         "relationship": [
             "from_your_kit",
             "from_adopted_kit"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "[t_c stares apprehensively at the cats milling around outside the nursery. Whenever anyone gets too close to the entrance, {PRONOUN/t_c/subject} {VERB/t_c/burrow/burrows} into your fur.]",
@@ -15307,6 +14297,2347 @@
         },
         "intro": [
             "[t_c looks at you with curiosity, and smiles when your beady eyes look up at {PRONOUN/t_c/object}.]"
+        ]
+    },
+    "bullying_kittens_H1": {
+        "y_c": {
+            "status": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "bullying"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "min_10_dislike"
+        ],
+        "intro": [
+            "Tsk, why did you get the bigger freshkill? That should be mine!",
+            "Every cat knows I'm gonna be the bigger one!"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "I got it first!",
+                "next_scene": "got_first"
+            },
+            "choice2": {
+                "text": "But you're tiny!",
+                "next_scene": "but_tiny"
+            },
+            "choice3": {
+                "text": "[Give it to {PRONOUN/t_c/object}.]",
+                "next_scene": "give_willingly"
+            }
+        },
+        "got_first": [
+            "Tsk, doesn't matter if you got it first! I want it, and you're gonna give it to me.",
+            "[Before you know it, t_c snatches your freshkill out of your paws.]",
+            "[At least {PRONOUN/t_c/subject} {VERB/t_c/have/has} the decency to shove {PRONOUN/t_c/poss} smaller meal into your direction before prancing off.]"
+        ],
+        "but_tiny": [
+            "I'm not tiny!! I'm just... um, growing into my age! Yeah! And you're gonna stay tiny like this forever. Every cat knows that.",
+            "[t_c sulks off with an embarrassed grumble before you can respond.]"
+        ],
+        "give_willingly": [
+            "[t_c has a smug little grin on {PRONOUN/t_c/poss} face as you paw over your freshkill.]",
+            "Hah!",
+            "I mean, uh, thanks. I guess. Tsk.",
+            "[At least t_c shoves {PRONOUN/t_c/poss} smaller meal into your paws to replace your previous prey.]"
+        ]
+    },
+    "bullying_kittens_H2": {
+        "y_c": {
+            "status": [
+                "any"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "bullying"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "min_10_dislike"
+        ],
+        "intro": [
+            "[You find t_c sulking at the corner of the nursery, and decide to approach {PRONOUN/t_c/object}.]",
+            "What? Your breath stinks and your fur looks funny. Leave me alone!"
+        ]
+    },
+    "bullying_kittens_H3": {
+        "y_c": {
+            "age": [
+                "adolescent"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "bullying"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "min_10_dislike"
+        ],
+        "intro": [
+            "Don't you have something better to do? Like cleaning the Elders' den? Or taking out the stinky prey from the pile?",
+            "[t_c falls over in a heap of snorts and giggles, laughing right in your face.]"
+        ]
+    },
+    "bullying_kittens_H6": {
+        "y_c": {
+            "age": [
+                "adolescent"
+            ],
+            "shunned": true
+        },
+        "t_c": {
+            "cluster": [
+                "bullying"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "min_10_dislike"
+        ],
+        "intro": [
+            "Don't you have something better to do? Like chores or whatever?",
+            "Oh, wait! You're not allowed!",
+            "[t_c falls over in a heap of snorts and giggles, laughing right in your face.]"
+        ]
+    },
+    "bullying_kittens_H4": {
+        "y_c": {},
+        "t_c": {
+            "cluster": [
+                "bullying"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "min_platonic_10",
+            "littermates",
+            "sibling"
+        ],
+        "intro": [
+            "Just tell me who said mean things and I'll bite their tail!",
+            "No cat else bullies my {PRONOUN/y_c/sibling} except for me!"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "But you said mean things.",
+                "next_scene": "said_things"
+            },
+            "choice2": {
+                "text": "I'm not telling.",
+                "next_scene": "no_tell"
+            }
+        },
+        "said_things": [
+            "Yeah, but I do that alllll the time! And you're used to it, right?"
+        ],
+        "no_tell": [
+            "Fine! I'll just bite every tail I see until you tell me who made you cry!",
+            "First target: dislike-r_c!",
+            "[You have a sinking suspicion t_c is just finding an excuse to bite cats.]"
+        ]
+    },
+    "bullying_kittens_H5": {
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "bullying"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "non-related"
+        ],
+        "intro": [
+            "Huh?? You can't tell me what to do!",
+            "Who do you think you are, my {PRONOUN/t_p/parent}?",
+            "Hah!"
+        ]
+    },
+    "bullying_kittens_H7": {
+        "y_c": {
+            "age": [
+                "adult"
+            ],
+            "shunned": true
+        },
+        "t_c": {
+            "cluster": [
+                "bullying"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "min_platonic_20"
+        ],
+        "intro": [
+            "Hey, psst!",
+            "I see a lot of the other adult cats are bullying you. That's kinda rude."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Question {PRONOUN/t_c/object}.]",
+                "next_scene": "question_them"
+            },
+            "choice2": {
+                "text": "[Ignore {PRONOUN/t_c/object}.]",
+                "next_scene": "ignore_them"
+            }
+        },
+        "question_them": [
+            "Hey, I'm not a bully! I just have strong words sometimes.",
+            "Even if I were a bully - which I'm not - I think the other adults are taking it too far. You're a cat too!"
+        ],
+        "ignore_them": [
+            "Tsk, this is what I get for being nice for once? Whatever.",
+            "[Despite t_c's words, {PRONOUN/t_c/subject} {VERB/t_c/stay/stays} near your side for a moment.]",
+            "Hey. Just tell me if the other adults take it too far. I'll talk back for you!"
+        ]
+    },
+    "bullying_kittens_H8": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "bullying"
+            ],
+            "condition": [
+                "deaf:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[t_c jumps out from a bush, successfully scaring you.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/laugh/laughs} at you for being so easy to scare.]"
+        ]
+    },
+    "bullying_kittens_H9": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "bullying"
+            ],
+            "condition": [
+                "blind:any:false",
+                "grief stricken"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "Are you here to get back at me for being mean, huh? Gonna bite me when I'm down?",
+            "That's a new low, even for me!"
+        ]
+    },
+    "bullying_kittens_H10": {
+        "y_c": {},
+        "t_c": {
+            "cluster": [
+                "bullying"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "tags": [
+            "grieving_you"
+        ],
+        "intro": [
+            "What - When did you come back?",
+            "[t_c wipes what appears to be tears from {PRONOUN/t_c/poss} eyes.]",
+            "Whatever! I don't care that you left!"
+        ]
+    },
+    "daydreamer_kittens_H1": {
+        "y_c": {
+            "age": [
+                "older"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "daydreamer"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[You need to call out to t_c a few times until {PRONOUN/t_c/subject} finally {VERB/t_c/seem/seems} to notice your presence.]",
+            "Huh? What?",
+            "Sorry... I, um, I wasn't paying attention."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "You should pay attention more.",
+                "next_scene": "pay_attention"
+            },
+            "choice2": {
+                "text": "What were you thinking about?",
+                "next_scene": "thinking_about"
+            },
+            "choice3": {
+                "text": "Never mind.",
+                "next_scene": "nevermind"
+            }
+        },
+        "pay_attention": [
+            "I know, I know, but I'm having trouble.",
+            "It's like sometimes my head wants to take me away. I feel like I'm missing a lot of stuff.",
+            "I'll grow out of it, right?"
+        ],
+        "thinking_about": [
+            "There is a hole in the ground with a big monster and I was gonna fall in and-",
+            "[You search around, but there isn't a hole or monster anywhere.]",
+            "Oh... I guess it was in my head again."
+        ],
+        "nevermind": [
+            "Oh. Um, okay.",
+            "[t_c looks off into the distance, and appears to fall right back into {PRONOUN/t_c/poss} daydream.]"
+        ],
+        "pay_attention_choices": {
+            "choice1": {
+                "text": "Sure.",
+                "next_scene": "grow_out"
+            },
+            "choice2": {
+                "text": "I don't know.",
+                "next_scene": "dont_know_grow"
+            }
+        },
+        "grow_out": [
+            "[t_c gives you a knowing stink eye, as if {PRONOUN/t_c/subject} {VERB/t_c/know/knows} you're not being forthcoming.]",
+            "You don't gotta tell me stuff to make me feel better."
+        ],
+        "dont_know_grow": [
+            "[t_c sighs, slouching in disappointment.]",
+            "... I don't like not knowing things."
+        ]
+    },
+    "bossy_kittens_H1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "bossy"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "Ugh, you're playing the game wrong!",
+            "The rules are...",
+            "[t_c goes on and on about the rules of the game. Though, you were sure you were playing correctly...]"
+        ]
+    },
+    "bossy_kittens_H2": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "bossy"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "Hey, do you wanna play a game?",
+            "I'll be the clancat and you'll be the loner!"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "But you're always the clancat.",
+                "next_scene": "always_clancat"
+            },
+            "choice2": {
+                "text": "But I wanna be the clancat!",
+                "next_scene": "wanna_be_clancat"
+            },
+            "choice3": {
+                "text": "[Request a different game.]",
+                "next_scene": "different_game"
+            }
+        },
+        "always_clancat": [
+            "Yeah, because it fits me! And loner fits you!",
+            "Don't take it the wrong way or anything."
+        ],
+        "wanna_be_clancat": [
+            "But I claimed it first!",
+            "I'm not gonna play with you if you're gonna be difficult. Hmph!"
+        ],
+        "different_game": [
+            "But I wanna play this game! I'm not in the mood for mossball or whatever.",
+            "Come on, pleaseeeee??"
+        ]
+    },
+    "bossy_kittens_H3": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "bossy"
+            ],
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "min_dislike_10"
+        ],
+        "intro": [
+            "[t_c turns {PRONOUN/t_c/poss} nose at you when you ask to play with {PRONOUN/t_c/object}.]"
+        ]
+    },
+    "bossy_kittens_H4": {
+        "y_c": {},
+        "t_c": {
+            "cluster": [
+                "bossy"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "season": [
+            "leaffall"
+        ],
+        "intro": [
+            "Hey, r_w said not to mess with the leaves because we'll get dirty and dirty up the nursery!",
+            "... Fine! I'll just tattle!"
+        ]
+    },
+    "bossy_kittens_H5": {
+        "y_c": {
+            "status": [
+                "elder"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "bossy"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "min_platonic_5"
+        ],
+        "intro": [
+            "You're making your nest wrong.",
+            "[t_c gets in your way and starts making your nest, pushing the moss together until it's up to {PRONOUN/t_c/poss} standards.]",
+            "There. Just ask me next time to make it the 'right way', okay?"
+        ]
+    },
+    "shy_kittens_H1": {
+        "y_c": {
+            "age": [
+                "adult"
+            ],
+            "condition": [
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "shy"
+            ],
+            "condition": [
+                "deaf:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "neutral",
+            "non-related"
+        ],
+        "intro": [
+            "[When you try to approach t_c, {PRONOUN/t_c/subject} {VERB/t_c/hide/hides} behind {PRONOUN/t_c/poss} {PRONOUN/t_p/parent}'s legs.]"
+        ]
+    },
+    "unruly_kittens_H1": {
+        "y_c": {
+            "age": [
+                "adolescent"
+            ],
+            "condition": [
+                "deaf:any:true"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "deaf:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "season": [
+            "leafbare",
+            "newleaf"
+        ],
+        "tags": [
+            "unruly"
+        ],
+        "intro": [
+            "[In the midst of doing your chores for the day, you happen to stumble across t_c causing some trouble.]",
+            "[t_c's head pops out of the hole {PRONOUN/t_c/subject} dug, completely covered in mud.]",
+            "[You're only able to lip read 'oh whiskers!' before t_c bolts off in the opposite direction.]",
+            "[... You quickly decide it leave that problem to another cat.]"
+        ]
+    },
+    "patient_kittens_H1": {
+        "y_c": {
+            "status": [
+                "queen"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "patient"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[You notice during playtime that r_k took t_c's mossball, and ask t_c about it.]",
+            "Oh, r_k said {PRONOUN/r_k/subject} {VERB/r_k/are/is} just 'borrowing' it. I'm okay with waiting for my turn!"
+        ]
+    },
+    "leader-like_kittens_H1": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false"
+            ],
+            "status": [
+                "mediator",
+                "mediator apprentice"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "leader-like"
+            ],
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[r_q asked for help with an argument between the kittens that {PRONOUN/r_q/subject} {VERB/r_q/weren't/wasn't} able to control.]",
+            "[When you finally get to the nursery with r_q hot on your tail, expecting chaos, you're met with t_c scolding the kittens instead.]",
+            "[It seems like your job was done for you.]"
+        ]
+    },
+    "smug_kittens_H1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "smug"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "Did you hear that, y_c? d_n said I had a great hunting pounce!",
+            "I'm totally going to be the greatest warrior ever."
+        ]
+    },
+    "smug_kittens_H2": {
+        "y_c": {
+            "status": [
+                "medicine cat",
+                "medicine cat apprentice"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "smug"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "That's poppy, right?",
+            "[When you confirm that the herb is poppy, t_c puffs {PRONOUN/t_c/poss} chest and grins.]",
+            "Hah, I knew it."
+        ]
+    },
+    "secretive_kittens_H1": {
+        "y_c": {
+            "age": [
+                "older"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "secretive"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "I wasn't doing anything!",
+            "[t_c scurries off before you could even blink.]"
+        ]
+    },
+    "know-it-all_kittens_H1": {
+        "y_c": {
+            "status": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "know-it-all"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "min_dislike_5"
+        ],
+        "intro": [
+            "You know you and r_k were playing your game wrong, right? r_k made up a whole bunch of warrior codes that don't exist!",
+            "How are you supposed to be a warrior if you don't even know the codes?"
+        ]
+    },
+    "unruly_kittens_H2": {
+        "y_c": {
+            "status": [
+                "mediator",
+                "mediator apprentice"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "kitten"
+            ]
+        },
+        "tags": [
+            "unruly"
+        ],
+        "intro": [
+            "Hey, I noticed it's been really quiet.",
+            "So I stirred up some trouble for you! r_c1 and r_c2 have been mad for hourrrssss!",
+            "Have fun!"
+        ]
+    },
+    "disciplined_kittens_H1": {
+        "y_c": {
+            "status": [
+                "queen",
+                "queen's apprentice"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "disciplined"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[When it's time to take the kittens outside for supervised playtime, you realize t_c is still sitting inside the nursery.]",
+            "You didn't say we could leave the nursery. Aren't we supposed to <i>not<i/> leave until you say it?",
+            "You know, say it. That I'm okay to play.",
+            "[You don't remember enforcing that rule, but you humor {PRONOUN/t_c/object} and explicitly say t_c can leave the nursery.]",
+            "Yayy, thank you, y_c!"
+        ]
+    },
+    "passionate_kittens_H1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "passionate"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "y_c!! Did you know the little furry caterpillars that come up during the beginning the greenleaf are actually butterflies?",
+            "And if we squash all the caterpillars we find, then we get less butterflies!",
+            "I'm going to tell everycat about this so we get more butterflies this greenleaf, and then it would be so pretty seeing them everywhere!"
+        ]
+    },
+    "passionate_kittens_H2": {
+        "y_c": {
+            "age": [
+                "older"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "passionate"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "min_comfort_10"
+        ],
+        "intro": [
+            "y_c... Do I talk too much? r_c said I talk too much.",
+            "I don't think I do! I just know a lot about one thing and can't stop myself from spilling all I know on somecat if it comes up!",
+            "Every other time I don't talk much at all... Right?"
+        ]
+    },
+    "passionate_kittens_H3": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "passionate"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[You find t_c talking animatedly about something to a group of cats. They look increasingly less interested as the moments pass.]",
+            "[... You make the polite decision to just turn around and go another way before you're caught in t_c's infamous, long babbling.]"
+        ]
+    },
+    "manipulative_kittens_H1": {
+        "y_c": {
+            "status": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "manipulative"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "Pssst, hey, I heard that r_e is planning on telling your favorite story! You should go there before you miss it!",
+            "[You scurry off to the elders' den, only to find r_e sleeping instead.]",
+            "[You fell for t_c's schemes. Again.]"
+        ]
+    },
+    "manipulative_kittens_H2": {
+        "y_c": {
+            "age": [
+                "adolescent"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "manipulative"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "I heard some really good gossip today! m_n says you've been failing to meet {PRONOUN/m_n/poss} expectations to l_n!",
+            "[t_c has a grin on {PRONOUN/t_c/poss} face that exposes {PRONOUN/t_c/poss} gossip was actually lies to stir up the camp.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/realize/realizes} you didn't buy it and sighs dramatically.]",
+            "Awww, you're no fun anymore!"
+        ]
+    },
+    "manipulative_kittens_H3": {
+        "y_c": {
+            "status": [
+                "queen",
+                "queen's apprentice"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "manipulative"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "*sniffle* y_c...",
+            "r_k told me I can't play with {PRONOUN/t_c/object} anymore and hit me!",
+            "See, see? I'm hurt!",
+            "[t_c fakes limping around, even though {PRONOUN/t_c/poss} paw doesn't actually look injured.]",
+            "I wanna go to the medicine cat's den!"
+        ]
+    },
+    "attention-seeker_kittens_H1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "shunned": true
+        },
+        "t_c": {
+            "cluster": [
+                "attention-seeker"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "Psst, hey!",
+            "Is it fun being shunned? I mean, you seem to be getting a lot of attention!",
+            "I was just wondering. For, um, a friend! Yeah..."
+        ]
+    },
+    "attention-seeker_kittens_H2": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false"
+            ],
+            "status": [
+                "medicine cat apprentice",
+                "medicine cat"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "attention-seeker",
+                "noisy"
+            ],
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[t_c always seems to be the loudest crier, {PRONOUN/t_c/poss} sobs ringing throughout the camp.]",
+            "[It's just a tiny scratch, but it takes r_c1 and r_c2 to calm {PRONOUN/t_c/object} down enough for you to treat it properly.]"
+        ]
+    },
+    "attention-seeker_kittens_H3": {
+        "y_c": {
+            "age": [
+                "adult"
+            ],
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "attention-seeker"
+            ],
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[t_c continuously paws at your pelt, seeking attention even while you're actively doing things.]"
+        ]
+    },
+    "attention-seeker_kittens_H4": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "attention-seeker"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "Are you ignoring me? I've been asking to play for moons now!",
+            "Well, no, I didn't actually ask but you definitely should have been paying attention to the signs I was giving you!",
+            "[t_c stomps away before you could respond.]"
+        ]
+    },
+    "polite_kittens_H1": {
+        "y_c": {
+            "age": [
+                "older"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "polite"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "Excuse me, pardon me, excuse me!",
+            "Sorry, can't talk right now. Have a good day!"
+        ]
+    },
+    "polite_kittens_H2": {
+        "y_c": {
+            "status": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "polite"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "We say thank you and please and no thank you and excuse me!",
+            "You're really bad at that... but that's okay! We can practice."
+        ]
+    },
+    "leader-like_kittens_H2": {
+        "y_c": {},
+        "t_c": {
+            "cluster": [
+                "leader-like"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "min_trust_10"
+        ],
+        "intro": [
+            "Everycat says I might become leader someday because I show signs, whatever that means.",
+            "I don't know if I want to become a leader, though. They all have seemed to decide for me.",
+            "What if I don't want to become a warrior? What if I want to be a queen or mediator when I grow up?"
+        ]
+    },
+    "impulsive_kittens_H1": {
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "impulsive"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[You were patrolling around the border of the camp when you saw t_c trying to climb a tree a decent bit away from the dens.]",
+            "Come!! On!! I won't eat you, I promiseeee! I just wanna play.",
+            "Rats!",
+            "[A bird flutters out of the tree, flying far out of t_c's reach. Not that {PRONOUN/t_c/subject} can climb the tree anyway.]",
+            "Oh, uh. Hey, y_c! What are you doing here? Haha...",
+            "Me? I just wanted to catch the bird, so I chased them to this tree! But they flew away."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "It's dangerous out of camp.",
+                "next_scene": "dangerous_outhere"
+            },
+            "choice2": {
+                "text": "Maybe you'll catch them next time.",
+                "next_scene": "next_time"
+            }
+        },
+        "dangerous_outhere": [
+            "Oh... So?",
+            "I mean, I'm in sight of the camp! You saw me, so I wasn't <i>that<i/> far away!"
+        ],
+        "next_time": [
+            "I'll definitely get them next time! That bird doesn't know what's coming!"
+        ]
+    },
+    "charming_kit_J1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "charming"
+            ],
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "intro": [
+            "Hey, y_c! r_k asked me to play, but you looked a little lonely. Wanna join us?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "No",
+                "next_scene": "join_no"
+            },
+            "choice2": {
+                "text": "Yes",
+                "next_scene": "join_yes"
+            }
+        },
+        "join_no": [
+            "Aw, really? But we won't have as much fun without you!",
+            "It's okay. Just ask me next time you want to play, and I will!"
+        ],
+        "join_yes": [
+            "Yay, let's go! r_k is already rolling up the moss-ball!"
+        ]
+    },
+    "charming_kit_J2": {
+        "y_c": {
+            "age": [
+                "not_kit"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "charming"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "Hey, y_c! Look at my new friend!",
+            "[t_c, to your amazement, has somehow convinced a crow to play moss-ball with {PRONOUN/t_c/object}!]",
+            "He's super nice! I share my fresh-kill with him, and he sometimes brings me little trinkets. Like this little shiny Twoleg thing, look!",
+            "And r_w already promised me {PRONOUN/r_w/subject} wouldn't eat him, so don't worry.",
+            "[... What an interesting little kit.]"
+        ]
+    },
+    "charming_kit_J3": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false"
+            ],
+            "status": [
+                "not_queen",
+                "not_elder"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "charming"
+            ],
+            "condition": [
+                "deaf:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "min_platonic_10",
+            "max_dislike_5",
+            "from_kit"
+        ],
+        "intro": [
+            "[While you're on your way out of camp, you catch t_c's eye from the nursery and {PRONOUN/t_c/subject} {VERB/t_c/flash/flashes} you {PRONOUN/t_c/poss} biggest, cheesiest smile, waving an excited paw in the air.]",
+            "!!!",
+            "[Immediately, you want to run up and give {PRONOUN/t_c/object} a big hug, but you have work to do!]",
+            "[t_c makes it so hard to be away from {PRONOUN/t_c/object}. What a wonderful kit!]"
+        ]
+    },
+    "fearless_kit_J1": {
+        "y_c": {
+            "cluster": [
+                "neurotic"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "fearless"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[While play-fighting with t_c, you accidentally barrel into the nursery wall, ripping a hole in the woven vines.]",
+            "[You instantly run up to the damage, trying your best with your inexperienced little paws to patch it back up before any queens come inside and notice.]",
+            "What are you doing? You can't fix the wall. I'll just tell the warriors.",
+            "No, why would they be mad? It's their job to fix it! You don't need to be scared of your own Clanmates."
+        ]
+    },
+    "fearless_kit_J2": {
+        "y_c": {},
+        "t_c": {
+            "cluster": [
+                "fearless"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[A group of kits is crouched around a large, scary-looking bug that has wandered into camp. While r_k and t_l look frightened, t_c bats at it.]",
+            "What are you guys so scared of? It's just a bug!",
+            "[When t_c pokes it, the bug jumps and lands on {PRONOUN/t_c/poss} face! Its long legs stretch over {PRONOUN/t_c/poss} entire muzzle. The group of kits all flees, yowling in surprise.]",
+            "Haha! He's even cuter up close!"
+        ]
+    },
+    "skittish_kit_J1": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false"
+            ],
+            "status": [
+                "any"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "skittish"
+            ],
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ]
+        },
+        "intro": [
+            "[A stray leaf bumps into t_c's paw, who then puffs up into a ball with a scared yelp.]",
+            "[When r_k bursts into a laughing fit, t_c flattens {PRONOUN/t_c/poss} fur, looking embarrassed.]"
+        ]
+    },
+    "skittish_kit_J2": {
+        "y_c": {},
+        "t_c": {
+            "cluster": [
+                "skittish"
+            ],
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "intro": [
+            "[t_c is listening to r_e-unlawful tell a scary story, completely enthralled.]",
+            "[Suddenly, r_e-unlawful juts {PRONOUN/r_e-unlawful/poss} head forward and yells something, startling t_c to {PRONOUN/t_c/poss} paws, who then runs to you.]",
+            "y_c! *Sniff* r_q told me r_e-unlawful would tell me a n-nice story this time!"
+        ]
+    },
+    "impulsive_kit_J1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "impulsive"
+            ],
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "intro": [
+            "y_c! Dare me to go steal some honey from the medicine den!",
+            "[t_c races off to go do it before you can speak.]"
+        ]
+    },
+    "self-conscious_kit_J1": {
+        "y_c": {},
+        "t_c": {
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "from_kit",
+            "from_adopted_kit"
+        ],
+        "tags": [
+            "self-conscious"
+        ],
+        "intro": [
+            "[You watch t_c as {PRONOUN/t_c/subject} {VERB/t_c/groom/grooms} {PRONOUN/t_c/poss} little paws, love for {PRONOUN/t_c/object} coursing through your body at the sight. Your kit is so cute!]",
+            "What? Do I look funny? What's wrong??"
+        ]
+    },
+    "bullying_kits_dislike_rad1": {
+        "y_c": {
+            "status": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "bullying"
+            ],
+            "age": [
+                "older"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "min_dislike_25"
+        ],
+        "intro": [
+            "[t_c is happily playing a game with plike-t_l, but {PRONOUN/t_c/poss} expression darkens as you approach.]",
+            "No, y_c. Little kits always ruin this game. Go bother somecat else."
+        ]
+    },
+    "you_deaf_noisy_kit_rad1": {
+        "y_c": {
+            "condition": [
+                "deaf:any:true"
+            ],
+            "status": [
+                "any"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "noisy"
+            ],
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "deaf:any:false"
+            ]
+        },
+        "intro": [
+            "[You wince as t_c meows extremely loudly into your ear.]",
+            "[You may not be able to hear t_c, but {PRONOUN/t_c/poss} voice vibrated so strongly that now your entire head feels like it's thrumming.]"
+        ]
+    },
+    "daydreamer_kit_rad1": {
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "daydreamer"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "tags": [
+            "you_adolescent"
+        ],
+        "intro": [
+            "[You call t_c's name to get {PRONOUN/t_c/poss} attention, but {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} react.]",
+            "[Nor {VERB/t_c/do/does} {PRONOUN/t_c/subject} react the next five times you say {PRONOUN/t_c/poss} name. {PRONOUN/t_c/subject/CAP} only {VERB/t_c/react/reacts} when you prod {PRONOUN/t_c/object} with your paw.]",
+            "Oh! Were you talking to me?",
+            "[How does that kit get so lost in {PRONOUN/t_c/poss} own thoughts?]"
+        ]
+    },
+    "noisy_shunned_rad1": {
+        "y_c": {},
+        "t_c": {
+            "cluster": [
+                "noisy"
+            ],
+            "status": [
+                "kitten"
+            ],
+            "shunned": true
+        },
+        "intro": [
+            "[t_c is sitting alone, {PRONOUN/t_c/poss} gaze tilted to the sky.]",
+            "[Being shunned must have changed {PRONOUN/t_c/object}. You've never seen t_c so quiet.]",
+            "MeeeeRAAAAAAAAAAAAAAAAAAAOOOOOOOOOOOOOOOOOOOOOOOOOOWWWWWWWWWWWWWWWWWWUUUUUUWWWWUUUWWWWWWWUWWWWWUAAAAAAAAHHHHHHHHHHH!!!",
+            "[... Never mind.]"
+        ]
+    },
+    "honest_grandkit_rad1": {
+        "y_c": {
+            "status": [
+                "elder"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "honest"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "they_grandchild"
+        ],
+        "intro": [
+            "[You're telling t_c a story about your exploits as an apprentice when you realize {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} looking at you skeptically.]",
+            "Is this a real story? It doesn't sound like something you would do.",
+            "[You reassure t_c that it is, in fact, a true story - you got up to some unusual things in your younger moons.]",
+            "Yeah, but I can't imagine you doing it, y_c. Maybe a cat way cooler, but not you."
+        ]
+    },
+    "shy_friend_rad1": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "shy"
+            ],
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ]
+        },
+        "relationship": [
+            "from_your_kit",
+            "from_adopted_kit"
+        ],
+        "intro": [
+            "[t_c and plike-r_k_attention-seeker have been playing together a lot lately.]",
+            "[It's an odd match, but maybe plike-r_k_attention-seeker just knows how to bring your kit out of {PRONOUN/t_c/poss} shell.]"
+        ]
+    },
+    "self-conscious_kitten_rad1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "queen",
+                "queen's apprentice"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "min_platonic_25"
+        ],
+        "tags": [
+            "self-conscious"
+        ],
+        "intro": [
+            "Hey, umm... y_c? Can I ask a weird question?",
+            "... Do I sneeze funny?",
+            "r_k said that my sneezes sound different from {PRONOUN/r_k/inposs}, and now I can't stop thinking about it."
+        ]
+    },
+    "grumpy_kitten_season_rad1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "grumpy"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "season": [
+            "newleaf"
+        ],
+        "intro": [
+            "I get that newleaf flowers are pretty, but everycat is bringing them into the nursery, and they end up in my nest.",
+            "I don't want to sleep in a flowerbed."
+        ]
+    },
+    "grumpy_kitten_season_rad2": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "grumpy"
+            ],
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "season": [
+            "greenleaf"
+        ],
+        "intro": [
+            "Who decided that greenleaf had to be so hot all the time?",
+            "Because I don't like them."
+        ]
+    },
+    "grumpy_kitten_season_rad3": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "grumpy"
+            ],
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "tags": [
+            "leaf-fall"
+        ],
+        "intro": [
+            "If r_k brings any more leaves into the nursery just because {PRONOUN/r_k/subject} thought they looked pretty, I'm moving my nest outside."
+        ]
+    },
+    "sweet_kitten_yougrieving_rad1": {
+        "y_c": {
+            "condition": [
+                "grief stricken"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "sweet_trait"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "tags": [
+            "you_no_kit"
+        ],
+        "intro": [
+            "[t_c drops a small bundle of flowers at your paws.]",
+            "r_q said that sometimes when cats are grieving, putting flowers on the dead cat's grave can help them feel better.",
+            "So I got you these so you could put them at yg_c's grave, in case it would help you.",
+            "Only if you want to, though."
+        ]
+    },
+    "sweet_kitten_theygrieving_rad1": {
+        "y_c": {
+            "status": [
+                "warrior",
+                "medicine cat"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "sweet_trait"
+            ],
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "grief stricken"
+            ]
+        },
+        "intro": [
+            "[t_c plods up to you, carrying some flowers.]",
+            "t_c, I know kits have to stay in camp, but...",
+            "I picked these flowers earlier, and I'd really like to put them on tg_c's grave.",
+            "Would I be able to go there if you went with me?",
+            "... And if not, can you put these flowers on {PRONOUN/tg_c/poss} grave for me, and tell {PRONOUN/tg_c/object} that they're from me?"
+        ]
+    },
+    "rebellious_kitten_medcat_rad1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "medicine cat",
+                "medicine cat apprentice"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "rebellious"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[You mention to d_n that you need to go out to gather some herbs.]",
+            "Oh! y_c! y_c! I think I saw some herbs you could gather! There's a patch of flowers a little ways down from behind the camp.",
+            "How do I know about this? Oh, um, uhh...",
+            "r_a told me about it earlier! I promise I wasn't outside the camp! Honest!"
+        ]
+    },
+    "quiet_kitten_you_dead_rad1": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false"
+            ],
+            "dead": [
+                "any"
+            ],
+            "status": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "deaf:any:false"
+            ]
+        },
+        "tags": [
+            "quiet",
+            "they_living"
+        ],
+        "intro": [
+            "[t_c gazes at you curiously.]"
+        ]
+    },
+    "daydreamer_kitten_dead_rad1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "ur",
+                "sc"
+            ],
+            "status": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "daydreamer"
+            ],
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "ur",
+                "sc"
+            ]
+        },
+        "intro": [
+            "Before I died, the queens used to tell me that I had my head in the clouds.",
+            "I know everycat meant I was always daydreaming, but I think they should change the expression.",
+            "'Cause now that I'm dead, technically all of me is in the clouds, and it doesn't feel much different than when it was just my head here."
+        ]
+    },
+    "smug_kitten_youshunned_rad1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "shunned": true
+        },
+        "t_c": {
+            "cluster": [
+                "smug"
+            ],
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "min_dislike_10"
+        ],
+        "intro": [
+            "Everycat took too long to shun you! I knew you were a bad cat right from the start.",
+            "[You had no idea how much arrogance could radiate off a kit until now.]"
+        ]
+    },
+    "fearless_kitten_rad1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "fearless"
+            ],
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "intro": [
+            "r_a tried to scare me by telling me that blue butterflies are a sign something bad is gonna happen.",
+            "{PRONOUN/r_a/subject/CAP} must think I'm a mouse-brain. I'm not scared of a butterfly!"
+        ]
+    },
+    "self-conscious_kitten_you_sc_rad1": {
+        "y_c": {
+            "dead": [
+                "sc"
+            ],
+            "status": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "shy"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "tags": [
+            "self-conscious",
+            "they_living"
+        ],
+        "intro": [
+            "Umm...",
+            "You're a StarClan cat, right? What are you doing here?",
+            "[You explain to t_c that you're just watching over your living Clanmates, like all StarClan cats do.]",
+            "... Okay. But, um... Could you go watch some other cat?",
+            "I don't like it when other cats stare at me."
+        ]
+    },
+    "polite_kitten_rad1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "charming",
+                "polite"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "r_q told me I'm mature for my age.",
+            "I don't know why. I just said it was gross that the other kits were making dirtplace jokes."
+        ]
+    },
+    "manipulative_kittens_rad1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "manipulative"
+            ],
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "min_platonic_10",
+            "min_trust_5"
+        ],
+        "intro": [
+            "Wanna know how to get out of cleaning the nursery?",
+            "Tell the queens you have to use the dirtplace first, and then stay in there for a really long time. Eventually they give up and clean the nursery without you.",
+            "Hiding in the dirtplace stinks, but it's better than cleaning the nursery."
+        ]
+    },
+    "attention-seeker_kitten_rad1": {
+        "y_c": {},
+        "t_c": {
+            "cluster": [
+                "attention-seeker"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "tags": [
+            "you_no_kitten"
+        ],
+        "intro": [
+            "[t_c has wadded a bunch of old moss together and is embedding sticks into it.]",
+            "[Finally, when {PRONOUN/t_c/subject} {VERB/t_c/appear/appears} satisfied with the result, {PRONOUN/t_c/subject} {VERB/t_c/drape/drapes} the moss over {PRONOUN/t_c/poss} back, sticks facing outwards.]",
+            "Hey, y_c! y_c! Guess what I am! I bet you can't figure it out!",
+            "Can you tell? I'm a hedgehog! Don't I look just like one?"
+        ]
+    },
+    "grumpy_kitten_youdead_rad1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "any"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "grumpy"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "tags": [
+            "they_living"
+        ],
+        "intro": [
+            "[Some of the kits, when they see you, react with surprise or confusion - much differently than they do when they see their living Clanmates.]",
+            "... What do you want?",
+            "[t_c isn't one of them.]"
+        ]
+    },
+    "secretive_kitten_rad1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "queen",
+                "queen's apprentice"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "secretive"
+            ],
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "intro": [
+            "Huh? Where have I been?",
+            "Nowhere important."
+        ]
+    },
+    "manipulative_kittens_rad2": {
+        "y_c": {
+            "status": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "manipulative"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "max_platonic_10",
+            "max_dislike_10"
+        ],
+        "intro": [
+            "[You're playing in the clearing when t_c bursts out of a nearby den and bolts towards you, eyes wide.]",
+            "y_c! y_c! It's chasing me!",
+            "Run!!!"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Run",
+                "next_scene": "run"
+            },
+            "choice2": {
+                "text": "Stay where you are",
+                "next_scene": "stay"
+            }
+        },
+        "run": [
+            "[You leap up and start to run, hoping you can find a warrior before whatever is chasing t_c catches up to you two.]",
+            "[... Or at least, you run until you hear t_c squealing with laughter behind you.]",
+            "Really?! There's nothing behind me! I can't believe you fell for that!",
+            "[... That absolute worm-weasel.]"
+        ],
+        "stay": [
+            "[You continue playing your game, allowing t_c to race past you.]",
+            "[Once {PRONOUN/t_c/subject} {VERB/t_c/realize/realizes} you haven't moved, {PRONOUN/t_c/subject} {VERB/t_c/stop/stops} running, turning to you in confusion.]",
+            "Why aren't you running? It'll get you!",
+            "[You stare at t_c unflinchingly, and after several moments, {PRONOUN/t_c/subject} {VERB/t_c/slump/slumps} in annoyance.]",
+            "... It's no fun trying to trick you."
+        ]
+    },
+    "quiet_kitten_rad1": {
+        "y_c": {
+            "status": [
+                "medicine cat",
+                "medicine cat apprentice"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "kitten"
+            ]
+        },
+        "tags": [
+            "quiet"
+        ],
+        "intro": [
+            "[While sorting through herbs, you glance up to see t_c, observing you from the entrance to the medicine den.]",
+            "... I have a thorn stuck behind my ear. Can you pull it out?",
+            "[How long was t_c sitting there?]"
+        ]
+    },
+    "attention-seeker_kitten_medcat_rad1": {
+        "y_c": {
+            "status": [
+                "medicine cat",
+                "medicine cat apprentice"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "attention-seeker"
+            ],
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "intro": [
+            "[You're giving t_c one of {PRONOUN/t_c/poss} moonly checkups to make sure {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} healthy.]",
+            "OW!!!",
+            "[You pause, paw hovering over t_c's pelt.]",
+            "... Oh. I thought you had put your paw on me already."
+        ]
+    },
+    "bossy_kitten_you_df_rad1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "df"
+            ],
+            "status": [
+                "kitten",
+                "queen's apprentice"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "bossy"
+            ],
+            "status": [
+                "kitten"
+            ],
+            "skill": [
+                "DARK,1"
+            ]
+        },
+        "intro": [
+            "You better not make the nursery all muddy! Otherwise I'm telling r_q it was your fault, and you'll have to clean it up.",
+            "[Apparently t_c doesn't realize you're not actually tracking mud anywhere...]"
+        ]
+    },
+    "skittish_kitten_you_df_rad1": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false"
+            ],
+            "dead": [
+                "df"
+            ],
+            "status": [
+                "any"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "skittish"
+            ],
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "deaf:any:false"
+            ],
+            "skill": [
+                "DARK,1"
+            ]
+        },
+        "intro": [
+            "[t_c's ears slowly flatten as {PRONOUN/t_c/subject} {VERB/t_c/stare/stares} at you in terror.]"
+        ]
+    },
+    "self-conscious_kitten_shunned_rad1": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "deaf:any:false"
+            ],
+            "shunned": true
+        },
+        "tags": [
+            "self-conscious"
+        ],
+        "intro": [
+            "[t_c huddles off to the side, as though {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} trying to be as inconspicuous as possible.]"
+        ]
+    },
+    "rebellious_kitten_ant1": {
+        "y_c": {
+            "status": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "rebellious"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[After jumping in puddles all day, you and t_c are muddy from head to tail.]",
+            "y_c! Don't look now, but I think r_q wants to give us a bath.",
+            "Quick--if we run fast enough, {PRONOUN/r_q/subject} won't be able to catch us!",
+            "You run towards the elder's den, and I'll run towards the nursery. Ready?",
+            "Okay... go!!!"
+        ]
+    },
+    "rebellious_kitten_ant2": {
+        "y_c": {
+            "age": [
+                "adult"
+            ],
+            "shunned": true
+        },
+        "t_c": {
+            "cluster": [
+                "rebellious"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "min_platonic_10"
+        ],
+        "intro": [
+            "[You hear a whispery voice coming from the bush you're sitting next to.]",
+            "y_c! y_c, can you hear me?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Ignore t_c.]",
+                "next_scene": "ignore"
+            },
+            "choice2": {
+                "text": "[Talk to t_c.]",
+                "next_scene": "talk_to"
+            }
+        },
+        "ignore": [
+            "Hey! Can you at least acknowledge me?",
+            "[t_c's angry face pokes out of the bush.]",
+            "Ugh! You're so boring. Maybe I should have listened when r_w told me not to talk to you.",
+            "[t_c runs away before r_w can chastise {PRONOUN/t_c/object} for speaking with you."
+        ],
+        "talk_to": [
+            "What? Does r_w know I'm talking to you? Well, not <i>exactly<i/>...",
+            "[t_c looks for r_w across the camp. When r_w sees t_c, {PRONOUN/r_w/subject} {VERB/r_w/don't/doesn't} look happy...]",
+            "Well, y_c, looks like I gotta go! I'll visit ya tomorrow!!",
+            "[t_c runs away before r_w can chastise {PRONOUN/t_c/object} for speaking with you."
+        ]
+    },
+    "rebellious_kitten_ant3": {
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "rebellious"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[t_c has pronounced that {PRONOUN/t_c/subject} {VERB/t_c/are/is} a frog, and has decided to start hopping around instead of walking.]",
+            "Watch out, y_c, I'm coming through!",
+            "[You do your best to get out of t_c's way, but somehow {PRONOUN/t_c/subject} still {VERB/t_c/manage/manages} to crash into you.]",
+            "Sorry! I'll be more careful next time, I swear!!",
+            "[You chuckle as t_c hops away again, crashing into another cat almost immediately.]"
+        ]
+    },
+    "sweet_kitten_ant1": {
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "sweet_trait"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[t_c bounds up to you, {PRONOUN/t_c/poss} eyes filled with worry. In {PRONOUN/t_c/poss} jaws, carefully wrapped in a leaf, is a small caterpillar. t_c sets it down gently.]",
+            "y_c! I found this little guy by the nursery. r_k kept saying that {PRONOUN/r_k/subject} wanted to squish it, but I won't let {PRONOUN/r_k/object}.",
+            "Only... I'm not all too sure what I should do with it now. Do you know a safe place for it to go?",
+            "[You lead t_c to the edge of camp, commenting that not many cats come here so the caterpillar shouldn't be bothered. t_c, who looks relieved, sets the leaf down near some brambles.]",
+            "[You both watch as the caterpillar crawls off of the leaf, glad to see it returned to where it belongs.]"
+        ]
+    },
+    "sweet_kitten_ant2": {
+        "y_c": {
+            "age": [
+                "adult"
+            ],
+            "condition": [
+                "grief stricken"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "sweet_trait"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[t_c approaches you slowly, {PRONOUN/t_c/poss} tail flicking.]",
+            "Hi, y_c, sorry you're not feeling well.",
+            "r_k and I were just going to play a game of moss-ball if you want to join us."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Accept.]",
+                "next_scene": "accept"
+            },
+            "choice2": {
+                "text": "[Politely decline.]",
+                "next_scene": "decline"
+            }
+        },
+        "accept": [
+            "Really? Yay! I'll go tell r_k!",
+            "[You spend the majority of the afternoon playing moss-ball with t_c and r_k.]",
+            "[You're pleasantly surprised to find that the interaction cheers you up a little bit.]"
+        ],
+        "decline": [
+            "Oh, that's okay!",
+            "I hope you feel better soon, y_c. And if you change your mind later, you're welcome to join us!",
+            "[t_c runs off to go play moss-ball with r_k.]"
+        ]
+    },
+    "sweet_kitten_ant3": {
+        "y_c": {
+            "status": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "sweet_trait"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[t_c catches sight of you sitting alone near the nursery and approaches you.]",
+            "Hi, y_c! Do you wanna come pretend to be Clan leaders with r_k and I?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Yes!.]",
+                "next_scene": "yes"
+            },
+            "choice2": {
+                "text": "[No!]",
+                "next_scene": "no"
+            }
+        },
+        "yes": [
+            "Yay! I'll be the leader of o_c_n, and you can be the leader of your own Clan... y_cClan! r_k already said {PRONOUN/r_k/subject} {VERB/r_k/want/wants} to be the leader of c_nClan.",
+            "C'mon, y_c! Let's go find r_k!",
+            "[You follow t_c away from the nursery, feeling happy that {PRONOUN/t_c/subject} decided to include you in {PRONOUN/t_c/poss} game.]"
+        ],
+        "no": [
+            "Alright! I understand if you want to be alone!",
+            "r_k and I are gonna be playing over by the warrior's den, so if you change your mind, come find us there!",
+            "[t_c smiles at you before padding off to go play with r_k.]"
+        ]
+    },
+    "sweet_kitten_ant4": {
+        "y_c": {
+            "age": [
+                "adult"
+            ],
+            "shunned": true
+        },
+        "t_c": {
+            "cluster": [
+                "sweet_trait"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "min_platonic_15"
+        ],
+        "intro": [
+            "[t_c smiles as {PRONOUN/t_c/subject} {VERB/t_c/walk/walks} up to you, a small piece of prey in {PRONOUN/t_c/poss} jaws.]",
+            "Hi, y_c! I brought this piece of prey for you!",
+            "[t_c sets the prey down on the ground in front of your paws.]",
+            "I wasn't sure what you liked, so I just picked the one that looked the best!",
+            "Anyways, I hope you like it!"
+        ]
+    },
+    "testdialogue": {
+        "y_c": {},
+        "t_c": {
+            "age": [
+                "kitten"
+            ]
+        },
+        "relationship": [],
+        "intro": [
+            "y_c! Help me! I'm hiding from r_q!"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Refuse",
+                "next_scene": "refuse"
+            },
+            "choice2": {
+                "text": "Help hide",
+                "next_scene": "help"
+            }
+        },
+        "refuse": [
+            "[You can't help t_c run away from trouble! You refuse to help {PRONOUN/t_c/object} evade capture.]",
+            "I thought we were friends, y_c!",
+            "|r_q| Oh, t_c! Where are you?",
+            "Eep!",
+            "[t_c jumps and runs away.]"
+        ],
+        "help": [
+            "[With a quick nod, you hide t_c under your legs. r_q wanders past, sniffing the air.]",
+            "|r_q|y_c, have you seen t_c? It's bathtime, and I think {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} hiding.",
+            "|r_q|No? Ah, okay. {PRONOUN/t_c/subject/CAP} can't be far...",
+            "[r_q leaves, and t_c shakes with laughter underneath you.]"
         ]
     }
 }

@@ -1127,7 +1127,7 @@
                 "weight": 20
             },
             {
-                "text": "You ask if your_crush wants to hear a story, and they accept. You relate a tale of a long-ago c_n medicine cat going on a journey to find a legendary herb to save their mate from a terrible illness while your_crush listens, enraptured. Your storytelling is skillful enough to distract them from their worries, and when you're finished, they seem much lighter.",
+                "text": "You ask if yourcrush wants to hear a story, and they accept. You relate a tale of a long-ago c_n medicine cat going on a journey to find a legendary herb to save their mate from a terrible illness while yourcrush listens, enraptured. Your storytelling is skillful enough to distract them from their worries, and when you're finished, they seem much lighter.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": [
@@ -1146,7 +1146,7 @@
                 "weight": 20
             },
             {
-                "text": "You're nervous that you might make your_crush feel worse, so you decide to simply cheer them up with some encouragement. You spend several hours planning exactly what you want to say to them, but by time you feel confident enough to execute your plan, your_crush already seems to be feeling better.",
+                "text": "You're nervous that you might make yourcrush feel worse, so you decide to simply cheer them up with some encouragement. You spend several hours planning exactly what you want to say to them, but by time you feel confident enough to execute your plan, yourcrush already seems to be feeling better.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [
@@ -1192,7 +1192,7 @@
                 "weight": 20
             },
             {
-                "text": "They agree and meet you by the river that night. You spent the whole day preparing conversation topics in case the walk is awkward, but your_crush doesn't seem to mind your silences. You spend several hours strolling by the water, brushing against each other and pointing out the stars.",
+                "text": "They agree and meet you by the river that night. You spent the whole day preparing conversation topics in case the walk is awkward, but yourcrush doesn't seem to mind your silences. You spend several hours strolling by the water, brushing against each other and pointing out the stars.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": [
@@ -1210,7 +1210,7 @@
                 ]
             },
             {
-                "text": "Of course you're nervous to take a walk with your_crush, but your anxiety slips away when you hear the river's familiar burbling. You take a deep breath, remembering other calm evenings at this very spot. The walk is peaceful, and you learn a lot about each other.",
+                "text": "Of course you're nervous to take a walk with yourcrush, but your anxiety slips away when you hear the river's familiar burbling. You take a deep breath, remembering other calm evenings at this very spot. The walk is peaceful, and you learn a lot about each other.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": [
@@ -1238,7 +1238,7 @@
                 "weight": 20
             },
             {
-                "text": "Your nervousness only grows throughout the day, and by the time you meet  your_crush by the river, your stomach feels like you've eaten crowfood. When you become too anxious to form coherent sentences, you excuse yourself and head back to camp early.",
+                "text": "Your nervousness only grows throughout the day, and by the time you meet  yourcrush by the river, your stomach feels like you've eaten crowfood. When you become too anxious to form coherent sentences, you excuse yourself and head back to camp early.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [

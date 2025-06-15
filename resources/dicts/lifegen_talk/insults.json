@@ -3061,7 +3061,7 @@
     "gen_forgiven_insult_H8": {
         "y_c": {
             "age": [
-                "you_younger"
+                "younger"
             ],
             "status": [
                 "any"
@@ -5425,7 +5425,11 @@
         ]
     },
     "TinyTeddy_stable_neg_youadult_theyapp_01": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "stable"
@@ -5435,8 +5439,7 @@
             ]
         },
         "tags": [
-            "insult",
-            "you_adult"
+            "insult"
         ],
         "intro": [
             "I-",

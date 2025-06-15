@@ -9,8 +9,8 @@ cluster_addons = [
     "cold", "gloomy", "strict", "vengeful", "grumpy", "bullying", "secretive", "aloof", "stoic", "reserved",
     "charismatic", "cunning", "charming", "manipulative", "leader-like", "passionate", "witty",
     "flexible", "mellow", "flamboyant", "righteous", "ambitious", "responsible", "bossy", "know-it-all",
-    "loyal", "justified", "methodical", "lonesome", "calm", "wise", "thoughtful", "quiet", "daydreamer",
-    "nervous", "insecure", "careful", "meek", "cowardly", "emotional", "troublesome", "childish", "playful", "strange",
+    "loyal", "justified", "methodical", "lonesome", "calm", "wise", "thoughtful", "quiet", "daydreamer", "skittish", "fearless",
+    "nervous", "insecure", "careful", "meek", "cowardly", "emotional", "troublesome", "childish", "playful", "strange", "shy",
     "attention-seeker", "rebellious", "bouncy", "energetic", "spontaneous", "faithful", "polite", "disciplined", 
     "patient", "trusting", "compassionate", "loving", "oblivious", "sincere", "humble",
     "shameless", "honest", "adventurous", "sneaky", "obsessive",
@@ -96,11 +96,11 @@ cluster_tags = [
     'attention-seeker', 'charming', 'daring', 'noisy', 'daydreamer',
     'polite', 'know-it-all', 'bossy', 'disciplined', 'patient',
     'manipulative', 'secretive', 'rebellious', 'grumpy', 'passionate',
-    'honest', 'leader-like', 'smug', "sweet_trait"
+    'honest', 'leader-like', 'smug', "sweet_trait", "skittish", "fearless", "shy"
 ]
 
 they_age_tags = ["they_app", "they_adult", "they_older", "they_sameage", "they_younger"]
-you_age_tags = ["you_not_kit", "you_app", "you_older", "you_younger"]
+you_age_tags = ["you_not_kit", "you_app", "you_older", "you_younger", "you_adult", "you_younger", "you_sameage"]
 
 just_statuses = [
     "newborn", "kitten", "medicine cat", "medicine cat apprentice",
@@ -114,7 +114,7 @@ relationship_values = [
     "hate", "jealousy", "platonic", "dislike", "romantic", "admiration", "respect", "trust", "comfort", "neutral",
     "from_your_parent", "from_adopted_parent", "adopted_parent", "half_sibling",
     "littermate", "siblings_mate", "cousin", "adopted_sibling", "parents_siblings",
-    "from_mentor", "from_df_mentor", "from_your_kit", "from_your_apprentice",
+    "from_mentor", "from_df_mentor", "from_your_kit", "from_your_apprentice", "they_grandchild",
     "from_df_apprentice", "from_mate", "from_parent", "adopted_parent", "from_kit",
     "sibling", "from_adopted_kit", "non-related", "murderedthem", "murderedyou", "grievingthem", "grievingyou", "non-mates"
 ]
@@ -169,8 +169,8 @@ abbrev_list = [
         "r_q",
         "r_k",
         "r_e",
-        "their_crush",
-        "your_crush",
+        "theircrush",
+        "yourcrush",
         "r_w1",
         "r_w2",
         "r_w3",
@@ -246,6 +246,9 @@ def underscore_replace(string, dialogue_id=""):
                 abbrev = abbrev.replace("t_p_pos", "plove-t_p")
             if "t_p_negative" in abbrev:
                 abbrev = abbrev.replace("t_p_negative", "dislike-t_p")
+
+            # if "rlike-r_c" in abbrev:
+            #     abbrev = abbrev.replace("rlike-r_c", "rlike_r_c")
 
             new_string = new_string.replace(abbrev, new_abbrev)
             # if dialogue_id == "abbrev_test":
@@ -482,9 +485,9 @@ for FILE in file_names:
                         if age == "app":
                             age = "adolescent"
                         if "age" not in you_constraint:
-                            you_constraint["age"] = [item]
+                            you_constraint["age"] = [age]
                         else:
-                            you_constraint["age"].append(item)
+                            you_constraint["age"].append(age)
 
                 new_perma_tags = {
                     "only_XX_deaf": "deaf:any:true",
@@ -566,27 +569,27 @@ for FILE in file_names:
 
                 #  the fucking rest of it
                 for item in ["they_dead", "they_ur", "they_sc", "they_df"]:
-                    tag = item.split("_")[1]
+                    dead_tag = item.split("_")[1]
                     if item in newtags:
                         newtags.remove(item)
-                        if tag == "dead":
-                            tag = "any"
+                        if dead_tag == "dead":
+                            dead_tag = "any"
                         if "dead" not in they_constraint:
-                            they_constraint["dead"] = [tag]
+                            they_constraint["dead"] = [dead_tag]
                         else:
-                            they_constraint["dead"].append(tag)
+                            they_constraint["dead"].append(dead_tag)
                         
 
                 for item in ["you_dead", "you_ur", "you_sc", "you_df"]:
-                    tag = item.split("_")[1]
+                    dead_tag = item.split("_")[1]
                     if item in newtags:
                         newtags.remove(item)
-                        if tag == "dead":
-                            tag = "any"
+                        if dead_tag == "dead":
+                            dead_tag = "any"
                         if "dead" not in you_constraint:
-                            you_constraint["dead"] = [tag]
+                            you_constraint["dead"] = [dead_tag]
                         else:
-                            you_constraint["dead"].append(tag)
+                            you_constraint["dead"].append(dead_tag)
                 
                 if "you_shunned" in newtags:
                     newtags.remove("you_shunned")
@@ -612,72 +615,29 @@ for FILE in file_names:
                 if "they_forgiven" in newtags:
                     newtags.remove("they_forgiven")
                     they_constraint["forgiven"] = True
-
-                for item in ["they_clanfounder",
-                            "they_clanborn",
-                            "they_outsiderroots",
-                            "they_half-clan",
-                            "they_formerlyaloner",
-                            "they_formerlyarogue",
-                            "they_formerlyakittypet",
-                            "they_formerlyaoutsider",
-                            "they_originallyfromanotherclan",
-                            "they_orphaned",
-                            "they_abandoned",
-                            "they_ancientspirit"
-                            ]:
-                    tag = item.split("_")[1]
-                    if item in newtags:
-                        newtags.remove(item)
-                        if "backstory" not in they_constraint:
-                            they_constraint["backstory"] = [tag]
-                        else:
-                            they_constraint["backstory"].append(tag)
-                
-
-                for item in ["you_clanfounder",
-                            "you_clanborn",
-                            "you_outsiderroots",
-                            "you_half-clan",
-                            "you_formerlyaloner",
-                            "you_formerlyarogue",
-                            "you_formerlyakittypet",
-                            "you_formerlyaoutsider",
-                            "you_originallyfromanotherclan",
-                            "you_orphaned",
-                            "you_abandoned",
-                            "you_ancientspirit"
-                            ]:
-                    tag = item.split("_")[1]
-                    if item in newtags:
-                        newtags.remove(item)
-                        if "backstory" not in you_constraint:
-                            you_constraint["backstory"] = [tag]
-                        else:
-                            you_constraint["backstory"].append(tag)
                 
                 for item in relationship_values:
-                    for tag in newtags.copy():
-                        if item in tag:
-                            newtags.remove(tag)
+                    for relationship_tag in newtags.copy():
+                        if item in relationship_tag:
+                            newtags.remove(relationship_tag)
                             rel_tag = ""
-                            if tag in [
+                            if relationship_tag in [
                                 "platonic_love", "platonic_like", "romantic_love", "romantic_like", "hate", "jealousy",
                                 "dislike", "admiration", "respect", "trust", "comfort"
                                 ]:
-                                if "_" in tag:
-                                    if tag in ["platonic_love", "romantic_love", ]:
-                                        rel_tag = f"min_{tag.split('_')[0]}_50"
-                                    if tag in ["platonic_like", "romantic_like", "dislike"]:
-                                        rel_tag = f"min_{tag.split('_')[0]}_20"
-                                elif tag == "hate":
+                                if "_" in relationship_tag:
+                                    if relationship_tag in ["platonic_love", "romantic_love", ]:
+                                        rel_tag = f"min_{relationship_tag.split('_')[0]}_50"
+                                    if relationship_tag in ["platonic_like", "romantic_like", "dislike"]:
+                                        rel_tag = f"min_{relationship_tag.split('_')[0]}_20"
+                                elif relationship_tag == "hate":
                                     rel_tag = "min_dislike_50"
-                                elif tag == "admiration":
+                                elif relationship_tag == "admiration":
                                     rel_tag = "min_respect_50"
                                 else:
-                                    rel_tag = f"min_{tag}_50"
+                                    rel_tag = f"min_{relationship_tag}_50"
                             else:
-                                rel_tag = tag
+                                rel_tag = relationship_tag
                             relationship_constraint.append(rel_tag.replace(" ", "_"))
             
             for tag in newtags.copy():
@@ -693,9 +653,59 @@ for FILE in file_names:
                         you_constraint["dead"].append(tag)
                     else:
                         you_constraint["dead"] = [tag]
+
+            for backstory in ["they_clanfounder",
+                "they_outsiderroots",
+                "they_half-clan",
+                "they_formerlyaloner",
+                "they_formerlyarogue",
+                "they_formerlyakittypet",
+                "they_formerlyaoutsider",
+                "they_originallyfromanotherclan",
+                "they_orphaned",
+                "they_abandoned",
+                "they_ancientspirit",
+                "they_clanborn"
+                ]:
+                bs = backstory.split("_")[1]
+                if backstory in newtags:
+                    newtags.remove(backstory)
+                    if "backstory" not in they_constraint:
+                        they_constraint["backstory"] = [bs]
+                    else:
+                        they_constraint["backstory"].append(bs)
+                
+
+            for backstory in ["you_clanfounder",
+                "you_clanborn",
+                "you_outsiderroots",
+                "you_half-clan",
+                "you_formerlyarogue",
+                "you_formerlyakittypet",
+                "you_formerlyaoutsider",
+                "you_originallyfromanotherclan",
+                "you_orphaned",
+                "you_abandoned",
+                "you_ancientspirit",
+                "you_formerlyaloner",
+                ]:
+                bs = backstory.split("_")[1]
+                if backstory in newtags:
+                    newtags.remove(backstory)
+                    if "backstory" not in you_constraint:
+                        you_constraint["backstory"] = [bs]
+                    else:
+                        you_constraint["backstory"].append(bs)
             
             if "flirt" in newtags:
                 newtags.remove("flirt")
+            
+            if "you_no_newborn" in newtags:
+                newtags.remove("you_no_newborn")
+                if "status" in you_constraint:
+                    you_constraint["status"].append("not_newborn")
+                else:
+                    you_constraint["status"] = ["not_newborn"]
 
             if "sc_faith" in newtags:
                 newtags.remove("sc_faith")
@@ -811,25 +821,31 @@ for FILE in file_names:
             for skill in skill_list:
                 if f"they_{skill}" in newtags:
                     newtags.remove(f"they_{skill}")
-                    they_constraint["skill"] = [str(skill.upper() + ",1")]
+                    if skill == "kitsitter":
+                        they_constraint["skill"] = ["KIT,1"]
+                    else:
+                        they_constraint["skill"] = [str(skill.upper() + ",1")]
                 if f"you_{skill}" in newtags:
                     newtags.remove(f"you_{skill}")
-                    you_constraint["skill"] = [str(skill.upper() + ",1")]
+                    if skill == "kitsitter":
+                        you_constraint["skill"] = ["KIT,1"]
+                    else:
+                        you_constraint["skill"] = [str(skill.upper() + ",1")]
 
             # lowercasing them
             for tag in newtags:
-                tag = tag.lower()
+                newtag = tag.lower()
 
-            for status in just_statuses:
-                if FILE == status:
-                    if ( ("status" in they_constraint and
-                        status not in they_constraint["status"]) or
-                        "status" not in they_constraint
-                        ):
-                        if "status" not in they_constraint:
-                            they_constraint["status"] = [tag]
-                        else:
-                            they_constraint["status"].append(tag)
+                for status in just_statuses:
+                    if FILE == status:
+                        if ( ("status" in they_constraint and
+                            status not in they_constraint["status"]) or
+                            "status" not in they_constraint
+                            ):
+                            if "status" not in they_constraint:
+                                they_constraint["status"] = [newtag]
+                            else:
+                                they_constraint["status"].append(newtag)
             
             # testing
             # puts all y_c/t_c stuff into a single constraint. closer to the current tag system

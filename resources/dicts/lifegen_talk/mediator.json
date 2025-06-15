@@ -14,9 +14,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -48,8 +45,7 @@
                 "blind:any:false"
             ],
             "status": [
-                "mediator apprentice",
-                "no_kit"
+                "mediator apprentice"
             ],
             "age": [
                 "not_kitten"
@@ -82,9 +78,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "intro": [
@@ -105,9 +98,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "relationship": [
@@ -131,9 +121,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -156,9 +143,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -194,9 +178,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -218,9 +199,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -247,9 +225,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -272,9 +247,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -304,9 +276,6 @@
                 "assertive",
                 "unlawful",
                 "silly"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -332,9 +301,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -363,9 +329,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "relationship": [
@@ -391,9 +354,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -418,14 +378,11 @@
             ],
             "backstory": [
                 "clanfounder",
-                "clanborn",
                 "outsiderroots",
                 "half-clan",
                 "orphaned",
-                "abandoned"
-            ],
-            "status": [
-                "leaffall"
+                "abandoned",
+                "clanborn"
             ]
         },
         "season": [
@@ -452,9 +409,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -507,9 +461,6 @@
         "t_c": {
             "cluster": [
                 "introspective"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -523,18 +474,16 @@
         ]
     },
     "introspective_MdtorApp_1": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "introspective"
-            ],
-            "status": [
-                "you_adult"
             ]
         },
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "[You're sitting staring at a piece of fresh kill, when you feel something nudge into your shoulder, you turn your head to see t_c.]",
             "y_c? ... Are you okay?",
@@ -560,9 +509,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -582,9 +528,6 @@
             "condition": [
                 "blind:any:false",
                 "hearing"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -608,9 +551,6 @@
             ],
             "condition": [
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -642,9 +582,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -671,9 +608,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -697,9 +631,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -726,9 +657,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -762,9 +690,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -798,9 +723,6 @@
             "condition": [
                 "blind:any:false",
                 "hearing"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -832,9 +754,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -868,9 +787,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -894,9 +810,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -922,9 +835,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -943,11 +853,7 @@
                 "blind:any:false"
             ]
         },
-        "t_c": {
-            "status": [
-                "ancientspirit"
-            ]
-        },
+        "t_c": {},
         "intro": [
             "*Sigh* Looks like the warriors are fighting again ...",
             "Do you wanna handle this one, or should I?"
@@ -966,9 +872,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -988,9 +891,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1012,9 +912,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1040,9 +937,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "relationship": [
@@ -1072,9 +966,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "relationship": [
@@ -1100,9 +991,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1126,9 +1014,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1152,9 +1037,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1181,9 +1063,6 @@
             "cluster": [
                 "unabashed",
                 "cool"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1208,9 +1087,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1233,9 +1109,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "relationship": [
@@ -1262,9 +1135,6 @@
             ],
             "condition": [
                 "hearing"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1287,9 +1157,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1314,9 +1181,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1341,9 +1205,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1369,9 +1230,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1397,9 +1255,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1424,9 +1279,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1449,9 +1301,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1476,9 +1325,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1504,9 +1350,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1532,9 +1375,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1558,9 +1398,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1589,9 +1426,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1614,9 +1448,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1642,9 +1473,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1667,9 +1495,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1694,9 +1519,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1720,9 +1542,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1746,9 +1565,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1774,9 +1590,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1797,9 +1610,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1823,9 +1633,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1851,9 +1658,6 @@
             "condition": [
                 "blind:any:false",
                 "hearing"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1880,9 +1684,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1904,9 +1705,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1928,9 +1726,6 @@
             ],
             "condition": [
                 "blind:false:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1954,9 +1749,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -2197,7 +1989,7 @@
     "TinyTeddy_stable_theymediator_youapp_01": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -2216,7 +2008,7 @@
     "TinyTeddy_stable_theymediator_youapp_02": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -2235,7 +2027,7 @@
     "TinyTeddy_stable_theymediator_youapp_03": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -2296,7 +2088,11 @@
         ]
     },
     "TinyTeddy_stable_theymediator_youadult_01": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "stable"
@@ -2305,9 +2101,6 @@
                 "mediator"
             ]
         },
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "Please tell me that this is a friendly hello and not a 't_c, t_c, help me, help me, I've made a mistake!' kind of conversation.",
             "[You glance away for a second and suck in a breath. t_c sighs loudly, {PRONOUN/t_c/poss} brows crease in defeat.]",
@@ -2315,7 +2108,11 @@
         ]
     },
     "TinyTeddy_stable_theymediator_youadult_02": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "stable"
@@ -2324,15 +2121,16 @@
                 "mediator"
             ]
         },
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "Sorry, y_c, I'm not in the mood to chat right now, I need a breather. Can we catch up later today when I'm feeling a little better?"
         ]
     },
     "TinyTeddy_stable_theymediator_youadult_03": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "stable"
@@ -2341,9 +2139,6 @@
                 "mediator"
             ]
         },
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "[t_c stumbles into camp, {PRONOUN/t_c/poss} eyes wide in astonishment. You can't see who slips around behind {PRONOUN/t_c/object}... Clearly someone had some massive baggage to dump on the mediator.]",
             "The knowledge I hold, no one should ever have to hear...",
@@ -2789,7 +2584,11 @@
         ]
     },
     "neurotic_mediator_SQ2": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -2802,9 +2601,6 @@
             "min_platonic_30",
             "min_comfort_15"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "I was trying to help dislike-r_c-brooding work through a disagreement this morning, but {PRONOUN/dislike-r_c-brooding/subject} {VERB/dislike-r_c-brooding/were/was} having none of it.",
             "{PRONOUN/dislike-r_c-brooding/subject/CAP} said {PRONOUN/dislike-r_c-brooding/subject} can deal with {PRONOUN/dislike-r_c-brooding/poss} own problems, so I reminded {PRONOUN/dislike-r_c-brooding/object} that helping other cats with their relationships is my job.",
@@ -2814,7 +2610,11 @@
         ]
     },
     "neurotic_mediator_SQ3": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
@@ -2829,9 +2629,6 @@
         "relationship": [
             "min_platonic_20"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "Being a mediator is hard, sometimes. I try my best to help, but I can't make everyone happy, and then I'm left worrying whether I'm actually doing a good job.",
             "[t_c sits beside you for a while. Then, {PRONOUN/t_c/subject} {VERB/t_c/stand/stands} and {VERB/t_c/stretch/stretches}.]",
@@ -2840,6 +2637,9 @@
     },
     "neurotic_mediator_SQ4": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -2858,9 +2658,6 @@
         "relationship": [
             "min_platonic_30"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "It's hard to mediate cats like neutral-r_w-upstanding sometimes. I like {PRONOUN/neutral-r_w-upstanding/object} well enough, but {PRONOUN/neutral-r_w-upstanding/subject}{VERB/neutral-r_w-upstanding/'re/'s} so certain {PRONOUN/neutral-r_w-upstanding/subject}{VERB/neutral-r_w-upstanding/'re/'s} right all the time.",
             "And I don't want to argue with {PRONOUN/neutral-r_w-upstanding/object}, but I kind of... have to? To resolve conflicts, it's important {PRONOUN/neutral-r_w-upstanding/subject} {VERB/neutral-r_w-upstanding/see/sees} the situation from other perspectives.",
@@ -2870,6 +2667,9 @@
     },
     "neurotic_skillstory_SQ7": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -2891,9 +2691,6 @@
         "relationship": [
             "min_platonic_15"
         ],
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "I've been wondering if I could use stories to help solve kits' arguments.",
             "I know most grown cats would find the method demeaning, so I haven't thought much about it... but maybe it would help kits understand how to get along?",
@@ -2902,6 +2699,9 @@
     },
     "neurotic_skillstory_SQ8": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -2924,9 +2724,6 @@
         },
         "relationship": [
             "min_platonic_20"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "A queen in o_c_n was telling their kits a story when I visited their camp with l_n last moon. I can't stop thinking about it.",

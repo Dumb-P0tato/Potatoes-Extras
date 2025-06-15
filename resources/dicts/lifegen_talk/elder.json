@@ -9,9 +9,6 @@
         "t_c": {
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -36,9 +33,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "intro": [
@@ -57,11 +51,7 @@
             ],
             "shunned": true
         },
-        "t_c": {
-            "status": [
-                "ancientspirit"
-            ]
-        },
+        "t_c": {},
         "intro": [
             "Your eyes hold the weight of a life taken."
         ]
@@ -73,11 +63,7 @@
             ],
             "shunned": true
         },
-        "t_c": {
-            "status": [
-                "ancientspirit"
-            ]
-        },
+        "t_c": {},
         "intro": [
             "The cats of StarClan. I can see them. They shudder in the wake of your transgression."
         ]
@@ -97,9 +83,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -885,9 +868,6 @@
         "t_c": {
             "cluster": [
                 "brooding"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -910,9 +890,6 @@
         "t_c": {
             "cluster": [
                 "brooding"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -924,23 +901,21 @@
         ]
     },
     "brooding_elder14_AJ": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "brooding"
             ],
             "age": [
                 "older"
-            ],
-            "status": [
-                "you_adult"
             ]
         },
         "relationship": [
             "neutral"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "Hmph. You there, y_c! Why haven't you checked me for ticks yet today?",
@@ -952,9 +927,6 @@
         "t_c": {
             "cluster": [
                 "brooding"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1067,9 +1039,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1096,9 +1065,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1123,9 +1089,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1156,9 +1119,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1186,9 +1146,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1214,9 +1171,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1242,9 +1196,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1269,9 +1220,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1293,9 +1241,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1338,9 +1283,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1367,9 +1309,6 @@
         "t_c": {
             "cluster": [
                 "assertive"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1390,9 +1329,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1425,9 +1361,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1457,9 +1390,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1486,9 +1416,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1516,9 +1443,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1542,9 +1466,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1570,9 +1491,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1595,9 +1513,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1644,9 +1559,6 @@
         "t_c": {
             "cluster": [
                 "introspective"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1666,9 +1578,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1691,9 +1600,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1717,9 +1623,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1753,9 +1656,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1772,9 +1672,6 @@
                 "unabashed",
                 "cool",
                 "introspective"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1798,9 +1695,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1825,9 +1719,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1853,9 +1744,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1882,9 +1770,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1911,9 +1796,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1944,9 +1826,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1975,9 +1854,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "relationship": [
@@ -2008,9 +1884,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "relationship": [
@@ -2035,9 +1908,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "relationship": [
@@ -2057,9 +1927,6 @@
         "t_c": {
             "cluster": [
                 "brooding"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2080,9 +1947,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -2105,9 +1969,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -2127,9 +1988,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2146,9 +2004,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2165,9 +2020,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2184,9 +2036,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2198,15 +2047,12 @@
     "sweet_elder_5": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2218,15 +2064,12 @@
     "sweet_elder_6": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -2249,9 +2092,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2268,9 +2108,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -2296,9 +2133,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2322,9 +2156,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2350,9 +2181,6 @@
             "backstory": [
                 "clanfounder",
                 "clanborn"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2370,9 +2198,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -2398,9 +2223,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -2426,9 +2248,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2448,9 +2267,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2468,9 +2284,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2491,9 +2304,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2512,9 +2322,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2533,9 +2340,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -2556,9 +2360,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2576,9 +2377,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2596,9 +2394,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2617,9 +2412,6 @@
         "t_c": {
             "cluster": [
                 "sweet"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2641,9 +2433,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2672,9 +2461,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2772,7 +2558,7 @@
     "eldershunned_H2": {
         "y_c": {
             "age": [
-                "you_younger"
+                "younger"
             ],
             "condition": [
                 "blind:any:false"
@@ -2824,7 +2610,7 @@
     "silly_elder_greetings": {
         "y_c": {
             "age": [
-                "you_younger",
+                "younger",
                 "not_kitten"
             ],
             "condition": [
@@ -2855,7 +2641,7 @@
     "silly_elder_yawn": {
         "y_c": {
             "age": [
-                "you_younger"
+                "younger"
             ],
             "condition": [
                 "blind:any:false"
@@ -2975,11 +2761,11 @@
             "cluster": [
                 "neurotic"
             ],
-            "backstory": [
-                "clanborn"
-            ],
             "status": [
                 "elder"
+            ],
+            "backstory": [
+                "clanborn"
             ],
             "age": [
                 "not_kitten"
@@ -3023,7 +2809,7 @@
     "introspective_crushto_H4": {
         "y_c": {
             "age": [
-                "you_younger"
+                "younger"
             ]
         },
         "t_c": {
@@ -3043,13 +2829,17 @@
         ],
         "intro": [
             "Oh, y_c... I'm getting too old for this feeling.",
-            "[t_c glances beyond the camp, their_crush just in sight rounding up a few kits.]",
+            "[t_c glances beyond the camp, rlike-r_c just in sight rounding up a few kits.]",
             "Hahaha, if I were younger, the moment this crush developed, I would have been ecstatic. Oh, young love...",
             "But this old cat has too many moons under {PRONOUN/t_c/poss} tail to worry about something like this. I've learned to let things happen just how StarClan intended it."
         ]
     },
     "introspective_youcrush_H1": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "introspective"
@@ -3059,18 +2849,21 @@
             ]
         },
         "tags": [
-            "they_grandparent",
-            "you_adult"
+            "they_grandparent"
         ],
         "intro": [
             "Oh, young love...",
             "[You jump in surprise as t_c sneaks up behind you with a soft, supportive grin.]",
-            "You know, you've been watching your_crush all dusk. It's been surprise you got anything done with how intently you were staring!",
+            "You know, you've been watching yourcrush all dusk. It's been surprise you got anything done with how intently you were staring!",
             "You're making this old cat wonder if I'll get great grandkits soon!"
         ]
     },
     "introspective_youcrush_H2": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "introspective"
@@ -3080,14 +2873,13 @@
             ]
         },
         "tags": [
-            "they_grandparent",
-            "you_adult"
+            "they_grandparent"
         ],
         "intro": [
             "y_c I must let you know. It has been eating at me for moons now.",
             "[t_c glances around before leaning in close, loudly whispering with {PRONOUN/t_c/poss} croaking voice.]",
             "I'm not ready for great grandkits! Oh Starclan, I am not ready!",
-            "Don't get any funny ideas with your_crush!!"
+            "Don't get any funny ideas with yourcrush!!"
         ]
     },
     "TinyTeddy_stable_Elder_Gen_01": {
@@ -3292,7 +3084,7 @@
     "yougrieving_H2": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ],
             "condition": [
                 "grief stricken"
@@ -3721,7 +3513,7 @@
     "retired_youshunned_rad1": {
         "y_c": {
             "age": [
-                "you_younger"
+                "younger"
             ],
             "condition": [
                 "blind:any:false"

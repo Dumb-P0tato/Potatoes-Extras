@@ -287,9 +287,6 @@
         "t_c": {
             "cluster": [
                 "assertive"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -321,9 +318,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -535,6 +529,9 @@
     },
     "introspective_queen_1": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ],
@@ -548,16 +545,10 @@
             ],
             "condition": [
                 "blind:false:false"
-            ],
-            "status": [
-                "you_adult"
             ]
         },
         "relationship": [
             "min_platonic_20"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "y_c, Afternoon. How are you doing today?",
@@ -1389,8 +1380,7 @@
                 "blind:any:false"
             ],
             "status": [
-                "any",
-                "ancientspirit"
+                "any"
             ]
         },
         "intro": [
@@ -1538,7 +1528,11 @@
         ]
     },
     "brooding_queen5": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "brooding"
@@ -1551,7 +1545,6 @@
             "min_platonic_20"
         ],
         "tags": [
-            "you_adult",
             "clan_has_kits"
         ],
         "intro": [
@@ -1899,6 +1892,9 @@
     },
     "cool_queen_1": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -1915,7 +1911,6 @@
             "neutral"
         ],
         "tags": [
-            "you_adult",
             "clan_has_kits"
         ],
         "intro": [
@@ -2363,7 +2358,7 @@
     "sweet_queen_5": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ],
             "condition": [
                 "blind:any:false"
@@ -2393,7 +2388,7 @@
     "sweet_queen_6": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ],
             "condition": [
                 "blind:any:false"
@@ -2526,7 +2521,11 @@
         ]
     },
     "sweet_queen_11": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "sweet"
@@ -2539,7 +2538,6 @@
             "min_platonic_20"
         ],
         "tags": [
-            "you_adult",
             "clan_has_kits"
         ],
         "intro": [
@@ -3346,11 +3344,12 @@
     },
     "neurotic_youpregnant_SQ2": {
         "y_c": {
+            "age": [
+                "adult",
+                "not_kitten"
+            ],
             "condition": [
                 "pregnant"
-            ],
-            "age": [
-                "not_kitten"
             ]
         },
         "t_c": {
@@ -3367,9 +3366,6 @@
         },
         "relationship": [
             "min_platonic_20"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "I'm really excited for the kits to come! You're going to be a great {PRONOUN/y_c/parent}.",
@@ -3466,7 +3462,7 @@
     "TinyTeddy_stable_theyqueen_youapp_01": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -3486,7 +3482,7 @@
     "TinyTeddy_stable_theyqueen_youapp_02": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -3507,7 +3503,7 @@
     "TinyTeddy_stable_theyqueen_youapp_03": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -3591,7 +3587,11 @@
         ]
     },
     "TinyTeddy_stable_theyqueen_youadult_01": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "stable"
@@ -3601,8 +3601,7 @@
             ]
         },
         "tags": [
-            "clan_has_kits",
-            "you_adult"
+            "clan_has_kits"
         ],
         "intro": [
             "[t_c smiles warmly at you as you both cross paths, {PRONOUN/t_c/poss} fur a tangled mess of curls and fluff. A silly flower crown rests atop {PRONOUN/t_c/poss} head and feathers are woven through {PRONOUN/t_c/poss} tail. You snicker slightly, t_c shoulder nudges you with a little force.]",
@@ -3612,7 +3611,11 @@
         ]
     },
     "TinyTeddy_stable_theyqueen_youadult_02": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "stable"
@@ -3622,8 +3625,7 @@
             ]
         },
         "tags": [
-            "clan_has_kits",
-            "you_adult"
+            "clan_has_kits"
         ],
         "intro": [
             "Hey, y_c, if it's no trouble could you please watch the kits for me while I grab something to eat with t_m? I'm so sorry to drop this so suddenly but we rarely get the time to talk and I'd like just one meal with them this moon-",
@@ -3634,7 +3636,11 @@
         ]
     },
     "TinyTeddy_stable_theyqueen_youadult_03": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "stable"
@@ -3643,9 +3649,6 @@
                 "queen"
             ]
         },
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "Woah, never in my life have I seen a kit so big!",
             "[You both laugh as you pass by the nursery.]",
@@ -3757,6 +3760,9 @@
     },
     "neurotic_queen_SQ6": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -3773,9 +3779,6 @@
                 "queen"
             ]
         },
-        "tags": [
-            "you_adult"
-        ],
         "intro": [
             "I heard r_k asking where I was. Make sure {PRONOUN/r_k/subject} {VERB/r_k/don't/doesn't} come looking for me, please? I don't want to get {PRONOUN/r_k/object} sick."
         ]

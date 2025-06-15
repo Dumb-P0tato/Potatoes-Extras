@@ -9,9 +9,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -28,9 +25,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -47,9 +41,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -66,9 +57,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -85,9 +73,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -104,9 +89,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -126,9 +108,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -148,9 +127,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -170,9 +146,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -192,9 +165,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -214,9 +184,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -236,9 +203,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -259,9 +223,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -284,9 +245,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -307,9 +265,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -330,9 +285,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -353,9 +305,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -380,9 +329,6 @@
             ],
             "condition": [
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -405,9 +351,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -430,9 +373,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -457,9 +397,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -477,9 +414,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -502,9 +436,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -524,9 +455,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -547,9 +475,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -568,9 +493,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -590,9 +512,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -612,9 +531,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -639,9 +555,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -665,9 +578,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -691,9 +601,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -716,9 +623,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -739,9 +643,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -762,9 +663,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -785,9 +683,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -809,9 +704,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -831,9 +723,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -854,9 +743,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -877,9 +763,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -900,9 +783,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -923,9 +803,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -942,9 +819,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -961,9 +835,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -984,9 +855,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1007,9 +875,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1032,9 +897,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1061,9 +923,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1092,9 +951,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1118,9 +974,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1147,9 +1000,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1177,9 +1027,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1204,9 +1051,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1234,9 +1078,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1264,9 +1105,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1290,9 +1128,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1308,9 +1143,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1331,9 +1163,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1355,9 +1184,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1378,9 +1204,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1401,9 +1224,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1420,9 +1240,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1439,9 +1256,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1459,9 +1273,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1482,9 +1293,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1502,9 +1310,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1526,9 +1331,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1551,9 +1353,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1576,9 +1375,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1604,9 +1400,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1624,9 +1417,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1647,9 +1437,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1670,9 +1457,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1693,9 +1477,6 @@
             ],
             "condition": [
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1716,9 +1497,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1739,9 +1517,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1761,9 +1536,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1784,9 +1556,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -1812,9 +1581,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1839,9 +1605,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1863,9 +1626,6 @@
                 "brooding",
                 "introspective",
                 "neurotic"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1887,9 +1647,6 @@
                 "assertive",
                 "unabashed",
                 "silly"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1920,9 +1677,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1949,9 +1703,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -1978,9 +1729,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -2007,9 +1755,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -2038,9 +1783,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -2064,9 +1806,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -2093,9 +1832,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -2123,9 +1859,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -2150,9 +1883,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -2180,9 +1910,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -2206,9 +1933,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2229,9 +1953,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2252,9 +1973,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2278,9 +1996,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2304,9 +2019,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2329,9 +2041,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2355,9 +2064,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2376,9 +2082,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2397,9 +2100,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2418,9 +2118,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2437,9 +2134,6 @@
         "t_c": {
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2458,9 +2152,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2484,9 +2175,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2510,9 +2198,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2532,9 +2217,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2556,9 +2238,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2583,9 +2262,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2608,9 +2284,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2633,9 +2306,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2658,9 +2328,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2683,9 +2350,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2708,9 +2372,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2733,9 +2394,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2758,9 +2416,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2783,9 +2438,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2808,9 +2460,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2833,9 +2482,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2858,9 +2504,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2883,9 +2526,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2908,9 +2548,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2933,9 +2570,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2955,9 +2589,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -2978,9 +2609,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3003,9 +2631,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3028,9 +2653,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3053,9 +2675,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3078,9 +2697,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3103,9 +2719,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3128,9 +2741,6 @@
             ],
             "dead": [
                 "sc"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3153,9 +2763,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3178,9 +2785,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3203,9 +2807,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3228,9 +2829,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3253,9 +2851,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3278,9 +2873,6 @@
             ],
             "dead": [
                 "df"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3300,9 +2892,6 @@
             ],
             "dead": [
                 "ur"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3325,9 +2914,6 @@
             ],
             "dead": [
                 "ur"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3350,9 +2936,6 @@
             ],
             "dead": [
                 "ur"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3373,9 +2956,6 @@
             ],
             "dead": [
                 "ur"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3475,9 +3055,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "they_outside"
             ]
         },
         "intro": [
@@ -3500,9 +3077,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "they_outside"
             ]
         },
         "intro": [
@@ -3525,9 +3099,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "they_outside"
             ]
         },
         "intro": [
@@ -3550,9 +3121,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "they_outside"
             ]
         },
         "intro": [
@@ -3575,9 +3143,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "they_outside"
             ]
         },
         "intro": [
@@ -3600,9 +3165,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "they_outside"
             ]
         },
         "intro": [
@@ -3625,9 +3187,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "they_outside"
             ]
         },
         "intro": [
@@ -3650,9 +3209,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "they_outside"
             ]
         },
         "intro": [
@@ -3675,9 +3231,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "they_outside"
             ]
         },
         "intro": [
@@ -3700,9 +3253,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "they_outside"
             ]
         },
         "intro": [
@@ -3725,9 +3275,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "they_outside"
             ]
         },
         "intro": [
@@ -3750,9 +3297,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "they_outside"
             ]
         },
         "intro": [
@@ -3772,9 +3316,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3794,9 +3335,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3816,9 +3354,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3838,9 +3373,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3860,9 +3392,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3885,9 +3414,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3910,9 +3436,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3935,9 +3458,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3960,9 +3480,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -3985,9 +3502,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4008,9 +3522,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -4033,9 +3544,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "relationship": [
@@ -4064,9 +3572,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4087,10 +3592,7 @@
                 "blind:any:false",
                 "grief stricken"
             ],
-            "shunned": true,
-            "status": [
-                "ancientspirit"
-            ]
+            "shunned": true
         },
         "intro": [
             "Um... hi, little fellow.",
@@ -4110,10 +3612,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "shunned": true,
-            "status": [
-                "ancientspirit"
-            ]
+            "shunned": true
         },
         "intro": [
             "Um... hi, little fellow.",
@@ -4133,9 +3632,6 @@
             "condition": [
                 "blind:any:false",
                 "grief stricken"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4157,10 +3653,7 @@
                 "blind:any:false",
                 "grief stricken"
             ],
-            "shunned": true,
-            "status": [
-                "ancientspirit"
-            ]
+            "shunned": true
         },
         "relationship": [
             "grievingyou"
@@ -4184,9 +3677,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4207,9 +3697,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4230,9 +3717,6 @@
             ],
             "dead": [
                 "any"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4250,9 +3734,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [
@@ -4269,9 +3750,6 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ],
-            "status": [
-                "ancientspirit"
             ]
         },
         "intro": [

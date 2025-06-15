@@ -5,8 +5,7 @@ import re
 
 from .Screens import Screens
 
-from scripts.utility import generate_sprite, get_cluster, pronoun_repl, lifegen_text_adjust
-from scripts.cat.cats import Cat
+from scripts.cat.cats import Cat, ILLNESSES, INJURIES, PERMANENT
 from ..cat.history import History
 from scripts.game_structure import image_cache
 from scripts.game_structure.ui_elements import (
@@ -15,7 +14,6 @@ from scripts.game_structure.ui_elements import (
 )
 import pygame_gui
 from scripts.game_structure.game_essentials import game
-from enum import Enum  # pylint: disable=no-name-in-module
 from scripts.housekeeping.version import VERSION_NAME
 from scripts.special_dates import get_special_date, contains_special_date_tag
 # pylint: disable=consider-using-dict-items
@@ -24,15 +22,17 @@ from scripts.utility import (
     ui_scale,
     get_current_season,
     ui_scale_dimensions,
-    change_relationship_values
+    change_relationship_values,
+    generate_sprite,
+    get_cluster,
+    pronoun_repl,
+    lifegen_text_adjust,
+    shorten_text_to_fit
     )
 from scripts.game_structure.screen_settings import MANAGER
-from ..ui.generate_box import get_box, BoxStyles
 from ..ui.generate_button import ButtonStyles, get_button_dict
 from ..ui.get_arrow import get_arrow
-from ..ui.icon import Icon
 
-from scripts.cat.cats import Cat, ILLNESSES, INJURIES, PERMANENT
 
 class TalkScreen(Screens):
 
@@ -46,6 +46,7 @@ class TalkScreen(Screens):
         self.life_text = None
         self.header = None
         self.the_cat = None
+        self.speaking_cat = None
         self.text_index = 0
         self.frame_index = 0
         self.typing_delay = 20
@@ -89,10 +90,15 @@ class TalkScreen(Screens):
                     "resources/images/clan_name_bg.png").convert_alpha(),
                 (500, 870)),
             manager=MANAGER)
-        self.profile_elements["cat_name"] = pygame_gui.elements.UITextBox(str(self.the_cat.name),
-                                                                    ui_scale(pygame.Rect((150, 437), (-1, 40))),
-                                                                        object_id="#text_box_34_horizcenter_light",
-                                                                        manager=MANAGER)
+        
+        self.speaking_cat = self.the_cat
+        short_name = shorten_text_to_fit(str(self.speaking_cat.name), 320, 40)
+        self.profile_elements["cat_name"] = pygame_gui.elements.UITextBox(
+            short_name,
+            ui_scale(pygame.Rect((115, 437), (190, 40))),
+            object_id="#text_box_34_horizcenter_light",
+            manager=MANAGER
+            )
 
 
         self.text_type = ""
@@ -143,10 +149,14 @@ class TalkScreen(Screens):
             )
         # self.textbox_graphic.hide()
 
-        self.profile_elements["cat_image"] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((35, 450), (200, 200))),
-                                                                        pygame.transform.scale(
-                                                                            generate_sprite(self.the_cat),
-                                                                            (200, 200)), manager=MANAGER)
+        self.profile_elements["cat_image"] = pygame_gui.elements.UIImage(
+            ui_scale(pygame.Rect((35, 450), (200, 200))),
+            pygame.transform.scale(
+            generate_sprite(self.speaking_cat),
+            (200, 200)),
+            manager=MANAGER
+            )
+
         self.paw = pygame_gui.elements.UIImage(
                 ui_scale(pygame.Rect((685, 590), (15, 15))),
                 image_cache.load_image("resources/images/cursor.png").convert_alpha()
@@ -277,41 +287,44 @@ class TalkScreen(Screens):
     def on_use(self):
         super().on_use()
         now = pygame.time.get_ticks()
-        if self.texts:
-            if self.texts[self.text_index][0] == "[" and self.texts[self.text_index][-1] == "]":
-                self.profile_elements["cat_image"].hide()
-                # self.textbox_graphic.show()
-            else:
-                self.profile_elements["cat_image"].show()
-                # self.textbox_graphic.hide()
-            if "|r_c|" in self.texts[self.text_index] and not self.replaced_index[0]:
-                random_cat = self.cat_dict["r_c"]
-                self.profile_elements["cat_name"].kill()
-                self.profile_elements["cat_name"] = pygame_gui.elements.UITextBox(str(random_cat.name),
-                                                                    ui_scale(pygame.Rect((300, 870), (-1, 80))),
-                                                                        object_id="#text_box_34_horizcenter_light",
-                                                                        manager=MANAGER)
-                self.profile_elements["cat_image"].kill()
-                self.profile_elements["cat_image"] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((70, 900), (400, 400))),
-                                                                        pygame.transform.scale(
-                                                                            generate_sprite(random_cat),
-                                                                            (400, 400)), manager=MANAGER)
-                self.texts[self.text_index] = self.texts[self.text_index].replace("|r_c|", "")
-                self.replaced_index = (True,self.text_index)
-            elif self.replaced_index[0] and self.text_index != self.replaced_index[1]:
-                self.profile_elements["cat_name"].kill()
-                self.profile_elements["cat_name"] = pygame_gui.elements.UITextBox(str(self.the_cat.name),
-                                                                    ui_scale(pygame.Rect((300, 870), (-1, 80))),
-                                                                        object_id="#text_box_34_horizcenter_light",
-                                                                        manager=MANAGER)
-                self.profile_elements["cat_image"].kill()
-                self.profile_elements["cat_image"] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((70, 900), (400, 400))),
-                                                                        pygame.transform.scale(
-                                                                            generate_sprite(self.the_cat),
-                                                                            (400, 400)), manager=MANAGER)
-                self.replaced_index = (False, self.text_index)
 
-        self.text_frames = [[text[:i+1] for i in range(len(text))] for text in self.texts]
+        if self.texts:
+            # print("CURRENT LINE:", self.texts[self.text_index])
+            self.texts[self.text_index], self.speaking_cat = self.get_speaking_cat(self.texts[self.text_index])
+            
+            # Redo cat_name and cat_image to account for different cats speaking.
+            self.profile_elements["cat_image"].kill()
+            self.profile_elements["cat_image"] = pygame_gui.elements.UIImage(
+                ui_scale(pygame.Rect((35, 450), (200, 200))),
+                pygame.transform.scale(
+                generate_sprite(self.speaking_cat),
+                (200, 200)),
+                manager=MANAGER
+                )
+            
+            self.profile_elements["cat_name"].kill()
+            short_name = shorten_text_to_fit(str(self.speaking_cat.name), 320, 40)
+            self.profile_elements["cat_name"] = pygame_gui.elements.UITextBox(
+                short_name,
+                ui_scale(pygame.Rect((115, 437), (190, 40))),
+                object_id="#text_box_34_horizcenter_light",
+                manager=MANAGER
+                )
+            
+            text_to_display = self.texts.copy()
+            # now get rid of the |abbrev|
+            if "|" in text_to_display[self.text_index]:
+                text_to_display[self.text_index] = text_to_display[self.text_index].split("|")[-1]
+            if self.texts[self.text_index][0] == "[" and self.texts[self.text_index][-1] == "]":
+                self.profile_elements["cat_name"].hide()
+                self.profile_elements["cat_image"].hide()
+            else:
+                self.profile_elements["cat_name"].show()
+                self.profile_elements["cat_image"].show()
+        else:
+            text_to_display = self.texts.copy()
+
+        self.text_frames = [[text[:i+1] for i in range(len(text))] for text in text_to_display]
         if self.text_index < len(self.text_frames):
             if now >= self.next_frame_time and self.frame_index < len(self.text_frames[self.text_index]) - 1:
                 self.frame_index += 1
@@ -441,7 +454,7 @@ class TalkScreen(Screens):
 
     def display_intro(self, cat, texts_list, texts_chosen_key):
         chosen_text_intro = texts_list[texts_chosen_key]["intro"]
-        chosen_text_intro = self.get_adjusted_txt(chosen_text_intro, cat)
+        # chosen_text_intro = self.get_adjusted_txt(chosen_text_intro, cat)
         self.current_scene = "intro"
         self.possible_texts = texts_list
         self.chosen_text_key = texts_chosen_key
@@ -606,138 +619,82 @@ class TalkScreen(Screens):
 
 
     def load_texts(self, cat):
-        resource_dir = "resources/dicts/lifegen_talk/"
         possible_texts = {}
         you = game.clan.your_cat
 
         special_date = get_special_date()
 
         if game.switches["talk_category"] == "insult":
-            with open(f"{resource_dir}insults.json", 'r') as read_file:
+            with open(f"{self.resource_dir}insults.json", 'r') as read_file:
                 possible_texts = ujson.loads(read_file.read())
         elif game.switches["talk_category"] == "flirt":
-            with open(f"{resource_dir}flirt.json", 'r') as read_file:
+            with open(f"{self.resource_dir}flirt.json", 'r') as read_file:
                 possible_texts.update(ujson.loads(read_file.read()))
         else:
             if cat.status != 'exiled':
-                with open(f"{resource_dir}{cat.status}.json", 'r') as read_file:
+                with open(f"{self.resource_dir}{cat.status}.json", 'r') as read_file:
                     possible_texts = ujson.loads(read_file.read())
-
-            # if cat.status not in ['loner', 'rogue', 'former Clancat', 'kittypet', 'exiled', 'newborn']:
-            #     with open(f"{resource_dir}choice_dialogue.json", 'r') as read_file:
-            #         possible_texts.update(ujson.loads(read_file.read()))
 
             if cat.status in ["rogue", "loner", "kittypet"]:
                 # former clancats only get their own file so we can write general dialogue about not knowing what a clan is
-                with open(f"{resource_dir}general_outsider.json", 'r') as read_file:
+                with open(f"{self.resource_dir}general_outsider.json", 'r') as read_file:
                     possible_texts4 = ujson.loads(read_file.read())
                     possible_texts.update(possible_texts4)
             else:
                 if cat.status == "newborn":
                     # newborns will no longer participate in nuanced discussion (focus + choices)
-                    with open(f"{resource_dir}newborn.json", 'r') as read_file:
+                    with open(f"{self.resource_dir}newborn.json", 'r') as read_file:
                         possible_texts.update(ujson.loads(read_file.read()))
                 else:
-                    with open(f"{resource_dir}choice_dialogue.json", 'r') as read_file:
+                    with open(f"{self.resource_dir}choice_dialogue.json", 'r') as read_file:
                         possible_texts.update(ujson.loads(read_file.read()))
 
                     if cat.status not in ['kitten', "newborn"] and you.status not in ['kitten', 'newborn']:
-                        with open(f"{resource_dir}general_no_kit.json", 'r') as read_file:
+                        with open(f"{self.resource_dir}general_no_kit.json", 'r') as read_file:
                             possible_texts2 = ujson.loads(read_file.read())
                             possible_texts.update(possible_texts2)
 
                     if cat.status not in ["newborn"] and you.status not in ['newborn']:
-                        with open(f"{resource_dir}general_no_newborn.json", 'r') as read_file:
+                        with open(f"{self.resource_dir}general_no_newborn.json", 'r') as read_file:
                             possible_texts4 = ujson.loads(read_file.read())
                             possible_texts.update(possible_texts4)
 
                     if cat.status not in ['kitten', "newborn"] and you.status in ['kitten', 'newborn']:
-                        with open(f"{resource_dir}general_you_kit.json", 'r') as read_file:
+                        with open(f"{self.resource_dir}general_you_kit.json", 'r') as read_file:
                             possible_texts3 = ujson.loads(read_file.read())
                             possible_texts.update(possible_texts3)
 
                     if cat.status not in ['kitten', 'newborn'] and you.status not in ['kitten', 'newborn'] and randint(1,3)==1:
-                        with open(f"{resource_dir}crush.json", 'r') as read_file:
+                        with open(f"{self.resource_dir}crush.json", 'r') as read_file:
                             possible_texts3 = ujson.loads(read_file.read())
                             possible_texts.update(possible_texts3)
 
                     if game.clan.focus:
-                        with open(f"{resource_dir}focuses/{game.clan.focus}.json", 'r') as read_file:
+                        with open(f"{self.resource_dir}focuses/{game.clan.focus}.json", 'r') as read_file:
                             possible_texts5 = ujson.loads(read_file.read())
                             possible_texts.update(possible_texts5)
 
                     if special_date:
-                        with open(f"{resource_dir}focuses/{special_date.patrol_tag}.json", 'r') as read_file:
+                        with open(f"{self.resource_dir}focuses/{special_date.patrol_tag}.json", 'r') as read_file:
                             special_dialogue = ujson.loads(read_file.read())
                             possible_texts.update(special_dialogue)
                             
                     if game.config['fun']['april_fools']:
-                        with open(f"{resource_dir}focuses/aprilfools.json", 'r') as read_file:
+                        with open(f"{self.resource_dir}focuses/aprilfools.json", 'r') as read_file:
                             aprilfools_dialogue = ujson.loads(read_file.read())
                             possible_texts.update(aprilfools_dialogue)
-
-                    
-        return self.filter_texts(cat, possible_texts)
+ 
+        texts = self.filter_texts(cat, possible_texts)
+        return texts
 
     def filter_texts(self, cat, possible_texts):
-        text = ""
         texts_list = {}
         you = game.clan.your_cat
 
-        cluster1, cluster2 = get_cluster(cat.personality.trait)
-        cluster3, cluster4 = get_cluster(you.personality.trait)
+        cat_cluster_1, cat_cluster_2 = get_cluster(cat.personality.trait)
+        you_cluster_1, you_cluster_2 = get_cluster(you.personality.trait)
 
-        their_trait_list = [
-            'adventurous', 'aloof', 'ambitious', 'arrogant',
-            'bloodthirsty', 'bold', 'bouncy', 'calm', 'careful',
-            'confident', 'competitive', 'cold', 'charismatic',
-            'cunning', 'cowardly', 'childish', 'compassionate',
-            'daring', 'emotional', 'energetic', 'fierce', 'flexible',
-            'faithful', 'flamboyant', 'grumpy', 'gloomy', 'humble',
-            'insecure', 'justified', 'loyal', 'lonesome', 'loving',
-            'meek', 'mellow', 'methodical', 'nervous', 'oblivious',
-            'obsessive', 'playful', 'reserved', 'righteous', 'responsible',
-            'rebellious', 'strict', 'stoic', 'sneaky', 'strange', 'sincere',
-            'shameless', 'spontaneous', 'thoughtful', 'troublesome', 'trusting',
-            'vengeful', 'witty', 'wise', 'impulsive', 'bullying',
-            'attention-seeker', 'charming', 'daring', 'noisy', 'daydreamer',
-            'polite', 'know-it-all', 'bossy', 'disciplined', 'patient',
-            'manipulative', 'secretive', 'rebellious', 'grumpy', 'passionate',
-            'honest', 'leader-like', 'smug', "sweet_trait"
-        ]
-        you_trait_list = [
-            'you_adventurous', 'you_aloof', 'you_ambitious', 'you_arrogant', 'you_bloodthirsty',
-            'you_bold', 'you_bouncy', 'you_calm', 'you_careful', 'you_confident',
-            'you_competitive', 'you_cold', 'you_charismatic', 'you_cunning', 'you_cowardly',
-            'you_childish', 'you_compassionate', 'you_daring', 'you_emotional', 'you_energetic',
-            'you_fierce', 'you_flexible', 'you_faithful', 'you_flamboyant', 'you_grumpy',
-            'you_gloomy', 'you_humble', 'you_insecure', 'you_justified', 'you_loyal',
-            'you_lonesome', 'you_loving', 'you_meek', 'you_mellow', 'you_methodical',
-            'you_nervous', 'you_oblivious', 'you_obsessive', 'you_playful', 'you_reserved',
-            'you_righteous', 'you_responsible', 'you_rebellious', 'you_strict', 'you_stoic',
-            'you_sneaky', 'you_strange', 'you_sincere', 'you_shameless', 'you_spontaneous',
-            'you_thoughtful', 'you_troublesome', 'you_trusting', 'you_vengeful', 'you_witty',
-            'you_wise', 'you_impulsive', 'you_bullying', 'you_attention-seeker', 'you_charming',
-            'you_daring', 'you_noisy', 'you_daydreamer', 'you_polite', 'you_know-it-all', 'you_bossy',
-            'you_disciplined', 'you_patient', 'you_manipulative', 'you_secretive',
-            'you_rebellious', 'you_passionate', 'you_honest', 'you_leader-like',
-            'you_smug', 'you_sweet_trait'
-        ]
-        you_backstory_list = [
-            "you_clanfounder",
-            "you_clanborn",
-            "you_outsiderroots",
-            "you_half-clan",
-            "you_formerlyaloner",
-            "you_formerlyarogue",
-            "you_formerlyakittypet",
-            "you_formerlyaoutsider",
-            "you_originallyfromanotherclan",
-            "you_orphaned",
-            "you_abandoned",
-            "you_ancientspirit"
-        ]
-        they_backstory_list = ["clanfounder",
+        possible_backstories = ["clanfounder",
             "clanborn",
             "outsiderroots",
             "half-clan",
@@ -749,14 +706,6 @@ class TalkScreen(Screens):
             "orphaned",
             "abandoned",
             "ancientspirit"
-        ]
-        skill_list = [
-            'teacher', 'hunter', 'fighter', 'runner', 'climber', 'swimmer', 'speaker',
-            'mediator1', 'clever', 'insightful', 'sense', 'kitsitter', 'story', 'lore',
-            'camp', 'healer', 'star', 'omen', 'dream', 'clairvoyant', 'prophet',
-            'ghost', 'explorer', 'tracker', 'artistan', 'guardian', 'tunneler', 'navigator',
-            'song', 'grace', 'clean', 'innovator', 'comforter', 'matchmaker', 'thinker',
-            'cooperative', 'scholar', 'time', 'treasure', 'fisher', 'language', 'sleeper', 'dark'
         ]
         special_date = get_special_date()
         for talk_key, talk in possible_texts.items():
@@ -883,17 +832,17 @@ class TalkScreen(Screens):
                             continue
             elif "grievingthem" in REL:
                 continue
-            
+
             # FORGIVEN TAGS
             youreforgiven = False
             theyreforgiven = False
 
-            if you.forgiven < 11 and you.forgiven > 0: 
+            if you.forgiven < 11 and you.forgiven > 0:
                 youreforgiven = True
-                                
+
             if cat.forgiven < 11 and cat.forgiven > 0:
                 theyreforgiven = True
-            
+
             if "forgiven" in YOU and YOU["forgiven"] is True and (you.shunned > 0 or not youreforgiven):
                 continue
 
@@ -931,51 +880,53 @@ class TalkScreen(Screens):
             ):
                 continue
 
-                    
+
             if "condition" in CAT:
                 if not self.validate_conditions(CAT, cat):
                     continue
-                
 
-            condition_skip = False
             if "condition" in YOU:
                 if not self.validate_conditions(YOU, you):
                     continue
 
             # CLUSTER/TRAITS
             if "cluster" in YOU:
-                if any(i in self.get_cluster_list() for i in YOU["cluster"]):
-                    if (cluster3) not in YOU["cluster"] and (cluster4) not in YOU["cluster"]:
-                        continue
-                
-                if any(i in their_trait_list for i in YOU["cluster"]):
-                    if (
-                        you.personality.trait not in YOU["cluster"] or
-                        (you.personality.trait == "sweet" and "sweet_trait" not in YOU["cluster"])
-                        ):
-                        continue
+                allowed = False
+                if you.personality.trait == "sweet":
+                    trait = "sweet_trait"
+                else:
+                    trait = you.personality.trait
+                for item in [you_cluster_1, you_cluster_2, trait]:
+                    if item is not None:
+                        if item in YOU["cluster"]:
+                            allowed = True
+                            break
+                if not allowed:
+                    continue
             if "cluster" in CAT:
-                if any(i in self.get_cluster_list() for i in CAT["cluster"]):
-                    if (cluster1) not in CAT["cluster"] and (cluster2) not in CAT["cluster"]:
-                        continue
-                
-                if any(i in their_trait_list for i in CAT["cluster"]):
-                    if (
-                        cat.personality.trait not in CAT["cluster"] or
-                        (cat.personality.trait == "sweet" and "sweet_trait" not in CAT["cluster"])
-                        ):
-                        continue
-            
+                allowed = False
+                if cat.personality.trait == "sweet":
+                    trait = "sweet_trait"
+                else:
+                    trait = cat.personality.trait
+                for item in [cat_cluster_1, cat_cluster_2, trait]:
+                    if item is not None:
+                        if item in CAT["cluster"]:
+                            allowed = True
+                            break
+                if not allowed:
+                    continue
+
             # BACKSTORY
             if "backstory" in YOU:
-                if any(i in they_backstory_list for i in YOU["backstory"]):
+                if any(i in possible_backstories for i in YOU["backstory"]):
                     bs_text = self.backstory_text(you).replace(" ", "").lower()
                     if not bs_text:
                         continue
                     if bs_text and bs_text not in YOU["backstory"]:
                         continue
             if "backstory" in CAT:
-                if any(i in they_backstory_list for i in CAT["backstory"]):
+                if any(i in possible_backstories for i in CAT["backstory"]):
                     bs_text = self.backstory_text(cat).replace(" ", "").lower()
                     if not bs_text:
                         continue
@@ -1013,7 +964,7 @@ class TalkScreen(Screens):
                 biome = game.clan.biome.lower()
                 if biome not in BIOME:
                     continue
-            
+
             # CONNECTED DIALOGUE
             if "~" in talk_key:
                 talk_key_split = talk_key.split("~")
@@ -1159,14 +1110,14 @@ class TalkScreen(Screens):
                 else:
                     if any(t in TAGS for t in ["accomplice", "accomplice_refused", "accomplice_agreed"]):
                         continue
-                
+
                 # victim
                 if cat.ID == game.clan.murdered["victim"][0]:
                     if "murder_victim" in TAGS and cat.ID != game.clan.murdered["victim"]:
                         continue
                     elif "not_murder_victim" in TAGS and cat.ID == game.clan.murdered["victim"]:
                         continue
-                
+
                 # success/fail
                 if "murder_success" in TAGS and game.clan.murdered["success"] is False:
                     continue
@@ -1217,6 +1168,7 @@ class TalkScreen(Screens):
                 if you.ID in cat.relationships:
                     # intial relationship stuff
                     # these tags shouldnt be used anymore-- they should be replace with min/max tags
+                    # but ill keep these here in case someone goes rogue
                     if cat.relationships[you.ID].dislike < 30 and 'hate' in REL:
                         continue
                     if cat.relationships[you.ID].romantic_love < 15 and 'romantic_like' in REL:
@@ -1238,7 +1190,6 @@ class TalkScreen(Screens):
                     if (cat.relationships[you.ID].platonic_like > 20 or cat.relationships[you.ID].dislike > 20) and "neutral" in REL:
                         continue
 
-                    # new relationship stuff!
                     skip_rel = False
                     for tag in REL:
                         if tag.startswith("min_platonic_"):
@@ -1332,7 +1283,7 @@ class TalkScreen(Screens):
                                 continue
                             if tag.startswith(f"min_{v}_"):
                                 continue
-            
+
             # FOCUS TAGS
             if game.clan.focus and game.clan.focus == "leader" and "focus" in TAGS:
                 leader_id = game.clan.leader.ID
@@ -1342,7 +1293,7 @@ class TalkScreen(Screens):
                     continue
                 if talk_key.startswith("bad_opinion") and cat.relationships[leader_id].dislike < 30:
                     continue
-            
+
             if game.clan.focus_cat:
                 if "you_focuscat" in TAGS and game.clan.focus_cat.ID != game.clan.your_cat.ID:
                     continue
@@ -1374,63 +1325,51 @@ class TalkScreen(Screens):
 
             # dead moons tags!
             fadedage = game.config["fading"]["age_to_fade"]
+            # this is for opacity tagging whenever i wanna do that
             skip_processing = False
 
             if "dead" in YOU:
-                if not you.dead:
+                if not self.validate_dead(YOU, you):
                     continue
-                # residence
-                if "any" not in YOU["dead"]:
-                    if any(t in ["ur", "sc", "df"] for t in YOU["dead"]):
-                        if you.df and "df" not in YOU["dead"]:
-                            continue
-                        elif you.outside and "ur" not in YOU["dead"]:
-                            continue
-                        elif "sc" not in YOU["dead"]:
-                            continue
+            else:
                 if you.dead:
-                    for tag in YOU["dead"]:
-                        if tag.startswith("min_deadfor_"):
-                            min_value = int(tag.split("_")[-1])
-                            if you.dead_for < min_value:
-                                skip_processing = True
-                                break
-                        elif tag.startswith("max_deadfor_"):
-                            max_value = int(tag.split("_")[-1])
-                            if you.dead_for > max_value:
-                                skip_processing = True
-                                break
+                    continue
 
             if "dead" in CAT:
-                if not cat.dead:
+                if not self.validate_dead(CAT, cat):
                     continue
-                if "any" not in CAT["dead"]:
-                    if any(t in ["ur", "sc", "df"] for t in CAT["dead"]):
-                        if cat.df and "df" not in CAT["dead"]:
-                            continue
-                        elif cat.outside and "ur" not in CAT["dead"]:
-                            continue
-                        elif "sc" not in CAT["dead"]:
-                            continue
-                if cat.dead and not skip_processing:
-                    for tag in CAT["dead"]:
-                        if tag.startswith("min_deadfor_"):
-                            min_value = int(tag.split("_")[-1])
-                            if cat.dead_for < min_value:
-                                skip_processing = True
-                                break
-                        elif tag.startswith("max_deadfor_"):
-                            max_value = int(tag.split("_")[-1])
-                            if cat.dead_for > max_value:
-                                skip_processing = True
-                                break
-
-            if skip_processing:
-                continue
+            else:
+                if cat.dead:
+                    continue
 
             texts_list[talk_key] = talk
 
         return self.choose_text(cat, texts_list)
+    
+    def validate_dead(self, BLOCK, cat):
+        if not cat.dead:
+            return False
+        if any(t in ["ur", "sc", "df"] for t in BLOCK["dead"]):
+            if cat.df and "df" not in BLOCK["dead"]:
+                return False
+            elif cat.outside and "ur" not in BLOCK["dead"]:
+                return False
+            elif "sc" not in BLOCK["dead"]:
+                return False
+        else:
+            if "any" not in BLOCK["dead"]:
+                return False
+        for tag in BLOCK["dead"]:
+            if tag.startswith("min_deadfor_"):
+                min_value = int(tag.split("_")[-1])
+                if cat.dead_for < min_value:
+                    return False
+            elif tag.startswith("max_deadfor_"):
+                max_value = int(tag.split("_")[-1])
+                if cat.dead_for > max_value:
+                    return False
+        return True
+
     
     # Filter Helpers
     def validate_status(self, BLOCK, cat):
@@ -1439,7 +1378,9 @@ class TalkScreen(Screens):
         """
 
         possible_statuses = [
-            "leader", "deputy", "mediator", "queen", "warrior", "medicine cat"
+            "leader", "deputy", "mediator", "queen", "warrior",
+            "medicine cat", "newborn", "kitten", "mediator apprentice",
+            "apprentice", "medicine cat apprentice", "queen's apprentice"
         ]
 
         if f"not_{cat.status}" in BLOCK["status"]:
@@ -1463,8 +1404,9 @@ class TalkScreen(Screens):
             if cat.ID not in [game.clan.instructor.ID, game.clan.demon.ID]:
                 return False
 
-        if BLOCK["status"] and cat.status not in BLOCK["status"]:
-            return False
+        if any(st in possible_statuses for st in BLOCK["status"]):
+            if cat.status not in BLOCK["status"]:
+                return False
         return True
 
     def validate_age(self, BLOCK, cat):
@@ -1482,8 +1424,13 @@ class TalkScreen(Screens):
         if "older" in BLOCK["age"] and not (cat.moons > cat.moons):
             return False
 
-        if BLOCK["age"] and cat.age not in BLOCK["age"]:
-            return False
+        if any(st in [
+            "newborn", "kitten", "adolescent", "young adult",
+            "adult", "senior adult", "senior"
+            ] for st in BLOCK["age"]
+            ):
+            if cat.age not in BLOCK["age"]:
+                return False
         return True
 
     def validate_conditions(self, BLOCK, cat):
@@ -1496,8 +1443,14 @@ class TalkScreen(Screens):
             return False
         if "illness:any" in BLOCK["condition"] and not cat.is_ill():
             return False
+        
+        # exclusive tags
+        if "pregnant" in BLOCK["condition"] and cat.ID not in game.clan.pregnancy_data:
+            return False
+        if "grief stricken" in BLOCK["condition"] and "grief stricken" not in cat.illnesses:
+            return False
 
-        condition_skip = False
+        has_condition = False
         for tag in BLOCK["condition"]:
             if ":" in tag:
                 # other than x:any, permanent condition tags are the only ones with colons
@@ -1507,16 +1460,17 @@ class TalkScreen(Screens):
                     if attributes[0] == condition:
                         if condition in cat.permanent_condition:
                             # is the born_with correct?
-                            if cat.permanent_condition[condition]["born_with"] is False and attributes[1] == "true":
-                                perm_skip = True
-                            if cat.permanent_condition[condition]["born_with"] is True and attributes[1] == "false":
-                                perm_skip = True
+                            if "born_with" in cat.permanent_condition[condition]:
+                                if cat.permanent_condition[condition]["born_with"] is False and attributes[1] == "true":
+                                    perm_skip = True
+                                if cat.permanent_condition[condition]["born_with"] is True and attributes[1] == "false":
+                                    perm_skip = True
                         # exclusive?
                         else:
                             if len(attributes) > 2 and attributes[2] == "true":
                                 perm_skip = True
                 if perm_skip:
-                    condition_skip = True
+                    return False
             else:
                 # regular conditions
                 if tag in INJURIES:
@@ -1534,9 +1488,7 @@ class TalkScreen(Screens):
                 else:
                     print("Incorrect condition tag:", tag)
                     condition_skip = True
-                if not has_condition:
-                    condition_skip = True
-        if condition_skip:
+        if not has_condition:
             return False
         return True
 
@@ -1547,10 +1499,10 @@ class TalkScreen(Screens):
             y_c_text = f"y_c: {you.status} "
             t_c_text = f"t_c: {cat.status} "
 
-            cluster1, cluster2 = get_cluster(cat.personality.trait)
-            cluster3, cluster4 = get_cluster(you.personality.trait)
-            clusters_1 = f"{cluster3}, {cluster4}" if cluster4 else f"{cluster3}"
-            clusters_2 = f"{cluster1}, {cluster2}" if cluster2 else f"{cluster1}"
+            cat_cluster_1, cat_cluster_2 = get_cluster(cat.personality.trait)
+            you_cluster_1, you_cluster_2 = get_cluster(you.personality.trait)
+            clusters_1 = f"{you_cluster_1}, {you_cluster_2}" if you_cluster_2 else f"{you_cluster_1}"
+            clusters_2 = f"{cat_cluster_1}, {cat_cluster_2}" if cat_cluster_2 else f"{cat_cluster_1}"
 
             y_c_text += clusters_1
             t_c_text += clusters_2
@@ -1594,10 +1546,9 @@ class TalkScreen(Screens):
     def choose_text(self, cat, texts_list):
         MAX_RETRIES = 30
         you = game.clan.your_cat
-        resource_dir = "resources/dicts/lifegen_talk/"
 
         if not texts_list:
-            texts_list['general'] = self.load_and_replace_placeholders(f"{resource_dir}general.json", cat, you)
+            texts_list['general'] = self.load_and_replace_placeholders(f"{self.resource_dir}general.json", cat, you)
 
         if len(game.clan.talks) > 100:
             game.clan.talks.clear()
@@ -1634,9 +1585,9 @@ class TalkScreen(Screens):
             text = texts_list[text_chosen_key]["intro"] if "intro" in texts_list[text_chosen_key] else texts_list[text_chosen_key][1]
             new_text = self.get_adjusted_txt(text, cat)
             if new_text:
+                self.display_intro(cat, texts_list, text_chosen_key)
                 if "intro" in texts_list[text_chosen_key]:
                     self.text_type = "choices"
-                    self.display_intro(cat, texts_list, text_chosen_key)
                 if "~" in text_chosen_key:
                     text_chosen_key_split = text_chosen_key.split("~")
                     cat.connected_dialogue[text_chosen_key_split[0]] = int(text_chosen_key_split[1])
@@ -1655,7 +1606,7 @@ class TalkScreen(Screens):
             if "intro" in texts_list[text_chosen_key]:
                 for choice_key, choice_text in texts_list[text_chosen_key].items():
                     if isinstance(choice_text, list) and choice_key != "tags":
-                        choice_text = self.get_adjusted_txt(choice_text, cat)
+                        choice_text = new_text
                         if not choice_text:
                             new_text = ""
                             break
@@ -1673,13 +1624,13 @@ class TalkScreen(Screens):
         # If no valid text found, choose one based on tag weights
         weights = []
         for item in texts_list.values():
-            tags = item["tags"] if "tags" in item else {}
+            tags = item["tags"] if "tags" in item else []
             weights.append(len(tags))
         text_chosen_key = choices(list(texts_list.keys()), weights=weights)[0]
         text = texts_list[text_chosen_key]["intro"] if "intro" in texts_list[text_chosen_key] else texts_list[text_chosen_key][1]
         if text is None:
-            text = self.load_and_replace_placeholders(f"{resource_dir}general.json", cat, you)[1]
-
+            text = self.load_and_replace_placeholders(f"{self.resource_dir}general.json", cat, you)[1]
+        
         new_text = self.get_adjusted_txt(text, cat)
         for _ in range(MAX_RETRIES):
             if new_text:
@@ -1688,7 +1639,7 @@ class TalkScreen(Screens):
             text = texts_list[text_chosen_key]["intro"] if "intro" in texts_list[text_chosen_key] else texts_list[text_chosen_key][1]
             new_text = self.get_adjusted_txt(text, cat)
         else:
-            text = self.load_and_replace_placeholders(f"{resource_dir}general.json", cat, you)[1]
+            text = self.load_and_replace_placeholders(f"{self.resource_dir}general.json", cat, you)[1]
             new_text = self.get_adjusted_txt(text, cat)
 
         if "~" in text_chosen_key:
@@ -1697,6 +1648,22 @@ class TalkScreen(Screens):
         game.clan.talks.append(text_chosen_key)
 
         return new_text
+    
+    def get_speaking_cat(self, text_string):
+        """ gets the current cat speaking for multi-character dialogue """
+        if "|" in text_string:
+            fragments = text_string.split("|")
+            # try:
+            # print("fragments:", fragments)
+            cat = self.cat_dict[fragments[1]]
+            # print("Speaking:", cat.name)
+            # except KeyError as e:
+            #     print("No", fragments[1], "in cat_dict")
+            #     print(self.cat_dict)
+            #     cat = self.the_cat
+        else:
+            cat = self.the_cat
+        return text_string, cat
 
     def get_adjusted_txt(self, text, cat):
         you = game.clan.your_cat
@@ -1704,19 +1671,21 @@ class TalkScreen(Screens):
             text[i] = lifegen_text_adjust(Cat, text[i], cat, self.cat_dict, r_c_allowed=True, o_c_allowed=True)
             if text[i] == "":
                 return ""
+        # for item in self.cat_dict.items():
+            # print("final", item[0], ":", item[1].name)
 
         process_text_dict = self.cat_dict.copy()
-    
+
         for abbrev in process_text_dict.keys():
             abbrev_cat = process_text_dict[abbrev]
             process_text_dict[abbrev] = (abbrev_cat, choice(abbrev_cat.pronouns))
-        
+
         process_text_dict["y_c"] = (game.clan.your_cat, choice(game.clan.your_cat.pronouns))
         process_text_dict["t_c"] = (cat, choice(cat.pronouns))
-        
+
         for i in range(len(text)):
             text[i] = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), text[i])
-        
+
         text = [t1.replace("c_n", game.clan.name) for t1 in text]
         text = [t1.replace("y_c", str(you.name)) for t1 in text]
         text = [t1.replace("t_c", str(cat.name)) for t1 in text]

@@ -180,7 +180,7 @@
     "halloween_J7": {
         "y_c": {
             "age": [
-                "you_not_kit"
+                "not_kit"
             ],
             "condition": [
                 "blind:any:false"
@@ -407,15 +407,18 @@
         ]
     },
     "Halloween_SV4": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "status": [
                 "kitten"
             ]
         },
         "tags": [
-            "halloween",
-            "you_adult"
+            "halloween"
         ],
         "intro": [
             "Watch me! I'm practicing my scary faces!",
@@ -431,7 +434,7 @@
     "Halloween_SV5": {
         "y_c": {
             "age": [
-                "you_not_kit"
+                "not_kit"
             ],
             "condition": [
                 "blind:any:false"

@@ -1103,7 +1103,7 @@
                 "neurotic"
             ],
             "age": [
-                "you_app"
+                "adolescent"
             ],
             "status": [
                 "kitten"
@@ -1229,7 +1229,11 @@
         ]
     },
     "cool_exes": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "adult"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "cool"
@@ -1240,9 +1244,6 @@
         },
         "relationship": [
             "min_platonic_20"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "Tch, gatherings. Always so awkward, having to run into all my past flings.",
@@ -1274,7 +1275,7 @@
     "cool_older": {
         "y_c": {
             "age": [
-                "you_app"
+                "adolescent"
             ]
         },
         "t_c": {
@@ -1378,7 +1379,7 @@
             "Look, I know I haven't exactly been the best cat ... But I could really use some help. Or, guidance, or whatever.",
             "Um ... Well, I guess my whole life I always swore that I would never get too attached to anyone. It just seemed easier that way. Easier to protect what was mine.",
             "But, now, ah ...",
-            "You see, there's this cat called their_crush. {PRONOUN/their_crush/subject/CAP}{VERB/their_crush/'re/'s} ... Oh, how can I even describe {PRONOUN/their_crush/object}? {PRONOUN/their_crush/subject/CAP}{VERB/their_crush/'re/'s} like this perfect thing. {PRONOUN/their_crush/subject/CAP} make me happy.",
+            "You see, there's this cat called rlike-r_c. {PRONOUN/rlike-r_c/subject/CAP}{VERB/rlike-r_c/'re/'s} ... Oh, how can I even describe {PRONOUN/rlike-r_c/object}? {PRONOUN/rlike-r_c/subject/CAP}{VERB/rlike-r_c/'re/'s} like this perfect thing. {PRONOUN/rlike-r_c/subject/CAP} make me happy.",
             "Not glibly sardonic, or ironically hedonistic, or any half-sincere thing like that. Actually happy.",
             "And ... I don't know. I guess I'm just scared. I don't know what to do. I haven't felt this way in years. What if I do something wrong?",
             "Could I get a little guidance? Advice from the other side? Hello? Is anyone listening? Is anyone even there ...?",
@@ -2580,7 +2581,11 @@
         ]
     },
     "silly_like_sibdance": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "sameage"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "silly"
@@ -2600,8 +2605,7 @@
             "sibling"
         ],
         "tags": [
-            "they_kit",
-            "you_sameage"
+            "they_kit"
         ],
         "intro": [
             "Hey! Hey, hey, y_c! Hey!",
@@ -2612,6 +2616,9 @@
     },
     "silly_like_song": {
         "y_c": {
+            "age": [
+                "sameage"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -2634,8 +2641,7 @@
             "min_platonic_20"
         ],
         "tags": [
-            "they_kit",
-            "you_sameage"
+            "they_kit"
         ],
         "intro": [
             "I had an idea for a new song! Wanna hear it?",
@@ -4068,6 +4074,9 @@
     },
     "about_introspective_SQ4": {
         "y_c": {
+            "age": [
+                "adult"
+            ],
             "condition": [
                 "blind:any:false"
             ]
@@ -4086,9 +4095,6 @@
         "relationship": [
             "min_platonic_25",
             "min_trust_15"
-        ],
-        "tags": [
-            "you_adult"
         ],
         "intro": [
             "neutral-r_c-introspective was talking about the choices we make, and how those can lead to us walking completely different paths...",
