@@ -1241,8 +1241,8 @@
             "Mmm. Tastes like fresh honey. Just like I remembered.",
             "[r_k eyes the root suspiciously, but t_c guards it with a paw.]",
             "Hey, none for you! You had your chance. This is all mine now.",
-            "[r_k pouts and whines that {PRONOUN/r_k/subject} {VERB/r_k/deserve/deserves} a taste.]",
-            "Well, alright ..... But only if you eat them all in one bite! Promise?",
+            "|r_k|Come onnnnn! Can't I have just one little taste?",
+            "... Well, alright. But only if you eat them all in one bite! Promise?",
             "[The kit nods eagerly, lapping up the herbs then recoiling at their bitter flavor.]",
             "Don't taste right? Huh, that's weird. Must be bad luck.",
             "[t_c smiles and winks in your direction.]"
@@ -2260,7 +2260,7 @@
             "Like, all by myself? Are you sure?",
             "Um ... Okay. I'll try, I guess.",
             "[t_c successfully, if a little clumsily, removes the thorn from r_w's paw, even remembering to apply the right herbs to avoid infection after.]",
-            "[r_w compliments {PRONOUN/t_c/object} on {PRONOUN/t_c/poss} gentle touch.]",
+            "|r_w|Wow, you're really good at this, t_c! It barely hurts at all.",
             "Heh ... S'No problem ... Just doing my job.",
             "[t_c looks at you, grinning from ear to ear.]"
         ]

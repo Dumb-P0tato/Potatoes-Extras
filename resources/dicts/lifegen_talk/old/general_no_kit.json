@@ -9606,7 +9606,7 @@
             "platonic_love"
         ],
         [
-            "[r_m tells you that t_c has been asleep for days.]",
+            "[r_m told you that t_c has been asleep for days.]",
             "[But, at the sound of your voice, {PRONOUN/t_c/subject} instantly {VERB/t_c/rouse/rouses} from {PRONOUN/t_c/poss} nest.]",
             "y_c?",
             "[A weak smile cracks over {PRONOUN/t_c/poss} face.]",

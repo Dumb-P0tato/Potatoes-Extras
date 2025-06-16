@@ -10688,7 +10688,8 @@
             "r_w-sweet, what-",
             "[r_w-sweet whispers something in t_c's ear.]",
             "Ahem, I mean, that- what now?- I mean, you could work a bit on that hunting position of yours.",
-            "Yes, r_w-sweet, I said it nicely!"
+            "|r_w-sweet|You're supposed to say it nicely!",
+            "I did!"
         ]
     },
     "unabashed_leaffall": {
@@ -14129,7 +14130,7 @@
             "min_platonic_50"
         ],
         "intro": [
-            "[r_m tells you that t_c has been asleep for days.]",
+            "[r_m has told you that t_c has been asleep for days.]",
             "[But, at the sound of your voice, {PRONOUN/t_c/subject} instantly {VERB/t_c/rouse/rouses} from {PRONOUN/t_c/poss} nest.]",
             "y_c?",
             "[A weak smile cracks over {PRONOUN/t_c/poss} face.]",
@@ -23899,7 +23900,8 @@
         "intro": [
             "See you tonight, y_c.",
             "[t_c smirks. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'ve/'s} looked smug ever since {PRONOUN/t_c/subject} beat you in a training session in the Dark Forest. {PRONOUN/t_c/subject/CAP} must be looking to challenge you again tonight.]",
-            "[r_w, sitting nearby, asks if the two of you are going on a date or something.]",
+            "[r_w, sitting nearby, overhears.]",
+            "|r_w|What, are you two going on a date, or something?",
             "W-wha-? No, of course not!",
             "[t_c flushes and hurries away.]"
         ]
@@ -33520,6 +33522,7 @@
             "[r_c-unlawful is a blur, mouse in {PRONOUN/r_c-unlawful/poss} mouth. t_c is just as fast, rearing up to shove you into the river.]",
             "Haha! r_c-unlawful, that worked! You're brilliant! Hey y_c, the water nice today?",
             "[You're thankful the water is shallow here on the bank, but you don't appreciate the sopping wet pelt. As revenge, you shake off beside the two miscreants.]",
+            "|r_c-unlawful|Aah!",
             "[r_c-unlawful shields the mouse, snickering, as t_c jumps into the water {PRONOUN/t_c/self}.]",
             "Awww yeah! The water's great! Drop that mouse and c'mon in, r_c-unlawful!"
         ]
@@ -34030,7 +34033,7 @@
         },
         "crush": [
             "Oh, y_c is my- I MEAN r_w! Why would I have a crush on you? Haha, I'll see you later!",
-            "[r_w happened to walk out of the warriors' den as it happened, and they look just as confused as you feel.]",
+            "[r_w happened to walk out of the warriors' den as it happened, and {PRONOUN/r_w/subject} {VERB/r_w/look/looks} just as confused as you feel.]",
             "[You're pretty sure t_c's crush isn't r_w...]"
         ],
         "color2": [
@@ -36903,7 +36906,7 @@
             "min_platonic_30"
         ],
         "intro": [
-            "[r_c sits alone, looking across the camp at neutral-rsh_c. {PRONOUN/t_c/subject/CAP} {VERB/t_c/don't/doesn't} stir when you sit beside {PRONOUN/t_c/object}, and for a moment you think {PRONOUN/t_c/subject} just {VERB/t_c/want/wants} some quiet time, until {PRONOUN/t_c/subject} quietly {VERB/t_c/pipe/pipes} up.]",
+            "[t_c sits alone, looking across the camp at neutral-rsh_c. {PRONOUN/t_c/subject/CAP} {VERB/t_c/don't/doesn't} stir when you sit beside {PRONOUN/t_c/object}, and for a moment you think {PRONOUN/t_c/subject} just {VERB/t_c/want/wants} some quiet time, until {PRONOUN/t_c/subject} quietly {VERB/t_c/pipe/pipes} up.]",
             "I know I'm not supposed to talk to {PRONOUN/neutral-rsh_c/object}, and I'm scared to even go close, but shouldn't... shouldn't someone figure out the full story of what happened, from neutral-rsh_c?",
             "Not... not that I'd believe everything, of course! But if no one talks to {PRONOUN/neutral-rsh_c/object}, then... Then...",
             "[t_c sighs. {PRONOUN/t_c/subject/CAP} {VERB/t_c/watch/watches} neutral-rsh_c miserably scrape leaves together into the semblance of a nest.]",
@@ -40539,7 +40542,7 @@
             "min_platonic_15"
         ],
         "intro": [
-            "[r_w brought back an octopus from their hunting patrol. It sits on top of the fresh-kill pile, slowly drying out in the sun.]",
+            "[r_w brought back an octopus from {PRONOUN/r_w/poss} hunting patrol. It sits on top of the fresh-kill pile, slowly drying out in the sun.]",
             "[t_c inspects it dubiously. {PRONOUN/t_c/subject/CAP} {VERB/t_c/pat/pats} it with one paw, pulling back when it lets out a loud squelching sound.]",
             "Uh, y_c? This octopus looks safe to eat, right? It seems a bit... squishier than usual.",
             "[You look over the creature, but it seems perfectly fine! You're actually surprised no one has claimed it for their meal yet.]",

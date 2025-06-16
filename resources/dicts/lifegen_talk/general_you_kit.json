@@ -3868,7 +3868,8 @@
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/lift/lifts} {PRONOUN/t_c/poss} head to the stars and {VERB/t_c/scream/screams} to the Clan.]",
             "We lost a Clanmate! To a kit, nonetheless! And yet we stand here and protect the killer?! EVIL WILL SPREAD!",
             "Make no mistake! {PRONOUN/y_c/subject/CAP} killed once, {PRONOUN/y_c/subject}'ll kill again! And I <b>won't</b> let that happen!",
-            "[r_q tells t_c to go to the medicine den and stay there. The Clan will not harm you. t_c shows brief confusion before hissing {PRONOUN/t_c/poss} response.]",
+            "|r_q|Go to the medicine den and stay there, t_c! It's the Clan's job to protect all kits, even if they've made mistakes.",
+            "[t_c grumbles.]",
             "Just know, you can't protect {PRONOUN/y_c/object} forever! One day, when you're not there, I will banish this evil myself! I don't care if blood stains my paws. Because at least I'll know StarClan will forgive me. They will never forgive you.",
             "[A chill wracks through your body as you meet t_c's cold and heartless stare. {PRONOUN/t_c/subject/CAP} no longer {VERB/t_c/have/has} the warmth that they used to. Since your actions, you begin to wonder...]",
             "[Maybe that cat you killed wasn't the only one who died that day.]"

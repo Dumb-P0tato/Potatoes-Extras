@@ -5076,7 +5076,7 @@
         "intro": [
             "...",
             "[t_c gently reaches out and touches your nose with a paw.]",
-            "[r_q quickly chases {PRONOUN/t_c/object} off, insisting that newborn kits need to be left alone.]",
+            "|r_q|Hey! No, no, no, no, no! You can't touch the newborns. Your paws are dirty.",
             "Eep! I just wanted to see if y_c's eyes would open!"
         ]
     },
@@ -5172,10 +5172,11 @@
         "intro": [
             "[t_c trots into the nursery and drops a mossball into the nest.]",
             "See this, y_c? This is called a mossball and you should remember that! You bat it around with your paws like this, see? And you use it to play really fun games! You're going to love it!",
-            "[r_c snickers and reminds t_c that you're a newborn, far younger than {PRONOUN/t_c/subject} {VERB/t_c/are/is} and that you probably don't understand a word {PRONOUN/t_c/subject} said. t_c puffs out {PRONOUN/t_c/poss} little chest.]",
+            "|r_c|Hehe. y_c is probably too young to understand anything you're saying.",
             "Well, yeah, I know that! But I thought that maybe {PRONOUN/y_c/subject}'d like to see one for the first time because then that way {PRONOUN/y_c/subject}'ll like playing games with me!",
-            "[r_c states that it's a nice gesture and lovely thought but maybe y_p wouldn't want {PRONOUN/y_p/poss} kittens playing with such a big toy until you're a little older.]",
-            "[y_p laughs it off and pushes the ball towards t_c and asks if {PRONOUN/t_c/subject} {VERB/t_c/want/wants} to play.]",
+            "|r_c|That's really nice of you... but I don't know if y_p would want {PRONOUN/y_c/object} playing with such a big toy. What do you say, y_p?",
+            "|y_p|Oh, I think it's fine! Here.",
+            "[y_p pushes the ball towards t_c and asks if {PRONOUN/t_c/subject} {VERB/t_c/want/wants} to play.]",
             "Really? YES!",
             "[You squint as you watch your loving {PRONOUN/y_p/parent} and t_c paw the ball back and forth, and your whiskers twitch eagerly. Maybe when you're older this will be a fun game! You will remember this.]"
         ]
@@ -9312,7 +9313,8 @@
         "intro": [
             "[You notice t_c is watching the other kits chase each other. Just when you are about to suggest a new game that {PRONOUN/t_c/subject} can be included in, t_c pounces on r_k!]",
             "I win again!",
-            "[r_k asks you if t_c is a descendant of LeopardClan, like in your stories.]"
+            "|r_k|Aah!",
+            "|r_k|y_c, is t_c from LeopardClan, like in the story you told me?"
         ]
     },
     "JointpainKit_Guy1": {
@@ -9325,15 +9327,14 @@
         "t_c": {
             "status": [
                 "kitten"
-            ]
+            ],
+            "condition": ["constant join pain:any:true"]
         },
-        "tags": [
-            "they_jointpain"
-        ],
         "intro": [
             "[You notice t_c is watching the other kits chase each other. Just when you are about to suggest a new game that {PRONOUN/t_c/subject} can be included in, t_c pounces on r_k!]",
             "I win again!",
-            "[r_k asks you if t_c is a descendant of LeopardClan, like in your stories.]"
+            "|r_k|Aah!",
+            "|r_k|y_c, is t_c from LeopardClan, like in the story you told me?"
         ]
     },
     "RaspylungsKit_Guy1": {
@@ -9354,7 +9355,8 @@
         "intro": [
             "[You notice t_c is watching the other kits chase each other. Just when you are about to suggest a new game that {PRONOUN/t_c/subject} can be included in, t_c pounces on r_k!]",
             "I win again!",
-            "[r_k asks you if t_c is a descendant of LeopardClan, like in your stories.]"
+            "|r_k|Aah!",
+            "|r_k|y_c, is t_c from LeopardClan, like in the story you told me?"
         ]
     },
     "neurotic_kitten_SQ1": {
@@ -12104,7 +12106,8 @@
         "intro": [
             "[Wind sweeps through the camp, scattering sand everywhere. t_c wails as some gets in {PRONOUN/t_c/poss} eyes.]",
             "Ahh! It really hurts! And I can't see!",
-            "[r_q rushes over and instructs t_c to blink repeatedly, but even after a few minutes, t_c still hasn't calmed down.]",
+            "|r_q|Don't panic, honey! Can you blink really fast for me?",
+            "[t_c does as {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} told, but even after a few minutes, {PRONOUN/t_c/subject} still {VERB/t_c/haven't/hasn't} calmed down.]",
             "W-what if I can't blink it all out? Is it gonna keep hurting forever?"
         ]
     },

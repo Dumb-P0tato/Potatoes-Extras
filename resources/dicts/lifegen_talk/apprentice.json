@@ -3839,7 +3839,7 @@
             "Golly, this kind of weather is exactly what I need to be energised for the day! The heat on your back. The wind brushing through your fur.",
             "Oh and the smells, fresh air! Way better than the stuffy stench from the camp.",
             "Oh, the other apprentices are calling for me, damn- I was hoping to have more of a break. But, oh well, that's what's asked of me. That's just the way it is.",
-            "[r_a stands off the side gathered with the other apprentices. {PRONOUN/r_a/subject/CAP} {VERB/r_a/call/calls} out once more, {PRONOUN/r_a/poss} fur spiking with irritation as {PRONOUN/r_a/subject} {VERB/r_a/grow/grows} impatient.]",
+            "|r_a|Come on, t_c! We don't have all day!",
             "AH! Oh! Yes, yes! I'm coming, I'm coming!",
             "[t_c bounces to {PRONOUN/t_c/poss} paws and begins to run in the direction of the other apprentices who twitch their whiskers, their tail fur bristling.]",
             "[The young group meets your gaze and blinks before nodding, some smiling others scowling.]",

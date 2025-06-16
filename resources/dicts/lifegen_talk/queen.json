@@ -62,9 +62,11 @@
             "Oh hello, y_c! Are you checking in on the kits today?",
             "They're really so lovely. I know the others will tell you kits are annoying but it's worth it!",
             "Oh, you should have seen r_a as a kit. {PRONOUN/r_a/subject/CAP} {VERB/r_a/were/was} so cute! One time, {PRONOUN/r_a/subject}-",
-            "[r_a passes by the nursery, dropping a mouthful of moss onto the floor as {PRONOUN/r_a/subject} {VERB/r_a/rush/rushes} in.]",
+            "[r_a waltzes into the nursery, dropping a mouthful of moss onto the floor.]",
             "Oh hello, r_a! I was just telling y_c about what you were like as a kit.",
-            "What do you mean, 'don't'? There's no need to be embarrassed, I think it was adorable!"
+            "|r_a|What?! Don't do that!",
+            "Aw, there's no need to be embarrassed, I think you were adorable!",
+            "Don't run away!"
         ]
     },
     "queen_2": {
@@ -811,7 +813,7 @@
         ],
         "intro": [
             "Queens just went out for some fresh air ... which means, any moment now, we should hear -",
-            "[r_k starts wailing for {PRONOUN/r_k/poss} mother. Loudly.]",
+            "|r_k|WAAAAAAAAAAHHH!!",
             "See? I always know! Haha!"
         ]
     },
@@ -2831,8 +2833,8 @@
             "[t_c walks into the den with a serious look on {PRONOUN/t_c/poss} face, gently nudging a kit along with {PRONOUN/t_c/object}.]",
             "y_c, can we have a moment of your time?",
             "[You sit up, glancing at them with a confused and worried expression.]",
-            "[r_k explains {PRONOUN/r_k/subject} saw a rogue lurking outside the camp, and that they seemed dangerous.]",
-            "I saw the rogue too... I hope they're not in need of help... Do you think you could check that out?"
+            "|r_k|Um... I saw a scary cat around the edge of camp last night. t_c sais it was a rogue.",
+            "I saw them too... I hope they're not in need of help. Do you think you could check that out?"
         ]
     },
     "sweet_queen_23": {

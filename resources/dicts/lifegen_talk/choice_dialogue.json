@@ -52,7 +52,7 @@
         },
         "intro": [
             "[A fight broke out in camp this morning, r_c1 had said something unnecessarily rude to t_c.]",
-            "[r_c2 scolded r_c1 for it, and their argument required mediator intervention. You decided to check on t_c after it all.]",
+            "[r_c2 scolded r_c1 for it, and their argument required mediator intervention. You decide to check on t_c after it all.]",
             "Oh, y_c, I'm so sorry all of that happened! I can't imagine how stressful it must've been on you."
         ],
         "intro_choices": {
@@ -2897,7 +2897,9 @@
         "intro": [
             "[Bitter and seething with jealousy, you ask r_q why your parents couldn't be as special as t_c's.]",
             "[r_q narrows {PRONOUN/r_q/poss} eyes. t_c's ... parents?]",
-            "[Quietly, r_q takes you aside and tells you the truth: t_c is an orphan. {PRONOUN/t_c/subject/CAP} {VERB/t_c/have/has} no family.]",
+            "|r_q|Um... Let's talk over here, y_c...",
+            "[r_q pulls you aside.]",
+            "|r_q|The truth is that t_c is an orphan. That means {PRONOUN/t_c/subject} {VERB/t_c/have/has} no family.",
             "[Stunned, you look back at the parade of kits trailing t_c, hanging on {PRONOUN/t_c/poss} every word. You mean all those amazing stories about {PRONOUN/t_c/poss} family, how much they all love one another, weren't even ... real?]",
             "[What do you do now?]"
         ],
@@ -4151,7 +4153,7 @@
         "attack": [
             "[You gather up your little haunches and spring at t_c, knocking {PRONOUN/t_c/object} off {PRONOUN/t_c/poss} paws and sending your moss-ball flying.]",
             "[The two of you spend a few moments tussling in a whirl of fur, claws, and shrieks before a horrified r_q separates you.]",
-            "[r_q chides you and insists that you apologize to t_c for starting a fight. Do you do so?]"
+            "|r_q|y_c! That wasn't very nice! You owe t_c an apology."
         ],
         "attack_choices": {
             "choice1": {
@@ -4176,8 +4178,8 @@
         ],
         "tattle": [
             "[You tug on r_q's tail and insist that t_c be punished for stealing your moss-ball from you.]",
-            "[r_q does as you ask, chiding the kit and retrieving your moss-ball.]",
-            "[But the whole time t_c is being lectured, {PRONOUN/t_c/poss} attention stays fixed squarely on you, gaze steely and resentful.]",
+            "|r_q|t_c, it's not okay to stea. Here's your moss-ball back, y_c.",
+            "[t_c's attention stays fixed squarely on you, gaze steely and resentful.]",
             "Some warrior you are. Can't even fight your own battles ...",
             "[It seems this is a moment t_c won't soon forget.]",
             "[Better watch your moss-ball twice as carefully from now on!]"
