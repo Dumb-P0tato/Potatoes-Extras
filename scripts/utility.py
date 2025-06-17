@@ -3661,7 +3661,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
     ) else True
 
     # Their DF mentor
-    t_df_m_n = False if (
+    t_df_mn = False if (
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         not chosen_cat.dead or
@@ -3828,7 +3828,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         "y_kk": y_kk,
         "y_ka": y_ka,
         "df_m_n": df_m_n,
-        "t_df_m_n": t_df_m_n,
+        "t_df_mn": t_df_mn,
         "m_n": m_n,
         "tm_n": tm_n,
         "l_n": l_n,
@@ -3940,7 +3940,7 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                     cat_choices.append(Cat.fetch_cat(you.dfmentor))
                 elif abbrev_string in ["tm_n"]:
                     cat_choices.append(Cat.fetch_cat(cat.mentor))
-                elif abbrev_string in ["t_df_m_n"]:
+                elif abbrev_string in ["t_df_mn"]:
                     cat_choices.append(Cat.fetch_cat(cat.dfmentor))
                 elif abbrev_string in ["y_a"]:
                     cat_choices = you.apprentice

@@ -1489,24 +1489,31 @@ class TalkScreen(Screens):
             return False
 
         has_condition = False
+        # "deaf:any:false"
+        # raspy lungs:any:false
         for tag in BLOCK["condition"]:
             if ":" in tag:
-                # other than x:any, permanent condition tags are the only ones with colons
+                # other than x:any and x:none, permanent condition tags are the only ones with colons
                 attributes = tag.split(":")
                 perm_skip = False
                 for condition in PERMANENT:
-                    if attributes[0] == condition:
+
+                    condition_name = attributes[0]
+                    born_with = attributes[1] if len(attributes) > 1 else "any"
+                    exclusive = attributes[2] if len(attributes) > 2 else "false"
+
+                    if condition_name == condition:
                         if condition in cat.permanent_condition:
-                            # is the born_with correct?
                             if "born_with" in cat.permanent_condition[condition]:
-                                if cat.permanent_condition[condition]["born_with"] is False and attributes[1] == "true":
+                                if cat.permanent_condition[condition]["born_with"] is False and born_with == "true":
                                     perm_skip = True
-                                if cat.permanent_condition[condition]["born_with"] is True and attributes[1] == "false":
+                                if cat.permanent_condition[condition]["born_with"] is True and born_with == "false":
                                     perm_skip = True
-                        # exclusive?
                         else:
-                            if len(attributes) > 2 and attributes[2] == "true":
+                            if exclusive == "true":
                                 perm_skip = True
+                    else:
+                        continue
                 if perm_skip:
                     return False
             else:
@@ -1517,7 +1524,7 @@ class TalkScreen(Screens):
                 elif tag in ILLNESSES:
                     if tag in cat.illnesses:
                         has_condition = True
-                elif tag in PERMANENT:
+                elif tag in PERMANENT and tag not in ["deaf", "blind"]:
                     if tag in cat.permanent_condition:
                         has_condition = True
                 elif tag == "hearing":
