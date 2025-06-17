@@ -2754,5 +2754,52 @@
             "Asking a question to my question, I see how it is...",
             "[t_c continues to grumble at how 'unfair' you're being before {PRONOUN/t_c/subject} {VERB/t_c/saunter/saunters} away.]"
         ]
+    },
+    "unkmurd_sam1": {
+        "y_c": {
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "unlawful"
+            ],
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "relationship": [
+            "min_platonic_50",
+            "min_trust_35"
+        ],
+        "intro": [
+            "Hey, y_c? I uh, kinda have a secret to tell you...",
+            "Promise you won't tell anyone?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "I promise",
+                "next_scene": "yes"
+            },
+            "choice2": {
+                "text": "No",
+                "next_scene": "no"
+            }
+        },
+        "yes": [
+            "Alright.. Well, I need to be honest with you.",
+            "I need to do the right thing.",
+            "I... I killed fc_c.",
+            "[You're stunned into silence by {PRONOUN/t_c/poss} confession, and you know your shock is clear as day on your face. How could it <i>not</i> be?]",
+            "[... So why {VERB/t_c/are/is} {PRONOUN/t_c/subject} suddenly laughing?!]",
+            "Hahaha! StarClan- Ha! The look on your face!",
+            "I swear I didn't <i>actually</i> kill fc_c. I'm just messing with you.",
+            "[You roll your eyes, stalking off to your nest. You plan not to talk to {PRONOUN/t_c/object} for the next few days, out of spite for how much {PRONOUN/t_c/subject} scared you.]"
+        ],
+        "no": [
+            "[There's something about t_c's tone that makes you think {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} not serious.]",
+            "You're no fun."
+        ]
     }
 }

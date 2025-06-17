@@ -5229,5 +5229,68 @@
             "It won't hurt the thief, but it'll be a pain in the tail to get out of their pelt, and if I spot them before they've cleaned it all off, I'll know who the thief is. Smart, huh?",
             "[... Note to self: Never steal herbs from t_c.]"
         ]
+    },
+    "they_sillysam5": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "silly"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "medicine cat apprentice",
+                "medicine cat"
+            ],
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "relationship": [
+            "min_dislike_50"
+        ],
+        "intro": [
+            "Uhh... I need to go hunt a juniper tree.",
+            "[t_c seems to realize what {PRONOUN/t_c/subject} said and {PRONOUN/t_c/subject} quickly sputter out an excuse.]",
+            "Yeah, a juniper tree. It's a new plant we found.",
+            "Yeah..."
+        ]
+    },
+    "they_sillysam7": {
+        "y_c": {
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "silly"
+            ],
+            "status": [
+                "medicine cat apprentice",
+                "medicine cat"
+            ],
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "relationship": [
+            "min_dislike_50"
+        ],
+        "intro": [
+            "Uhh, I have to go find a catmint tree.",
+            "It's a new plant we found. Yeah.",
+            "You want to see it?",
+            "Uhhh....",
+            "[t_c runs away.]"
+        ]
     }
 }

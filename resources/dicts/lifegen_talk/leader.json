@@ -4477,5 +4477,69 @@
             "... Most of the time, anyway.",
             "I just think <i>really hard</i> about it."
         ]
+    },
+    "they_sillysam3": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "df_trainee"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "silly"
+            ],
+            "status": [
+                "leader",
+                "df_trainee"
+            ]
+        },
+        "intro": [
+            "Hey y_c! Will you be training with me and t_df_m tonight?",
+            "There was this move {PRONOUN/t_df_m/subject} {VERB/t_df_m/were/was} teaching me, and I thought you might like to try it!"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Shush {PRONOUN/t_c/object}",
+                "next_scene": "shush"
+            },
+            "choice2": {
+                "text": "Agree",
+                "next_scene": "agree"
+            },
+            "choice3": {
+                "text": "Deny",
+                "next_scene": "deny"
+            }
+        },
+        "shush": [
+            "Oh, you're no fun. Nobody's even around, so we can be as loud as we want!",
+            "...Yeah, I know that I'd definitely be demoted if anyone found out.",
+            "But nobody's gonna find out. We just gotta be extra careful.",
+            "I <i>was</i> being careful! Nobody's around anyways.",
+            "Fine, I'll make sure to be extra careful, like I said.",
+            "You're too uptight sometimes."
+        ],
+        "agree": [
+            "Great! I'll see you tonight then."
+        ],
+        "deny": [
+            "Aww, why not? I think you'll really like it!"
+        ],
+        "deny_choices": {
+            "choice1": {
+                "text": "Relent",
+                "next_scene": "agree"
+            },
+            "choice2": {
+                "text": "Keep denying",
+                "next_scene": "no_fun"
+            }
+        },
+        "no_fun": [
+            "You're no fun sometimes, you know that?"
+        ]
     }
 }

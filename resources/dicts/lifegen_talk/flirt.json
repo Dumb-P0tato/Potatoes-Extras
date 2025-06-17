@@ -8731,5 +8731,33 @@
             "[t_c shakes {PRONOUN/t_c/poss} head, eyes shining with disappointment.]",
             "[It's not the time for flirting.]"
         ]
+    },
+    "flirt_hate_sam1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "min_max_faith": [
+                0,
+                9
+            ]
+        },
+        "relationship": [
+            "min_dislike_40"
+        ],
+        "tags": [
+            "accept"
+        ],
+        "intro": [
+            "What in StarClan?",
+            "I-I hate you! I don't like you like that!",
+            "[t_c scurries away, {PRONOUN/t_c/poss} pelt burning with embarrassment.]",
+            "[Maybe t_c doesn't hate you after all.]"
+        ]
     }
 }
