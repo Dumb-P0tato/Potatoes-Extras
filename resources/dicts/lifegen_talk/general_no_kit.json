@@ -43127,7 +43127,7 @@
         "intro": [
             "[t_c looks around for a moment before whispering to you.]",
             "I saw you in the Dark Forest last night.",
-            "Nope, don't try to deny it, I saw you. I was training with t_df_m. Who were you training with? I never caught {PRONOUN/df_m_n/poss} name.",
+            "Nope, don't try to deny it, I saw you. I was training with t_df_mn. Who were you training with? I never caught {PRONOUN/df_m_n/poss} name.",
             "I won't tell anyone. I promise.",
             "As long as you promise to not tell anyone about how I was training in the Dark Forest.",
             "Deal. See you tonight?"

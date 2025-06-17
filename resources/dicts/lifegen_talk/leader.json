@@ -4497,8 +4497,8 @@
             ]
         },
         "intro": [
-            "Hey y_c! Will you be training with me and t_df_m tonight?",
-            "There was this move {PRONOUN/t_df_m/subject} {VERB/t_df_m/were/was} teaching me, and I thought you might like to try it!"
+            "Hey y_c! Will you be training with me and t_df_mn tonight?",
+            "There was this move {PRONOUN/t_df_mn/subject} {VERB/t_df_mn/were/was} teaching me, and I thought you might like to try it!"
         ],
         "intro_choices": {
             "choice1": {
