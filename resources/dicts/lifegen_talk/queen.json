@@ -4093,5 +4093,35 @@
             "[It doesn't seem to bother {PRONOUN/t_c/object} that you don't know as you shrug your shoulders in defeat. {PRONOUN/t_c/subject/CAP} {VERB/t_c/point/points} to a fish, and you feel a bit silly for not catching on.]",
             "[That ends the lesson for the day, though, as t_c signs that {PRONOUN/t_c/subject} {VERB/t_c/need/needs} to go.]"
         ]
+    },
+    "they_sillysam8": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "silly"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "queen"
+            ]
+        },
+        "intro": [
+            "Please stop crying...",
+            "You know, I heard a secret from l_n. But I guess you don't want to hear it since you're crying so much.",
+            "You want to hear it?",
+            "I don't know... you were crying a <i>lot</i>. How do I know you'll be good?",
+            "You promise to stop crying if I tell you?",
+            "Alright. The secret is...",
+            "The mushrooms in camp are secretly edible."
+        ]
     }
 }

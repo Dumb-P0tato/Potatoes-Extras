@@ -6329,5 +6329,51 @@
         "intro": [
             "[t_c rolls around, trying to swing {PRONOUN/t_c/poss} claws at you.]"
         ]
+    },
+    "they_sillysam6": {
+        "y_c": {},
+        "t_c": {
+            "cluster": [
+                "silly"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "Haha, that's a funny joke!",
+            "...that wasn't supposed to be a joke?",
+            "That's mean.",
+            "[t_c slinks away towards the nursery, pretending to not be affected by your insult.]"
+        ]
+    },
+    "insult_sam1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "newborn"
+            ],
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ]
+        },
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "[You feel too guilty to insult this cat. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} a newborn, for StarClan's sake.]"
+        ]
     }
 }

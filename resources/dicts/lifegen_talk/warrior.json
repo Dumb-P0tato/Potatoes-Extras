@@ -9144,5 +9144,32 @@
             "... And then I got the feather! Quite the adventure, no?",
             "Just wait until you're old enough. You'll be having plenty of adventures of your own before you know it!"
         ]
+    },
+    "pride_sam1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "apprentice",
+                "warrior"
+            ],
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "season": [
+            "greenleaf"
+        ],
+        "intro": [
+            "I wandered by the Twolegplace while I was hunting.",
+            "They were parading around the streets with rainbows and other combinations of colors.",
+            "But a few of them were being mean to the ones with rainbows. I might have made dirt near the dens of the mean ones."
+        ]
     }
 }

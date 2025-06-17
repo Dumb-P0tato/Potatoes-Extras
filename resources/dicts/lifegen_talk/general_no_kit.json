@@ -43040,5 +43040,151 @@
             "accessory": ["CYANBOW", "LIMEBOW", "WHITEBOW", "PINKBOW", "CRIMSONBOW", "RAINBOWBOW"],
             "addition": "choice"
         }
+    },
+    "introspective_silly_sam1": {
+        "y_c": {
+            "cluster": [
+                "unlawful",
+                "silly"
+            ],
+            "backstory": [
+                "formerlyakittypet"
+            ],
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "introspective"
+            ],
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "relationship": [
+            "max_platonic_40"
+        ],
+        "intro": [
+            "[You've noticed that t_c seems curious about when you were a kittypet, but never seems to ask you about it.]",
+            "[You decide to gently force {PRONOUN/t_c/poss} questions, by spinning an <i>outrageously</i> incorrect story about your time as a kittypet. t_c would probably figure out that it's incorrect, and ask you about it!]",
+            "[One day, while you're in a conversation with r_w, you begin to talk about your time as a kittypet. You can see t_c eavesdropping, and you start to execute your plan.]",
+            "[It's working! t_c approaches you.]",
+            "Listen, y_c, there is no way in the Dark Forest <i>that</i> was what being a kittypet was like. I'm curious, so can you just tell the truth?",
+            "[You eagerly start to tell t_c about how it was really like, happy that {PRONOUN/t_c/subject} finally asked about it.]"
+        ]
+    },
+    "sick_sam1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false",
+                "illness:any"
+            ],
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "intro": [
+            "...I miss breathing."
+        ]
+    },
+    "honey_is_mean-sam": {
+        "y_c": {
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "t_c": {
+            "shunned": true,
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "intro": [
+            "Look at respect-rsh_c-lonesome. {PRONOUN/respect-rsh_c-lonesome/subject/CAP} {VERB/respect-rsh_c-lonesome/don't/doesn't} seem to even care about being shunned.",
+            "I wish I could be as careless about being shunned as {PRONOUN/respect-rsh_c-lonesome/subject} {VERB/respect-rsh_c-lonesome/are/is}."
+        ]
+    },
+    "both_dftraineesam1": {
+        "y_c": {
+            "status": [
+                "df_trainee"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "df_trainee"
+            ]
+        },
+        "intro": [
+            "[t_c looks around for a moment before whispering to you.]",
+            "I saw you in the Dark Forest last night.",
+            "Nope, don't try to deny it, I saw you. I was training with t_df_mn. Who were you training with? I never caught {PRONOUN/df_m_n/poss} name.",
+            "I won't tell anyone. I promise.",
+            "As long as you promise to not tell anyone about how I was training in the Dark Forest.",
+            "Deal. See you tonight?"
+        ]
+    },
+    "they_sillysam9": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "silly"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "backstory": [
+                "formerlyakittypet"
+            ],
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "intro": [
+            "My Twolegs would talk to me a lot. Most of the time it didn't make sense.",
+            "Wait, I just remembered something my Twolegs would tell me. I only realized it now.",
+            "They were telling me about you! They said your name and everything!",
+            "Yeah, they told me something about how you were gonna be the leader of a Clan one day.",
+            "They did say it was going to be o_cClan though, so I don't know how accurate it really was..."
+        ]
+    },
+    "owlhouse_sam": {
+        "y_c": {
+            "skill": [
+                "TUNNELER,1"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "silly"
+            ]
+        },
+        "relationship": [
+            "min_romantic_20"
+        ],
+        "intro": [
+            "[You're digging a tunnel when suddenly a shadow swoops over the tunnel, knocking t_c in.]",
+            "Stupid owl, pushing me into a tunnel...",
+            "O-oh, y_c! I didn't see you there!",
+            "Yeah.. An owl pushed me into your tunnel.",
+            "Heh.. Tunnel of love, am I right?",
+            "Sorry, bad joke, I know. I'll leave."
+        ]
     }
 }

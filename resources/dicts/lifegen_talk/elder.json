@@ -3689,5 +3689,70 @@
             "[As you paw closer, t_c looks at you with judegemntal eyes.]",
             "[Seems like {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} trust your strength. You guess you'll leave helping t_c up to a warrior instead.]"
         ]
+    },
+    "they_sillysam2": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "silly"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "elder"
+            ]
+        },
+        "tags": [
+            "they_grandparent"
+        ],
+        "intro": [
+            "Hey y_c! Come to visit 'ol t_c, have you?",
+            "Ah, you're looking for a story from when I was young. Well, young kit, I have quite a tale for you.",
+            "Once upon a time, long ago, I lived on the moon.",
+            "You want a <i>real</i> story? C'mon, what's the fun in that?",
+            "y_p hasn't been telling you that every story has a life lesson, {VERB/y_p/have/has} {PRONOUN/y_p/subject}?",
+            "Well, {PRONOUN/y_p/subject}{VERB/y_p/'re/'s} wrong. Most stories are just for fun! Do you really want to hear a 'real' story?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Yes",
+                "next_scene": "real"
+            },
+            "choice2": {
+                "text": "No",
+                "next_scene": "not_real"
+            }
+        },
+        "real": [
+            "[t_c groans playfully.]",
+            "You're no fun, but fine, I guess I can tell you a real story.",
+            "Once upon a time, I was only a few moons older than you. It was my apprentice ceremony.",
+            "The leader was giving t_l {PRONOUN/t_l/poss} apprentice name. You wanna know what {PRONOUN/t_l/subject} did?",
+            "{PRONOUN/t_l/subject/CAP} laughed. {PRONOUN/t_l/subject/CAP} laughed at the fact that I got my apprentice name after {PRONOUN/t_l/object}.",
+            "I was angry, but I didn't react. I turned back to the leader, waiting patiently for my apprentice name.",
+            "As soon as I started training, I tried harder than I ever had at anything. I never stopped.",
+            "And it paid off. I graduated before {PRONOUN/t_l/object}, and I got to see the shocked look on {PRONOUN/t_l/poss} face as I got my full name.",
+            "Then I laughed. But I wasn't mean. I laughed with {PRONOUN/t_l/object}, at the irony of the situation. {PRONOUN/t_l/subject/CAP} {VERB/t_l/weren't/wasn't} angry, but I still got back at {PRONOUN/t_l/object}.",
+            "Moral of the story, petty revenge is always an option, but you don't have to be mean about it.",
+            "Did you like the story?"
+        ],
+        "not_real": [
+            "Yes! This'll be so much more fun.",
+            "So, once upon a time, I lived on the moon. On the moon, there was a twoleg.",
+            "Strangely enough, it wasn't a mean twoleg. It was a nice one. The twoleg fed me, gave me water, but still let me have my warrior spirit.",
+            "One day, the twoleg left in a big metal tube, leaving me alone. Then, a cat named y_c came along.",
+            "No, it wasn't you, but {PRONOUN/t_l/subject} had the same name. {PRONOUN/t_l/subject/CAP} saved me. {PRONOUN/t_l/subject/CAP} took me back to my home in c_nClan.",
+            "That's how I convinced t_p to name you y_c. y_c saved me.",
+            "[t_c watches your reaction for a moment, {PRONOUN/t_c/poss} face breaking into a grin that matches yours.]",
+            "See? Aren't fake stories much more fun?"
+        ]
     }
 }

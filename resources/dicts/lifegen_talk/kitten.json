@@ -16642,5 +16642,79 @@
             "|r_q|No? Ah, okay. {PRONOUN/t_c/subject/CAP} can't be far...",
             "[r_q leaves, and t_c shakes with laughter underneath you.]"
         ]
+    },
+    "sick_sam2": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "medicine cat apprentice",
+                "medicine cat"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false",
+                "illness:any"
+            ]
+        },
+        "intro": [
+            "y_c! I don't feel good! I can barely breathe.",
+            "Can you make me feel better?",
+            "I'll help you sort herbs for a week!",
+            "Please??",
+            "[You inform t_c that you unfortunately cannot make {PRONOUN/t_c/object} feel better, but that you'll play with {PRONOUN/t_c/object} until {PRONOUN/t_c/subject} {VERB/t_c/do/does}.]",
+            "Really? Okay, let's play mossball!"
+        ]
+    },
+    "they_sillysam4": {
+        "y_c": {
+            "condition": [
+                "deaf:any:true"
+            ]
+        },
+        "t_c": {
+            "cluster": [
+                "silly"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[t_c bounds up to you, a smile on {PRONOUN/t_c/poss} face. {PRONOUN/t_c/subject/CAP} {VERB/t_c/start/starts} speaking excitedly, forgetting that you can't hear {PRONOUN/t_c/object}.]",
+            "[{PRONOUN/t_c/subject/CAP} pause before signing sadly that {PRONOUN/t_c/subject} thought if {PRONOUN/t_c/subject} spoke to you enough you'd be able to hear {PRONOUN/t_c/object}.]",
+            "[You reassure {PRONOUN/t_c/object} that you don't mind, and {PRONOUN/t_p/poss} face lights up again. {PRONOUN/t_c/subject/CAP} {VERB/t_c/start/starts} to tell you about how {PRONOUN/t_c/subject} found a pebble, and {PRONOUN/t_c/subject} wanted you to have it.]",
+            "[{PRONOUN/t_c/subject/CAP} even painted it for you with berries {PRONOUN/t_c/subject} found in camp. You thank {PRONOUN/t_c/object} for the pebble, and put it next to your nest.]"
+        ]
+    },
+    "they_dfsam1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ],
+            "shunned": true
+        },
+        "t_c": {
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ],
+            "dead": [
+                "df"
+            ]
+        },
+        "intro": [
+            "[t_c leans on you silently in comfort.]",
+            "[Even kits from the Dark Forest are sweet.]"
+        ]
     }
 }
