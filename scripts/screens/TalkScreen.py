@@ -1477,6 +1477,11 @@ class TalkScreen(Screens):
         if "illness:any" in BLOCK["condition"] and not cat.is_ill():
             return False
         
+        if "injury:none" in BLOCK["condition"] and cat.is_injured():
+            return False
+        if "illness:none" in BLOCK["condition"] and cat.is_ill():
+            return False
+        
         # exclusive tags
         if "pregnant" in BLOCK["condition"] and cat.ID not in game.clan.pregnancy_data:
             return False
