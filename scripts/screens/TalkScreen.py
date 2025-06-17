@@ -1333,6 +1333,29 @@ class TalkScreen(Screens):
                     if "you_not_murderer" in TAGS and murdered_them:
                         continue
 
+                    # now THEY murderer
+                    murdered_them = False
+                    if cat.history:
+                        if cat.history.murder:
+                            if "is_murderer" in cat.history.murder:
+                                for murder_event in cat.history.murder["is_murderer"]:
+                                    if focus_cat.ID == murder_event.get("victim"):
+                                        murdered_them = True
+                                        break
+                                    else:
+                                        murdered_them = False
+                            else:
+                                murdered_them = False
+                        else:
+                            murdered_them = False
+                    else:
+                        murdered_them = False
+
+                    if "they_murderer" in TAGS and murdered_them is False:
+                        continue
+                    if "they_not_murderer" in TAGS and murdered_them:
+                        continue
+
             # dead moons tags!
             fadedage = game.config["fading"]["age_to_fade"]
             # this is for opacity tagging whenever i wanna do that
