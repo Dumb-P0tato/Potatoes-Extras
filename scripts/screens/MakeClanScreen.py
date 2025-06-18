@@ -2065,6 +2065,10 @@ class MakeClanScreen(Screens):
 
         self.clear_all_page()
         self.sub_screen = "customize cat"
+
+        self.selected_cat = None
+        # clearing selected cat for the eye colour display bug
+
         pelt2 = Pelt(
             name=self.pname,
             length=self.length,
