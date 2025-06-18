@@ -145,6 +145,7 @@ class AffairScreen(Screens):
         self.update_cat_list()
 
     def exit_screen(self):
+        self.current_page = 1
 
         for ele in self.cat_list_buttons:
             self.cat_list_buttons[ele].kill()
