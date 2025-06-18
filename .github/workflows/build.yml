@@ -27,7 +27,7 @@ jobs:
           - os: windows-2019
             artifact_name: Lifegen_Win32.zip
             python_version: "3.8"
-            python_arch: "x86"
+            python_arch: "x64"
             itch_channel: win32
             api_artifact_name: win32
             
