@@ -12,7 +12,12 @@
         "l_n consults you about who may be best to mentor r_k when {PRONOUN/r_k/subject} {VERB/r_k/reach/reaches} six moons.",
         "You check in with r_q during the kits' afternoon nap. {PRONOUN/r_q/subject/CAP} {VERB/r_q/are/is} grateful for your attentiveness, and the two of you get a few tasks done before the sleeping kittens awake.",
         "You take some time to check in with r_m. {PRONOUN/r_m/subject/CAP} {VERB/r_m/inform/informs} you of a few den repairs and {VERB/r_m/advise/advises} an area to keep the patrols away from to avoid unnecessary injuries. You're grateful for the insight and organize r_w1 and r_w2 to fix up the den.",
-        "As you come back with a hunting patrol, r_k and a few others surround you with questions about how the patrol went. You indulge them with a smile."
+        "As you come back with a hunting patrol, r_k and a few others surround you with questions about how the patrol went. You indulge them with a smile.",
+        "You overhear r_w giving advice to r_a about stalking techniques. Impressed, you suggest {PRONOUN/r_w/subject} formally assist with r_a's next hunting assessment.",
+        "l_n takes over assigning evening patrols, giving you a chance to have some time to yourself.",
+        "r_w paces anxiously before finally asking if {PRONOUN/r_w/subject} can switch patrol duties with r_w1. You nod after considering the day's plans. Sometimes flexibility keeps the Clan running smooth.",
+        "With a gathering approaching, l_n quietly checks in about which warriors you think should attend. You list a few names, including r_w and r_a, feeling confident in your choices.",
+        "You notice r_q struggling to haul a thorny branch out of the camp entrance. You call over r_w to help, and the two of them make quick work of clearing the obstruction."
     ],
     "deputy assertive": [
         "You approach l_n about strengthening the borders. You feel it is necessary to show off a united front about the matter, but l_n isn't immediately convinced of the need to do so. You leave the den unsatisfied with your attempt to strengthen c_n.",
