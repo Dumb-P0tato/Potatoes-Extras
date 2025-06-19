@@ -764,7 +764,7 @@
         ],
         "success_outcomes": [
             {
-                "text": "You nervously ask r_c and {PRONOUN/r_c/subject} look away, blushing a bit. {PRONOUN/r_c/subject/CAP} purr and tell you to just focus on the sky, though you can't help but notice {PRONOUN/r_c/object} glancing at you affectionately every now and then.",
+                "text": "You nervously ask r_c and {PRONOUN/r_c/subject} look away, blushing a bit. {PRONOUN/r_c/subject/CAP} {VERB/r_c/purr/purrs} and tell you to just focus on the sky, though you can't help but notice {PRONOUN/r_c/object} glancing at you affectionately every now and then.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [

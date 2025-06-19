@@ -1244,9 +1244,8 @@ def get_amount_of_cats_with_relation_value_towards(cat, value, all_cats):
 
     return return_dict
 
-
 def filter_relationship_type(
-    group: list, filter_types: List[str], event_id: str = None, patrol_leader=None
+        group: list, filter_types: List[str], event_id: str = None, patrol_leader=None
 ):
     """
     filters for specific types of relationships between groups of cat objects, returns bool
@@ -1259,11 +1258,35 @@ def filter_relationship_type(
     :param str event_id: if the event has an ID, include it here
     :param Cat patrol_leader: if you are testing a patrol, ensure you include the self.patrol_leader here
     """
-    # keeping this list here just for quick reference of what tags are handled here
-    possible_rel_types = ["siblings", "mates", "mates_with_pl", "not_mates", "parent/child", "child/parent",
-                          "mentor/app", "app/mentor"]
+    if not filter_types:
+        return True
 
-    possible_value_types = ["romantic", "platonic", "dislike", "comfortable", "jealousy", "trust", "admiration"]
+    # keeping this list here just for quick reference of what tags are handled here
+    possible_rel_types = [
+        "siblings",
+        "mates",
+        "mates_with_pl",
+        "not_mates",
+        "parent/child",
+        "child/parent",
+        "mentor/app",
+        "app/mentor",
+
+        #lg types
+        "df_app/df_mentor",
+        "df_mentor/df_app",
+        "strangers"
+    ]
+
+    possible_value_types = [
+        "romantic",
+        "platonic",
+        "dislike",
+        "comfortable",
+        "jealousy",
+        "trust",
+        "admiration",
+    ]
 
     if "siblings" in filter_types:
         test_cat = group[0]
@@ -1356,6 +1379,26 @@ def filter_relationship_type(
         # test for parentage
         if not group[0].ID in group[1].apprentice:
             return False
+        
+    # lifegen
+    if "df_app/df_mentor" in filter_types:
+        if len(group) != 2:
+            return False
+        if not group[0].ID in group[1].df_apprentices:
+            return False
+        
+    if "df_mentor/df_app" in filter_types:
+        if len(group) != 2:
+            return False
+        if not group[1].ID in group[0].df_apprentices:
+            return False
+
+    if "strangers" in filter_types and len(group) == 2:
+        relationship = group[0].relationships[group[1].ID]
+        if relationship and (relationship.platonic_like < 1 or relationship.romantic_love < 1):
+            return False
+    elif "strangers" in filter_types:
+        return False
 
     # Filtering relationship values
     break_loop = False
@@ -1369,28 +1412,33 @@ def filter_relationship_type(
 
             # there should be only one value constraint for each value type
         elif len(tags) > 1:
-            print(f"ERROR: event {event_id} has multiple relationship constraints for the value {v_type}.")
+            print(
+                f"ERROR: event {event_id} has multiple relationship constraints for the value {v_type}."
+            )
             break_loop = True
             break
 
         # try to extract the value/threshold from the text
         try:
-            threshold = int(tags[0].split('_')[1])
+            threshold = int(tags[0].split("_")[1])
         except:
             print(
-                f"ERROR: event {event_id} with the relationship constraint for the value does not {v_type} follow the formatting guidelines.")
+                f"ERROR: event {event_id} with the relationship constraint for the value does not {v_type} follow the formatting guidelines."
+            )
             break_loop = True
             break
 
         if threshold > 100:
             print(
-                f"ERROR: event {event_id} has a relationship constraint for the value {v_type}, which is higher than the max value of a relationship.")
+                f"ERROR: event {event_id} has a relationship constraint for the value {v_type}, which is higher than the max value of a relationship."
+            )
             break_loop = True
             break
 
         if threshold <= 0:
             print(
-                f"ERROR: event {event_id} has a relationship constraint for the value {v_type}, which is lower than the min value of a relationship or 0.")
+                f"ERROR: event {event_id} has a relationship constraint for the value {v_type}, which is lower than the min value of a relationship or 0."
+            )
             break_loop = True
             break
 
@@ -1402,26 +1450,40 @@ def filter_relationship_type(
             relevant_relationships = list(
                 filter(
                     lambda rel: rel.cat_to.ID in group_ids
-                    and rel.cat_to.ID != inter_cat.ID,
+                                and rel.cat_to.ID != inter_cat.ID,
                     list(inter_cat.relationships.values()),
                 )
             )
 
             # get the relationships depending on the current value type + threshold
             if v_type == "romantic":
-                rel_above_threshold = [i for i in relevant_relationships if i.romantic_love >= threshold]
+                rel_above_threshold = [
+                    i for i in relevant_relationships if i.romantic_love >= threshold
+                ]
             elif v_type == "platonic":
-                rel_above_threshold = [i for i in relevant_relationships if i.platonic_like >= threshold]
+                rel_above_threshold = [
+                    i for i in relevant_relationships if i.platonic_like >= threshold
+                ]
             elif v_type == "dislike":
-                rel_above_threshold = [i for i in relevant_relationships if i.dislike >= threshold]
+                rel_above_threshold = [
+                    i for i in relevant_relationships if i.dislike >= threshold
+                ]
             elif v_type == "comfortable":
-                rel_above_threshold = [i for i in relevant_relationships if i.comfortable >= threshold]
+                rel_above_threshold = [
+                    i for i in relevant_relationships if i.comfortable >= threshold
+                ]
             elif v_type == "jealousy":
-                rel_above_threshold = [i for i in relevant_relationships if i.jealousy >= threshold]
+                rel_above_threshold = [
+                    i for i in relevant_relationships if i.jealousy >= threshold
+                ]
             elif v_type == "trust":
-                rel_above_threshold = [i for i in relevant_relationships if i.trust >= threshold]
+                rel_above_threshold = [
+                    i for i in relevant_relationships if i.trust >= threshold
+                ]
             elif v_type == "admiration":
-                rel_above_threshold = [i for i in relevant_relationships if i.admiration >= threshold]
+                rel_above_threshold = [
+                    i for i in relevant_relationships if i.admiration >= threshold
+                ]
 
             # if the lengths are not equal, one cat has not the relationship value which is needed to another cat of
             # the event
@@ -1439,6 +1501,7 @@ def filter_relationship_type(
         return False
 
     return True
+
 
 
 def gather_cat_objects(
@@ -2069,7 +2132,7 @@ def history_text_adjust(text,
         text = text.replace("o_c_n", str(other_clan_name))
 
     if "c_n" in text:
-        text = text.replace("c_n", str(clan_name) + "Clan")
+        text = text.replace("c_n", str(game.clan.name) + "Clan")
     if "r_c" in text and other_cat_rc:
         text = selective_replace(text, "r_c", str(other_cat_rc.name))
     return text

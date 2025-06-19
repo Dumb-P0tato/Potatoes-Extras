@@ -174,7 +174,7 @@ class Patrol:
                 self.patrol_statuses[cat.status] = 1
 
             # LG ---
-            if cat.dead and cat.df:
+            if cat.dead and cat.df and cat != game.clan.your_cat:
                 if "df" in self.patrol_statuses:
                     self.patrol_statuses["df"] += 1
                 else:
@@ -258,8 +258,14 @@ class Patrol:
                     self.random_cat = date_cat
                     break
         elif "patrol_category" in game.switches and len(patrol_cats) > 1 and game.switches["patrol_category"] == 'df':
-            possible_random_cats = [i for i in patrol_cats if i.ID != game.clan.your_cat.ID]
-            self.random_cat = choice(possible_random_cats)
+            # LG: if theres df cats on the patrol, r_c will always be DF
+            # to make writing a bit more open
+            df_patrol_cats = [i for i in patrol_cats if i.df and i.ID != game.clan.your_cat.ID]
+            if df_patrol_cats:
+                self.random_cat = choice(df_patrol_cats)
+            else:
+                possible_random_cats = [i for i in patrol_cats if i.ID != game.clan.your_cat.ID]
+                self.random_cat = choice(possible_random_cats)
         else:
             if len(patrol_cats) > 1:
                 self.random_cat = choice([i for i in patrol_cats if i != self.patrol_leader])
