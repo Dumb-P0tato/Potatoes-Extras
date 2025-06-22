@@ -33905,7 +33905,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["hearing"]
         },
         "relationship": [
             "neutral"

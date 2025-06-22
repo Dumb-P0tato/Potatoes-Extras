@@ -1489,52 +1489,109 @@ class TalkScreen(Screens):
             return False
 
         has_condition = False
-        # "deaf:any:false"
-        # raspy lungs:any:false
+        blind_valid = True
+        deaf_valid = True
+
         for tag in BLOCK["condition"]:
-            if ":" in tag:
-                # other than x:any and x:none, permanent condition tags are the only ones with colons
-                attributes = tag.split(":")
-                perm_skip = False
-                for condition in PERMANENT:
+            if isinstance(tag, list):
+                # if a tag is a list, all of the conditions in the list
+                # must be true for the dialogue to be attainable
+                true = 0
+                for item in tag:
+                    looking_for = item
+                    if ":" in item:
+                        attributes = item.split(":")
+                        looking_for = attributes[0]
+                        if looking_for == "injury" and attributes[1] == "any" and cat.is_injured():
+                            true += 1
+                            continue
+                        elif looking_for == "illness" and attributes[1] == "any" and cat.is_ill():
+                            true += 1
+                            continue
+                        else:
+                            if looking_for in cat.illnesses:
+                                true += 1
+                                continue
+                            if looking_for in cat.injuries:
+                                true += 1
+                                continue
+                            if looking_for in cat.permanent_condition:
+                                true += 1
+                                continue
 
-                    condition_name = attributes[0]
-                    born_with = attributes[1] if len(attributes) > 1 else "any"
-                    exclusive = attributes[2] if len(attributes) > 2 else "false"
+                    else:
+                        if looking_for in cat.illnesses:
+                            true += 1
+                            continue
+                        if looking_for in cat.injuries:
+                            true += 1
+                            continue
+                        if looking_for in cat.permanent_condition:
+                            true += 1
+                            continue
+                if true == len(tag):
+                    has_condition = True
+            else:
+                if ":" in tag:
+                    # other than x:any and x:none, permanent condition tags are the only ones with colons
+                    attributes = tag.split(":")
+                    # not:condition
+                    if attributes[0] == "not":
+                        if attributes[1] in cat.illnesses:
+                            return False
+                        if attributes[1] in cat.injuries:
+                            return False
+                        if attributes[1] in cat.permanent_condition:
+                            return False
 
-                    if condition_name == condition:
-                        if condition in cat.permanent_condition:
-                            if "born_with" in cat.permanent_condition[condition]:
-                                if cat.permanent_condition[condition]["born_with"] is False and born_with == "true":
-                                    perm_skip = True
-                                if cat.permanent_condition[condition]["born_with"] is True and born_with == "false":
-                                    perm_skip = True
+                    elif attributes[0] in PERMANENT:
+                        condition_name = attributes[0]
+                        born_with = attributes[1] if len(attributes) > 1 else "any"
+                        exclusive = attributes[2] if len(attributes) > 2 else "false"
+                        if condition_name in cat.permanent_condition:
+                            if "born_with" in cat.permanent_condition[condition_name]:
+                                if cat.permanent_condition[condition_name]["born_with"] is False and born_with == "true":
+                                    if condition_name == "blind":
+                                        blind_valid = False
+                                    if condition_name == "deaf":
+                                        deaf_valid = False
+                                elif cat.permanent_condition[condition_name]["born_with"] is True and born_with == "false":
+                                    if condition_name == "blind":
+                                        blind_valid = False
+                                    if condition_name == "deaf":
+                                        deaf_valid = False
                         else:
                             if exclusive == "true":
-                                perm_skip = True
-                    else:
-                        continue
-                if perm_skip:
-                    return False
-            else:
-                # regular conditions
-                if tag in INJURIES:
-                    if tag in cat.injuries:
-                        has_condition = True
-                elif tag in ILLNESSES:
-                    if tag in cat.illnesses:
-                        has_condition = True
-                elif tag in PERMANENT and tag not in ["deaf", "blind"]:
-                    if tag in cat.permanent_condition:
-                        has_condition = True
-                elif tag == "hearing":
-                    if "deaf" in cat.permanent_condition:
-                        perm_skip = True
+                                if condition_name == "blind":
+                                    blind_valid = False
+                                if condition_name == "deaf":
+                                    deaf_valid = False
                 else:
-                    print("Incorrect condition tag:", tag)
-                    condition_skip = True
+                    # regular conditions
+                    if tag in INJURIES:
+                        if tag in cat.injuries:
+                            has_condition = True
+                    elif tag in ILLNESSES:
+                        if tag in cat.illnesses:
+                            has_condition = True
+                    elif tag in PERMANENT and tag not in ["deaf", "blind"]:
+                        if tag in cat.permanent_condition:
+                            has_condition = True
+                    elif tag == "hearing":
+                        if "deaf" in cat.permanent_condition:
+                            return False
+                    else:
+                        print("Incorrect condition tag:", tag)
+                        return False
+
+        if "blind" in cat.permanent_condition and not blind_valid:
+            return False
+        if "deaf" in cat.permanent_condition and not deaf_valid:
+            return False
+
         if not has_condition:
             return False
+
         return True
 
     def load_and_replace_placeholders(self, file_path, cat, you):
