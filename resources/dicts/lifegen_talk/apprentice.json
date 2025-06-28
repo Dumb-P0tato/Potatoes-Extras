@@ -5057,6 +5057,9 @@
         "y_c": {
             "condition": [
                 "blind:any:false"
+            ],
+            "status": [
+                "not_df_trainee"
             ]
         },
         "t_c": {
@@ -5067,15 +5070,11 @@
                 "blind:any:false"
             ],
             "status": [
-                "df_trainee",
-                "you_not_dftrainee"
+                "df_trainee"
             ]
         },
         "relationship": [
             "min_platonic_50"
-        ],
-        "tags": [
-            "you_not_dftrainee"
         ],
         "intro": [
             "I can tell you anything, right, t_c?",

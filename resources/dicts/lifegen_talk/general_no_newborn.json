@@ -3719,6 +3719,9 @@
         "y_c": {
             "skill": [
                 "DARK,1"
+            ],
+            "status": [
+                "not_df_trainee"
             ]
         },
         "t_c": {
@@ -3726,9 +3729,6 @@
                 "sc"
             ]
         },
-        "tags": [
-            "you_not_dftrainee"
-        ],
         "intro": [
             "Turn your back on the darkness, y_c. Please. For your sake.",
             "However you gained these gifts... It was cruel to allow you to cross the borders. Stay in our starshine, and never return to their night.",
@@ -3739,6 +3739,9 @@
         "y_c": {
             "skill": [
                 "DARK,1"
+            ],
+            "status": [
+                "not_df_trainee"
             ]
         },
         "t_c": {
@@ -3746,9 +3749,6 @@
                 "sc"
             ]
         },
-        "tags": [
-            "you_not_dftrainee"
-        ],
         "intro": [
             "Stop speaking with those shadows. They don't have your best interests at heart. They only have their own.",
             "Stay in our starshine. They earned their places without the light, don't earn the same as them by your end."

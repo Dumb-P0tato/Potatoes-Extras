@@ -9090,7 +9090,7 @@
     "youdarkstar_R8": {
         "y_c": {
             "status": [
-                "kitten"
+                "kitten", "not_df_trainee"
             ],
             "skill": [
                 "DARK,1"
@@ -9101,9 +9101,6 @@
                 "sc"
             ]
         },
-        "tags": [
-            "you_not_dftrainee"
-        ],
         "intro": [
             "Little y_c... Please. You must never go into that shadow of StarClan again.",
             "The cats there... They're very, very bad cats, little star. You could get hurt. Or you could... No.",

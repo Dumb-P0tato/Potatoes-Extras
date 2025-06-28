@@ -23972,6 +23972,9 @@
             ],
             "age": [
                 "not_kitten"
+            ],
+            "status": [
+                "not_df_trainee"
             ]
         },
         "t_c": {
@@ -23988,9 +23991,6 @@
                 "not_kitten"
             ]
         },
-        "tags": [
-            "you_not_dftrainee"
-        ],
         "intro": [
             "[You perk up, it's always exciting to see t_c around, {PRONOUN/t_c/poss} kind nature always boosts the mood.]",
             "[However, {PRONOUN/t_c/subject} {VERB/t_c/seem/seems} extremely tired... you wonder why that is.]"
@@ -24000,6 +24000,9 @@
         "y_c": {
             "age": [
                 "not_kitten"
+            ],
+            "status": [
+                "not_df_trainee"
             ]
         },
         "t_c": {
@@ -24013,9 +24016,6 @@
                 "not_kitten"
             ]
         },
-        "tags": [
-            "you_not_dftrainee"
-        ],
         "intro": [
             "[You see t_c standing outside, staring at the sky late at night. You ask {PRONOUN/t_c/object} what's up.]",
             "O- Oh! Nothing... I just...",
@@ -24029,6 +24029,9 @@
             ],
             "age": [
                 "not_kitten"
+            ],
+            "status": [
+                "not_df_trainee"
             ]
         },
         "t_c": {
@@ -24045,9 +24048,6 @@
                 "not_kitten"
             ]
         },
-        "tags": [
-            "you_not_dftrainee"
-        ],
         "intro": [
             "[You ask y_c why {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} been so quiet lately.]",
             "Don't worry. I'm okay.",
@@ -24057,7 +24057,7 @@
     "sweet_livingtotrainee_4": {
         "y_c": {
             "status": [
-                "medicine cat"
+                "medicine cat", "not_df_trainee"
             ],
             "age": [
                 "not_kitten"
@@ -24074,9 +24074,6 @@
                 "not_kitten"
             ]
         },
-        "tags": [
-            "you_not_dftrainee"
-        ],
         "intro": [
             "[You smell the familiar scent of blood and follow it, finding t_c tending to {PRONOUN/t_c/poss} wounds.]",
             "Oh, sorry... I didn't want to be a bother! I got these whilst... out. You don't need to worry about me!",
@@ -24089,7 +24086,7 @@
                 "blind:any:false"
             ],
             "status": [
-                "warrior"
+                "warrior", "not_df_trainee"
             ],
             "age": [
                 "not_kitten"
@@ -24111,9 +24108,6 @@
         },
         "relationship": [
             "from_your_apprentice"
-        ],
-        "tags": [
-            "you_not_dftrainee"
         ],
         "intro": [
             "[You've noticed that t_c has been sleeping in a lot, and you're concerned.]",
@@ -24142,15 +24136,16 @@
         ]
     },
     "trainee_living_5c": {
-        "y_c": {},
+        "y_c": {
+            "status": [
+                "not_df_trainee"
+            ]
+        },
         "t_c": {
             "status": [
                 "df_trainee"
             ]
         },
-        "tags": [
-            "you_not_dftrainee"
-        ],
         "intro": [
             "[After most of the other cats have gone to their nests for the night, you find t_c sitting by {PRONOUN/t_c/self}, looking at the stars.]",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/jump/jumps} when {PRONOUN/t_c/subject} {VERB/t_c/notice/notices} you.]",
@@ -28702,6 +28697,9 @@
         "y_c": {
             "skill": [
                 "DARK,1"
+            ],
+            "status": [
+                "not_df_trainee"
             ]
         },
         "t_c": {
@@ -28709,9 +28707,6 @@
                 "sc"
             ]
         },
-        "tags": [
-            "you_not_dftrainee"
-        ],
         "intro": [
             "If you keep speaking with those foul-pelted shades you'll lose your way to the stars eventually."
         ]
@@ -28720,6 +28715,9 @@
         "y_c": {
             "skill": [
                 "DARK,1"
+            ],
+            "status": [
+                "not_df_trainee"
             ]
         },
         "t_c": {
@@ -28727,9 +28725,6 @@
                 "df"
             ]
         },
-        "tags": [
-            "you_not_dftrainee"
-        ],
         "intro": [
             "Have you ever considered never speaking to the spirits again, altogether? I imagine it must be quite a hassle.",
             "Mmm? Oh, no, I won't tell you to stop talking to your silly stars. I'm not about to ask you to deny a core part of yourself no matter how much I dislike it.",
@@ -28743,6 +28738,9 @@
         "y_c": {
             "skill": [
                 "DARK,1"
+            ],
+            "status": [
+                "not_df_trainee"
             ]
         },
         "t_c": {
@@ -28750,9 +28748,6 @@
                 "df"
             ]
         },
-        "tags": [
-            "you_not_dftrainee"
-        ],
         "intro": [
             "Do you ever consider joining us to leave those foolish stars behind?",
             "None of them see that your gifts, powerful and encompassing as they are, can benefit both the stars and the dark for the better.",
@@ -28766,6 +28761,9 @@
         "y_c": {
             "skill": [
                 "DARK,1"
+            ],
+            "status": [
+                "not_df_trainee"
             ]
         },
         "t_c": {
@@ -28773,9 +28771,6 @@
                 "df"
             ]
         },
-        "tags": [
-            "you_not_dftrainee"
-        ],
         "intro": [
             "Oh poor, poor y_c. Did those blinding pelted fools discourage your gifts again? Shame on them.",
             "After all, it's not like you ever asked for this. Who would?",
@@ -33339,6 +33334,9 @@
         "y_c": {
             "skill": [
                 "DARK,1"
+            ],
+            "status": [
+                "not_df_trainee"
             ]
         },
         "t_c": {
@@ -33346,9 +33344,6 @@
                 "df"
             ]
         },
-        "tags": [
-            "you_not_dftrainee"
-        ],
         "intro": [
             "[t_c is watching you from the gloom. {PRONOUN/t_c/poss/CAP} gaze burns your pelt.]",
             "You could be great, y_c. You truly could with your gifts. Consider it next time you visit."
@@ -33358,6 +33353,9 @@
         "y_c": {
             "skill": [
                 "DARK,1"
+            ],
+            "status": [
+                "not_df_trainee"
             ]
         },
         "t_c": {
@@ -33368,9 +33366,6 @@
                 "df"
             ]
         },
-        "tags": [
-            "you_not_dftrainee"
-        ],
         "intro": [
             "Forsake your silly stars, y_c. With our guidance, you could rule the night sky - and more."
         ]
@@ -33379,6 +33374,9 @@
         "y_c": {
             "skill": [
                 "DARK,1"
+            ],
+            "status": [
+                "not_df_trainee"
             ]
         },
         "t_c": {
@@ -33389,9 +33387,6 @@
                 "df"
             ]
         },
-        "tags": [
-            "you_not_dftrainee"
-        ],
         "intro": [
             "Join us, y_c. With you leading us... Not even StarClan could stop us. You could one day erase the border between the night and stars.",
             "None of us would continue starving, stuck in this foul, muddy forest."
@@ -33401,6 +33396,9 @@
         "y_c": {
             "skill": [
                 "DARK,1"
+            ],
+            "status": [
+                "not_df_trainee"
             ]
         },
         "t_c": {
@@ -33408,9 +33406,6 @@
                 "df"
             ]
         },
-        "tags": [
-            "you_not_dftrainee"
-        ],
         "intro": [
             "Say... y_c. I was wondering... Since you can cross the border, would you consider bringing prey, here?",
             "It's just - we're all so hungry. Since StarClan is plentiful it's not like they'd miss it there.",
@@ -33422,6 +33417,9 @@
         "y_c": {
             "skill": [
                 "DARK,1"
+            ],
+            "status": [
+                "not_df_trainee"
             ]
         },
         "t_c": {
@@ -33432,9 +33430,6 @@
                 "df"
             ]
         },
-        "tags": [
-            "you_not_dftrainee"
-        ],
         "intro": [
             "Come on, y_c, join us!",
             "[t_c swipes at you. You're forced to move fast to dodge it.]",
