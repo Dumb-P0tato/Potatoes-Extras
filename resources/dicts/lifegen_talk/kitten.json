@@ -4214,7 +4214,7 @@
             ]
         },
         "intro": [
-            "Whoa... they're so tiny...",
+            "Whoa... {PRONOUN/y_c/subject}{VERB/y_c/'re/'s} so tiny...",
             "[{PRONOUN/t_c/poss/CAP} ears pin back as {PRONOUN/t_c/subject} {VERB/t_c/take/takes} a deep breath, a look of determination crossing the timid kit's face.]",
             "I- I promise! I'll keep you safe!! You won't be scared all the time... like I am... Because y- you can count on me!"
         ]
@@ -5118,7 +5118,7 @@
         },
         "intro": [
             "[t_c takes one look at you and immediately bursts into tears.]",
-            "They're just - s-so - cute! Gah! *Sob*"
+            "{PRONOUN/y_c/subject/CAP}{VERB/y_c/'re/'s} just - s-so - cute! Gah! *Sob*"
         ]
     },
     "stable_kit_younewborn_1": {
@@ -10515,8 +10515,8 @@
             ]
         },
         "intro": [
-            "Why does dislike-r_w-assertive always say they're gonna protect us?",
-            "I don't need protecting! I'm gonna protect myself from everything bad! I don't need them!"
+            "Why does dislike-r_w-assertive always say {PRONOUN/dislike-r_w-assertive/subject}{VERB/dislike-r_w-assertive/'re/'s} gonna protect us?",
+            "I don't need protecting! I'm gonna protect myself from everything bad! I don't need {PRONOUN/dislike-r_w-assertive/object}!"
         ]
     },
     "neurotic_kitten_SQ11": {
@@ -14006,15 +14006,15 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "They'll tell you!",
+                "text": "{PRONOUN/neutral-r_c/subject/CAP}'ll tell you!",
                 "next_scene": "tell"
             },
             "choice2": {
-                "text": "When they look relaxed.",
+                "text": "When {PRONOUN/neutral-r_c/subject} {VERB/neutral-r_c/look/looks} relaxed.",
                 "next_scene": "relaxed"
             },
             "choice3": {
-                "text": "When they're not doing a job.",
+                "text": "When {PRONOUN/neutral-r_c/subject}{VERB/neutral-r_c/'re/'s} not doing a job.",
                 "next_scene": "nojob"
             }
         },

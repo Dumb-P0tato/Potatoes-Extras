@@ -1562,7 +1562,7 @@
             "[You ask {PRONOUN/t_c/object} to tell you what's going on and {PRONOUN/t_c/subject} move some leaves, revealing an injured kittypet.]",
             "... r_m and I found this kittypet out in the territory... {PRONOUN/t_c/subject/CAP} were pretty badly hurt.",
             "[You ask where r_m is, sighing softly.]",
-            "They're out gathering herbs... we were out getting stuff for the nursery together.",
+            "{PRONOUN/r_m/subject/CAP}{VERB/r_m/'re/'s} out gathering herbs... we were out getting stuff for the nursery together.",
             "You won't tell l_n will you? ... I just want to make sure this cat makes it home safely.",
             "[You sigh, agreeing only under the condition that you supervise.]",
             "T- Thank you! Thank you so much! I'll make it up to you, I promise."

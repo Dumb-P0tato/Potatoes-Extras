@@ -8748,7 +8748,7 @@
             ]
         },
         "intro": [
-            "[t_c beckons you over with their tail from where they're sitting near the base of a sparkly StarClan tree.]",
+            "[t_c beckons you over with their tail from where {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} sitting near the base of a sparkly StarClan tree.]",
             "[When you hop up to them, they give you a nod and leap up onto one of the branches. A bit of bouncing up and down sends a cascade of sparkles from the leaves.]",
             "[You wander back into camp with a shiny new pelt!]"
         ]

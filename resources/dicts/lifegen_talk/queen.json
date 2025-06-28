@@ -2833,7 +2833,7 @@
             "[t_c walks into the den with a serious look on {PRONOUN/t_c/poss} face, gently nudging a kit along with {PRONOUN/t_c/object}.]",
             "y_c, can we have a moment of your time?",
             "[You sit up, glancing at them with a confused and worried expression.]",
-            "|r_k|Um... I saw a scary cat around the edge of camp last night. t_c sais it was a rogue.",
+            "|r_k|Um... I saw a scary cat around the edge of camp last night. t_c said it was a rogue.",
             "I saw them too... I hope they're not in need of help. Do you think you could check that out?"
         ]
     },
