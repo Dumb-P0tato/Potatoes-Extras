@@ -679,7 +679,7 @@
         ],
         "intro": [
             "[You notice aloud to t_c that yourcrush has been sick an awful lot recently ...]",
-            "Psh, yeah, no doubt they're sick. {PRONOUN/yourcrush/subject/CAP}{VERB/yourcrush/'ve/'s}  got a horrible case of y_c fever.",
+            "Psh, yeah, no doubt {PRONOUN/yourcrush/subject}{VERB/yourcrush/'re/'s} sick. {PRONOUN/yourcrush/subject/CAP}{VERB/yourcrush/'ve/'s}  got a horrible case of y_c fever.",
             "[You blush, looking away. Surely yourcrush doesn't actually feel that way about you ... right?]",
             "[Sensing your hesitation, t_c rolls {PRONOUN/t_c/poss} eyes.]",
             "I swear, y_c, you're so blind, there has got to be some mole blood in your ancestry.",

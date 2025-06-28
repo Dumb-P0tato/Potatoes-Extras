@@ -462,7 +462,7 @@
             }
         },
         "ask_why": [
-            "[You ask the kit why they're so fascinated with l_n.]",
+            "[You ask the kit why {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} so fascinated with l_n.]",
             "Oh ... Well, I wanna be just like {PRONOUN/l_n/object} someday!",
             "Smart ... Powerful ... The boss of everycat ....",
             "[Yeesh. Kit's already plotting to take over the Clan!]"
@@ -3647,7 +3647,7 @@
         "YouHelp": [
             "[t_c needs your help, this is an urgent matter that requires your assistance, for the sake of the Clan! You get off your paws and begin to question the cats around you. Some more helpful than others.]",
             "[After endless rounds of asking your Clanmates, t_c approaches you out of break and tired. Much to {PRONOUN/t_c/poss} surprise, you look the same.]",
-            "Thank you for helping me, y_c. Looks like some others are also asking around. You should see r_m, they're like a kitten with a mossball.",
+            "Thank you for helping me, y_c. Looks like some others are also asking around. You should see r_m, {PRONOUN/r_m/subject}{VERB/r_m/'re/'s} like a kitten with a mossball.",
             "StarClan, where is d_n? It's like {PRONOUN/d_n/subject} just up and disappeared-",
             "[As if on cue, d_n enters the camp with a mouse in {PRONOUN/d_n/poss} jaw. Beside {PRONOUN/d_n/object} is l_n, who looks relaxed until {PRONOUN/l_n/subject} {VERB/l_n/see/sees} the utter disarray the camp is in.]",
             "[Warriors running left and right, the kits in a panic, apprentices unsure what to do, elders and queens trying to settle the kits, medicine cats trying to gather the warriors and the poor mediators who are trying to settle the camp.]",
@@ -4877,7 +4877,7 @@
         ],
         "intro": [
             "... r_c says I follow you around like a duckling to its mother.",
-            "I think they're kinda right, but you don't mind that, do you?",
+            "I think {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} kinda right, but you don't mind that, do you?",
             "If you do mind..."
         ],
         "intro_choices": {
