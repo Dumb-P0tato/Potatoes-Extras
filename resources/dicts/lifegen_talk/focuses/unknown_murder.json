@@ -1564,7 +1564,7 @@
         "intro": [
             "[t_c crouches in the shadow of a rock, watching the camp. {PRONOUN/t_c/subject/CAP} {VERB/t_c/tense/tenses} at your approach, but {VERB/t_c/relax/relaxes} when {PRONOUN/t_c/subject} {VERB/t_c/realize/realizes} it's you.]",
             "Who do you think will be next? I want to believe that fc_c's murder will be the last, but I just can't convince myself.",
-            "Do you think the murderer will go after the strongest of us, to weaken the Clan? Or maybe someone like r_k, because they're an easy target?",
+            "Do you think the murderer will go after the strongest of us, to weaken the Clan? Or maybe someone like r_k, because {PRONOUN/r_k/subject/CAP}{VERB/r_k/'re/'s} an easy target?",
             "I'm so scared, y_c. Things are bad, but I think they'll only get worse."
         ]
     },

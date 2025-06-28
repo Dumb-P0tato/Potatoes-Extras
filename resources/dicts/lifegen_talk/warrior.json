@@ -6132,8 +6132,8 @@
         },
         "intro": [
             "Hey, y_c, if you're not busy, could you please check up on t_a for me?",
-            "I think they're a bit down after they missed that catch earlier. I'd think if I talked to them I'd make it worse, but you would probably put them at ease.",
-            "I'm sorry, I know it's a lot to ask... I'm just worried for them, that's all."
+            "I think {PRONOUN/t_a/subject}{VERB/t_a/'re/'s} a bit down after {PRONOUN/t_a/subject} missed that catch earlier. I'd think if I talked to {PRONOUN/t_a/object} I'd make it worse, but you would probably put {PRONOUN/t_a/object} at ease.",
+            "I'm sorry, I know it's a lot to ask... I'm just worried for {PRONOUN/t_a/object}, that's all."
         ]
     },
     "TinyTeddy_stable_theywarrior_youwarriorapp_01": {
@@ -6172,7 +6172,7 @@
             ]
         },
         "intro": [
-            "Yeah, that looks pretty nasty. I'll let m_n know. I know they probably haven't said too much but, they're worried for you, y_c. They're hoping you get better soon.",
+            "Yeah, that looks pretty nasty. I'll let m_n know. I know {PRONOUN/m_n/subject} probably {VERB/m_n/haven't/hasn't} said too much but, {PRONOUN/m_n/subject}{VERB/m_n/'re/'s} worried for you, y_c. {PRONOUN/m_n/subject/CAP}{VERB/m_n/'re/'s} hoping you get better soon.",
             "Tell you what, while I'm out, I'll see if I can grab something for you. I'll make sure it's the biggest prey you've ever seen."
         ]
     },
@@ -6442,7 +6442,7 @@
             "You'll listen? Thank you, fair warning, you may want to grab some moss to stuff in your ears- I'm probably going to yell.",
             "Loudly.",
             "Very loudly.",
-            "[Oh StarClan, what has r_w1 and r_w2 done to gain this kind of reaction from t_c? They're normally so calm and collected... A chill runs down your spine as you pick up some moss and follow t_c out of camp to the so called, 'yelling tree'.]"
+            "[Oh StarClan, what has r_w1 and r_w2 done to gain this kind of reaction from t_c? {PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} normally so calm and collected... A chill runs down your spine as you pick up some moss and follow t_c out of camp to the so called, 'yelling tree'.]"
         ]
     },
     "TinyTeddy_stable_theywarrior_youqueen_01": {

@@ -4336,7 +4336,7 @@
             ]
         },
         "intro": [
-            "[t_c catches a glimpse of your paws, thick with Dark Forest murk from your training session there last night, as they're grooming.]",
+            "[t_c catches a glimpse of your paws, thick with Dark Forest murk from your training session there last night, as {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} grooming.]",
             "Awfully poor hygiene there, y_c.",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/look/looks} at you, eyes narrow and imploring, as {PRONOUN/t_c/subject} slowly {VERB/t_c/draw/draws} {PRONOUN/t_c/poss} tongue across {PRONOUN/t_c/poss} paw.]"
         ]
@@ -14813,7 +14813,7 @@
         "intro": [
             "y_c, how has t_ka been doing? Could you check up on {PRONOUN/t_ka/object} for me?",
             "I haven't been able to see {PRONOUN/t_ka/object} much, ever since {PRONOUN/t_ka/subject}{VERB/t_ka/'ve/'s} gotten older ...",
-            "I just want to make sure they're alright."
+            "I just want to make sure {PRONOUN/t_ka/subject}{VERB/t_ka/'re/'s} alright."
         ]
     },
     "about_kit2": {
@@ -19250,7 +19250,7 @@
         },
         "intro": [
             "[As you try to make out your reflection in a puddle of muck, you see a bright sparkle behind you. You whip around to see a StarClan cat.]",
-            "[You ask them what they're doing here.]",
+            "[You ask {PRONOUN/t_c/object} what {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} doing here.]",
             "Checking up on you lot. Making sure you're still contained.",
             "If you're checking that puddle to see what you look like, I can tell you that myself.",
             "You look sad."
@@ -20007,7 +20007,7 @@
         },
         "intro": [
             "[t_c stands with a few apprentinces, observing you from across the camp, wide-eyed. Once {PRONOUN/t_c/subject} {VERB/t_c/meet/meets} eyes with you, they dash off in a flurry of whispers.]",
-            "[No doubt they're about to concoct another ridiculous rumor about the nature of your crime.]"
+            "[No doubt {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} about to concoct another ridiculous rumor about the nature of your crime.]"
         ]
     },
     "you_shunned_4": {
@@ -21212,7 +21212,7 @@
         "intro": [
             "[t_c is one of the only cats in the Clan that treats you normally. You're glad you have a cat who understands what you're going through.]",
             "These cats are so dramatic.",
-            "Don't worry, they're forget soon enough and life will be back to normal.",
+            "Don't worry, they'll forget soon enough and life will be back to normal.",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/seem/seems} to be trying to convince {PRONOUN/t_c/self} of this fact just as much as you.]"
         ]
     },
@@ -31300,8 +31300,8 @@
         ],
         "intro": [
             "I'm supposed to go and see r_m for a checkup.",
-            "Ugh, y_c... every time, I'm so nervous they're going to find something seriously wrong with me that I don't know about.",
-            "They're really busy. Maybe if I don't show up, they won't notice?"
+            "Ugh, y_c... every time, I'm so nervous {PRONOUN/r_m/subject}{VERB/r_m/'re/'s} going to find something seriously wrong with me that I don't know about.",
+            "{PRONOUN/r_m/subject/CAP}{VERB/r_m/'re/'s} really busy. Maybe if I don't show up, {PRONOUN/r_m/subject} won't notice?"
         ]
     },
     "neurotic_gen_connected_SQ1~2": {
@@ -34849,7 +34849,7 @@
         "intro": [
             "[You visit the medicine den where t_c is resting, happily chatting with r_m, who nods at you as you enter. The medicine cat then excuses {PRONOUN/r_m/self} to allow you both some space.]",
             "A visit from the deputy, huh... What do I owe the pleasure?",
-            "[Quickly cutting {PRONOUN/t_c/object} off, you ask if they're alright. t_c's ears shoot up, {PRONOUN/t_c/poss} eyes widening in shock.]",
+            "[Quickly cutting {PRONOUN/t_c/object} off, you ask if {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} alright. t_c's ears shoot up, {PRONOUN/t_c/poss} eyes widening in shock.]",
             "Forgive me, I didn't mean to stress you out. You shouldn't be seeing me, you have things to attend to. You already have so much to worry about, the last thing you need to stress about me getting hurt...",
             "['You're still my parent, I care for you... Of course I'm going to go out of my way to visit you. Just because I'm deputy, doesn't mean I'll neglect my family.']",
             "Oh... I'm sorry... I guess it's hard to forget sometimes... The last thing I want is to be a burden to my kits...",
