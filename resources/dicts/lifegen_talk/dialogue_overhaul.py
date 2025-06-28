@@ -1,6 +1,8 @@
 import json
 import re
 
+# this script no longer works without the old dialogue folder
+
 # pylint: disable=bare-except
 cluster_addons = [
     "upstanding", "brooding", "sweet", "cool", "unlawful", "silly", "neurotic", "introspective",
