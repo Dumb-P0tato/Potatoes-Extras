@@ -64,10 +64,9 @@ class AffairScreen(Screens):
                 self.selected_cat = event.ui_element.return_cat_object()
                 self.update_selected_cat()
             elif event.ui_element == self.confirm_mentor and self.selected_cat:
-                if not self.selected_cat.dead:
+                if not self.selected_cat.dead and not self.selected_cat.outside:
                     self.update_selected_cat()
                     self.change_cat(self.selected_cat)
-                    
                     # resetting selected cat so theyre not still in the box when reentering the affair screen next moon
                     self.selected_cat = None
             elif event.ui_element == self.back_button:
@@ -146,6 +145,7 @@ class AffairScreen(Screens):
         self.update_cat_list()
 
     def exit_screen(self):
+        self.current_page = 1
 
         for ele in self.cat_list_buttons:
             self.cat_list_buttons[ele].kill()

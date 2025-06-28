@@ -377,7 +377,7 @@ class MakeClanScreen(Screens):
                             "DAISY CORSAGE", "GULL FEATHERS", "SPARROW FEATHERS", "CLOVER", "DAISY",
                             "SPRINGFEATHERS", "CLOVER", "LAVENDERTAILWRAP", "CELESTIALCHIMES",
                             "LUNARCHIMES", "SILVERLUNARCHIMES", "FLOWER MOSS", "SANVITALIAFLOWERS",
-                            "STARFLOWERS", "SHELL PACK", "MOSS2", "MUSHROOMS", "CLOVERS", "MUD", "LADYBUGS",
+                            "STARFLOWERS", "SHELL PACK", "MOSS2", "MUSHROOMS", "CLOVERS", "MUD", "LADYBUG",
                             "FIRBRANCHES", "CHERRYBLOSSOM", "MISTLETOE", "BROWNMOSSPELT", "BLEEDINGVINES",
                             "BLEEDINGHEART", "MOREFERN", "GRAYMOSSPELT", "FERN", "YELLOWWISTERIA", "WATTLE", "SPRINGFLOWERCORSAGE"]
         # god damn we have a lot of tail accessories
@@ -2065,6 +2065,10 @@ class MakeClanScreen(Screens):
 
         self.clear_all_page()
         self.sub_screen = "customize cat"
+
+        self.selected_cat = None
+        # clearing selected cat for the eye colour display bug
+
         pelt2 = Pelt(
             name=self.pname,
             length=self.length,
@@ -2961,6 +2965,9 @@ class MakeClanScreen(Screens):
                     y_pos += 40
 
             y_pos = 0
+            traits = []
+            for trait in Personality.trait_ranges["kit_traits"]:
+                traits.append(trait)
             traits = ['troublesome', 'lonesome', 'impulsive', 'bullying', 'attention-seeker', 'charming', 'daring', 'noisy', 'nervous', 'quiet', 'insecure', 'daydreamer', 'sweet', 'polite', 'know-it-all', 'bossy', 'disciplined', 'patient', 'manipulative', 'secretive', 'rebellious', 'grumpy', 'passionate', 'honest', 'leader-like', 'smug']
             if self.current_selection == "trait":
                 for trait in traits:
@@ -3730,7 +3737,7 @@ class MakeClanScreen(Screens):
                 self.your_cat.personality = Personality(trait=self.personality, kit_trait=True)
                 if self.skill == "Random":
                     self.skill = random.choice(self.skills)
-                self.your_cat.skills.primary = Skill.get_skill_from_string(Skill, self.skill)
+                self.your_cat.skills.primary = Skill.get_skill_from_string(Skill, self.skill, "True")
                 self.your_cat.lock_faith = self.faith
                 self.selected_cat = None
                 self.open_name_cat()
