@@ -1006,10 +1006,15 @@ class EventsScreen(Screens):
         # LIFEGEN: this updates events for filters + faith toggle
         if self.current_display == "all events":
             self.display_events = self.all_events
-        if self.current_display == "relationships" and self.faith_toggle is True:
-            self.display_events = [
-                x for x in game.cur_events_list if "faith" in x.types
-            ] # im a hack!!!!
+        if self.current_display == "relationships":
+            if self.faith_toggle is True:
+                self.display_events = [
+                    x for x in game.cur_events_list if "faith" in x.types
+                ]
+            else:
+                self.display_events = [
+                    x for x in game.cur_events_list if "interaction" in x.types
+                ]
 
         # and faith toggle button
         if self.faith_toggle is True:
