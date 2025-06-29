@@ -343,7 +343,8 @@ class TalkScreen(Screens):
                     self.create_choice_buttons()
                     self.created_choice_buttons = True
                 if not self.meow:
-                    # sound_manager.play("dialogue")
+                    if "[" not in self.texts[self.text_index]:
+                        sound_manager.play("meow")
                     # this plays One meow sound effect at the end of dialogue
                     self.meow = True
 

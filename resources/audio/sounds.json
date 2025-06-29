@@ -7,5 +7,5 @@
   "timeskip": ["Timeskip_Button.mp3"],
   "antagonize": ["Antagonize_Button.mp3"],
 
-  "dialogue": ["chirp_1.mp3", "chirp_2.mp3", "chirp_3.mp3", "chirp_5.mp3", "chirp_6.mp3", "meow_1.mp3", "meow_2.mp3"]
+  "meow": ["dialogue/meow_1.mp3", "dialogue/meow_2.mp3", "dialogue/meow_3.mp3", "dialogue/meow_4.mp3", "dialogue/meow_5.mp3", "dialogue/meow_6.mp3"]
 }
