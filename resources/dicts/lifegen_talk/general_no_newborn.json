@@ -1954,7 +1954,7 @@
             "from_parent"
         ],
         "intro": [
-            "[t_c glances around briefly. After making sure you are the only one that could hear {PRONOUN/t_c/object}, {PRONOUN/t_c/subject} catch your gaze and hold it there.]",
+            "[t_c glances around briefly. After making sure you are the only one that could hear {PRONOUN/t_c/object}, {PRONOUN/t_c/subject} {VERB/t_c/catch/catches} your gaze and {VERB/t_c/hold/holds} it there.]",
             "The Clan won't choose you over their petty wars, but I will. You share my blood and that is all that matters."
         ]
     },
@@ -1999,7 +1999,7 @@
             "sibling"
         ],
         "intro": [
-            "[t_c glances around briefly. After making sure you are the only one that could hear {PRONOUN/t_c/object}, {PRONOUN/t_c/subject} catch your gaze and hold it there.]",
+            "[t_c glances around briefly. After making sure you are the only one that could hear {PRONOUN/t_c/object}, {PRONOUN/t_c/subject} {VERB/t_c/catch/catches} your gaze and {VERB/t_c/hold/holds} it there.]",
             "The Clan won't choose you over their petty wars, but I will. You share my blood and that is all that matters."
         ]
     },
@@ -2021,7 +2021,7 @@
             "from_your_kit"
         ],
         "intro": [
-            "[t_c glances around briefly. After making sure you are the only one that could hear {PRONOUN/t_c/object}, {PRONOUN/t_c/subject} catch your gaze and hold it there.]",
+            "[t_c glances around briefly. After making sure you are the only one that could hear {PRONOUN/t_c/object}, {PRONOUN/t_c/subject} {VERB/t_c/catch/catches} your gaze and {VERB/t_c/hold/holds} it there.]",
             "The Clan won't choose you over their petty wars, but I will. You share my blood, and that is all that matters."
         ]
     },
