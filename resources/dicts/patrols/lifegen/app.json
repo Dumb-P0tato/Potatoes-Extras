@@ -1181,7 +1181,7 @@
         "chance_of_success": 55,
         "success_outcomes": [
             {
-                "text": "You reassure r_a that it's alright and the two of you manage to share a good laugh about it. After your mentors are ready for you to continue, the training session turns out to be a fun one! Your bond with {PRONOUN/r_a/subject} grows even if you're both exhausted in the end.",
+                "text": "You reassure r_a that it's alright and the two of you manage to share a good laugh about it. After your mentors are ready for you to continue, the training session turns out to be a fun one! Your bond with {PRONOUN/r_a/object} grows even if you're both exhausted in the end.",
                 "exp": 5,
                 "weight": 20
             },
@@ -1882,7 +1882,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "Although it's one of the worst duties an apprentice can be assigned, the task you have been given must be done. As you clean out the flea-infested moss r_e tell you an enthralling tale of daring acts and courageous moments to keep up your good spirits. It turns out that the task wasn't as bad as you thought! You thankfully don't bring any back with you either.",
+                "text": "Although it's one of the worst duties an apprentice can be assigned, the task you have been given must be done. As you clean out the flea-infested moss r_e tells you an enthralling tale of daring acts and courageous moments to keep up your good spirits. It turns out that the task wasn't as bad as you thought! You thankfully don't bring any back with you either.",
                 "exp": 10,
                 "weight": 20
             }
