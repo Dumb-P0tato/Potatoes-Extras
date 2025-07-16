@@ -4628,7 +4628,7 @@
             "[t_c sharply prods you with the side of a paw while you're lounging in camp.]",
             "Look alive, y_c. Time to start the day.",
             "I know you need your rest, but all c_n cats need to contribute, including you.",
-            "[With that, {PRONOUN/t_c/subject} {VERB/t_c/trot/tros} away with a swish of {PRONOUN/t_c/poss} tail.]",
+            "[With that, {PRONOUN/t_c/subject} {VERB/t_c/trot/trots} away with a swish of {PRONOUN/t_c/poss} tail.]",
             "[You don't want to disappoint t_c, but the sun is so warm and you can feel your eyelids growing heavier by the second ... What should you do?]"
         ],
         "intro_choices": {

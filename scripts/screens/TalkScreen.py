@@ -1455,11 +1455,11 @@ class TalkScreen(Screens):
         if "not_kitten" in BLOCK["age"] and cat.status == "newborn":
             return False
 
-        if "younger" in BLOCK["age"] and not (cat.moons < cat.moons):
+        if "younger" in BLOCK["age"] and not (cat.moons < game.clan.your_cat.moons):
             return False
-        if "sameage" in BLOCK["age"] and not (cat.age == cat.age):
+        if "sameage" in BLOCK["age"] and not (cat.age == game.clan.your_cat.age):
             return False
-        if "older" in BLOCK["age"] and not (cat.moons > cat.moons):
+        if "older" in BLOCK["age"] and not (cat.moons > game.clan.your_cat.moons):
             return False
 
         if any(st in [
@@ -1493,6 +1493,7 @@ class TalkScreen(Screens):
         if "grief stricken" in BLOCK["condition"] and "grief stricken" not in cat.illnesses:
             return False
 
+        reg_condition_check = False
         has_condition = False
         blind_valid = True
         deaf_valid = True
@@ -1569,9 +1570,13 @@ class TalkScreen(Screens):
                             if exclusive == "true":
                                 if condition_name == "blind":
                                     blind_valid = False
+                                    return False
                                 if condition_name == "deaf":
                                     deaf_valid = False
+                                    return False
+                                return False
                 else:
+                    reg_condition_check = True
                     # regular conditions
                     if tag in INJURIES:
                         if tag in cat.injuries:
@@ -1585,16 +1590,13 @@ class TalkScreen(Screens):
                     elif tag == "hearing":
                         if "deaf" in cat.permanent_condition:
                             return False
-                    else:
-                        print("Incorrect condition tag:", tag)
-                        return False
 
         if "blind" in cat.permanent_condition and not blind_valid:
             return False
         if "deaf" in cat.permanent_condition and not deaf_valid:
             return False
 
-        if not has_condition:
+        if reg_condition_check and not has_condition:
             return False
 
         return True

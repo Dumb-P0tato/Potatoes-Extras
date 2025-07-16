@@ -9733,5 +9733,20 @@
             "[t_c reaches forward and pretends to take a big bite from you while you erupt into squeals and giggles.]",
             "Delicious!"
         ]
+    },
+    "allergies_J1": {
+        "season": ["newleaf", "greenleaf"],
+        "t_c": {
+            "condition": ["allergies:any:true"]
+        },
+        "intro": [
+            "[You trot in t_c's direction with a gift.]",
+            "Oh, hello, y_c! That's a beautiful flower.",
+            "No, no, you should keep it. I can't take it, I'm... I'm--",
+            "Ah-choo!",
+            "Ah-choo!!",
+            "Ah... Ah-choo!",
+            "... Sorry, kit. Try giving it to r_c. Maybe {PRONOUN/r_c/subject}'ll be able to appreciate it more."
+        ]
     }
 }

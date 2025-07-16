@@ -3959,6 +3959,8 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 continue
             if abbrev_string == "t_k" and ("t_ka" in text or "t_kk" in text):
                 continue
+            if abbrev_string == "m_n" and "tm_n" in text:
+                continue
 
             # find cluster and rel addons if theyre there
             cluster = False
@@ -4004,12 +4006,12 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 elif abbrev_string in ["y_k", "y_kk", "y_ka"]:
                     for cat_id in you.inheritance.get_children():
                         cat_choices.append(Cat.fetch_cat(cat_id))
+                elif abbrev_string in ["tm_n"]:
+                    cat_choices.append(Cat.fetch_cat(cat.mentor))
                 elif abbrev_string in ["m_n"]:
                     cat_choices.append(Cat.fetch_cat(you.mentor))
                 elif abbrev_string in ["df_m_n"]:
                     cat_choices.append(Cat.fetch_cat(you.dfmentor))
-                elif abbrev_string in ["tm_n"]:
-                    cat_choices.append(Cat.fetch_cat(cat.mentor))
                 elif abbrev_string in ["t_df_mn"]:
                     cat_choices.append(Cat.fetch_cat(cat.dfmentor))
                 elif abbrev_string in ["y_a"]:
