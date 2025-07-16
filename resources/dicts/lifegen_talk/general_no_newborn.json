@@ -7,7 +7,7 @@
             ]
         },
         "intro": [
-            "I heard some of c_nClan's cats whisper about wisps. It was under their breath, as if they wanted the topic of wisps to be a secret. Supposedly, they've been appearing more often lately.",
+            "I heard some of c_n's cats whisper about wisps. It was under their breath, as if they wanted the topic of wisps to be a secret. Supposedly, they've been appearing more often lately.",
             "[t_c gathers {PRONOUN/t_c/poss} thoughts for a moment and glances at you.]",
             "... Have you heard about wisps? No?",
             "I was told by my parent that wisps are the cats who never make it to the afterlife. They float around aimlessly to help those in the living. Something about fate and destiny being weaved together like a cloth, whatever that means.",
@@ -565,7 +565,7 @@
             ]
         },
         "intro": [
-            "[t_c is busy debating with another cat about which omen to send c_nClan.]",
+            "[t_c is busy debating with another cat about which omen to send c_n.]",
             "[You probably shouldn't bother {PRONOUN/t_c/object}.]"
         ]
     },
@@ -2242,7 +2242,7 @@
         },
         "intro": [
             "[Every time you sign at {PRONOUN/t_c/object}, t_c just blinks at you curiously.]",
-            "[You'd expected such an ancient dead cat to have all of the knowledge in the world, but maybe c_nClan sign language didn't exist back in {PRONOUN/t_c/poss} day.]",
+            "[You'd expected such an ancient dead cat to have all of the knowledge in the world, but maybe c_n sign language didn't exist back in {PRONOUN/t_c/poss} day.]",
             "[Maybe you should teach {PRONOUN/t_c/object} sometime.]"
         ]
     },
@@ -2720,7 +2720,7 @@
         ],
         "intro": [
             "Sometimes I like to climb onto the highest surfaces of the camp in the middle of the night when only the guards can see.",
-            "It's really peaceful, actually. Everycat in c_nClan is in their dens, and it's completely quiet, save for the murmurs of the guards and the night animals.",
+            "It's really peaceful, actually. Everycat in c_n is in their dens, and it's completely quiet, save for the murmurs of the guards and the night animals.",
             "Actually, speaking of \"the murmurs of the guards,\" do you want to hear some info I caught on r_c while eavesdropping? Don't worry, it's not incriminating."
         ]
     },
@@ -2983,7 +2983,7 @@
         },
         "intro": [
             "There is so much hate within your presence, it darkens our pure clouds.",
-            "c_nClan was right to shun you, y_c.",
+            "c_n was right to shun you, y_c.",
             "You must realize that to be at peace."
         ]
     },
@@ -4178,7 +4178,7 @@
         "intro": [
             "dislike-l_n-neurotic is a little too... sensitive, don't you think?",
             "Leaders should be strong! Unyielding! dislike-l_n-neurotic would lie down and let the other leaders walk all over {PRONOUN/dislike-l_n-neurotic/object} if they just asked.",
-            "{PRONOUN/dislike-l_n-neurotic/subject/CAP} {VERB/dislike-l_n-neurotic/make/makes} c_nClan seem weak."
+            "{PRONOUN/dislike-l_n-neurotic/subject/CAP} {VERB/dislike-l_n-neurotic/make/makes} c_n seem weak."
         ]
     },
     "about_neurotic_SQ7": {
@@ -4236,7 +4236,7 @@
         "intro": [
             "I like having a leader who's a bit more cautious.",
             "Leaders who jump into every decision paws-first are all well and good, but they leave more room for mistakes.",
-            "At least with trust-l_n-neurotic, I trust {PRONOUN/trust-l_n-neurotic/subject}{VERB/trust-l_n-neurotic/'ve/'s} fully thought through whether a choice is best for c_nClan."
+            "At least with trust-l_n-neurotic, I trust {PRONOUN/trust-l_n-neurotic/subject}{VERB/trust-l_n-neurotic/'ve/'s} fully thought through whether a choice is best for c_n."
         ]
     },
     "about_neurotic_SQ9": {
@@ -5192,5 +5192,258 @@
             "[t_c notices you hovering in the distance and frowns.]",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/turn/turns} away, ignoring your presence.]"
         ]
-    }
+    },
+    "condition_J5": {
+        "y_c": {},
+        "t_c": {
+            "condition": [
+                "shivering",
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "min_platonic_30"
+        ],
+        "intro": [
+            "y_c! Come here!",
+            "[t_c tackles you to the ground in the middle of camp.]",
+            "I'm still shivering. You have to cuddle with me-- medicine cat's orders!"
+        ]
+    },
+    "condition_J7": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "shock",
+                "deaf:any:false"
+            ]
+        },
+        "intro": [
+            "[During mealtime, t_c stares at the mouse in front of {PRONOUN/t_c/object}, face completely blank.]"
+        ]
+    },
+    "condition_J8": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "scrapes",
+                "bruises",
+                "small cut",
+                "sore",
+                "blind:any:false"
+            ],
+            "cluster": [
+                "silly",
+                "unlawful"
+            ]
+        },
+        "relationship": [
+            "min_platonic_20"
+        ],
+        "intro": [
+            "StarClan, help me! Dealing with this horrible injury... it's a fate worse than death!",
+            "I can feel myself slipping away... y_c, tell t_m I love {PRONOUN/t_m/object}...",
+            "[t_c flops into {PRONOUN/t_c/poss} nest dramatically.]",
+            "|t_m|Honey, I'm right here. You're not dying.",
+            "Oh. I'm not? That's a relief. Love you!"
+        ]
+    },
+    "condition_J9": {
+        "y_c": {},
+        "t_c": {
+            "condition": [
+                "bee sting",
+                "blind:any:false"
+            ],
+            "cluster": [
+                "brooding"
+            ],
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "intro": [
+            "[You stifle a laugh as t_c walks past, {PRONOUN/t_c/poss} muzzle still swollen from {PRONOUN/t_c/poss} bee sting.]",
+            "What, y_c? Is something funny to you?",
+            "... Didn't think so."
+        ]
+    },
+    "condition_J10": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "stomachache",
+                "blind:any:false"
+            ],
+            "cluster": [
+                "silly"
+            ]
+        },
+        "intro": [
+            "Have you heard I have a stomachache? I do. And I'm being very brave about it.",
+            "[Everyone in camp has heard about t_c's stomachache. At least twice.]"
+        ]
+    },
+    "severeheadache_rad1": {
+        "y_c": {},
+        "t_c": {
+            "condition": [
+                "severe headache",
+                "deaf:any:false"
+            ]
+        },
+        "intro": [
+            "[t_c pulls a wad of moss over {PRONOUN/t_c/poss} eyes with a whimper, like {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} trying to block out the light.]"
+        ]
+    },
+    "heat_conditions_SQ6": {
+        "season": [
+            "greenleaf"
+        ],
+        "y_c": {
+            "status": [
+                "not_kitten"
+            ],
+            "condition": [
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "heat exhaustion",
+                "heat stroke",
+                "deaf:any:false",
+                "blind:any:false"
+            ]
+        },
+        "intro": [
+            "[Today, a gentle wind disrupts the thick greenleaf heat. r_m made sure that t_c's nest is as close to the medicine den entrance as it can be without being in the sun, so t_c can feel the breeze.]",
+            "[t_c is resting, {PRONOUN/t_c/poss} eyes closed. As the wind ruffles {PRONOUN/t_c/poss} fur, you could swear you see {PRONOUN/t_c/poss} breathing become a bit less labored.]"
+        ]
+    },
+    "coughing_SQ3": {
+        "y_c": {},
+        "t_c": {
+            "condition": [
+                "yellowcough",
+                "greencough",
+                "kittencough",
+                "whitecough",
+                "redcough",
+                "blind:any:false"
+            ]
+        },
+        "intro": [
+            "[t_c's hacking coughs resonate through the medicine den. neutral-r_m-neurotic winces and runs to {PRONOUN/t_c/poss} side.",
+            "|neutral-r_m-neurotic|Here, try these herbs, and I'll get more honey for your throat. Could you, uh, try to cough away from me, though? Thanks."
+        ]
+    },
+    "torne_sam1": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false"
+            ],
+            "status": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "torn ear",
+                "deaf:any:false",
+                "blind:any:false"
+            ],
+            "status": [
+                "not_kitten"
+            ]
+        },
+        "intro": [
+            "[t_c flicks {PRONOUN/t_c/poss} ear without thinking about it, and winces in pain.]"
+        ]
+    },
+    "starving_sam1": {
+        "y_c": {
+            "condition": [
+                "starving",
+                "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "starving"
+            ],
+            "cluster": [
+                "sweet"
+            ],
+            "status": [
+                "not_kitten"
+            ]
+        },
+        "intro": [
+            "Oh, you look really hungry...",
+            "[t_c nudges {PRONOUN/t_c/poss} piece of prey towards you.]",
+            "Have my prey.",
+            "Yes, I'm sure. You need it more than I do."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Take the prey",
+                "next_scene": "take"
+            },
+            "choice2": {
+                "text": "Decline",
+                "next_scene": "nuh_uh"
+            }
+        },
+        "take": [
+            "[You take the prey, despite t_c being starving {PRONOUN/t_c/self}.]",
+            "I'll find another piece of prey."
+        ],
+        "nuh_uh": [
+            "[You argue, saying that t_c is starving too and that {PRONOUN/t_c/subject} should eat {PRONOUN/t_c/poss} own prey.]",
+            "No, please! Take it! I told you, you need it more than I do."
+        ],
+        "nuh_uh_choices": {
+            "choice1": {
+                "text": "Relent",
+                "next_scene": "take"
+            },
+            "choice2": {
+                "text": "Continue to refuse",
+                "next_scene": "fine"
+            }
+        },
+        "fine": [
+            "Okay.. If you're sure.."
+        ]
+    },
+    "dead_new_J1": {
+        "y_c": {
+          "forgiven": true
+        },
+        "t_c": {
+          "age": ["not_kitten", "not_adolescent"],
+          "dead": ["sc"],
+          "cluster": ["cool", "brooding", "assertive"]
+        },
+        "intro": [
+          "Don't get friendly with me. You think StarClan will forgive your transgressions so easily?",
+          "You have more work to do."
+        ]
+      }
 }

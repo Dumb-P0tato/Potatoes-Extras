@@ -1420,6 +1420,9 @@ class TalkScreen(Screens):
 
         if f"not_{cat.status}" in BLOCK["status"]:
             return False
+        
+        if f"not_{cat.status.replace(' ','_')}" in BLOCK["status"]:
+            return False
 
         prev_status_skip = False
         for status in possible_statuses:
@@ -1644,7 +1647,8 @@ class TalkScreen(Screens):
             possible_texts['general']["intro"][0] += t_c_text + f" {cat.moons}"
             possible_texts['general']["intro"][0] += "\n"
             
-            
+        
+        print("hey", possible_texts['general'])
         return possible_texts['general']
 
     def choose_text(self, cat, texts_list):
@@ -1674,13 +1678,25 @@ class TalkScreen(Screens):
             weighted_tags.append(special_date)
         weights = []
 
-        for item in texts_list.values():
+        print("------")
+        for dialogue_id, item in texts_list.items():
             tags = item["tags"] if "tags" in item else {}
             weight = 1
             if any(tag in weighted_tags for tag in tags):
-                weight += 3
+                weight += 2
             if "focus" in tags or "connected" in tags:
-                weight += 8
+                weight += 5
+
+            # im gonna attempt tp up thr weight for dialogue with a lot of constraints
+            # like scribble just did in clangen for shortevents
+            # but, of course, worse
+            for constraint in item:
+                if constraint not in ["y_c", "t_c", "relationship", "tags"]:
+                    continue
+                for tag in item[constraint]:
+                    weight += 1
+            print(dialogue_id + ": ", weight)
+
             weights.append(weight)
 
         # Check for debug mode
@@ -1723,6 +1739,7 @@ class TalkScreen(Screens):
                 if "~" in text_chosen_key:
                     text_chosen_key_split = text_chosen_key.split("~")
                     cat.connected_dialogue[text_chosen_key_split[0]] = int(text_chosen_key_split[1])
+                print("CHOSE:", text_chosen_key)
                 return new_text
 
         # If no valid text found, choose one based on tag weights

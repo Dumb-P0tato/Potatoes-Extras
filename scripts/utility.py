@@ -3275,7 +3275,9 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.age != you.age or
         len(you.mate) > 0 or
         chosen_cat.outside or
-        chosen_cat.dead
+        chosen_cat.dead or
+        chosen_cat not in you.relationships or
+        (chosen_cat in you.relationships and you.relationships[chosen_cat.ID].romantic_love < 20)
     ) else True
 
     # Random statuses
