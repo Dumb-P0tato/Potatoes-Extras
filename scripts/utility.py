@@ -357,7 +357,7 @@ def create_new_cat_block(
         for index in adoptive_indexes:
             if in_event_cats[index].ID not in adoptive_parents:
                 adoptive_parents.append(in_event_cats[index].ID)
-                adoptive_parents.extend(in_event_cats[index].mate)
+                adoptive_parents.extend(in_event_cats[index].mates)
 
     # gather mates
     give_mates = []
@@ -710,7 +710,7 @@ def create_new_cat_block(
 
             # SET MATES
             for inter_cat in give_mates:
-                if n_c == inter_cat or n_c.ID in inter_cat.mate:
+                if n_c == inter_cat or n_c.ID in inter_cat.mates:
                     continue
 
                 # this is some duplicate work, since this triggers inheritance re-calcs
@@ -1091,7 +1091,7 @@ def get_highest_romantic_relation(
     for rel in relationships:
         if rel.romantic_love < 0:
             continue
-        if exclude_mate and rel.cat_from.ID in rel.cat_to.mate:
+        if exclude_mate and rel.cat_from.ID in rel.cat_to.mates:
             continue
         if potential_mate and not rel.cat_to.is_potential_mate(
             rel.cat_from, for_love_interest=True
@@ -1302,13 +1302,13 @@ def filter_relationship_type(
             return False
 
         # then if cats don't have the needed number of mates
-        if not all(len(i.mate) >= (len(group) - 1) for i in group):
+        if not all(len(i.mates) >= (len(group) - 1) for i in group):
             return False
 
         # Now the expensive test.  We have to see if everone is mates with each other
         # Hopefully the cheaper tests mean this is only needed on events with a small number of cats
         for x in combinations(group, 2):
-            if x[0].ID not in x[1].mate:
+            if x[0].ID not in x[1].mates:
                 return False
 
     # check if all cats are mates with p_l (they do not have to be mates with each other)
@@ -1321,14 +1321,14 @@ def filter_relationship_type(
         for cat in group:
             if cat.ID == patrol_leader.ID:
                 continue
-            if cat.ID not in patrol_leader.mate:
+            if cat.ID not in patrol_leader.mates:
                 return False
 
     # Check if all cats are not mates
     if "not_mates" in filter_types:
         # opposite of mate check
         for x in combinations(group, 2):
-            if x[0].ID in x[1].mate:
+            if x[0].ID in x[1].mates:
                 return False
 
     # Check if the cats are in a parent/child relationship
@@ -1780,7 +1780,7 @@ def change_relationship_values(
             # here we just double-check that the cats are allowed to be romantic with each other
             if (
                 single_cat_from.is_potential_mate(single_cat_to, for_love_interest=True)
-                or single_cat_to.ID in single_cat_from.mate
+                or single_cat_to.ID in single_cat_from.mates
             ):
                 # if cat already has romantic feelings then automatically increase romantic feelings
                 # when platonic feelings would increase
@@ -3265,10 +3265,10 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
     yourcrush = False if (
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
-        chosen_cat.ID in cat.mate or
-        chosen_cat.ID in you.mate or
+        chosen_cat.ID in cat.mates or
+        chosen_cat.ID in you.mates or
         chosen_cat.age != you.age or
-        len(you.mate) > 0 or
+        len(you.mates) > 0 or
         chosen_cat.outside or
         chosen_cat.dead
     ) else True
@@ -3524,7 +3524,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.outside or
-        chosen_cat.ID not in you.mate
+        chosen_cat.ID not in you.mates
     ) else True
 
     # Their mate
@@ -3533,7 +3533,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.outside or
-        chosen_cat.ID not in cat.mate
+        chosen_cat.ID not in cat.mates
     ) else True
 
     # nr_1/2 -- Two cats who are potential mates
@@ -3542,7 +3542,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.outside or
-        len(chosen_cat.mate) > 0 or
+        len(chosen_cat.mates) > 0 or
         chosen_cat.moons < 14 or
         "n_r2" not in text
     ) else True
@@ -3559,7 +3559,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.outside or
-        len(chosen_cat.mate) > 0 or
+        len(chosen_cat.mates) > 0 or
         (n_r1_object and not chosen_cat.is_potential_mate(n_r1_object)) or
         n_r1_object is None
     ) else True
@@ -4010,10 +4010,10 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 elif abbrev_string in ["t_a"]:
                     cat_choices = cat.apprentice
                 elif abbrev_string in ["y_m"]:
-                    for cat_id in you.mate:
+                    for cat_id in you.mates:
                         cat_choices.append(Cat.fetch_cat(cat_id))
                 elif abbrev_string in ["t_m"]:
-                    for cat_id in cat.mate:
+                    for cat_id in cat.mates:
                         cat_choices.append(Cat.fetch_cat(cat_id))
                 elif abbrev_string in ["rdf_c"]:
                     cat_choices = [i for i in Cat.all_cats_list if i.dead is True]

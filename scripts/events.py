@@ -93,15 +93,15 @@ class Events:
         Handles the moon skipping of the whole Clan.
         """
         if self.checks == [-1,-1,-1] and game.clan.your_cat and game.clan.your_cat.inheritance:
-            self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), len(game.clan.your_cat.inheritance.get_blood_kits()), None]
+            self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mates), len(game.clan.your_cat.inheritance.get_blood_kits()), None]
             if game.clan.leader:
                 self.checks[3] = game.clan.leader.ID
         elif game.clan.your_cat.inheritance:
-            self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), len(game.clan.your_cat.inheritance.get_blood_kits()), None]
+            self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mates), len(game.clan.your_cat.inheritance.get_blood_kits()), None]
             if game.clan.leader:
                 self.checks[3] = game.clan.leader.ID
         else:
-            self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), 0, None]
+            self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mates), 0, None]
             if game.clan.leader:
                 self.checks[3] = game.clan.leader.ID
         game.cur_events_list = [] + game.next_events_list
@@ -465,7 +465,7 @@ class Events:
         self.generate_dialogue_focus()
         self.checks = [
             len(game.clan.your_cat.apprentice),
-            len(game.clan.your_cat.mate),
+            len(game.clan.your_cat.mates),
             len(game.clan.your_cat.inheritance.get_blood_kits()),
             None
             ]
@@ -659,8 +659,8 @@ class Events:
             ##code block for achievement 31
             achieve31RankList = ['warrior', 'mediator', 'leader']
             achieve31UsedRanks = []
-            if len(Cat.all_cats.get(cat).mate) >= 2:
-                catMateIDs = Cat.all_cats.get(cat).mate.copy()
+            if len(Cat.all_cats.get(cat).mates) >= 2:
+                catMateIDs = Cat.all_cats.get(cat).mates.copy()
                 if Cat.all_cats.get(cat).status in achieve31RankList:
                     achieve31UsedRanks.append(Cat.all_cats.get(cat).status)
                     for cat in clan_cats:
@@ -698,7 +698,7 @@ class Events:
             if you.relationships.get(i).romantic_love >= 60:
                 achievements.add('12')
             
-        if len(you.mate) >= 5:
+        if len(you.mates) >= 5:
             achievements.add('13')
         if you.status == 'warrior':
             achievements.add('14')
@@ -764,8 +764,8 @@ class Events:
                         and "apprentice" not in cat.status and is_age_compatible and is_gender_compatible and is_relation_compatible)
 
             for _ in range(MAX_ATTEMPTS):
-                if other_parent and other_parent.mate:
-                    candidate_id = random.choice(other_parent.mate)
+                if other_parent and other_parent.mates:
+                    candidate_id = random.choice(other_parent.mates)
                     if is_valid_parent(candidate_id, other_parent.gender if other_parent else None, other_parent.ID if other_parent else None, other_parent.age if other_parent else None):
                         return Cat.all_cats.get(candidate_id)
                 candidate_id = random.choice(Cat.all_cats_list).ID
@@ -1327,17 +1327,17 @@ class Events:
 
     def check_gain_mate(self, checks):
         
-        if len(game.clan.your_cat.mate) == checks[1] + 1:
+        if len(game.clan.your_cat.mates) == checks[1] + 1:
             try:
                 resource_dir = "resources/dicts/events/lifegen_events/"
                 with open(f"{resource_dir}ceremonies.json",
                         encoding="ascii") as read_file:
                     self.d_txt = ujson.loads(read_file.read())
                 try:
-                    ceremony_txt = random.choice(self.d_txt["gain_mate " + game.clan.your_cat.status.replace(" ", "") + " " + Cat.all_cats[game.clan.your_cat.mate[-1]].status.replace(" ", "")])
+                    ceremony_txt = random.choice(self.d_txt["gain_mate " + game.clan.your_cat.status.replace(" ", "") + " " + Cat.all_cats[game.clan.your_cat.mates[-1]].status.replace(" ", "")])
                 except:
                     ceremony_txt = random.choice(self.d_txt["gain_mate general"])
-                mate = Cat.all_cats[game.clan.your_cat.mate[-1]]
+                mate = Cat.all_cats[game.clan.your_cat.mates[-1]]
                 self.cat_dict["mate1"] = mate
                 ceremony_txt = re.sub(r'(?<!\/)mate1(?!\/)', str(mate.name), ceremony_txt)
                 process_text_dict = self.cat_dict.copy()
@@ -1355,10 +1355,10 @@ class Events:
                         encoding="ascii") as read_file:
                     self.d_txt = ujson.loads(read_file.read())
                 try:
-                    ceremony_txt = random.choice(self.d_txt["gain_mate " + game.clan.your_cat.status.replace(" ", "") + " " + Cat.all_cats[game.clan.your_cat.mate[-1]].status.replace(" ", "")])
+                    ceremony_txt = random.choice(self.d_txt["gain_mate " + game.clan.your_cat.status.replace(" ", "") + " " + Cat.all_cats[game.clan.your_cat.mates[-1]].status.replace(" ", "")])
                 except:
                     ceremony_txt = random.choice(self.d_txt["gain_mate general"])
-                mate = Cat.all_cats[game.clan.your_cat.mate[-1]]
+                mate = Cat.all_cats[game.clan.your_cat.mates[-1]]
                 self.cat_dict["mate1"] = mate
                 ceremony_txt = re.sub(r'(?<!\/)mate1(?!\/)', str(mate.name), ceremony_txt)
                 process_text_dict = self.cat_dict.copy()
@@ -1368,7 +1368,7 @@ class Events:
                 ceremony_txt = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), ceremony_txt)
                 game.cur_events_list.insert(0, Single_Event(ceremony_txt, "alert", game.clan.your_cat.ID))
                 game.switches['accept'] = False
-                checks[1] = len(game.clan.your_cat.mate)
+                checks[1] = len(game.clan.your_cat.mates)
             except:
                 print("You gained a new mate but an event could not be shown1")
 
@@ -1419,9 +1419,9 @@ class Events:
             game.switches['windows_dict'].append('name kits')
 
     def generate_mate_events(self):
-        if len(game.clan.your_cat.mate) > 0:
+        if len(game.clan.your_cat.mates) > 0:
             if random.randint(1,20) == 1:
-                mate1 = Cat.all_cats.get(random.choice(game.clan.your_cat.mate))
+                mate1 = Cat.all_cats.get(random.choice(game.clan.your_cat.mates))
                 if mate1.dead or mate1.outside:
                     return
                 ceremony_txt = random.choice(self.c_txt['mate_events'])
@@ -1435,7 +1435,7 @@ class Events:
                 game.cur_events_list.insert(1, Single_Event(ceremony_txt, "alert", game.clan.your_cat.ID))
             if game.clan.clan_settings['affair']:
                 if random.randint(1,50) == 1:
-                    mate1 = Cat.all_cats.get(random.choice(game.clan.your_cat.mate))
+                    mate1 = Cat.all_cats.get(random.choice(game.clan.your_cat.mates))
                     if mate1.dead or mate1.outside:
                         return
                     ceremony_txt = random.choice(self.c_txt['affair_events'])
@@ -1448,11 +1448,11 @@ class Events:
                     ceremony_txt = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), ceremony_txt)
                     game.cur_events_list.insert(1, Single_Event(ceremony_txt, "alert", game.clan.your_cat.ID))
         if random.randint(1,30) == 1:
-            if (len(game.clan.your_cat.mate) > 0 and game.clan.clan_settings['affair']) or (len(game.clan.your_cat.mate) == 0):
-                if len(game.clan.your_cat.mate) > 0:
+            if (len(game.clan.your_cat.mates) > 0 and game.clan.clan_settings['affair']) or (len(game.clan.your_cat.mates) == 0):
+                if len(game.clan.your_cat.mates) > 0:
                     if random.randint(1,50) != 1:
                         return
-                    mate1 = Cat.all_cats.get(random.choice(game.clan.your_cat.mate))
+                    mate1 = Cat.all_cats.get(random.choice(game.clan.your_cat.mates))
                     if mate1.dead or mate1.outside:
                         return
                 c = Cat.all_cats.get(random.choice(game.clan.clan_cats))
@@ -2324,8 +2324,8 @@ class Events:
                     game.clan.med_cat_list.remove(cat.ID)
 
                 # Unset their mate, if they have one
-                if len(cat.mate) > 0:
-                    for mate_id in cat.mate:
+                if len(cat.mates) > 0:
+                    for mate_id in cat.mates:
                         if Cat.all_cats.get(mate_id):
                             cat.unset_mate(Cat.all_cats.get(mate_id))
 
