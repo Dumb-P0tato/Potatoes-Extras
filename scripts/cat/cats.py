@@ -3452,7 +3452,7 @@ class Cat:
                     if elder.status not in story["elder"]["status"]:
                         continue
                 if "age" in story["elder"]:
-                    if elder.age not in story["elder"]["status"]:
+                    if elder.age not in story["elder"]["age"]:
                         continue
             if "random_cat" in story:
                 if "cluster" in story["random_cat"]:
