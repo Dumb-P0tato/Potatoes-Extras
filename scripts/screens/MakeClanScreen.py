@@ -10,12 +10,11 @@ import pygame_gui
 from pygame_gui.core import ObjectID
 
 import scripts.screens.screens_core.screens_core
-from scripts.cat.cats import create_example_cats, create_cat, Cat
+from scripts.cat.cats import create_example_cats, Cat
 from scripts.cat.pelts import Pelt
 from scripts.cat.personality import Personality
 from scripts.cat.names import names
 from scripts.clan import Clan
-from scripts.game_structure import image_cache
 from scripts.game_structure.game_essentials import (
     game,
 )
@@ -2066,6 +2065,10 @@ class MakeClanScreen(Screens):
 
         self.clear_all_page()
         self.sub_screen = "customize cat"
+
+        self.selected_cat = None
+        # clearing selected cat for the eye colour display bug
+
         pelt2 = Pelt(
             name=self.pname,
             length=self.length,
@@ -2712,7 +2715,7 @@ class MakeClanScreen(Screens):
                         manager=MANAGER
                         )
                     self.eye_colour_names[colour] = pygame_gui.elements.UITextBox(
-                        str(colour).lower().capitalize(),
+                        str(Cat.describe_eyes(self.selected_cat, colour)).lower().capitalize(),
                         ui_scale(pygame.Rect((0 + 32, eye_y_pos), (200, 34))),
                         object_id=get_text_box_theme("#text_box_30_horizleft"),
                         container=self.elements["scroll_container"],
@@ -2730,7 +2733,7 @@ class MakeClanScreen(Screens):
                         manager=MANAGER
                         )
                     self.heterochromia_names[str(colour)] = pygame_gui.elements.UITextBox(
-                        str(colour).lower().capitalize(),
+                        str(Cat.describe_eyes(self.selected_cat, colour)).lower().capitalize(),
                         ui_scale(pygame.Rect((0 + 32, eye_y_pos), (200, 34))),
                         object_id=get_text_box_theme("#text_box_30_horizleft"),
                         container=self.elements["scroll_container"],
@@ -2962,6 +2965,9 @@ class MakeClanScreen(Screens):
                     y_pos += 40
 
             y_pos = 0
+            traits = []
+            for trait in Personality.trait_ranges["kit_traits"]:
+                traits.append(trait)
             traits = ['troublesome', 'lonesome', 'impulsive', 'bullying', 'attention-seeker', 'charming', 'daring', 'noisy', 'nervous', 'quiet', 'insecure', 'daydreamer', 'sweet', 'polite', 'know-it-all', 'bossy', 'disciplined', 'patient', 'manipulative', 'secretive', 'rebellious', 'grumpy', 'passionate', 'honest', 'leader-like', 'smug']
             if self.current_selection == "trait":
                 for trait in traits:
@@ -3123,7 +3129,10 @@ class MakeClanScreen(Screens):
                             new_patch_list = patch_list
 
                         patches = ["None"] + new_patch_list
-                        current_index = patches.index(str(self.white_patches))
+                        try:
+                            current_index = patches.index(str(self.white_patches))
+                        except ValueError:
+                            current_index = 0
                         next_index = (current_index + num) % len(patches)
                         if patches[next_index] == "None":
                             self.white_patches = None
@@ -3249,7 +3258,10 @@ class MakeClanScreen(Screens):
                                 if i[0] in new_acc_list or i[0] in self.accessories:
                                     new_acc_list.remove(i[0])
                         accs = ["None"] + new_acc_list
-                        current_index = accs.index(self.accessories[0]) if self.accessories else 0
+                        try:
+                            current_index = accs.index(self.accessories[0]) if self.accessories else 0
+                        except ValueError:
+                            current_index = 0
                         next_index = (current_index + num) % len(accs)
                         if accs[next_index] == "None":
                             next_acc = []
@@ -3725,7 +3737,7 @@ class MakeClanScreen(Screens):
                 self.your_cat.personality = Personality(trait=self.personality, kit_trait=True)
                 if self.skill == "Random":
                     self.skill = random.choice(self.skills)
-                self.your_cat.skills.primary = Skill.get_skill_from_string(Skill, self.skill)
+                self.your_cat.skills.primary = Skill.get_skill_from_string(Skill, self.skill, "True")
                 self.your_cat.lock_faith = self.faith
                 self.selected_cat = None
                 self.open_name_cat()

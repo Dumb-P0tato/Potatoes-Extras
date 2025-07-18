@@ -73,6 +73,27 @@ def json_load():
                 cat["accessories"].append(cat["accessory"])
                 cat["inventory"].append(cat["accessory"])
                 cat["accessory"] = None
+            
+            # converting old accessories 
+            if "LADYBUG" in cat["inventory"]:
+                cat["inventory"].remove("LADYBUG")
+                cat["inventory"].append("LADYBUGS")
+            if "CHIMES" in cat["inventory"]:
+                cat["inventory"].remove("CHIMES")
+                cat["inventory"].append("CELESTIALCHIMES")
+            if "RAINCOAT" in cat["inventory"]:
+                cat["inventory"].remove("RAINCOAT")
+                cat["inventory"].append("YELLOWRAINCOAT")
+
+            if "LADYBUG" in cat["accessories"]:
+                cat["accessories"].remove("LADYBUG")
+                cat["accessories"].append("LADYBUGS")
+            if "CHIMES" in cat["accessories"]:
+                cat["accessories"].remove("CHIMES")
+                cat["accessories"].append("CELESTIALCHIMES")
+            if "RAINCOAT" in cat["accessories"]:
+                cat["accessories"].remove("RAINCOAT")
+                cat["accessories"].append("YELLOWRAINCOAT")
 
             new_cat = Cat(
                 ID=cat["ID"],
@@ -268,6 +289,10 @@ def json_load():
             new_cat.df_apprentices = cat["df_apprentices"] if "df_apprentices" in cat else []
             new_cat.faith = cat["faith"] if "faith" in cat else randint(-3,3)
             new_cat.connected_dialogue = cat["connected_dialogue"] if "connected_dialogue" in cat else {}
+            new_cat.df_join_moon = cat["df_join_moon"] if "df_join_moon" in cat else 0
+            new_cat.df_patrols = cat["df_patrols"] if "df_patrols" in cat else 0
+            new_cat.graduated_df = cat["graduated_df"] if "graduated_df" in cat else False
+
             if "died_by" in cat or "scar_event" in cat or "mentor_influence" in cat:
                 new_cat.convert_history(
                     cat["died_by"] if "died_by" in cat else [],
