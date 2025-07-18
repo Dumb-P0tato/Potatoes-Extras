@@ -892,22 +892,20 @@ class TalkScreen(Screens):
             ):
                 continue
 
-
+            # validate_conditions gets passed the conditions list, not the whole block
             if "condition" in CAT:
-                if not self.validate_conditions(CAT, cat):
-                    continue
-            # else:
-            #     if "blind" in cat.permanent_condition:
-            #         continue
+                CONDITIONS = CAT["condition"]
+            else:
+                CONDITIONS = []
+            if not self.validate_conditions(CONDITIONS, cat):
+                continue
 
             if "condition" in YOU:
-                if not self.validate_conditions(YOU, you):
-                    continue
-            # else:
-            #     if "blind" in you.permanent_condition:
-            #         continue
-            #     if "deaf" in you.permanent_condition:
-            #         continue
+                CONDITIONS = YOU["condition"]
+            else:
+                CONDITIONS = []
+            if not self.validate_conditions(CONDITIONS, you):
+                continue
 
             # CLUSTER/TRAITS
             if "cluster" in YOU:
@@ -1479,34 +1477,54 @@ class TalkScreen(Screens):
                 return False
         return True
 
-    def validate_conditions(self, BLOCK, cat):
+    def validate_conditions(self, CONDITIONS, cat):
         """
         Checks the condition list
         """
         has_condition = False
 
-        if "injury:any" in BLOCK["condition"] and not cat.is_injured():
+        if "injury:any" in CONDITIONS and not cat.is_injured():
             return False
-        if "illness:any" in BLOCK["condition"] and not cat.is_ill():
+        if "illness:any" in CONDITIONS and not cat.is_ill():
             return False
         
-        if "injury:none" in BLOCK["condition"] and cat.is_injured():
+        if "injury:none" in CONDITIONS and cat.is_injured():
             return False
-        if "illness:none" in BLOCK["condition"] and cat.is_ill():
+        if "illness:none" in CONDITIONS and cat.is_ill():
             return False
         
         # exclusive tags
-        if "pregnant" in BLOCK["condition"] and cat.ID not in game.clan.pregnancy_data:
+        if "pregnant" in CONDITIONS and cat.ID not in game.clan.pregnancy_data:
             return False
-        if "grief stricken" in BLOCK["condition"] and "grief stricken" not in cat.illnesses:
+        if "grief stricken" in CONDITIONS and "grief stricken" not in cat.illnesses:
             return False
 
         reg_condition_check = False
         has_condition = False
-        blind_valid = False
-        deaf_valid = False
+        blind_valid = True
+        deaf_valid = True
 
-        for tag in BLOCK["condition"]:
+        # this sucks
+        blind_tagged = False
+        deaf_tagged = False
+        for tag in CONDITIONS:
+            if ":" in tag:
+                condition_tag = tag.split(":")[0]
+                if condition_tag == "blind" and "blind" in cat.permanent_condition:
+                    blind_tagged = True
+                if condition_tag == "deaf" and "deaf" in cat.permanent_condition:
+                    deaf_tagged = True
+        if not deaf_tagged:
+            deaf_valid = False
+        if not blind_tagged:
+            blind_valid = False
+        #  --
+
+        if not CONDITIONS:
+            blind_valid = False
+            deaf_valid = False
+
+        for tag in CONDITIONS:
             if isinstance(tag, list):
                 # if a tag is a list, all of the conditions in the list
                 # must be true for the dialogue to be attainable
@@ -1656,9 +1674,7 @@ class TalkScreen(Screens):
             possible_texts['general']["intro"][0] += "\n"
             possible_texts['general']["intro"][0] += t_c_text + f" {cat.moons}"
             possible_texts['general']["intro"][0] += "\n"
-            
-        
-        print("hey", possible_texts['general'])
+
         return possible_texts['general']
 
     def choose_text(self, cat, texts_list):
@@ -1697,11 +1713,13 @@ class TalkScreen(Screens):
             if "focus" in tags or "connected" in tags:
                 weight += 6
 
-            # im gonna attempt tp up thr weight for dialogue with a lot of constraints
+            # im gonna attempt to up the weight for dialogue with a lot of constraints
             # like scribble just did in clangen for shortevents
             # but, of course, worse
             for constraint in item:
-                if constraint not in ["y_c", "t_c", "relationship", "tags"]:
+                if constraint.endswith("inventory_changes"):
+                    break
+                if constraint not in ["y_c", "t_c", "relationship", "tags", "season"]:
                     continue
                 for tag in item[constraint]:
                     weight += 2

@@ -1229,7 +1229,7 @@ class ProfileScreen(Screens):
         elif self.the_cat.status == "elder":
             self.profile_elements["story"] = UISurfaceImageButton(
                 ui_scale(pygame.Rect((383, y_pos), (34, 34))),
-                Icon.CLAN_UNKNOWN,
+                Icon.NOTEPAD,
                 get_button_dict(ButtonStyles.ICON, (34, 34)),
                 manager=MANAGER,
                 object_id="@buttonstyles_icon",

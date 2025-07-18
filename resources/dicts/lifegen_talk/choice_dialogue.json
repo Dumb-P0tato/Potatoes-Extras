@@ -1775,11 +1775,11 @@
                 "next_scene": "sounds_tough"
             },
             "choice2": {
-                "text": "That's no way to talk about your {PRONOUN/t_p/parent}.",
+                "text": "Don't be rude.",
                 "next_scene": "no_way_to_talk"
             },
             "choice3": {
-                "text": "t_p is just worried about you!",
+                "text": "t_p is just worried!",
                 "next_scene": "just_worried"
             }
         },
