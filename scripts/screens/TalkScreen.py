@@ -471,11 +471,8 @@ class TalkScreen(Screens):
         self.possible_texts = texts_list
         self.chosen_text_key = texts_chosen_key
 
-        if f"{self.current_scene}_rel_changes" in self.possible_texts[self.chosen_text_key]:
-            self.rel_changes(self.the_cat, self.possible_texts, self.chosen_text_key)
-
-        if f"{self.current_scene}_inventory_changes" in self.possible_texts[self.chosen_text_key]:
-            self.inventory_changes(self.the_cat, self.possible_texts, self.chosen_text_key)
+        if f"{self.current_scene}_scene_effects" in self.possible_texts[self.chosen_text_key]:
+            self.scene_effects(self.the_cat, self.possible_texts, self.chosen_text_key)
 
         return chosen_text_intro
 
@@ -531,103 +528,135 @@ class TalkScreen(Screens):
         self.frame_index = 0
         self.created_choice_buttons = False
 
-        if f"{self.current_scene}_rel_changes" in self.possible_texts[self.chosen_text_key]:
-            self.rel_changes(self.the_cat, self.possible_texts, self.chosen_text_key)
-        
-        if f"{self.current_scene}_inventory_changes" in self.possible_texts[self.chosen_text_key]:
-            self.inventory_changes(self.the_cat, self.possible_texts, self.chosen_text_key)
+        if f"{self.current_scene}_scene_effects" in self.possible_texts[self.chosen_text_key]:
+            self.scene_effects(self.the_cat, self.possible_texts, self.chosen_text_key)
 
-    def rel_changes(self, cat, texts_list, texts_chosen_key):
-        rel_block = texts_list[texts_chosen_key][f"{self.current_scene}_rel_changes"]
-
-        if game.clan.your_cat.ID not in cat.relationships:
-            cat.create_one_relationship(game.clan.your_cat)
-            if cat.ID not in game.clan.your_cat.relationships:
-                game.clan.your_cat.create_one_relationship(cat)
-
-        cats_to = []
-        for kitty in rel_block["cats_to"]:
-            if kitty == "y_c":
-                cats_to.append(game.clan.your_cat)
-            elif kitty == "t_c":
-                cats_to.append(cat)
-            else:
-                cats_to.append(self.cat_dict[kitty])
-
-        cats_from = []
-        for kitty in rel_block["cats_from"]:
-            if kitty == "y_c":
-                cats_from.append(game.clan.your_cat)
-            elif kitty == "t_c":
-                cats_from.append(cat)
-            else:
-                cats_from.append(self.cat_dict[kitty])
-
-        romantic_value = rel_block["values"]["romantic"] if "romantic" in rel_block["values"] else 0
-        platonic_value = rel_block["values"]["platonic"] if "platonic" in rel_block["values"] else 0
-        dislike_value = rel_block["values"]["dislike"] if "dislike" in rel_block["values"] else 0
-        respect_value = rel_block["values"]["respect"] if "respect" in rel_block["values"] else 0
-        comfort_value = rel_block["values"]["comfort"] if "comfort" in rel_block["values"] else 0
-        jealousy_value = rel_block["values"]["jealousy"] if "jealousy" in rel_block["values"] else 0
-        trust_value = rel_block["values"]["trust"] if "trust" in rel_block["values"] else 0
-
-        change_relationship_values(
-            cats_to,
-            cats_from,
-            romantic_value,
-            platonic_value,
-            dislike_value,
-            respect_value,
-            comfort_value,
-            jealousy_value,
-            trust_value,
-            log=None
-        )
-
-        if rel_block["mutual"]:
-            change_relationship_values(
-                cats_to,
-                cats_from,
-                romantic_value,
-                platonic_value,
-                dislike_value,
-                respect_value,
-                comfort_value,
-                jealousy_value,
-                trust_value,
-                log=None
-            )
-
-    def inventory_changes(self, cat, texts_list, texts_chosen_key):
+    def scene_effects(self, cat, texts_list, texts_chosen_key):
         """
         Adds accessories to inventory from dialogue
         """
-        inv_block = texts_list[texts_chosen_key][f"{self.current_scene}_inventory_changes"]
+        for block in texts_list[texts_chosen_key][f"{self.current_scene}_scene_effects"]:
+            # INVENTORY
+            if block == "inventory":
+                inv_block = texts_list[texts_chosen_key][f"{self.current_scene}_scene_effects"]["inventory"]
 
-        cats_to = []
-        for kitty in inv_block["cats_to"]:
-            if kitty == "y_c":
-                cats_to.append(game.clan.your_cat)
-            elif kitty == "t_c":
-                cats_to.append(cat)
-            else:
-                cats_to.append(self.cat_dict[kitty])
+                cats_to = []
+                for kitty in inv_block["cats_to"]:
+                    if kitty == "y_c":
+                        cats_to.append(game.clan.your_cat)
+                    elif kitty == "t_c":
+                        cats_to.append(cat)
+                    else:
+                        cats_to.append(self.cat_dict[kitty])
 
-        accessories = inv_block["accessory"]
+                accessories = inv_block["accessory"]
 
-        if inv_block["addition"] == "choice":
-            for kitty in cats_to:
-                acc = choice(accessories)
-                if acc not in kitty.pelt.inventory:
-                    kitty.pelt.inventory.append(acc)
-        elif inv_block["addition"] == "all":
-            for kitty in cats_to:
-                for acc in accessories:
-                    if acc not in kitty.pelt.inventory:
-                        kitty.pelt.inventory.append(acc)
-        else:
-            print("Invalid 'addition' string for dialogue inventory block.")
+                if inv_block["addition"] == "choice":
+                    for kitty in cats_to:
+                        acc = choice(accessories)
+                        if acc not in kitty.pelt.inventory:
+                            kitty.pelt.inventory.append(acc)
+                elif inv_block["addition"] == "all":
+                    for kitty in cats_to:
+                        for acc in accessories:
+                            if acc not in kitty.pelt.inventory:
+                                kitty.pelt.inventory.append(acc)
+                else:
+                    print("Invalid 'addition' string for dialogue inventory block.")
+            # REL
+            if block == "relationship":
+                rel_block = texts_list[texts_chosen_key][f"{self.current_scene}_scene_effects"]["relationship"]
 
+                if game.clan.your_cat.ID not in cat.relationships:
+                    cat.create_one_relationship(game.clan.your_cat)
+                    if cat.ID not in game.clan.your_cat.relationships:
+                        game.clan.your_cat.create_one_relationship(cat)
+
+                cats_to = []
+                for kitty in rel_block["cats_to"]:
+                    if kitty == "y_c":
+                        cats_to.append(game.clan.your_cat)
+                    elif kitty == "t_c":
+                        cats_to.append(cat)
+                    else:
+                        cats_to.append(self.cat_dict[kitty])
+
+                cats_from = []
+                for kitty in rel_block["cats_from"]:
+                    if kitty == "y_c":
+                        cats_from.append(game.clan.your_cat)
+                    elif kitty == "t_c":
+                        cats_from.append(cat)
+                    else:
+                        cats_from.append(self.cat_dict[kitty])
+
+                romantic_value = rel_block["values"]["romantic"] if "romantic" in rel_block["values"] else 0
+                platonic_value = rel_block["values"]["platonic"] if "platonic" in rel_block["values"] else 0
+                dislike_value = rel_block["values"]["dislike"] if "dislike" in rel_block["values"] else 0
+                respect_value = rel_block["values"]["respect"] if "respect" in rel_block["values"] else 0
+                comfort_value = rel_block["values"]["comfort"] if "comfort" in rel_block["values"] else 0
+                jealousy_value = rel_block["values"]["jealousy"] if "jealousy" in rel_block["values"] else 0
+                trust_value = rel_block["values"]["trust"] if "trust" in rel_block["values"] else 0
+
+                change_relationship_values(
+                    cats_to,
+                    cats_from,
+                    romantic_value,
+                    platonic_value,
+                    dislike_value,
+                    respect_value,
+                    comfort_value,
+                    jealousy_value,
+                    trust_value,
+                    log=None
+                )
+
+                if rel_block["mutual"]:
+                    change_relationship_values(
+                        cats_from,
+                        cats_to,
+                        romantic_value,
+                        platonic_value,
+                        dislike_value,
+                        respect_value,
+                        comfort_value,
+                        jealousy_value,
+                        trust_value,
+                        log=None
+                    )
+            # DF
+            if block == "dark_forest":
+                df_block = texts_list[texts_chosen_key][f"{self.current_scene}_scene_effects"]["dark_forest"]
+                
+                joined_cats = []
+                for kitty in df_block["join"]:
+                    if kitty == "y_c":
+                        joined_cats.append(game.clan.your_cat)
+                    elif kitty == "t_c":
+                        joined_cats.append(cat)
+                    else:
+                        joined_cats.append(self.cat_dict[kitty])
+                left_cats = []
+                for kitty in df_block["leave"]:
+                    if kitty == "y_c":
+                        left_cats.append(game.clan.your_cat)
+                    elif kitty == "t_c":
+                        left_cats.append(cat)
+                    else:
+                        left_cats.append(self.cat_dict[kitty])
+
+                for kitty in joined_cats:
+                    if kitty.joined_df:
+                        print("ERROR:", kitty.name, "trying to join the DF from dialogue, but they're already in it.")
+                        continue
+                    kitty.joined_df = True
+                    kitty.update_df_mentor()
+                for kitty in left_cats:
+                    if not kitty.joined_df:
+                        print("ERROR:", kitty.name, "trying to lead the DF from dialogue, but they're not in it.")
+                        continue
+                    kitty.joined_df = False
+                    kitty.update_df_mentor()
 
 
     def load_texts(self, cat):

@@ -2774,7 +2774,12 @@ class Cat:
     
     def update_df_mentor(self):
         """Handles giving clan members df mentors"""
-        if not self.joined_df or self.dead or self.df_mentor:
+        if self.dead or self.df_mentor:
+            return
+
+        if not self.joined_df:
+            Cat.fetch_cat(self.df_mentor).df_apprentices.remove(self.ID)
+            self.df_mentor = None
             return
         
         potential_mentors = []
