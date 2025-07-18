@@ -44355,7 +44355,7 @@
         },
         "check": [
             "[t_c thanks you for understanding, and the two of you find m_n together. t_c explains the situation and asks m_n to confirm that the juniper berries you brought {PRONOUN/t_c/object} were the correct amount.]",
-            "|m_n|y_c checked with me beforehand, and {PRONOUN/y_c/subject}{PRONOUN/y_c/'ve/'s} treated stomachaches before. {PRONOUN/y_c/subject/CAP} did everything correctly.",
+            "|m_n|y_c checked with me beforehand, and {PRONOUN/y_c/subject}{VERB/y_c/'ve/'s} treated stomachaches before. {PRONOUN/y_c/subject/CAP} did everything correctly.",
             "Ah... okay! Thank you both.",
             "[t_c flashes you a nervous smile and quickly leaves.]"
         ],
