@@ -1710,6 +1710,7 @@ class TalkScreen(Screens):
         MAX_RETRIES = 30
         you = game.clan.your_cat
 
+        weights = []
         if not texts_list:
             texts_list['general'] = self.load_and_replace_placeholders(f"{self.resource_dir}general.json", cat, you)
             weights = [1]
@@ -1732,7 +1733,6 @@ class TalkScreen(Screens):
         special_date = get_special_date()
         if special_date:
             weighted_tags.append(special_date)
-        weights = []
 
         # print("------")
         for dialogue_id, item in texts_list.items():
