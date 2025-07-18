@@ -221,7 +221,7 @@ class Cat:
         self.apprentice = []
         self.former_apprentices = []
         self.relationships = {}
-        self.mate = []
+        self.mates = []
         self.previous_mates = []
         self.pronouns = [self.default_pronouns[0].copy()]
         self.placement = None
@@ -412,7 +412,7 @@ class Cat:
         self.parent1 = None
         self.parent2 = None
         self.adoptive_parents = []
-        self.mate = []
+        self.mates = []
         self.status = status
         self.pronouns = []  # Needs to be set as a list
         self.moons = moons
@@ -1729,7 +1729,7 @@ class Cat:
                     "leader_sibling" in tags and giver_cat.ID not in self.get_siblings()
                 ):
                     continue
-                elif "leader_mate" in tags and giver_cat.ID not in self.mate:
+                elif "leader_mate" in tags and giver_cat.ID not in self.mates:
                     continue
                 elif (
                     "leader_former_mate" in tags
@@ -2895,7 +2895,7 @@ class Cat:
         # no mates check - can be commented out if it's desired to allow MCs to flirt with/date cats regardless of their romantic interactions being limited
 
         if not ignore_no_mates and (self.no_mates or other_cat.no_mates):
-            if self.ID not in other_cat.mate:
+            if self.ID not in other_cat.mates:
                 return False
         
         # make sure the cat isn't too closely related
@@ -2920,7 +2920,7 @@ class Cat:
             
             if game.config["mates"].get("override_same_age_group", False) or self.age != other_cat.age:
                 if abs(self.moons - other_cat.moons)> game.config["mates"]["age_range"] + 1:
-                    if self.ID not in other_cat.mate:
+                    if self.ID not in other_cat.mates:
                         return False
         
         # check for mentor
@@ -2939,11 +2939,11 @@ class Cat:
             return
 
         # Both cats must have mates for this to work
-        if len(self.mate) < 1 or len(other_cat.mate) < 1:
+        if len(self.mates) < 1 or len(other_cat.mates) < 1:
             return
 
         # AND they must be mates with each other.
-        if self.ID not in other_cat.mate or other_cat.ID not in self.mate:
+        if self.ID not in other_cat.mates or other_cat.ID not in self.mates:
             print(
                 f"Unsetting mates: These {self.name} and {other_cat.name} are not mates!"
             )
@@ -2955,12 +2955,12 @@ class Cat:
             if not self.dead:
                 if other_cat.ID not in self.relationships:
                     self.create_one_relationship(other_cat)
-                    self.relationships[other_cat.ID].mate = True
+                    self.relationships[other_cat.ID].mates = True
                 self_relationship = self.relationships[other_cat.ID]
                 self_relationship.romantic_love -= randint(20, 60)
                 self_relationship.comfortable -= randint(10, 30)
                 self_relationship.trust -= randint(5, 15)
-                self_relationship.mate = False
+                self_relationship.mates = False
                 if fight:
                     self_relationship.romantic_love -= randint(10, 30)
                     self_relationship.platonic_like -= randint(15, 45)
@@ -2971,17 +2971,17 @@ class Cat:
             if not other_cat.dead:
                 if self.ID not in other_cat.relationships:
                     other_cat.create_one_relationship(self)
-                    other_cat.relationships[self.ID].mate = True
+                    other_cat.relationships[self.ID].mates = True
                 other_relationship = other_cat.relationships[self.ID]
                 other_relationship.romantic_love -= 40
                 other_relationship.comfortable -= 20
                 other_relationship.trust -= 10
-                other_relationship.mate = False
+                other_relationship.mates = False
                 if fight:
                     other_relationship.platonic_like -= 30
 
-        self.mate.remove(other_cat.ID)
-        other_cat.mate.remove(self.ID)
+        self.mates.remove(other_cat.ID)
+        other_cat.mates.remove(self.ID)
 
         # Handle previous mates:
         if other_cat.ID not in self.previous_mates:
@@ -2996,10 +2996,10 @@ class Cat:
 
     def set_mate(self, other_cat: Cat):
         """Sets up a mate relationship between self and other_cat."""
-        if other_cat.ID not in self.mate:
-            self.mate.append(other_cat.ID)
-        if self.ID not in other_cat.mate:
-            other_cat.mate.append(self.ID)
+        if other_cat.ID not in self.mates:
+            self.mates.append(other_cat.ID)
+        if self.ID not in other_cat.mates:
+            other_cat.mates.append(self.ID)
 
         # If the current mate was in the previous mate list, remove them.
         if other_cat.ID in self.previous_mates:
@@ -3016,22 +3016,22 @@ class Cat:
         if not self.dead:
             if other_cat.ID not in self.relationships:
                 self.create_one_relationship(other_cat)
-                self.relationships[other_cat.ID].mate = True
+                self.relationships[other_cat.ID].mates = True
             self_relationship = self.relationships[other_cat.ID]
             self_relationship.romantic_love += 20
             self_relationship.comfortable += 20
             self_relationship.trust += 10
-            self_relationship.mate = True
+            self_relationship.mates = True
 
         if not other_cat.dead:
             if self.ID not in other_cat.relationships:
                 other_cat.create_one_relationship(self)
-                other_cat.relationships[self.ID].mate = True
+                other_cat.relationships[self.ID].mates = True
             other_relationship = other_cat.relationships[self.ID]
             other_relationship.romantic_love += 20
             other_relationship.comfortable += 20
             other_relationship.trust += 10
-            other_relationship.mate = True
+            other_relationship.mates = True
 
     def unset_adoptive_parent(self, other_cat: Cat):
         """Unset the adoptive parent from self"""
@@ -3124,7 +3124,7 @@ class Cat:
         for id in self.all_cats:
             the_cat = self.all_cats.get(id)
             if the_cat.ID is not self.ID and the_cat.moons > -1:
-                mates = the_cat.ID in self.mate
+                mates = the_cat.ID in self.mates
                 are_parents = False
                 parents = False
                 siblings = False
@@ -3602,7 +3602,7 @@ class Cat:
 
         # determine the traits to effect
         # Are they mates?
-        mates = rel1.cat_from.ID in rel1.cat_to.mate
+        mates = rel1.cat_from.ID in rel1.cat_to.mates
 
         pos_traits = ["platonic", "respect", "comfortable", "trust"]
         if allow_romantic and (mates or cat1.is_potential_mate(cat2)):
@@ -4117,7 +4117,7 @@ class Cat:
                     list(self.former_mentor) if self.former_mentor else []
                 ),
                 "patrol_with_mentor": (self.patrol_with_mentor or 0),
-                "mate": self.mate,
+                "mate": self.mates,
                 "previous_mates": self.previous_mates,
                 "dead": self.dead,
                 "paralyzed": self.pelt.paralyzed,

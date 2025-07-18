@@ -556,7 +556,7 @@ class Patrol:
 
         if (
             not love1.is_potential_mate(love2, for_love_interest=True)
-            and love1.ID not in love2.mate
+            and love1.ID not in love2.mates
         ):
             print("not a potential mate or current mate")
             return False
@@ -568,7 +568,7 @@ class Patrol:
 
         if (
             get_personality_compatibility(love1, love2) is True
-            or love1.ID in love2.mate
+            or love1.ID in love2.mates
         ):
             chance_of_romance_patrol -= 10
         else:

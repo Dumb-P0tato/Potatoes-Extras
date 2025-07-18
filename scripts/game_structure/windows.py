@@ -2315,9 +2315,9 @@ class MateScreen(UIWindow):
         game.switches['window_open'] = True
         self.clan_name = str(game.clan.name + 'Clan')
         self.last_screen = last_screen
-        self.mate = game.switches['new_mate']
+        self.mates = game.switches['new_mate']
         self.pick_path_message = UITextBoxTweaked(
-            f"{self.mate.name} confesses their feelings to you.",
+            f"{self.mates.name} confesses their feelings to you.",
             ui_scale(pygame.Rect((20, 20), (260, -1))),
             line_spacing=1,
             object_id="#text_box_30_horizcenter",

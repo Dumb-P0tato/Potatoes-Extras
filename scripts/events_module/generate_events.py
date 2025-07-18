@@ -400,7 +400,7 @@ class GenerateEvents:
                     continue
                 if cat.moons <= 14 + cat.age_moons["kitten"][1]:
                     continue
-                if any(Cat_class.fetch_cat(i).no_kits for i in cat.mate):
+                if any(Cat_class.fetch_cat(i).no_kits for i in cat.mates):
                     continue
 
             # check for old age
