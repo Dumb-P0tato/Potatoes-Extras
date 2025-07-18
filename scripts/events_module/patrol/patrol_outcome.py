@@ -152,6 +152,11 @@ class PatrolOutcome:
                 if not isinstance(out.stat_cat, Cat):
                     continue
 
+            if "lead_name" in out.text and not game.clan.leader:
+                continue
+            if "dep_name" in out.text and not game.clan.deputy:
+                continue
+
             # TODO: outcome relationship constraints
             # if not patrol._satify_relationship_constaints(patrol, out.relationship_constaints):
             #    continue
@@ -1158,7 +1163,7 @@ class PatrolOutcome:
                         "encountered" in cat.history.beginning and
                         cat.history.beginning["encountered"] is True
                         ):
-                        if cat.ID in game.clan.your_cat.mate:
+                        if cat.ID in game.clan.your_cat.mates:
                             cat.thought = f"Is missing {game.clan.your_cat.name}"
                             results.append(f"You have spoken with {cat.name}.")
                         else:

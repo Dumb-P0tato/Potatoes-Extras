@@ -4474,6 +4474,7 @@ class MakeClanScreen(Screens):
                 "#text_box_30_horizcenter"),
             manager=MANAGER
             )
+        
     def delete_example_cats(self):
         """ Deletes the other generated kits so they don't also get added to the Clan """
         key_copy = tuple(Cat.all_cats.keys())
@@ -4504,9 +4505,6 @@ class MakeClanScreen(Screens):
         if ID in game.clan.darkforest_cats:
             game.clan.darkforest_cats.remove(ID)
 
-        self.get_camp_bg()
-
-        scripts.screens.screens_core.screens_core.rebuild_bgs()
 
     def save_clan(self):
         if game.switches["customise_new_life"] is True:

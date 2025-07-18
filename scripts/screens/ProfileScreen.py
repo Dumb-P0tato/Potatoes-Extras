@@ -1386,12 +1386,12 @@ class ProfileScreen(Screens):
                     output += ' moons'
 
         # MATE
-        if len(the_cat.mate) > 0:
+        if len(the_cat.mates) > 0:
             output += "\n"
 
             mate_names = []
             # Grab the names of only the first two, since that's all we will display
-            for _m in the_cat.mate[:2]:
+            for _m in the_cat.mates[:2]:
                 mate_ob = Cat.fetch_cat(_m)
                 if not isinstance(mate_ob, Cat):
                     continue
@@ -1407,16 +1407,16 @@ class ProfileScreen(Screens):
                 else:
                     mate_names.append(f"{str(mate_ob.name)}")
 
-            if len(the_cat.mate) == 1:
+            if len(the_cat.mates) == 1:
                 output += "mate: "
             else:
                 output += "mates: "
 
             output += ", ".join(mate_names)
 
-            if len(the_cat.mate) > 2:
-                output += f", and {len(the_cat.mate) - 2}"
-                if len(the_cat.mate) - 2 > 1:
+            if len(the_cat.mates) > 2:
+                output += f", and {len(the_cat.mates) - 2}"
+                if len(the_cat.mates) - 2 > 1:
                     output += " others"
                 else:
                     output += " other"
@@ -3080,11 +3080,11 @@ class ProfileScreen(Screens):
                 tool_tip_text='Have an affair with one of your clanmates',
                 starting_height=2, manager=MANAGER
             )
-            if len(game.clan.your_cat.mate) == 0 or game.clan.affair:
+            if len(game.clan.your_cat.mates) == 0 or game.clan.affair:
                 self.affair_button.disable()
-            if game.clan.your_cat.mate:
+            if game.clan.your_cat.mates:
                 alive_mate = False
-                for m in game.clan.your_cat.mate:
+                for m in game.clan.your_cat.mates:
                     if Cat.all_cats.get(m).dead == False:
                         alive_mate = True
                 if not alive_mate:

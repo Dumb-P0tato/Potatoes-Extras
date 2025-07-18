@@ -138,8 +138,8 @@ class AchievementScreen(Screens):
             ##code block for achievement 31
             achieve31RankList = ['warrior', 'mediator', 'leader']
             achieve31UsedRanks = []
-            if len(Cat.all_cats.get(cat).mate) >= 2:
-                catMateIDs = Cat.all_cats.get(cat).mate.copy()
+            if len(Cat.all_cats.get(cat).mates) >= 2:
+                catMateIDs = Cat.all_cats.get(cat).mates.copy()
                 if Cat.all_cats.get(cat).status in achieve31RankList:
                     achieve31UsedRanks.append(Cat.all_cats.get(cat).status)
                     for cat in clan_cats:
@@ -177,7 +177,7 @@ class AchievementScreen(Screens):
             if you.relationships.get(i).romantic_love >= 60:
                 achievements.add('12')
             
-        if len(you.mate) >= 5:
+        if len(you.mates) >= 5:
             achievements.add('13')
         if you.status == 'warrior':
             achievements.add('14')
