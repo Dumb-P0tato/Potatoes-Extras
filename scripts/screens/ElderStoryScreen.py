@@ -882,15 +882,15 @@ class ElderStoryScreen(Screens):
             if self.selected_story == "starclan":
                 self.starclan_story_button.disable()
                 self.df_story_button.enable()
-                self.ur_story_button.disable()
+                self.ur_story_button.enable()
             elif self.selected_story == "darkforest":
                 self.starclan_story_button.enable()
                 self.df_story_button.disable()
-                self.ur_story_button.disable()
-            elif self.selected_story == "neutral":
                 self.ur_story_button.enable()
-                self.starclan_story_button.disable()
-                self.df_story_button.disable()
+            elif self.selected_story == "neutral":
+                self.ur_story_button.disable()
+                self.starclan_story_button.enable()
+                self.df_story_button.enable()
             for btn in self.cat_buttons:
                 btn.enable()
         else:

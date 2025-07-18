@@ -1232,6 +1232,7 @@ class ProfileScreen(Screens):
                 Icon.NOTEPAD,
                 get_button_dict(ButtonStyles.ICON, (34, 34)),
                 manager=MANAGER,
+                tool_tip_text="Tell a story",
                 object_id="@buttonstyles_icon",
                 starting_height=2,
             )
