@@ -335,7 +335,7 @@ class TalkScreen(Screens):
             if now >= self.next_frame_time and self.frame_index < len(self.text_frames[self.text_index]) - 1:
                 self.frame_index += 1
                 self.next_frame_time = now + self.typing_delay
-                sound_manager.play("button_press")
+                # sound_manager.play("button_press")
         if self.text_index == len(self.text_frames) - 1:
             if self.frame_index == len(self.text_frames[self.text_index]) - 1:
                 if self.text_type != "choices":
@@ -819,7 +819,7 @@ class TalkScreen(Screens):
 
             if game.switches["talk_category"] == "flirt":
                 success = self.is_flirt_success(cat)
-                if "heartbroken" not in cat.illnesses.keys() and "heartbroken" in CAT["condition"]:
+                if "heartbroken" not in cat.illnesses.keys() and ("condition" in CAT and "heartbroken" in CAT["condition"]):
                     continue
                 elif not success and "reject" not in TAGS:
                     continue
@@ -1712,6 +1712,7 @@ class TalkScreen(Screens):
 
         if not texts_list:
             texts_list['general'] = self.load_and_replace_placeholders(f"{self.resource_dir}general.json", cat, you)
+            weights = [1]
 
         if len(game.clan.talks) > 100:
             game.clan.talks.clear()
