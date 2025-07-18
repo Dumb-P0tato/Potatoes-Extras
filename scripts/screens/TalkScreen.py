@@ -1704,7 +1704,7 @@ class TalkScreen(Screens):
             weighted_tags.append(special_date)
         weights = []
 
-        print("------")
+        # print("------")
         for dialogue_id, item in texts_list.items():
             tags = item["tags"] if "tags" in item else {}
             weight = 1
@@ -1723,7 +1723,7 @@ class TalkScreen(Screens):
                     continue
                 for tag in item[constraint]:
                     weight += 2
-            print(dialogue_id + ": ", weight)
+            # print(dialogue_id + ": ", weight)
 
             weights.append(weight)
 
@@ -1767,7 +1767,7 @@ class TalkScreen(Screens):
                 if "~" in text_chosen_key:
                     text_chosen_key_split = text_chosen_key.split("~")
                     cat.connected_dialogue[text_chosen_key_split[0]] = int(text_chosen_key_split[1])
-                print("CHOSE:", text_chosen_key)
+                # print("CHOSE:", text_chosen_key)
                 return new_text
 
         # If no valid text found, choose one based on tag weights
