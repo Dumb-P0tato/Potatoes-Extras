@@ -896,10 +896,18 @@ class TalkScreen(Screens):
             if "condition" in CAT:
                 if not self.validate_conditions(CAT, cat):
                     continue
+            # else:
+            #     if "blind" in cat.permanent_condition:
+            #         continue
 
             if "condition" in YOU:
                 if not self.validate_conditions(YOU, you):
                     continue
+            # else:
+            #     if "blind" in you.permanent_condition:
+            #         continue
+            #     if "deaf" in you.permanent_condition:
+            #         continue
 
             # CLUSTER/TRAITS
             if "cluster" in YOU:
@@ -1495,8 +1503,8 @@ class TalkScreen(Screens):
 
         reg_condition_check = False
         has_condition = False
-        blind_valid = True
-        deaf_valid = True
+        blind_valid = False
+        deaf_valid = False
 
         for tag in BLOCK["condition"]:
             if isinstance(tag, list):
@@ -1685,9 +1693,9 @@ class TalkScreen(Screens):
             tags = item["tags"] if "tags" in item else {}
             weight = 1
             if any(tag in weighted_tags for tag in tags):
-                weight += 2
+                weight += 3
             if "focus" in tags or "connected" in tags:
-                weight += 5
+                weight += 6
 
             # im gonna attempt tp up thr weight for dialogue with a lot of constraints
             # like scribble just did in clangen for shortevents
@@ -1696,7 +1704,7 @@ class TalkScreen(Screens):
                 if constraint not in ["y_c", "t_c", "relationship", "tags"]:
                     continue
                 for tag in item[constraint]:
-                    weight += 1
+                    weight += 2
             print(dialogue_id + ": ", weight)
 
             weights.append(weight)

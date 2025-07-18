@@ -28321,7 +28321,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["constant joint pain:any:true"]
         },
         "t_c": {
             "cluster": [
@@ -28330,11 +28331,11 @@
             "age": [
                 "older",
                 "not_kitten"
+            ],
+            "condition": [
+                "constant joint pain:any:true"
             ]
         },
-        "tags": [
-            "they_jointpain"
-        ],
         "intro": [
             "[t_c sucks in a deep breath as {PRONOUN/t_c/subject} {VERB/t_c/sit/sits} next to you, {PRONOUN/t_c/poss} snout scrunched in pain. Your ears flatten slightly at the sight of {PRONOUN/t_c/poss} discomfort. {PRONOUN/t_c/subject/CAP} {VERB/t_c/catch/catches} your gaze and {VERB/t_c/chuckle/chuckles}.]",
             "Yeah, it's not pleasant, sometimes it can hurt more than normal. But hey, I'll show you a little something.",
@@ -28356,11 +28357,11 @@
         "t_c": {
             "cluster": [
                 "stable"
+            ],
+            "condition": [
+                "constant joint pain:any:true"
             ]
         },
-        "tags": [
-            "they_jointpain"
-        ],
         "intro": [
             "[You walk through camp, your paws trotting slowly as you squint. Like usual, the world is blurry. Since the recent storm, there's been some damage and l_n asked for you to navigate the camp grounds to familiarize yourself in case something changed.",
             "y_c! Stop!",
@@ -28378,11 +28379,11 @@
             ],
             "age": [
                 "older"
+            ],
+            "condition": [
+                "constant joint pain:any:true"
             ]
         },
-        "tags": [
-            "they_jointpain"
-        ],
         "intro": [
             "[t_c stands off to the side of the medicine den and stretches out. r_m stands beside {PRONOUN/t_c/object} and guides {PRONOUN/t_c/object} through the appropriate stretches to start the day.]",
             "Thank you! You medicine cats are always so caring for me, I'm so sorry for the trouble. I'm going to lay down in the sun for a bit, see you later!",

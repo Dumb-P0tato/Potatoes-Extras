@@ -1535,15 +1535,10 @@
             ],
             "condition": [
                 "blind:any:false",
-                "hearing"
-            ],
-            "status": [
-                "they_jointpain"
+                "hearing",
+                "constant joint pain:any:true"
             ]
         },
-        "tags": [
-            "they_jointpain"
-        ],
         "intro": [
             "y_c. It's nice to see you, what seems to be the problem?",
             "I'm fine, my joints are feeling better today, but I'm sure you're here for a reason. Most cats don't come here unless they need something.",

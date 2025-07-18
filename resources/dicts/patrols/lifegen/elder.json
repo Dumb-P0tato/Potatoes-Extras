@@ -535,11 +535,6 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "Success text",
-                "exp": 0,
-                "weight": 20
-            },
-            {
                 "text": "Irritated, you hiss at your attacker that they must be particularly weak to target an elder. To your surprise, rdf_c agrees as {PRONOUN/rdf_c/subject} {VERB/rdf_c/emerge/emerges} from the gloom. Apparently rdf_c had directed their trainee - the cat who ambushed you - to track down and attack another cat in the Dark Forest as an assessment of sorts. If {PRONOUN/rdf_c/poss} trainee is resorting to attacking elders, though... rdf_c sighs and apologizes, leading {PRONOUN/rdf_c/poss} trainee away as {PRONOUN/rdf_c/subject} coldly {VERB/rdf_c/suggest/suggests} that maybe they go back to basics.",
                 "exp": 0,
                 "weight": 20

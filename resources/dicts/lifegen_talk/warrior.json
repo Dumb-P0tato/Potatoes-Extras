@@ -5494,11 +5494,11 @@
             ],
             "age": [
                 "not_kitten"
+            ],
+            "condition": [
+                "constant joint pain:any:true"
             ]
         },
-        "tags": [
-            "they_jointpain"
-        ],
         "intro": [
             "[You're aware of a session in the nursery and decide to engage today as encouraged by both l_n and d_n. t_c sits calmly in the nursery, surrounded by the kits and apprentices. r_q briefly thanks them all for being so polite and gestures for t_c to start.]",
             "Thank you and all that you do here for the nursery. Before I begin, my name is t_c, I am a warrior and one of your fellow Clanmates here in c_n. But as some of you may already know, I have a bit of trouble with my joints.",
