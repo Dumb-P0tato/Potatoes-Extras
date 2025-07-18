@@ -116,7 +116,8 @@ class TalkScreen(Screens):
             flirt_success = self.is_flirt_success(self.the_cat)
             if flirt_success is True:
                 self.the_cat.relationships.get(game.clan.your_cat.ID).romantic_love += randint(1,10)
-                game.clan.your_cat.relationships.get(self.the_cat.ID).romantic_love += randint(1,10)
+                if self.the_cat.ID in game.clan.your_cat.relationships:
+                    game.clan.your_cat.relationships.get(self.the_cat.ID).romantic_love += randint(1,10)
             else:
                 if game.clan.your_cat.ID in self.the_cat.relationships:
                     self.the_cat.relationships.get(game.clan.your_cat.ID).romantic_love -= randint(1,5)
@@ -470,11 +471,8 @@ class TalkScreen(Screens):
         self.possible_texts = texts_list
         self.chosen_text_key = texts_chosen_key
 
-        if f"{self.current_scene}_rel_changes" in self.possible_texts[self.chosen_text_key]:
-            self.rel_changes(self.the_cat, self.possible_texts, self.chosen_text_key)
-
-        if f"{self.current_scene}_inventory_changes" in self.possible_texts[self.chosen_text_key]:
-            self.inventory_changes(self.the_cat, self.possible_texts, self.chosen_text_key)
+        if f"{self.current_scene}_scene_effects" in self.possible_texts[self.chosen_text_key]:
+            self.scene_effects(self.the_cat, self.possible_texts, self.chosen_text_key)
 
         return chosen_text_intro
 
@@ -530,103 +528,135 @@ class TalkScreen(Screens):
         self.frame_index = 0
         self.created_choice_buttons = False
 
-        if f"{self.current_scene}_rel_changes" in self.possible_texts[self.chosen_text_key]:
-            self.rel_changes(self.the_cat, self.possible_texts, self.chosen_text_key)
-        
-        if f"{self.current_scene}_inventory_changes" in self.possible_texts[self.chosen_text_key]:
-            self.inventory_changes(self.the_cat, self.possible_texts, self.chosen_text_key)
+        if f"{self.current_scene}_scene_effects" in self.possible_texts[self.chosen_text_key]:
+            self.scene_effects(self.the_cat, self.possible_texts, self.chosen_text_key)
 
-    def rel_changes(self, cat, texts_list, texts_chosen_key):
-        rel_block = texts_list[texts_chosen_key][f"{self.current_scene}_rel_changes"]
-
-        if game.clan.your_cat.ID not in cat.relationships:
-            cat.create_one_relationship(game.clan.your_cat)
-            if cat.ID not in game.clan.your_cat.relationships:
-                game.clan.your_cat.create_one_relationship(cat)
-
-        cats_to = []
-        for kitty in rel_block["cats_to"]:
-            if kitty == "y_c":
-                cats_to.append(game.clan.your_cat)
-            elif kitty == "t_c":
-                cats_to.append(cat)
-            else:
-                cats_to.append(self.cat_dict[kitty])
-
-        cats_from = []
-        for kitty in rel_block["cats_from"]:
-            if kitty == "y_c":
-                cats_from.append(game.clan.your_cat)
-            elif kitty == "t_c":
-                cats_from.append(cat)
-            else:
-                cats_from.append(self.cat_dict[kitty])
-
-        romantic_value = rel_block["values"]["romantic"] if "romantic" in rel_block["values"] else 0
-        platonic_value = rel_block["values"]["platonic"] if "platonic" in rel_block["values"] else 0
-        dislike_value = rel_block["values"]["dislike"] if "dislike" in rel_block["values"] else 0
-        respect_value = rel_block["values"]["respect"] if "respect" in rel_block["values"] else 0
-        comfort_value = rel_block["values"]["comfort"] if "comfort" in rel_block["values"] else 0
-        jealousy_value = rel_block["values"]["jealousy"] if "jealousy" in rel_block["values"] else 0
-        trust_value = rel_block["values"]["trust"] if "trust" in rel_block["values"] else 0
-
-        change_relationship_values(
-            cats_to,
-            cats_from,
-            romantic_value,
-            platonic_value,
-            dislike_value,
-            respect_value,
-            comfort_value,
-            jealousy_value,
-            trust_value,
-            log=None
-        )
-
-        if rel_block["mutual"]:
-            change_relationship_values(
-                cats_to,
-                cats_from,
-                romantic_value,
-                platonic_value,
-                dislike_value,
-                respect_value,
-                comfort_value,
-                jealousy_value,
-                trust_value,
-                log=None
-            )
-
-    def inventory_changes(self, cat, texts_list, texts_chosen_key):
+    def scene_effects(self, cat, texts_list, texts_chosen_key):
         """
         Adds accessories to inventory from dialogue
         """
-        inv_block = texts_list[texts_chosen_key][f"{self.current_scene}_inventory_changes"]
+        for block in texts_list[texts_chosen_key][f"{self.current_scene}_scene_effects"]:
+            # INVENTORY
+            if block == "inventory":
+                inv_block = texts_list[texts_chosen_key][f"{self.current_scene}_scene_effects"]["inventory"]
 
-        cats_to = []
-        for kitty in inv_block["cats_to"]:
-            if kitty == "y_c":
-                cats_to.append(game.clan.your_cat)
-            elif kitty == "t_c":
-                cats_to.append(cat)
-            else:
-                cats_to.append(self.cat_dict[kitty])
+                cats_to = []
+                for kitty in inv_block["cats_to"]:
+                    if kitty == "y_c":
+                        cats_to.append(game.clan.your_cat)
+                    elif kitty == "t_c":
+                        cats_to.append(cat)
+                    else:
+                        cats_to.append(self.cat_dict[kitty])
 
-        accessories = inv_block["accessory"]
+                accessories = inv_block["accessory"]
 
-        if inv_block["addition"] == "choice":
-            for kitty in cats_to:
-                acc = choice(accessories)
-                if acc not in kitty.pelt.inventory:
-                    kitty.pelt.inventory.append(acc)
-        elif inv_block["addition"] == "all":
-            for kitty in cats_to:
-                for acc in accessories:
-                    if acc not in kitty.pelt.inventory:
-                        kitty.pelt.inventory.append(acc)
-        else:
-            print("Invalid 'addition' string for dialogue inventory block.")
+                if inv_block["addition"] == "choice":
+                    for kitty in cats_to:
+                        acc = choice(accessories)
+                        if acc not in kitty.pelt.inventory:
+                            kitty.pelt.inventory.append(acc)
+                elif inv_block["addition"] == "all":
+                    for kitty in cats_to:
+                        for acc in accessories:
+                            if acc not in kitty.pelt.inventory:
+                                kitty.pelt.inventory.append(acc)
+                else:
+                    print("Invalid 'addition' string for dialogue inventory block.")
+            # REL
+            if block == "relationship":
+                rel_block = texts_list[texts_chosen_key][f"{self.current_scene}_scene_effects"]["relationship"]
 
+                if game.clan.your_cat.ID not in cat.relationships:
+                    cat.create_one_relationship(game.clan.your_cat)
+                    if cat.ID not in game.clan.your_cat.relationships:
+                        game.clan.your_cat.create_one_relationship(cat)
+
+                cats_to = []
+                for kitty in rel_block["cats_to"]:
+                    if kitty == "y_c":
+                        cats_to.append(game.clan.your_cat)
+                    elif kitty == "t_c":
+                        cats_to.append(cat)
+                    else:
+                        cats_to.append(self.cat_dict[kitty])
+
+                cats_from = []
+                for kitty in rel_block["cats_from"]:
+                    if kitty == "y_c":
+                        cats_from.append(game.clan.your_cat)
+                    elif kitty == "t_c":
+                        cats_from.append(cat)
+                    else:
+                        cats_from.append(self.cat_dict[kitty])
+
+                romantic_value = rel_block["values"]["romantic"] if "romantic" in rel_block["values"] else 0
+                platonic_value = rel_block["values"]["platonic"] if "platonic" in rel_block["values"] else 0
+                dislike_value = rel_block["values"]["dislike"] if "dislike" in rel_block["values"] else 0
+                respect_value = rel_block["values"]["respect"] if "respect" in rel_block["values"] else 0
+                comfort_value = rel_block["values"]["comfort"] if "comfort" in rel_block["values"] else 0
+                jealousy_value = rel_block["values"]["jealousy"] if "jealousy" in rel_block["values"] else 0
+                trust_value = rel_block["values"]["trust"] if "trust" in rel_block["values"] else 0
+
+                change_relationship_values(
+                    cats_to,
+                    cats_from,
+                    romantic_value,
+                    platonic_value,
+                    dislike_value,
+                    respect_value,
+                    comfort_value,
+                    jealousy_value,
+                    trust_value,
+                    log=None
+                )
+
+                if rel_block["mutual"]:
+                    change_relationship_values(
+                        cats_from,
+                        cats_to,
+                        romantic_value,
+                        platonic_value,
+                        dislike_value,
+                        respect_value,
+                        comfort_value,
+                        jealousy_value,
+                        trust_value,
+                        log=None
+                    )
+            # DF
+            if block == "dark_forest":
+                df_block = texts_list[texts_chosen_key][f"{self.current_scene}_scene_effects"]["dark_forest"]
+                
+                joined_cats = []
+                for kitty in df_block["join"]:
+                    if kitty == "y_c":
+                        joined_cats.append(game.clan.your_cat)
+                    elif kitty == "t_c":
+                        joined_cats.append(cat)
+                    else:
+                        joined_cats.append(self.cat_dict[kitty])
+                left_cats = []
+                for kitty in df_block["leave"]:
+                    if kitty == "y_c":
+                        left_cats.append(game.clan.your_cat)
+                    elif kitty == "t_c":
+                        left_cats.append(cat)
+                    else:
+                        left_cats.append(self.cat_dict[kitty])
+
+                for kitty in joined_cats:
+                    if kitty.joined_df:
+                        print("ERROR:", kitty.name, "trying to join the DF from dialogue, but they're already in it.")
+                        continue
+                    kitty.joined_df = True
+                    kitty.update_df_mentor()
+                for kitty in left_cats:
+                    if not kitty.joined_df:
+                        print("ERROR:", kitty.name, "trying to lead the DF from dialogue, but they're not in it.")
+                        continue
+                    kitty.joined_df = False
+                    kitty.update_df_mentor()
 
 
     def load_texts(self, cat):
@@ -891,14 +921,20 @@ class TalkScreen(Screens):
             ):
                 continue
 
-
+            # validate_conditions gets passed the conditions list, not the whole block
             if "condition" in CAT:
-                if not self.validate_conditions(CAT, cat):
-                    continue
+                CONDITIONS = CAT["condition"]
+            else:
+                CONDITIONS = []
+            if not self.validate_conditions(CONDITIONS, cat):
+                continue
 
             if "condition" in YOU:
-                if not self.validate_conditions(YOU, you):
-                    continue
+                CONDITIONS = YOU["condition"]
+            else:
+                CONDITIONS = []
+            if not self.validate_conditions(CONDITIONS, you):
+                continue
 
             # CLUSTER/TRAITS
             if "cluster" in YOU:
@@ -1419,6 +1455,9 @@ class TalkScreen(Screens):
 
         if f"not_{cat.status}" in BLOCK["status"]:
             return False
+        
+        if f"not_{cat.status.replace(' ','_')}" in BLOCK["status"]:
+            return False
 
         prev_status_skip = False
         for status in possible_statuses:
@@ -1451,11 +1490,11 @@ class TalkScreen(Screens):
         if "not_kitten" in BLOCK["age"] and cat.status == "newborn":
             return False
 
-        if "younger" in BLOCK["age"] and not (cat.moons < cat.moons):
+        if "younger" in BLOCK["age"] and not (cat.moons < game.clan.your_cat.moons):
             return False
-        if "sameage" in BLOCK["age"] and not (cat.age == cat.age):
+        if "sameage" in BLOCK["age"] and not (cat.age == game.clan.your_cat.age):
             return False
-        if "older" in BLOCK["age"] and not (cat.moons > cat.moons):
+        if "older" in BLOCK["age"] and not (cat.moons > game.clan.your_cat.moons):
             return False
 
         if any(st in [
@@ -1467,33 +1506,54 @@ class TalkScreen(Screens):
                 return False
         return True
 
-    def validate_conditions(self, BLOCK, cat):
+    def validate_conditions(self, CONDITIONS, cat):
         """
         Checks the condition list
         """
         has_condition = False
 
-        if "injury:any" in BLOCK["condition"] and not cat.is_injured():
+        if "injury:any" in CONDITIONS and not cat.is_injured():
             return False
-        if "illness:any" in BLOCK["condition"] and not cat.is_ill():
+        if "illness:any" in CONDITIONS and not cat.is_ill():
             return False
         
-        if "injury:none" in BLOCK["condition"] and cat.is_injured():
+        if "injury:none" in CONDITIONS and cat.is_injured():
             return False
-        if "illness:none" in BLOCK["condition"] and cat.is_ill():
+        if "illness:none" in CONDITIONS and cat.is_ill():
             return False
         
         # exclusive tags
-        if "pregnant" in BLOCK["condition"] and cat.ID not in game.clan.pregnancy_data:
+        if "pregnant" in CONDITIONS and cat.ID not in game.clan.pregnancy_data:
             return False
-        if "grief stricken" in BLOCK["condition"] and "grief stricken" not in cat.illnesses:
+        if "grief stricken" in CONDITIONS and "grief stricken" not in cat.illnesses:
             return False
 
+        reg_condition_check = False
         has_condition = False
         blind_valid = True
         deaf_valid = True
 
-        for tag in BLOCK["condition"]:
+        # this sucks
+        blind_tagged = False
+        deaf_tagged = False
+        for tag in CONDITIONS:
+            if ":" in tag:
+                condition_tag = tag.split(":")[0]
+                if condition_tag == "blind" and "blind" in cat.permanent_condition:
+                    blind_tagged = True
+                if condition_tag == "deaf" and "deaf" in cat.permanent_condition:
+                    deaf_tagged = True
+        if not deaf_tagged:
+            deaf_valid = False
+        if not blind_tagged:
+            blind_valid = False
+        #  --
+
+        if not CONDITIONS:
+            blind_valid = False
+            deaf_valid = False
+
+        for tag in CONDITIONS:
             if isinstance(tag, list):
                 # if a tag is a list, all of the conditions in the list
                 # must be true for the dialogue to be attainable
@@ -1565,9 +1625,13 @@ class TalkScreen(Screens):
                             if exclusive == "true":
                                 if condition_name == "blind":
                                     blind_valid = False
+                                    return False
                                 if condition_name == "deaf":
                                     deaf_valid = False
+                                    return False
+                                return False
                 else:
+                    reg_condition_check = True
                     # regular conditions
                     if tag in INJURIES:
                         if tag in cat.injuries:
@@ -1581,16 +1645,13 @@ class TalkScreen(Screens):
                     elif tag == "hearing":
                         if "deaf" in cat.permanent_condition:
                             return False
-                    else:
-                        print("Incorrect condition tag:", tag)
-                        return False
 
         if "blind" in cat.permanent_condition and not blind_valid:
             return False
         if "deaf" in cat.permanent_condition and not deaf_valid:
             return False
 
-        if not has_condition:
+        if reg_condition_check and not has_condition:
             return False
 
         return True
@@ -1642,8 +1703,7 @@ class TalkScreen(Screens):
             possible_texts['general']["intro"][0] += "\n"
             possible_texts['general']["intro"][0] += t_c_text + f" {cat.moons}"
             possible_texts['general']["intro"][0] += "\n"
-            
-            
+
         return possible_texts['general']
 
     def choose_text(self, cat, texts_list):
@@ -1673,13 +1733,27 @@ class TalkScreen(Screens):
             weighted_tags.append(special_date)
         weights = []
 
-        for item in texts_list.values():
+        # print("------")
+        for dialogue_id, item in texts_list.items():
             tags = item["tags"] if "tags" in item else {}
             weight = 1
             if any(tag in weighted_tags for tag in tags):
                 weight += 3
             if "focus" in tags or "connected" in tags:
-                weight += 8
+                weight += 6
+
+            # im gonna attempt to up the weight for dialogue with a lot of constraints
+            # like scribble just did in clangen for shortevents
+            # but, of course, worse
+            for constraint in item:
+                if constraint.endswith("inventory_changes"):
+                    break
+                if constraint not in ["y_c", "t_c", "relationship", "tags", "season"]:
+                    continue
+                for tag in item[constraint]:
+                    weight += 2
+            # print(dialogue_id + ": ", weight)
+
             weights.append(weight)
 
         # Check for debug mode
@@ -1722,6 +1796,7 @@ class TalkScreen(Screens):
                 if "~" in text_chosen_key:
                     text_chosen_key_split = text_chosen_key.split("~")
                     cat.connected_dialogue[text_chosen_key_split[0]] = int(text_chosen_key_split[1])
+                # print("CHOSE:", text_chosen_key)
                 return new_text
 
         # If no valid text found, choose one based on tag weights

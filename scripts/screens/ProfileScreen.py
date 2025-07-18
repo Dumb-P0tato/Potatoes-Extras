@@ -420,6 +420,8 @@ class ProfileScreen(Screens):
                 self.change_screen('queen screen')
             elif "halfmoon" in self.profile_elements and event.ui_element == self.profile_elements["halfmoon"]:
                 self.change_screen('moonplace screen')
+            elif "story" in self.profile_elements and event.ui_element == self.profile_elements["story"]:
+                self.change_screen('elder story screen')
             elif event.ui_element == self.profile_elements["favourite_button"]:
                 if self.the_cat.favourite == 3:
                     self.the_cat.favourite = 0
@@ -1195,7 +1197,15 @@ class ProfileScreen(Screens):
                 self.profile_elements["halfmoon"].disable()
             elif "attended half-moon" in game.switches and game.switches["attended half-moon"]:
                 self.profile_elements["halfmoon"].disable()
-        elif self.the_cat.status in ["queen's apprentice", "mediator apprentice", "apprentice"] and self.the_cat.ID == game.clan.your_cat.ID and self.the_cat.moons >= 6:
+        elif (
+            self.the_cat.status in [
+                "queen's apprentice",
+                "mediator apprentice",
+                "apprentice"
+                ] and
+                self.the_cat.ID == game.clan.your_cat.ID and
+                self.the_cat.moons >= 6
+                ):
             if self.the_cat.status == "apprentice":
                 self.profile_elements["halfmoon"] = UIImageButton(ui_scale(pygame.Rect(
                     (383, y_pos), (34, 34))),
@@ -1216,6 +1226,19 @@ class ProfileScreen(Screens):
                 self.profile_elements["halfmoon"].disable()
             elif "attended half-moon" in game.switches and game.switches["attended half-moon"]:
                 self.profile_elements["halfmoon"].disable()
+        elif self.the_cat.status == "elder":
+            self.profile_elements["story"] = UISurfaceImageButton(
+                ui_scale(pygame.Rect((383, y_pos), (34, 34))),
+                Icon.NOTEPAD,
+                get_button_dict(ButtonStyles.ICON, (34, 34)),
+                manager=MANAGER,
+                tool_tip_text="Tell a story",
+                object_id="@buttonstyles_icon",
+                starting_height=2,
+            )
+           
+            if self.the_cat.dead or self.the_cat.outside or self.the_cat.shunned > 0:
+                self.profile_elements["story"].disable()
         
         if self.the_cat.ID == game.clan.your_cat.ID and not game.clan.your_cat.dead:
             if self.open_tab == "faith":
@@ -1440,14 +1463,14 @@ class ProfileScreen(Screens):
                 output += "<font color='#950000' >" + "Dark Forest "+ the_cat.status + "</font>"
         elif the_cat.dead and not the_cat.df and not the_cat.outside:
             if game.settings['dark mode']:
-                output += "<font color ='#A8BBFF'>" "StarClan " + the_cat.status + "</font>"
+                output += "<font color ='#A8BBFF'>" + "StarClan " + the_cat.status + "</font>"
             else:
-                output += "<font color ='#2B3DC3'>" "StarClan " + the_cat.status + "</font>"
+                output += "<font color ='#2B3DC3'>" + "StarClan " + the_cat.status + "</font>"
         elif the_cat.dead and not the_cat.df and the_cat.outside:
             if game.settings['dark mode']:
-                output += "<font color ='#CE9DFF'>" "ghost " + the_cat.status + "</font>"
+                output += "<font color ='#CE9DFF'>" + "ghost " + the_cat.status + "</font>"
             else:
-                output += "<font color ='#450E7B'>" "ghost " + the_cat.status + "</font>"
+                output += "<font color ='#450E7B'>" + "ghost " + the_cat.status + "</font>"
         else:
             output += the_cat.status
 

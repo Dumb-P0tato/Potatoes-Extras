@@ -2774,7 +2774,12 @@ class Cat:
     
     def update_df_mentor(self):
         """Handles giving clan members df mentors"""
-        if not self.joined_df or self.dead or self.df_mentor:
+        if self.dead or self.df_mentor:
+            return
+
+        if not self.joined_df:
+            Cat.fetch_cat(self.df_mentor).df_apprentices.remove(self.ID)
+            self.df_mentor = None
             return
         
         potential_mentors = []
@@ -3289,6 +3294,234 @@ class Cat:
                 print(
                     f"WARNING: There was an error reading the relationship file of cat #{self}."
                 )
+
+    @staticmethod
+    def elder_story(elder, cats, chosen_story=""):
+        output = "Elder story results go here!!!<br>"
+        # elder influence:
+        # SPEAKER, CLEVER, COOPERATIVE ?, INSIGHTFUL, MEDIATOR, STORY, LORE
+        # also their relationship with the chosen cat
+
+        with open("resources/dicts/elder_stories.json", 'r') as r:
+            possible_stories = ujson.loads(r.read())
+
+        cat_effects = {}
+        failed_cats = []
+        for cat in cats:
+            if elder.ID in cat.relationships:
+                relationship = cat.relationships[elder.ID]
+                stranger = False
+            else:
+                relationship = cat.create_one_relationship(elder)
+                stranger = True
+
+            comfort = relationship.comfortable
+            trust = relationship.trust
+            platonic_like = relationship.platonic_like
+            romantic_love = relationship.romantic_love
+            dislike = relationship.dislike
+            jealousy = relationship.jealousy
+            respect = relationship.admiration
+
+            if not stranger:
+                fail_chance = (
+                    comfort +
+                    trust +
+                    platonic_like +
+                    romantic_love +
+                    respect -
+                    jealousy -
+                    dislike
+                    )
+            else:
+                fail_chance = 10
+
+            if fail_chance < 5:
+                fail_chance = 5
+            # change this up obviously. not just relationships
+            
+            fail = False
+            if not int(random() * fail_chance):
+                fail = True
+                failed_cats.append(cat)
+
+            faith_change = 0
+            if chosen_story == "starclan":
+                if fail:
+                    faith_change = -0.75
+                else:
+                    faith_change = 0.75
+            elif chosen_story == "darkforest":
+                if fail:
+                    faith_change = 0.75
+                else:
+                    faith_change = -0.75
+            elif chosen_story == "neutral":
+                if cat.faith > 1:
+                    if fail:
+                        faith_change = 0.75
+                    else:
+                        faith_change = -0.75
+                elif cat.faith < 1:
+                    if fail:
+                        faith_change = -0.75
+                    else:
+                        faith_change = 0.75
+                else:
+                    # cats already neutral
+                    if fail:
+                        faith_change = choice([0.75, -0.75])
+                    else:
+                        faith_change = 0
+
+                
+
+            cat.faith += faith_change
+            if cat.faith > 9:
+                cat.faith = 9
+            if cat.faith < -9:
+                cat.faith = -9
+
+            cat_effects.update({cat: faith_change})
+        
+        # FILTERING FOR POSSIBLE STORIES
+        stories = possible_stories[chosen_story]
+        filtered_stories = []
+
+        # most of this stuff isnt used until later
+        success_rate = "all_success"
+        if failed_cats:
+            if len(failed_cats) < len(cats):
+                success_rate = "some_success"
+            else:
+                success_rate = "none_success"
+
+        if len(cats) == 1:
+            random_cat = cats[0]
+            count = "one"
+        else:
+            cat_choices = []
+            if success_rate != "none_success":
+                for kitty in cats:
+                    if kitty in failed_cats:
+                        continue
+                    cat_choices.append(kitty)
+            random_cat = choice(cat_choices)
+            count = "mult"
+        # ---
+
+        kits_amount = 0
+        cats_amount = len(cats)
+        for cat in cats:
+            if cat.moons < 6:
+                kits_amount += 1
+        for story in stories:
+            if "min_max_cats" in story:
+                if cats_amount < story["min_max_cats"][0]:
+                    continue
+                if cats_amount > story["min_max_cats"][1]:
+                    continue
+            if "kits_amount" in story:
+                if story["kits_amount"] == "none":
+                    if kits_amount != 0:
+                        continue
+                elif story["kits_amount"] == "some":
+                    if kits_amount == 0:
+                        continue
+                    if cats_amount - kits_amount < 1:
+                        continue
+                    if cats_amount == kits_amount:
+                        continue
+                elif story["kits_amount"] == "all":
+                    if kits_amount != cats_amount:
+                        continue
+            if "elder" in story:
+                if "cluster" in story["elder"]:
+                    cluster1, cluster2 = get_cluster(elder.personality.trait)
+                    if (
+                        cluster1 not in story["elder"]["cluster"] and
+                        (cluster2 and cluster2 not in story["elder"]["cluster"])
+                    ):
+                        continue
+                if "min_max_faith" in story["elder"]:
+                    if elder.faith < story["elder"]["min_max_faith"][0]:
+                        continue
+                    if elder.faith > story["elder"]["min_max_faith"][1]:
+                        continue
+                if "status" in story["elder"]:
+                    if elder.status not in story["elder"]["status"]:
+                        continue
+                if "age" in story["elder"]:
+                    if elder.age not in story["elder"]["status"]:
+                        continue
+            if "random_cat" in story:
+                if "cluster" in story["random_cat"]:
+                    cluster1, cluster2 = get_cluster(random_cat.personality.trait)
+                    if (
+                        cluster1 not in story["random_cat"]["cluster"] and
+                        (cluster2 and cluster2 not in story["random_cat"]["cluster"])
+                    ):
+                        continue
+                if "min_max_faith" in story["random_cat"]:
+                    if random_cat.faith < story["random_cat"]["min_max_faith"][0]:
+                        continue
+                    if random_cat.faith > story["random_cat"]["min_max_faith"][1]:
+                        continue
+                if "status" in story["random_cat"]:
+                    if random_cat.status not in story["random_cat"]["status"]:
+                        continue
+                if "age" in story["random_cat"]:
+                    if random_cat.age not in story["random_cat"]["status"]:
+                        continue
+
+            filtered_stories.append(story)
+
+        story = choice(filtered_stories)
+
+        debug_story_id = "sc_J4"
+
+        # print("POSSIBLE STORIES:")
+        for option in filtered_stories:
+            # print(option["id"])
+            if option["id"] == debug_story_id:
+                story = option
+                break
+
+        heading = story["title"]
+        output = story["story"]
+
+        adjusted_output = []
+
+        other_clan = None
+
+        for string in output:
+            if "o_c_n" in string:
+                if not other_clan:
+                    other_clan = choice(game.clan.all_clans)
+                    print(game.clan.all_clans)
+            new_string = event_text_adjust(
+                Cat,
+                text=string,
+                main_cat=elder,
+                random_cat=random_cat,
+                clan=game.clan,
+                other_clan=other_clan
+            )
+            adjusted_output.append(new_string)
+
+        result = choice(possible_stories["result_strings"][chosen_story][success_rate][count])
+        result_string = event_text_adjust(
+            Cat,
+            text=result,
+            main_cat=elder,
+            random_cat=random_cat,
+            clan=game.clan
+        )
+
+        adjusted_output.append("~~~")
+        adjusted_output.append(result_string)
+
+        return heading, adjusted_output, cat_effects
 
     @staticmethod
     def mediate_relationship(mediator, cat1, cat2, allow_romantic, sabotage=False):
@@ -3949,7 +4182,7 @@ class Cat:
                 "empathy": self.empathy if self.empathy else 0,
                 "did_activity": self.did_activity if self.did_activity else False,
                 "df_mentor": self.df_mentor if self.df_mentor else None,
-                "df_apprentices": self.df_apprentices if self.df_apprentices else [],
+                "df_apprentices": list(self.df_apprentices) if self.df_apprentices else [],
                 "faith": self.faith if self.faith else 0,
                 "no_faith": self.no_faith if self.no_faith else False,
                 "connected_dialogue": self.connected_dialogue if self.connected_dialogue else {},

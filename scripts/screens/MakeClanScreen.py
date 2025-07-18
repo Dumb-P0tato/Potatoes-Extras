@@ -4516,6 +4516,7 @@ class MakeClanScreen(Screens):
         else:
             self.handle_create_other_cats()
             game.mediated.clear()
+            game.told_story.clear()
             game.patrolled.clear()
             game.dated_cats.clear()
             game.cat_to_fade.clear()

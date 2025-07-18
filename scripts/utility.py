@@ -1553,7 +1553,12 @@ def gather_cat_objects(
             out_set.update([x for x in Cat.all_cats_list if not (x.dead or x.outside or x.exiled)])
         elif abbr == "some_clan":  # 1 / 8 of clan cats are affected
             clan_cats = [x for x in Cat.all_cats_list if not (x.dead or x.outside or x.exiled)]
-            out_set.update(sample(clan_cats, randint(1, round(len(clan_cats) / 8))))
+            # LG
+            if len(clan_cats) < 2:
+                out_set.add(clan_cats[0])
+            else:
+            # ---
+                out_set.update(sample(clan_cats, randint(1, round(len(clan_cats) / 8))))
         elif abbr == "patrol":
             out_set.update(event.patrol_cats)
         elif abbr == "multi":
@@ -1843,7 +1848,7 @@ def get_cluster(trait):
     clusters = [key for key, values in trait_to_clusters.items() if trait in values]
 
     # Assign cluster and second_cluster based on the length of clusters list
-    cluster = clusters[0] if clusters else ""
+    cluster = clusters[0] if clusters else "stable"
     second_cluster = clusters[1] if len(clusters) > 1 else ""
 
     return cluster, second_cluster
@@ -3270,7 +3275,9 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.age != you.age or
         len(you.mates) > 0 or
         chosen_cat.outside or
-        chosen_cat.dead
+        chosen_cat.dead or
+        chosen_cat not in you.relationships or
+        (chosen_cat in you.relationships and you.relationships[chosen_cat.ID].romantic_love < 20)
     ) else True
 
     # Random statuses
@@ -3952,6 +3959,8 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 continue
             if abbrev_string == "t_k" and ("t_ka" in text or "t_kk" in text):
                 continue
+            if abbrev_string == "m_n" and "tm_n" in text:
+                continue
 
             # find cluster and rel addons if theyre there
             cluster = False
@@ -3997,12 +4006,12 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 elif abbrev_string in ["y_k", "y_kk", "y_ka"]:
                     for cat_id in you.inheritance.get_children():
                         cat_choices.append(Cat.fetch_cat(cat_id))
+                elif abbrev_string in ["tm_n"]:
+                    cat_choices.append(Cat.fetch_cat(cat.mentor))
                 elif abbrev_string in ["m_n"]:
                     cat_choices.append(Cat.fetch_cat(you.mentor))
                 elif abbrev_string in ["df_m_n"]:
                     cat_choices.append(Cat.fetch_cat(you.dfmentor))
-                elif abbrev_string in ["tm_n"]:
-                    cat_choices.append(Cat.fetch_cat(cat.mentor))
                 elif abbrev_string in ["t_df_mn"]:
                     cat_choices.append(Cat.fetch_cat(cat.dfmentor))
                 elif abbrev_string in ["y_a"]:
