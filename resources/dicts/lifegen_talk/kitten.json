@@ -10929,7 +10929,7 @@
         ],
         "intro": [
             "Psst, y_c! Let's go ask if we can listen to one of r_e-unlawful's stories.",
-            "They always tell the good ones, the ones r_q says we're not allowed to hear!"
+            "{PRONOUN/r_e-unlawful/subject/CAP} always {VERB/r_e-unlawful/tell/tells} the good ones, the ones r_q says we're not allowed to hear!"
         ]
     },
     "about_neurotic_SQ10": {
@@ -10951,7 +10951,7 @@
         ],
         "intro": [
             "y_c? Is neutral-r_w-neurotic scared of me?",
-            "Whenever I get close to them, they get really big eyes and back away!"
+            "Whenever I get close to {PRONOUN/neutral-r_w-neurotic/object}, {PRONOUN/neutral-r_w-neurotic/subject} {VERB/neutral-r_w-neurotic/get/gets} really big eyes and {VERB/neutral-r_w-neurotic/back/backs} away!"
         ]
     },
     "neurotic_kitten_SQ21": {
