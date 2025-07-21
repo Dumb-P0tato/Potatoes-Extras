@@ -768,7 +768,8 @@ class Patrol:
                     tests.append(i.text)
 
                 for i in tests:
-                    test_runs[i] = lifegen_text_adjust(Cat, str(i), self.patrol_leader, self.patrol_cat_dict, r_c_allowed=False, o_c_allowed=False)
+                    # r_c_allowed = True for date_cats
+                    test_runs[i] = lifegen_text_adjust(Cat, str(i), self.patrol_leader, self.patrol_cat_dict, r_c_allowed=True, o_c_allowed=False)
                     if test_runs[i] == "":
                         skip = True
                         # print("Lifegen abbrev repl failed: Skipping", patrol.patrol_id)
@@ -1358,7 +1359,7 @@ class Patrol:
 
         # adjusting text for lifegen abbrevs + adding to replace dict
         if game.switches["patrol_category"] in ['lifegen', 'df', 'date']:
-            text = lifegen_text_adjust(Cat, text, self.patrol_leader, self.patrol_cat_dict, r_c_allowed=False, o_c_allowed=False)
+            text = lifegen_text_adjust(Cat, text, self.patrol_leader, self.patrol_cat_dict, r_c_allowed=True, o_c_allowed=False)
             if text == "":
                 # This shouldn't ever happen naturally, as the abbrevs in the patrol are all tested during filtering
                 if isinstance(game.config["patrol_generation"]["debug_ensure_patrol_id"], str):
