@@ -4015,9 +4015,11 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 elif abbrev_string in ["t_df_mn"]:
                     cat_choices.append(Cat.fetch_cat(cat.df_mentor))
                 elif abbrev_string in ["y_a"]:
-                    cat_choices = you.apprentice
+                    for cat_id in you.apprentice:
+                        cat_choices.append(Cat.fetch_cat(cat_id))
                 elif abbrev_string in ["t_a"]:
-                    cat_choices = cat.apprentice
+                    for cat_id in cat.apprentice:
+                        cat_choices.append(Cat.fetch_cat(cat_id))
                 elif abbrev_string in ["y_m"]:
                     for cat_id in you.mates:
                         cat_choices.append(Cat.fetch_cat(cat_id))
