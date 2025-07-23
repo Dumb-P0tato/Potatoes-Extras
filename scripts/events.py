@@ -632,6 +632,8 @@ class Events:
                 achievements.add("33")
             if Cat.all_cats.get(cat).status == 'kitten' and Cat.all_cats.get(cat).moons > 5:
                 achievements.add("34")
+            if Cat.all_cats.get(cat).backstory == 'dfkit' or Cat.all_cats.get(cat).backstory == 'dfkit2':
+                achievements.add("35")
             ##WILDCARD check, because I've lost control of my life
             ##Declare Lists of wildcard combos for comparison. (Will be made more professional later.)
             not_wildcard_patterns = ['tabby', 'ticked', 'mackerel', 'classic', 'agouti', 'smoke', 'single']
@@ -674,6 +676,14 @@ class Events:
                                 countranks += 1
                             if countranks >= 3:
                                 achievements.add("31")
+            ##achievement block to check MC has a df mate for achieve 36. Not a copy of above code. Above code checks for Any cats
+            mcMateIDs = you.mate 
+            #for loop list is in case you have multiple mates to search through. 
+            for i in mcMateIDs:
+                if Cat.all_cats.get(cat).ID in mcMateIDs and you.dead == False:
+                    #Thank you Jay, for helping me figure out history stuff! 
+                    if Cat.all_cats.get(cat).history.beginning["encountered"] == True and Cat.all_cats.get(cat).df == True:
+                        achievements.add("36")
             #code for achievement 23 + 24
             if Clan.age >= 1:
                 if not Cat.all_cats.get(cat).dead and not Cat.all_cats.get(cat).outside:
@@ -682,6 +692,10 @@ class Events:
                     achievements.add('23')
                 elif count_alive_cats >= 100:
                     achievements.add('24')
+                elif count_alive_cats >= 400:
+                    achievements.add('39')
+                elif count_alive_cats == 0:
+                    achievements.add('40')
 
         if you.joined_df:
             achievements.add("7")

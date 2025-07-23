@@ -579,6 +579,10 @@ class MakeClanScreen(Screens):
                 return
             self.your_cat.name.prefix = new_name
 
+            while self.your_cat.name.prefix == self.your_cat.name.suffix:
+                print("Prefix and suffix are the same, rerolling suffix...")
+                self.your_cat.name.give_suffix(self.your_cat.pelt, game.clan.biome, None)
+
             if game.switches["customise_new_life"] is True:
                 self.open_clan_saved_screen()
             else:
