@@ -4077,7 +4077,10 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                     counter += 1
                     if counter >= 30:
                         return ""
-                text = add_to_cat_dict(new_abbrev_string, cluster, x, rel, r, alive_cat, text, cat_dict)
+                if game.current_screen == "patrol screen" and 'patrol_category' in game.switches and game.switches['patrol_category'] == "date" and new_abbrev_string == "r_c":
+                    continue
+                else:
+                    text = add_to_cat_dict(new_abbrev_string, cluster, x, rel, r, alive_cat, text, cat_dict)
     # Other Clan
     if o_c_allowed is True:
         if "o_c_n" in text:

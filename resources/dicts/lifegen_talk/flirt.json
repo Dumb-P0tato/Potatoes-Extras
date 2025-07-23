@@ -7879,7 +7879,8 @@
         "y_c": {
             "condition": [
                 "blind:any:false",
-                "grief stricken"
+                "grief stricken",
+                "deaf:any:false"
             ],
             "shunned": true
         },
@@ -7920,7 +7921,8 @@
         "y_c": {
             "condition": [
                 "blind:any:false",
-                "grief stricken"
+                "grief stricken",
+                "deaf:any:false"
             ]
         },
         "t_c": {
@@ -7939,7 +7941,8 @@
     "niche_situations_H5": {
         "y_c": {
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "deaf:any:false"
             ]
         },
         "t_c": {
