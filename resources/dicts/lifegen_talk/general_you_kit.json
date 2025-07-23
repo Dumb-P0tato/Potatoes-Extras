@@ -9637,28 +9637,7 @@
         ]
     },
     "they_sillysam2": {
-        "y_c": {
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "kitten"
-            ]
-        },
-        "t_c": {
-            "cluster": [
-                "silly"
-            ],
-            "condition": [
-                "blind:any:false"
-            ],
-            "status": [
-                "elder"
-            ]
-        },
-        "tags": [
-            "they_grandparent"
-        ],
+        
         "intro": [
             "Hey y_c! Come to visit 'ol t_c, have you?",
             "Ah, you're looking for a story from when I was young. Well, young kit, I have quite a tale for you.",

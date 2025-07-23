@@ -1412,6 +1412,17 @@ class TalkScreen(Screens):
                 if cat.dead:
                     continue
 
+            skip = False
+            for item in talk:
+                if isinstance(talk[item], list) and item not in ["relationship", "tags"]:
+                    # checking the actual spoken dialogue
+                    test_text = self.get_adjusted_txt(talk[item], cat)
+                    if not test_text:
+                        skip = True
+                        break
+            if skip:
+                continue
+
             texts_list[talk_key] = talk
 
         return self.choose_text(cat, texts_list)
