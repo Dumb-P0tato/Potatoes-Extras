@@ -261,8 +261,8 @@ class PatrolOutcome:
         processed_text = event_text_adjust(Cat,
                                         text,
                                         patrol_leader=patrol.patrol_leader,
-                                        # LIFEGEN ^^ pls don't remove
                                         patrol_cat_dict=patrol.patrol_cat_dict,
+                                        # LIFEGEN ^^ pls don't remove
                                         random_cat=patrol.random_cat,
                                         stat_cat=self.stat_cat,
                                         patrol_cats=patrol.patrol_cats,

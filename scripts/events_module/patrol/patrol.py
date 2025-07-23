@@ -1357,6 +1357,12 @@ class Patrol:
         if stat_cat:
             replace_dict["s_c"] = (str(stat_cat.name), choice(stat_cat.pronouns))
 
+        # this is really bad and hacky
+        if "r_c" in self.patrol_cat_dict:
+            if self.random_cat:
+                self.patrol_cat_dict["r_c"] = self.random_cat
+        # but oh well
+
         # adjusting text for lifegen abbrevs + adding to replace dict
         if game.switches["patrol_category"] in ['lifegen', 'df', 'date']:
             text = lifegen_text_adjust(Cat, text, self.patrol_leader, self.patrol_cat_dict, r_c_allowed=True, o_c_allowed=False)
@@ -1368,7 +1374,6 @@ class Patrol:
                     text = "Mrrp? Please report as a Lifegen bug!"
             for cat in self.patrol_cat_dict.items():
                 replace_dict[cat[0]] = (str(cat[1].name), choice(cat[1].pronouns))
-
 
         text = process_text(text, replace_dict)
         text = adjust_prey_abbr(text)
