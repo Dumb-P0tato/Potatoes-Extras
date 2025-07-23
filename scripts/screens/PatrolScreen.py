@@ -1109,7 +1109,8 @@ class PatrolScreen(Screens):
                     for c in Cat.all_cats_list:
                         if (
                             c.moons >= 6 and
-                            not (c.dead and not c.df) and
+                            # not (c.dead and not c.df) and
+                            not c.dead and
                             c.in_camp and
                             c.ID != game.clan.your_cat.ID and
                             c.ID not in game.patrolled and
