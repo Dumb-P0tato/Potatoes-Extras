@@ -445,7 +445,8 @@ class ElderStoryScreen(Screens):
                     i not in self.selected_cats and
                     not i.dead and not i.outside and
                     (i.ID != self.elders[self.selected_elder].ID) and
-                    i.ID not in game.mediated
+                    i.ID not in game.mediated and
+                    i.moons > 0
                 )
             ]
         except:

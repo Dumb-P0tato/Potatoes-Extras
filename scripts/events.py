@@ -677,7 +677,7 @@ class Events:
                             if countranks >= 3:
                                 achievements.add("31")
             ##achievement block to check MC has a df mate for achieve 36. Not a copy of above code. Above code checks for Any cats
-            mcMateIDs = you.mate 
+            mcMateIDs = you.mates 
             #for loop list is in case you have multiple mates to search through. 
             for i in mcMateIDs:
                 if Cat.all_cats.get(cat).ID in mcMateIDs and you.dead == False:
