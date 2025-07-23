@@ -1469,6 +1469,13 @@
         "y_c": {
             "condition": [
                 "deaf:any:false"
+            ],
+            "age": [
+                "adolescent",
+                "young adult",
+                "adult",
+                "senior adult",
+                "senior"
             ]
         },
         "t_c": {

@@ -148,8 +148,15 @@ class ElderStoryScreen(Screens):
                         if self.cat_selection is not None:
                             self.cat_selection = (self.selected_cats.index(cat_object)) - 1 if self.selected_cats.index(cat_object) > 0 else None
                     self.selected_cats.remove(cat_object)
+                    if self.cat_selection is not None:
+                        if self.cat_selection > 0:
+                            self.cat_selection -= 1
+                        if self.cat_selection == 0:
+                            self.cat_selection = None
                 else:
                     if self.cat_selection is not None:
+                        print(self.selected_cats)
+                        print(self.cat_selection)
                         self.selected_cats[self.cat_selection] = cat_object
                     else:
                         if len(self.selected_cats) < 5:

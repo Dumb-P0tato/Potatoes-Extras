@@ -162,8 +162,10 @@ class AchievementScreen(Screens):
             for i in mcMateIDs:
                 if Cat.all_cats.get(cat).ID in mcMateIDs and you.dead == False:
                     #Thank you Jay, for helping me figure out history stuff! 
-                    if Cat.all_cats.get(cat).history.beginning["encountered"] == True and Cat.all_cats.get(cat).df == True:
-                        achievements.add("36")
+                    if Cat.all_cats.get(cat).history:
+                        if Cat.all_cats.get(cat).history.beginning:
+                            if Cat.all_cats.get(cat).history.beginning["encountered"] == True and Cat.all_cats.get(cat).df == True:
+                                achievements.add("36")
 
 
         #code for achievement 23 + 24
