@@ -116,7 +116,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_leader_default",
+        "patrol_art": "life_lead_og4",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -383,7 +383,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_leader_default",
+        "patrol_art": "life_lead_R2",
         "min_cats": 1,
         "max_cats": 6,
         "min_max_status": {},
@@ -428,7 +428,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_leader_default",
+        "patrol_art": "life_lead_R3",
         "min_cats": 1,
         "max_cats": 6,
         "min_max_status": {},

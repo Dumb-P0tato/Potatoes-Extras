@@ -1834,7 +1834,7 @@
         "tags": [
             "shunned"
         ],
-        "patrol_art": "date_default",
+        "patrol_art": "shunned_date_J1",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {},
@@ -1948,7 +1948,7 @@
         "tags": [
             "shunned"
         ],
-        "patrol_art": "date_default",
+        "patrol_art": "shunned_date_J3",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {},
