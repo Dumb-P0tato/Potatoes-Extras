@@ -557,7 +557,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "app_default",
+        "patrol_art": "lifegen_app6",
         "min_cats": 1,
         "max_cats": 2,
         "min_max_status": {},
@@ -865,7 +865,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "app_default",
+        "patrol_art": "lifegen_app_10",
         "min_cats": 1,
         "max_cats": 3,
         "min_max_status": {},
@@ -923,7 +923,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "app_default",
+        "patrol_art": "lifegen_app11",
         "min_cats": 1,
         "max_cats": 2,
         "min_max_status": {},

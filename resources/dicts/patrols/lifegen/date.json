@@ -11,7 +11,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "date_default",
+        "patrol_art": "date_snow",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {},
@@ -247,7 +247,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "date_default",
+        "patrol_art": "date_sunrise",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {},
@@ -1016,7 +1016,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "date_default",
+        "patrol_art": "edge_leafbrush",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {},
@@ -1126,7 +1126,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "date_default",
+        "patrol_art": "date_star",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {},
@@ -1666,7 +1666,7 @@
         "tags": [
             "shunned"
         ],
-        "patrol_art": "poly_date_default",
+        "patrol_art": "poly_date_J3",
         "min_cats": 3,
         "max_cats": 3,
         "min_max_status": {},
