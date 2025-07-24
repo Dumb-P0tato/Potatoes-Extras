@@ -106,7 +106,8 @@ class ElderStoryScreen(Screens):
                     joined_story_text = "<br><br>".join(story_text)
                     
                     self.results.set_text(joined_story_text)
-                    self.update_selected_cats(output[2])
+                    faith_changes = output[2]
+                    self.update_selected_cats(faith_changes)
                 else:
                     self.stage = "cats"
                     self.selected_cats = []
@@ -120,9 +121,9 @@ class ElderStoryScreen(Screens):
                 for i in [0,1,2,3,4]:
                     try:
                         new_cat = self.random_cat()
+                        self.selected_cats.append(new_cat)
                     except:
                         print("No random cats available.")
-                    self.selected_cats.append(new_cat)
                 self.update_selected_cats()
                 self.update_elder_info()
             elif event.ui_element == self.elements["randomise_cat"]:
@@ -350,20 +351,20 @@ class ElderStoryScreen(Screens):
             )
 
             self.next_med = UISurfaceImageButton(
-                ui_scale(pygame.Rect((530, 475), (34, 34))),
+                ui_scale(pygame.Rect((530, 482), (34, 34))),
                 Icon.ARROW_RIGHT,
                 get_button_dict(ButtonStyles.ICON, (34, 34)),
                 object_id="@buttonstyles_icon",
             )
             self.last_med = UISurfaceImageButton(
-                ui_scale(pygame.Rect((490, 475), (34, 34))),
+                ui_scale(pygame.Rect((490, 482), (34, 34))),
                 Icon.ARROW_LEFT,
                 get_button_dict(ButtonStyles.ICON, (34, 34)),
                 object_id="@buttonstyles_icon",
             )
             self.error = pygame_gui.elements.UITextBox(
                 "",
-                ui_scale(pygame.Rect((0, 345), (380, 60))),
+                ui_scale(pygame.Rect((0, 361), (380, 60))),
                 object_id=get_text_box_theme("#text_box_22_horizcenter_spacing_95"),
                 manager=MANAGER,
                 container=self.story_container,
@@ -488,7 +489,7 @@ class ElderStoryScreen(Screens):
         
             if self.stage == "cats":
                 self.elder_elements["elder_container"] = pygame_gui.core.UIContainer(
-                    ui_scale(pygame.Rect((0, 130), (150, 230))),
+                    ui_scale(pygame.Rect((0, 160), (150, 230))),
                     starting_height=1,
                     manager=MANAGER,
                     container=self.story_container,
@@ -786,7 +787,12 @@ class ElderStoryScreen(Screens):
                         )
                     x_pos += 7
 
-            change = faith_changes[cat]
+            if cat in faith_changes:
+                change = faith_changes[cat]
+            else:
+                print(cat.name, "not in faith_changes")
+                print(faith_changes)
+                change = 0
 
             # font colours
             if game.settings["dark mode"]:
