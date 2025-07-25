@@ -506,7 +506,8 @@ class ChooseRebornScreen(Screens):
                         not cat.outside and
                         not cat.ID == game.clan.your_cat.ID and
                         not cat.ID == game.clan.instructor.ID and
-                        not cat.ID == game.clan.demon.ID
+                        not cat.ID == game.clan.demon.ID and
+                        not cat.faded
                         ):
                         valid_mentors.append(cat)
                 elif self.current_sublist == "starclan":
@@ -516,7 +517,8 @@ class ChooseRebornScreen(Screens):
                         not cat.outside and
                         not cat.ID == game.clan.your_cat.ID and
                         not cat.ID == game.clan.instructor.ID and
-                        not cat.ID == game.clan.demon.ID
+                        not cat.ID == game.clan.demon.ID and
+                        not cat.faded
                         ):
                         valid_mentors.append(cat)
                 elif self.current_sublist == "unknown":
@@ -526,7 +528,8 @@ class ChooseRebornScreen(Screens):
                         cat.outside and
                         not cat.ID == game.clan.your_cat.ID and
                         not cat.ID == game.clan.instructor.ID and
-                        not cat.ID == game.clan.demon.ID
+                        not cat.ID == game.clan.demon.ID and 
+                        not cat.faded
                         ):
                         valid_mentors.append(cat)
 
