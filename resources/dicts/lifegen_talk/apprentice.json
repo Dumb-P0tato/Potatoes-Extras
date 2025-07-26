@@ -7857,5 +7857,22 @@
             "|neutral-tm_n|Don't push yourself. I'll check on you again tomorrow.",
             "...Okay."
         ]
+    },
+    "anyillinj_sam1": {
+        "y_c": {
+            "status": ["medicine cat"],
+            "age": ["senior adult", "senior"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "status": ["apprentice"],
+            "condition": ["injury:any", "illness:any", "blind:any:false"]
+        },
+        "intro": [
+            "What do you mean I can't do any warrior training? I need to graduate before t_l!",
+            "Well, no, I guess I don't <i>need</i> to, but it's the principle of it!",
+            "It's littermate competition! Did you and y_l not do this when you were my age?",
+            "Huh. You guys must've been weird back in your day."
+        ]
     }
 }
