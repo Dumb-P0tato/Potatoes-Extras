@@ -3737,7 +3737,7 @@ class MakeClanScreen(Screens):
                     self.your_cat.permanent_condition['born without a leg']["moons_with"] = -1
                     self.your_cat.permanent_condition['born without a leg']['born_with'] = True
                 self.your_cat.pelt.accessories = self.accessories
-                self.your_cat.pelt.inventory = self.accessories
+                self.your_cat.pelt.inventory = self.inventory
                 self.your_cat.personality = Personality(trait=self.personality, kit_trait=True)
                 if self.skill == "Random":
                     self.skill = random.choice(self.skills)
@@ -4064,7 +4064,7 @@ class MakeClanScreen(Screens):
             senior_sprite=self.elder_pose if self.elder_pose > 2 else self.elder_pose + 12,
             reverse=self.reverse,
             accessories=self.accessories,
-            inventory=self.accessories
+            inventory=self.inventory
         )
 
 
