@@ -17,6 +17,7 @@ from scripts.utility import (
     ui_scale,
     shorten_text_to_fit,
     ui_scale_dimensions,
+    get_alive_cats
 )
 from .Screens import Screens
 from ..game_structure import image_cache
@@ -1069,7 +1070,7 @@ class PatrolScreen(Screens):
             print(
                 "Are you playing a normal ClanGen save? Switch to a LifeGen save or create a new cat!")
             print("Choosing random cat to play...")
-            game.clan.your_cat = Cat.all_cats[choice(game.clan.clan_cats)]
+            game.clan.your_cat = choice(get_alive_cats(Cat))
             print("Chose " + str(game.clan.your_cat.name))
 
         # ASSIGN TO ABLE CATS

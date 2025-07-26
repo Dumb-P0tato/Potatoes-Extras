@@ -56,6 +56,7 @@ from scripts.utility import (
     ui_scale_offset,
     adjust_list_text,
     pronoun_repl,
+    get_alive_cats
 )
 from .Screens import Screens
 from ..cat.history import History
@@ -1039,14 +1040,7 @@ class ProfileScreen(Screens):
         if not game.clan.your_cat:
             print("Are you playing a normal ClanGen save? Switch to a LifeGen save or create a new cat!")
             print("Choosing random cat to play...")
-            game.clan.your_cat = Cat.all_cats[choice(game.clan.clan_cats)]
-            counter = 0
-            while game.clan.your_cat.dead or game.clan.your_cat.outside:
-                if counter == 25:
-                    break
-                game.clan.your_cat = Cat.all_cats[choice(game.clan.clan_cats)]
-                counter+=1
-
+            game.clan.your_cat = choice(get_alive_cats(Cat))
             print("Chose " + str(game.clan.your_cat.name))
 
         if self.the_cat.ID == game.clan.your_cat.ID:
