@@ -28,6 +28,7 @@ from scripts.utility import (
     ui_scale_dimensions,
     ui_scale_value,
     ui_scale_offset,
+    get_alive_cats
 )
  
 # LG
@@ -968,7 +969,7 @@ class EventsScreen(Screens):
             print(
                 "Are you playing a normal ClanGen save? Switch to a LifeGen save or create a new cat!")
             print("Choosing random cat to play...")
-            game.clan.your_cat = Cat.all_cats[random.choice(game.clan.clan_cats)]
+            game.clan.your_cat = random.choice(get_alive_cats(Cat))
             print("Chose " + str(game.clan.your_cat.name))
         # UPDATE CLAN INFO
         # self.clan_info["season"].set_text(f"Current season: {game.clan.current_season}")

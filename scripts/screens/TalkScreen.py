@@ -33,6 +33,7 @@ from scripts.utility import (
 from scripts.game_structure.screen_settings import MANAGER
 from ..ui.generate_button import ButtonStyles, get_button_dict
 from ..ui.get_arrow import get_arrow
+from itertools import accumulate as _accumulate
 
 
 class TalkScreen(Screens):
@@ -1788,6 +1789,8 @@ class TalkScreen(Screens):
 
         # Try to find a valid, unused text
         for _ in range(MAX_RETRIES):
+            if list(_accumulate(weights))[-1] + 0.0 < 0:
+                weights = None
             text_chosen_key = choices(list(texts_list.keys()), weights=weights)[0]
             text = texts_list[text_chosen_key]["intro"] if "intro" in texts_list[text_chosen_key] else texts_list[text_chosen_key][1]
             new_text = self.get_adjusted_txt(text, cat)

@@ -142,7 +142,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_elder_default",
+        "patrol_art": "lg_elder_og4",
         "min_cats": 1,
         "max_cats": 2,
         "min_max_status": {},
@@ -247,7 +247,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_elder_default",
+        "patrol_art": "lg_elder_og7",
         "min_cats": 1,
         "max_cats": 2,
         "min_max_status": {},
@@ -400,7 +400,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_elder_default",
+        "patrol_art": "life_elder_R1",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
