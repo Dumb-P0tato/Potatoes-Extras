@@ -81,7 +81,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_kit_default",
+        "patrol_art": "lifegen_kit3",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -291,7 +291,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_kit_default",
+        "patrol_art": "lifegen_kit9",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -361,7 +361,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_kit_default",
+        "patrol_art": "lifegen_kit11",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -501,7 +501,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_kit_default",
+        "patrol_art": "lifegen_kit15",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -643,7 +643,7 @@
         "tags": [
             "shunned"
         ],
-        "patrol_art": "lg_kit_default",
+        "patrol_art": "lg_shunned_kit_J1",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -681,7 +681,7 @@
             "border",
             "shunned"
         ],
-        "patrol_art": "lg_kit_default",
+        "patrol_art": "life_shunkit_Guy1",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
