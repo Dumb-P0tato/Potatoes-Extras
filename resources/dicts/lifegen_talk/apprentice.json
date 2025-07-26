@@ -7857,5 +7857,38 @@
             "|neutral-tm_n|Don't push yourself. I'll check on you again tomorrow.",
             "...Okay."
         ]
-    }
+    },
+    "upstanding_apprentice_SQ1": {
+        "y_c": {
+            "status": ["not_kitten", "not_adolescent"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+"status": ["apprentice"],
+            "cluster": ["upstanding"],
+            "condition": ["deaf:any:false"]
+},
+        "intro": [
+           "[t_c stands next to tm_n and d_n, ready to head out for a hunting patrol. d_n seems to be detailing the route that the group will take, and t_c listens intently.]",
+           "[It's kind of silly to see the young cat standing so... formally, almost stiffly, as if {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} a senior warrior rather than an apprentice.]"
+]
+},
+
+ "upstanding_apprentice_SQ2": {
+        "y_c": {
+            "status": ["not_kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+"status": ["apprentice"],
+            "cluster": ["upstanding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["max_dislike_15"],
+        "intro": [
+           "Why does everycat act like learning the warrior code is some kind of huge chore? I memorized it right after I became an apprentice.",
+           "It's the rules that guide our lives! They're not hard to remember if you live by them!"
+]
+}
+
 }

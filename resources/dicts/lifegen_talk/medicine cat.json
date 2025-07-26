@@ -5602,5 +5602,54 @@
             "All right. Those look like they'll heal on their own, but let me know if they start hurting more.",
             "I'd prefer to not use herbs on small scrapes, but I will if there's an infection risk."
         ]
-    }
+    },
+    "you_kit_brooding_SQ1~2": {
+        "y_c": {
+            "status": ["apprentice", "queen's_apprentice", "mediator_apprentice"]
+        },
+        "t_c": {
+"status": ["medicine_cat"],
+            "cluster": ["brooding"]
+},
+        "relationship": ["max_dislike_5"],
+        "tags": ["connected"],
+        "intro": [
+            "Thank StarClan you're finally an apprentice. Maybe now you'll stop bothering me all day.",
+            "[t_c continues laying out herbs to dry in the sun. After a moment, though, {PRONOUN/t_c/subject} {VERB/t_c/look/looks} up at you with the hint of a smile.]",
+            "...Congratulations. And good luck. Now leave."
+]
+},
+
+ "medicine_cat_brooding_SQ1": {
+        "y_c": {
+            "status": ["not_medicine_cat", "not_medicine_cat_apprentice"]
+        },
+        "t_c": {
+"status": ["medicine_cat", "medicine_cat_apprentice"],
+            "cluster": ["brooding"]
+},
+        "relationship": ["max_dislike_5", "max_platonic_30"],
+        "intro": [
+            "*grumble* Everyone's been visiting the medicine den today with all kinds of trivial injuries.",
+            "Scrapes, aches, being sore from training...",
+            "Yes, I'm a medicine cat, but that doesn't mean everyone should come crying to me for help with every little thing!",
+            "...",
+            "You better not be here to ask me to look at a tiny scratch too, y_c."
+]
+},
+
+ "medicine_cat_brooding_SQ2": {
+        "season": ["leafbare"],
+        "t_c": {
+"status": ["medicine_cat"],
+            "cluster": ["brooding"]
+},
+        "intro": [
+            "[It's very cold and windy. Most cats are staying in camp today, so you're surprised to see t_c return from gathering herbs.]",
+            "|r_w-stable|Oh, t_c, I didn't realize you'd left! It's so cold out...",
+            "[t_c frowns and glances at the sky, as if {PRONOUN/t_c/subject} hadn't noticed the weather. {PRONOUN/t_c/subject/CAP} {VERB/t_c/aren't/isn't} even shivering...]",
+            "...I guess."
+]
+}
+
 }

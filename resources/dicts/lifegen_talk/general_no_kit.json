@@ -43186,7 +43186,7 @@
             "Wait, I just remembered something my Twolegs would tell me. I only realized it now.",
             "They were telling me about you! They said your name and everything!",
             "Yeah, they told me something about how you were gonna be the leader of a Clan one day.",
-            "They did say it was going to be o_cClan though, so I don't know how accurate it really was..."
+            "They did say it was going to be o_c_n though, so I don't know how accurate it really was..."
         ]
     },
     "owlhouse_sam": {
@@ -44807,5 +44807,700 @@
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/roll/rolls} {PRONOUN/t_c/poss} eyes, and {VERB/t_c/speak/speaks} around the prey.]",
             "Never mind, y_c. It's not for you."
         ]
+    },
+    "no_kit_brooding_SQ6": {
+        "y_c": {
+            "status": ["not_kitten"]
+        },
+        "t_c": {
+            "status": ["warrior", "deputy", "leader", "apprentice"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false"]
+},
+        "intro": [
+            "[t_c strides into camp and unceremoniously places {PRONOUN/t_c/poss} fresh-kill on the pile. Then, {PRONOUN/t_c/subject} {VERB/t_c/walk/walks} towards {PRONOUN/t_c/poss} den without a word.]",
+            "|neutral-r_c-assertive|Woah, t_c! Awesome catches!",
+            "[...t_c completely ignores the compliment.]"
+]
+},
+
+ "no_kit_brooding_SQ7": {
+        "y_c": {
+            "status": ["not_kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "status": ["warrior", "deputy", "leader", "apprentice"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["min_platonic_15", "max_dislike_10"],
+        "intro": [
+            "I met a kittypet on patrol today. They asked me what it was like to live in a Clan.",
+            "...As if I have time to chat with any random cat I come across."
+]
+},
+
+ "no_kit_brooding_SQ16": {
+        "season": ["leafbare"],
+        "y_c": {
+            "status": ["warrior", "deputy"],
+            "condition": ["deaf:any:false"]
+        },
+        "t_c": {
+            "status": ["warrior", "deputy"],
+            "cluster": ["brooding"],
+            "condition": ["deaf:any:false"]
+},
+        "intro": [
+           "[t_c enters the warriors' den covered in snow. {PRONOUN/t_c/subject/CAP} irritably {VERB/t_c/shake/shakes} it off of {PRONOUN/t_c/poss} pelt and paws, glaring at everycat who looks {PRONOUN/t_c/poss} way.]"
+]
+},
+
+ "no_kit_brooding_SQ17": {
+        "season": ["leafbare"],
+        "y_c": {
+            "status": ["not_kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "status": ["warrior", "deputy", "leader", "apprentice"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["min_platonic_25", "max_dislike_10"],
+        "intro": [
+           "Hey. I just came back from a hunting patrol.",
+           "...You should grab some prey before it freezes solid."
+]
+},
+
+ "no_kit_brooding_SQ21": {
+        "y_c": {
+            "status": ["not_kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "status": ["queen", "medicine_cat", "mediator"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["min_platonic_25", "max_dislike_10"],
+        "intro": [
+           "dislike-r_w-upstanding keeps coming in here and asking whether {PRONOUN/dislike-r_w-upstanding/subject} can help with anything.",
+           "What {VERB/dislike-r_w-upstanding/do/does} {PRONOUN/dislike-r_w-upstanding/subject} possibly think I could need help with? All {PRONOUN/dislike-r_w-upstanding/subject}{VERB/dislike-r_w-upstanding/'re/'s} doing is wasting my time."
+]
+},
+
+ "no_kit_brooding_SQ22": {
+        "season": ["newleaf", "greenleaf", "leaffall"],
+        "y_c": {
+            "status": ["not_kitten"],
+            "condition": ["deaf:any:false"]
+        },
+        "t_c": {
+            "status": ["not_kitten"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false", "deaf:any:false"]
+},
+        "intro": [
+           "[t_c purrs quietly as {PRONOUN/t_c/subject} {VERB/t_c/rest/rests} in a sunbeam. {PRONOUN/t_c/poss/CAP} eyes are closed, and {PRONOUN/t_c/subject} {VERB/t_c/look/looks} uncharacteristically content.]",
+           "[...{PRONOUN/t_c/subject/CAP} {VERB/t_c/seem/seems} to realize what {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} doing,  {VERB/t_c/sit/sits} up, and {VERB/t_c/fix/fixes} {PRONOUN/t_c/poss} usual scowl back on {PRONOUN/t_c/poss} face.]"
+]
+},
+
+ "no_kit_brooding_SQ23": {
+        "y_c": {
+            "status": ["not_kitten"]
+        },
+        "t_c": {
+            "status": ["not_kitten"],
+            "cluster": ["brooding"]
+},
+        "relationship": ["max_platonic_25", "min_platonic_10", "max_dislike_10"],
+        "intro": [
+           "[t_c nods at you as you approach, but doesn't say anything. {PRONOUN/t_c/poss/CAP} stoic expression doesn't change.]"
+]
+},
+
+ "no_kit_brooding_SQ24": {
+        "y_c": {
+            "status": ["not_kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "status": ["not_kitten"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["from_your_parent", "from_adopted_parent", "min_platonic_50", "max_dislike_10"],
+        "intro": [
+           "You're... doing a good job, y_c.",
+           "...",
+           "...I'm very proud of you."
+]
+},
+
+ "no_kit_brooding_SQ25": {
+        "y_c": {
+            "status": ["not_kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "status": ["not_kitten"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false", "illness_any", "injury:any"]
+},
+        "relationship": ["min_platonic_50", "max_dislike_10"],
+        "intro": [
+           "...",
+           "Let me rest, y_c.",
+           "And... don't worry. I'll be fine."
+]
+},
+"upstanding_general_no_kit_SQ1": {
+        "y_c": {
+            "status": ["not_kitten"]
+        },
+        "t_c": {
+"status": ["warrior", "deputy", "leader"],
+            "cluster": ["upstanding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["min_platonic_25", "max_dislike_10"],
+        "intro": [
+           "[t_c stalks through camp, {PRONOUN/t_c/poss} tail flicking in annoyance. When {PRONOUN/t_c/subject} {VERB/t_c/notice/notices} you, {PRONOUN/t_c/subject} {VERB/t_c/start/starts} talking before you've even had a chance to ask what's wrong.]",
+           "I <i>tried</i> to go fishing with dislike-r_w1-silly and r-w2, but dislike- r_w1-silly refused to take it seriously. {PRONOUN/dislike-r_w1-silly/subject/CAP} put more effort into trying to start a water fight, rather than actually fishing.",
+           "At the end, we'd barely caught anything! What a waste of time.",
+           "[t_c walks off grumbling.]"
+]
+},
+
+ "upstanding_general_no_kit_SQ2": {
+        "y_c": {
+            "status": ["warrior", "deputy", "apprentice"],
+            "cluster": ["upstanding", "stable"]
+        },
+        "t_c": {
+"status": ["warrior", "deputy", "leader"],
+            "cluster": ["upstanding"]
+},
+        "relationship": ["min_platonic_20", "max_dislike_5"],
+        "intro": [
+           "y_c, would you like to go hunting with me this afternoon? I'm sure you'll be more focused than <i>some</i> cats around here.",
+           "[t_c looks sternly across the camp at r_w-silly, who grins and wiggles {PRONOUN/r_w-silly/poss} ears in response.]"
+]
+},
+
+ "upstanding_general_no_kit_SQ3": {
+        "y_c": {
+            "status": ["not_kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+"status": ["not_kitten"],
+            "cluster": ["upstanding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["min_platonic_40"],
+        "intro": [
+           "dislike-r_w-introspective is incredibly frustrating. I asked {PRONOUN/dislike-r_w-introspective/object} for help patching a hole in the medicine den and {PRONOUN/dislike-r_w-introspective/subject} walked over, but then {PRONOUN/dislike-r_w-introspective/subject} just... stood there instead of lending a paw.",
+           "{PRONOUN/dislike-r_w-introspective/subject/CAP} just kept talking about a thought {PRONOUN/dislike-r_w-introspective/subject}'d had. I wasn't really listening, because I was actually trying to do work, but {PRONOUN/dislike-r_w-introspective/subject} {VERB/dislike-r_w-introspective/were/was} trying to be deep and dramatic. Like usual.",
+           "I'm not the only one who sees dislike-r_w-introspective like this, right? Maybe I should talk to r_d about {PRONOUN/dislike-r_w-introspective/object}..."
+]
+},
+
+ "upstanding_general_no_kit_SQ4": {
+        "y_c": {
+            "status": ["not_kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+"status": ["not_kitten"],
+            "cluster": ["upstanding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["min_platonic_30", "max_dislike_10"],
+        "intro": [
+           "I don't get why everyone's so charmed by dislike-r_w-cool. What's so admirable about sitting around and acting smooth?",
+           "We should respect cats who actually do something for the Clan. Not cats who just... pretend to."
+]
+},
+
+ "upstanding_general_no_kit_SQ5": {
+        "y_c": {
+            "status": ["not_kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+"status": ["not_kitten"],
+            "cluster": ["upstanding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["min_platonic_40", "max_dislike_10"],
+        "intro": [
+           "r_d wants me and dislike-r_c to meet with {PRONOUN/r_d/object} to talk out our... conflict.",
+           "[t_c makes a face, like the word leaves a bad taste in {PRONOUN/t_c/poss} mouth. {PRONOUN/t_c/subject/CAP} sigh.]",
+           "I'm already busy enough today. I really don't have time for that, and knowing dislike-r_c, I doubt mediation would actually resolve anything.",
+           "Yes, I don't like dislike-r_c. But if our relationship's not negatively impacting the Clan as a whole, what's the point in wasting time on it?"
+]
+},
+
+ "upstanding_general_no_kit_SQ6": {
+        "t_c": {
+"status": ["deputy", "warrior"],
+            "age": ["adult", "senior adult"],
+            "cluster": ["strict"]
+},
+        "intro": [
+           "neutral-r_w-silly!",
+           "[t_c narrows {PRONOUN/t_c/poss} eyes at neutral-r_w-silly, who's halfway out of camp. The warrior deflates at the attention.]",
+           "Are you really leaving camp now? It's late, and you're on the dawn patrol tomorrow.",
+           "You should know that to represent the Clan well, it's important to be alert and awake. And furthermore...",
+           "[t_c lectures the unfortunate warrior for a few minutes before sending {PRONOUN/t_c/object} to bed like a misbehaving kitten.]"
+]
+},
+
+ "upstanding_general_no_kit_SQ7": {
+        "y_c": {
+            "status": ["warrior", "medicine_cat", "queen", "mediator"],
+            "condition": ["greencough", "whitecough", "yellowcough", "redcough", "blind:any:false"]
+        },
+        "t_c": {
+            "status": ["warrior", "medicine_cat", "queen", "mediator"],
+            "cluster": ["upstanding"],
+            "condition": ["illness:none", "blind:any:false"]
+},
+        "relationship": ["max_platonic_10", "min_dislike_20"],
+        "intro": [
+           "Don't cough on me. It's bad enough that you're not able to contribute... don't get the rest of us sick, too.",
+           "I've got enough going on this week already."
+]
+},
+
+ "upstanding_general_no_kit_SQ8": {
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "status": ["warrior", "medicine_cat", "queen", "mediator"],
+            "cluster": ["upstanding"],
+            "condition": ["greencough", "whitecough", "yellowcough", "redcough", "blind:any:false"]
+},
+        "intro": [
+          "[t_c is breathing hard, recovering after a particularly bad coughing fit.]",
+          "|neutral-r_m|Deep breaths. Don't rush. Here's some moss to drink from when you're ready.",
+          "[t_c waits for a few moments, then gratefully laps at the offered moss.]",
+          "*pant* This is ridiculous. Why do I have to be sick now? There's so much to do..."
+]
+},
+
+ "upstanding_general_no_kit_SQ9": {
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "age": ["not_kitten"],
+            "cluster": ["upstanding"],
+            "condition": ["greencough", "whitecough", "yellowcough", "redcough", "blind:any:false"]
+},
+        "relationship": ["min_platonic_25", "max_dislike_10"],
+        "intro": [
+          "I suggested to plike-r_m that I move out of camp, so there's less of a risk of me spreading my cough to anyone else.",
+          "[t_c coughs weakly. You can't imagine {PRONOUN/t_c/object} leaving the medicine den, let alone managing outside of camp.]",
+          "...{PRONOUN/plike-r_m/subject/CAP} didn't think that was a good idea."
+]
+},
+
+ "upstanding_general_no_kit_SQ10": {
+        "t_c": {
+            "age": ["adult", "senior adult"],
+            "cluster": ["upstanding"]
+},
+        "relationship": ["max_dislike_10"],
+        "intro": [
+         "[t_c watches plike-r_w1-upstanding gather r_w2 and r_w3 to go hunting. {PRONOUN/t_c/subject/CAP} {VERB/t_c/huff/huffs} in satisfaction.]",
+         "At least one other cat knows how to get things done around here."
+]
+},
+
+ "upstanding_general_no_kit_SQ11": {
+        "y_c": {
+            "status": ["apprentice", "medicine_cat_apprentice", "queen's_apprentice", "mediator_apprentice"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "age": ["adult", "senior adult", "senior"],
+            "cluster": ["upstanding"],
+            "condition": ["blind:any:false"]
+},
+        "intro": [
+           "Have you been listening to plike-m_n? Good.",
+           "{PRONOUN/plike-m_n/subject/CAP} {VERB/plike-m_n/have/has} a lot to teach an apprentice. Don't waste this opportunity."
+]
+},
+
+ "upstanding_general_no_kit_SQ12": {
+        "y_c": {
+            "status": ["apprentice", "medicine_cat_apprentice", "queen's_apprentice", "mediator_apprentice"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "age": ["adult", "senior adult", "senior"],
+            "cluster": ["upstanding"],
+            "condition": ["blind:any:false"]
+},
+        "intro": [
+          "Just because you're an apprentice now doesn't mean you can do whatever you want.",
+          "Make sure you're being responsible. Don't stay up too late, respect your senior Clanmates, and listen to m_n.",
+          "You represent c_nClan now."
+]
+},
+
+ "upstanding_general_no_kit_SQ13": {
+        "y_c": {
+            "status": ["apprentice"],
+            "cluster": ["upstanding", "stable"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "cluster": ["upstanding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["max_dislike_10", "from_your_parent", "from_adopted_parent"],
+        "intro": [
+          "m_n told me about your progress. {PRONOUN/m_n/subject/CAP} said you're doing well. Is it true that you're especially diligent about memorizing the warrior code?",
+          "Good job. Keep it up."
+]
+},
+
+ "upstanding_general_no_kit_SQ14": {
+        "y_c": {
+            "status": ["apprentice"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "cluster": ["strict"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["from_your_parent", "from_adopted_parent"],
+        "intro": [
+          "m_n said you seemed tired during training today. Are you getting enough sleep?",
+          "Make sure you're getting to sleep at a reasonable time. Don't let me catch you up late."
+]
+},
+
+ "upstanding_general_no_kit_SQ15": {
+        "y_c": {
+            "status": ["apprentice", "warrior"],
+            "age": ["adolescent", "young adult"]
+        },
+        "t_c": {
+            "cluster": ["strict"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["from_your_parent", "from_adopted_parent"],
+        "intro": [
+          "y_c, why are you still here? I thought you were going on the hunting patrol.",
+          "[You explain that the patrol had more than enough members, so r_m asked you to help them gather herbs instead. t_c frowns, but eventually nods.]",
+          "That's a good experience to have. Just make sure you take herb gathering as seriously as you would any other patrol."
+]
+},
+
+ "upstanding_general_no_kit_SQ16": {
+        "season": ["greenleaf"],
+        "y_c": {
+            "age": ["adolescent", "young adult"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "cluster": ["strict"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["from_your_parent", "from_adopted_parent"],
+        "intro": [
+          "It's hot out. Make sure you're drinking enough water, and don't overexert yourself.",
+          "I overheard neutral-r_w-assertive trying to organize a race, of all things. That's just a silly way to give half the Clan heat exhaustion.",
+          "I expect you to stay out of that foolishness."
+]
+},
+
+ "upstanding_general_no_kit_SQ17": {
+        "y_c": {
+            "status": ["apprentice", "warrior"],
+            "age": ["adolescent", "young adult"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "cluster": ["strict"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["from_your_parent", "from_adopted_parent"],
+        "intro": [
+          "I heard you're on patrol with neutral-r_w-silly today. Make sure {PRONOUN/neutral-r_w-silly/subject} {VERB/neutral-r_w-silly/don't/doesn't} drag you into any... shenanigans.",
+          "Just because some of our Clanmates never take things seriously doesn't mean you should follow their example."
+]
+},
+
+ "upstanding_general_no_kit_SQ18": {
+        "y_c": {
+            "age": ["adolescent", "young adult"]
+        },
+        "t_c": {
+            "age": ["adult", "senior adult"],
+            "cluster": ["strict"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["max_platonic_20"],
+        "intro": [
+          "t_c, put that mouse down. Has r_e eaten yet? Has r_k?",
+          "You should know that kits and elders eat first, and furthermore-",
+          "|r_w-stable|Actually, t_c, both of them just came by. They had their pick of the fresh-kill.",
+          "[r_w-stable gives you a sympathetic look. t_c pauses.]",
+          "...Ah. Really? Well then, y_c, carry on."
+]
+},
+
+ "upstanding_general_no_kit_SQ19": {
+        "y_c": {
+            "age": ["adolescent", "young adult"]
+        },
+        "t_c": {
+            "cluster": ["strict"]
+},
+        "relationship": ["from_your_parent", "from_adopted_parent", "min_platonic_30"],
+        "intro": [
+          "I miss plove-d_c. It was a shame {PRONOUN/plove-d_c/subject} had to... go.",
+          "[t_c sighs, slumping. After a moment, {PRONOUN/t_c/subject} {VERB/t_c/meet/meets} your eyes.]",
+          "You know... that's why I'm always so strict with you. I know it makes things difficult sometimes, but I don't want anything to happen to you.",
+          "I hope you can understand that."
+]
+},
+
+ "upstanding_general_no_kit_SQ20": {
+        "y_c": {
+            "status": ["apprentice"]
+        },
+        "t_c": {
+"status": ["deputy", "warrior", "medicine_cat"],
+            "age": ["young adult", "adult", "senior adult"],
+            "cluster": ["upstanding"]
+},
+        "relationship": ["max_dislike_10"],
+        "intro": [
+           "[You've just returned to camp after a long day of training with m_n, but as soon as t_c sees you, {PRONOUN/t_c/subject} {VERB/t_c/motion/motions} you over.]",
+           "Come on, y_c. r_m is low on moss, so you and I are going to collect more.",
+           "No complaining! We'll make this quick."
+]
+},
+
+ "upstanding_general_no_kit_SQ21": {
+        "y_c": {
+            "status": ["leader", "deputy", "warrior"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+"status": ["deputy", "warrior", "leader"],
+            "cluster": ["upstanding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["max_dislike_10", "min_platonic_30"],
+        "intro": [
+           "[t_c seems exhausted today. You offer to take {PRONOUN/t_c/poss} spot on today's afternoon hunting patrol so {PRONOUN/t_c/subject} can get some rest.]",
+           "What? Absolutely not. I'm more than capable of doing my assigned tasks.",
+           "I... appreciate the offer, but the last thing I need is for everyone else to think I'm not pulling my weight."
+]
+},
+
+ "upstanding_general_no_kit_SQ22": {
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+"age": ["adult", "senior adult", "senior"],
+            "cluster": ["upstanding"],
+            "condition": ["blind:any:false"],
+            "backstory": ["clanfounder"]
+},
+        "relationship": ["max_dislike_10", "min_platonic_40"],
+        "intro": [
+           "When we founded the Clan, I remember thinking that the rules we decided on were incredibly important. They would guide c_nClan's decisions and sense of morality for generations to come.",
+           "Even now, I hope I helped to start the Clan down the right path."
+]
+},
+
+ "upstanding_general_no_kit_SQ23": {
+        "t_c": {
+"age": ["adult", "senior adult", "senior"],
+            "cluster": ["upstanding"]
+},
+        "relationship": ["max_dislike_10", "min_platonic_40"],
+        "intro": [
+           "I don't understand why some cats are so intent on breaking the rules.",
+           "[You follow t_c's gaze to r_w-unlawful, who looks concerningly smug about something.]",
+           "I know some see me as uptight and unnecessarily strict. The fact is that rules are in place to keep us safe, and cats like me are here to make sure everyone adheres to them.",
+           "If c_nClan stops caring about rules, who knows what might happen?"
+]
+},
+
+ "upstanding_general_no_kit_SQ24": {
+        "y_c": {
+            "status": ["apprentice", "warrior"],
+            "age": ["young adult", "adolescent"]
+        },
+        "t_c": {
+            "status": ["deputy", "leader", "warrior"],
+            "age": ["senior adult", "adult"],
+            "cluster": ["strict"]
+},
+        "intro": [
+           "[You're leaving camp to take a walk with r_w when you're intercepted by t_c. {PRONOUN/t_c/subject/CAP} {VERB/t_c/narrow/narrows} {PRONOUN/t_c/poss} eyes at you.]",
+           "Both of you are on patrol this evening, if I remember correctly.",
+           "...Make sure you're back by then."
+]
+},
+
+ "upstanding_general_no_kit_SQ25": {
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "status": ["warrior", "deputy", "leader", "elder"],
+"age": ["adult", "senior adult", "senior"],
+            "cluster": ["upstanding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["max_dislike_10", "min_platonic_30"],
+        "intro": [
+           "It's good that apprentices learn the warrior code as part of their training, but sometimes it seems like everycat forgets it as soon as they become warriors.",
+           "Personally, I think we should test the whole Clan on the code every month or so, to make sure everycat still remembers it."
+]
+},
+
+ "upstanding_general_no_kit_SQ26": {
+        "season": ["leafbare"],
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+"age": ["not_kitten"],
+            "cluster": ["upstanding", "stable"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["max_dislike_10", "min_platonic_10"],
+        "intro": [
+           "I'm going to clear snow away from the camp entrance. It's important to keep main paths clear, don't you think?",
+           "Come help me if you want something to do."
+]
+},
+
+ "upstanding_general_no_kit_SQ27": {
+        "season": ["leafbare"],
+        "t_c": {
+"age": ["adult", "senior adult", "young adult"],
+            "cluster": ["responsible", "disciplined", "strict"],
+            "condition": ["blind:any:false"]
+},
+        "intro": [
+           "[You walk in on neutral-r_w-silly trying to convince t_c to join a snow fight later today.]",
+           "|neutral-r_w-silly|...And we're gonna divide into teams, each with our own little territories! It's going to be awesome. Are you in?",
+           "...I'll pass. I admit it seems good for morale, but I'd rather spend my energy on something more productive.",
+           "[neutral-r_w-silly gives t_c an exaggerated pout, but then shrugs and turns to leave. t_c calls after {PRONOUN/neutral-r_w-silly/object}.]",
+           "...Be careful. And don't get frostbite."
+]
+},
+
+ "upstanding_general_no_kit_SQ28": {
+        "season": ["leafbare"],
+        "y_c": {
+            "status": ["apprentice"]
+        },
+        "t_c": {
+            "cluster": ["upstanding", "stable", "neurotic"]
+},
+        "relationship": ["from_mentor"],
+        "intro": [
+           "Keep an eye out for unfamiliar footprints in the territory.", 
+           "Remember that the snow muffles scents, so we need to use other means to detect predators."
+]
+},
+
+ "upstanding_general_no_kit_SQ29": {
+        "season": ["leafbare"],
+        "y_c": {
+            "condition": ["blind:any:false"],
+            "age": ["adolescent", "young adult"]
+        },
+        "t_c": {
+            "age": ["adult", "senior adult"],
+            "cluster": ["upstanding", "stable", "neurotic"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["max_dislike_5", "max_comfort_10"],
+        "intro": [
+           "[t_c is counting the prey on the fresh-kill pile.]",
+           "It's important to know how much food we have, especially in leafbare, so we're not taken off-guard by shortages."
+]
+},
+"recovering_from_birth_SQ1": {
+        "y_c": {
+            "status": [
+                "kitten"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "not_kitten"
+            ],
+            "cluster": [
+                "stable"
+            ],
+            "condition": [
+                "recovering from birth",
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "max_dislike_10"
+        ],
+        "intro": [
+            "[You and r_k run up to t_c, hoping {PRONOUN/t_c/subject}'ll play mossball with you! Your excitement dissipates as t_c shakes {PRONOUN/t_c/poss} head.]",
+            "Sorry, you two. I still need to rest! Jumping around wouldn't be good for me right now.",
+            "|r_k|Why not? Are you sick? You don't <i>seem</i> sick.",
+            "I just had kittens, remember? I was carrying them around inside me for a long time, and that takes a lot of energy. So now it's important for me to rest.",
+            "I hope I can play with you soon, though!"
+        ]
+    },
+    "recovering_from_birth_SQ2": {
+        "y_c": {
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "not_kitten"
+            ],
+            "cluster": [
+                "upstanding"
+            ],
+            "condition": [
+                "recovering from birth",
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "max_platonic_20"
+        ],
+        "intro": [
+            "No, t_c, I'm not going to run around with you. I need to rest and recover.",
+            "See, for a while, my job was to take care of myself and carry kits, and now my job is to get better so I can return to my usual tasks.",
+            "Things have fallen behind enough already without my help."
+        ]
     }
+
+
 }
