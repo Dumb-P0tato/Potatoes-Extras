@@ -9833,7 +9833,7 @@
         "relationship": ["max_platonic_20"],
         "intro": [
             "No, I won't show you what tm_n taught me today. Wait until you're an apprentice.",
-            "[You follow t_c around camp, hoping {PRONOUN/t_c/subject}'ll relent, but {PRONOUN/t_c/subject} pointedly {PRONOUN/t_c/ignore/ignores} you.]"
+            "[You follow t_c around camp, hoping {PRONOUN/t_c/subject}'ll relent, but {PRONOUN/t_c/subject} pointedly {VERB/t_c/ignore/ignores} you.]"
 ]
 },
 
