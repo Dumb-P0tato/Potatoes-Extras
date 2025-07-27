@@ -1789,7 +1789,10 @@ class TalkScreen(Screens):
 
         # Try to find a valid, unused text
         for _ in range(MAX_RETRIES):
-            text_chosen_key = choices(list(texts_list.keys()), weights=weights)[0]
+            if len(list(texts_list.keys())) == len(weights):
+                text_chosen_key = choices(list(texts_list.keys()), weights=weights)[0]
+            else:
+                text_chosen_key = choice(list(texts_list.keys()))
             text = texts_list[text_chosen_key]["intro"] if "intro" in texts_list[text_chosen_key] else texts_list[text_chosen_key][1]
             new_text = self.get_adjusted_txt(text, cat)
             
