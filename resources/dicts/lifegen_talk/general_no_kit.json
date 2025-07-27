@@ -44263,8 +44263,8 @@
     "bite_wounds_SQ3": {
         "y_c": {
             "status": [
-                "medicine_cat",
-                "medicine_cat_apprentice"
+                "medicine cat",
+                "medicine cat apprentice"
             ]
         },
         "t_c": {
@@ -44322,7 +44322,7 @@
     "stomachache_SQ6": {
         "y_c": {
             "status": [
-                "medicine_cat_apprentice"
+                "medicine cat apprentice"
             ]
         },
         "t_c": {
@@ -45126,7 +45126,7 @@
 
  "upstanding_general_no_kit_SQ11": {
         "y_c": {
-            "status": ["apprentice", "medicine_cat_apprentice", "queen's_apprentice", "mediator_apprentice"],
+            "status": ["apprentice", "medicine cat apprentice", "queen's apprentice", "mediator apprentice"],
             "condition": ["blind:any:false"]
         },
         "t_c": {
@@ -45142,7 +45142,7 @@
 
  "upstanding_general_no_kit_SQ12": {
         "y_c": {
-            "status": ["apprentice", "medicine_cat_apprentice", "queen's_apprentice", "mediator_apprentice"],
+            "status": ["apprentice", "medicine cat apprentice", "queen's apprentice", "mediator apprentice"],
             "condition": ["blind:any:false"]
         },
         "t_c": {
