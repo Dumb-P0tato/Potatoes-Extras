@@ -3478,15 +3478,6 @@ class Cat:
 
         story = choice(filtered_stories)
 
-        debug_story_id = "sc_J4"
-
-        # print("POSSIBLE STORIES:")
-        for option in filtered_stories:
-            # print(option["id"])
-            if option["id"] == debug_story_id:
-                story = option
-                break
-
         heading = story["title"]
         output = story["story"]
 
