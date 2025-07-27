@@ -1722,52 +1722,52 @@ class TalkScreen(Screens):
         MAX_RETRIES = 30
         you = game.clan.your_cat
 
+        if len(game.clan.talks) > 100:
+            game.clan.talks.clear()
+
         weights = []
         if not texts_list:
             texts_list['general'] = self.load_and_replace_placeholders(f"{self.resource_dir}general.json", cat, you)
             weights = [1]
+        else:
+            # Assign weights based on tags
+            weighted_tags = [
+                "you_pregnant", "they_pregnant", "from_mentor", "from_your_parent",
+                "from_adopted_parent", "adopted_parent", "half sibling", "littermate",
+                "siblings_mate", "cousin", "adopted_sibling", "parents_siblings",
+                "from_df_mentor", "from_your_kit", "from_your_apprentice",
+                "from_df_apprentice", "from_mate", "from_parent", "adopted_parent",
+                "from_kit", "sibling", "from_adopted_kit", "they_injured", "they_ill",
+                "you_injured", "you_ill", "you_grieving", "they_grieving", "you_forgiven",
+                "they_forgiven", "murderedyou", "murderedthem"
+            ] # List of tags that increase the weight
 
-        if len(game.clan.talks) > 100:
-            game.clan.talks.clear()
+            special_date = get_special_date()
+            if special_date:
+                weighted_tags.append(special_date)
 
-        # Assign weights based on tags
-        weighted_tags = [
-            "you_pregnant", "they_pregnant", "from_mentor", "from_your_parent",
-            "from_adopted_parent", "adopted_parent", "half sibling", "littermate",
-            "siblings_mate", "cousin", "adopted_sibling", "parents_siblings",
-            "from_df_mentor", "from_your_kit", "from_your_apprentice",
-            "from_df_apprentice", "from_mate", "from_parent", "adopted_parent",
-            "from_kit", "sibling", "from_adopted_kit", "they_injured", "they_ill",
-            "you_injured", "you_ill", "you_grieving", "they_grieving", "you_forgiven",
-            "they_forgiven", "murderedyou", "murderedthem"
-        ] # List of tags that increase the weight
+            # print("------")
+            for dialogue_id, item in texts_list.items():
+                tags = item["tags"] if "tags" in item else {}
+                weight = 1
+                if any(tag in weighted_tags for tag in tags):
+                    weight += 3
+                if "focus" in tags or "connected" in tags:
+                    weight += 6
 
-        special_date = get_special_date()
-        if special_date:
-            weighted_tags.append(special_date)
+                # im gonna attempt to up the weight for dialogue with a lot of constraints
+                # like scribble just did in clangen for shortevents
+                # but, of course, worse
+                for constraint in item:
+                    if constraint.endswith("inventory_changes"):
+                        break
+                    if constraint not in ["y_c", "t_c", "relationship", "tags", "season"]:
+                        continue
+                    for tag in item[constraint]:
+                        weight += 2
+                # print(dialogue_id + ": ", weight)
 
-        # print("------")
-        for dialogue_id, item in texts_list.items():
-            tags = item["tags"] if "tags" in item else {}
-            weight = 1
-            if any(tag in weighted_tags for tag in tags):
-                weight += 3
-            if "focus" in tags or "connected" in tags:
-                weight += 6
-
-            # im gonna attempt to up the weight for dialogue with a lot of constraints
-            # like scribble just did in clangen for shortevents
-            # but, of course, worse
-            for constraint in item:
-                if constraint.endswith("inventory_changes"):
-                    break
-                if constraint not in ["y_c", "t_c", "relationship", "tags", "season"]:
-                    continue
-                for tag in item[constraint]:
-                    weight += 2
-            # print(dialogue_id + ": ", weight)
-
-            weights.append(weight)
+                weights.append(weight)
 
         # Check for debug mode
         if game.config.get("debug_ensure_dialogue") in texts_list:
@@ -1789,10 +1789,7 @@ class TalkScreen(Screens):
 
         # Try to find a valid, unused text
         for _ in range(MAX_RETRIES):
-            try:
-                text_chosen_key = choices(list(texts_list.keys()), weights=weights)[0]
-            except:
-                text_chosen_key = choice(list(texts_list.keys()))
+            text_chosen_key = choices(list(texts_list.keys()), weights=weights)[0]
             text = texts_list[text_chosen_key]["intro"] if "intro" in texts_list[text_chosen_key] else texts_list[text_chosen_key][1]
             new_text = self.get_adjusted_txt(text, cat)
             
@@ -1820,6 +1817,7 @@ class TalkScreen(Screens):
         for item in texts_list.values():
             tags = item["tags"] if "tags" in item else []
             weights.append(len(tags))
+        
         text_chosen_key = choices(list(texts_list.keys()), weights=weights)[0]
         text = texts_list[text_chosen_key]["intro"] if "intro" in texts_list[text_chosen_key] else texts_list[text_chosen_key][1]
         if text is None:
