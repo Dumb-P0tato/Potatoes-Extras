@@ -31149,7 +31149,7 @@
         ],
         "intro": [
             "[As you bandage a few of t_c's scratches, {PRONOUN/t_c/subject} {VERB/t_c/purr/purrs} gratefully.]",
-            "I'm glad you're here to take care of me, y_c. You're a much better medicine cat than r-m_dislike.",
+            "I'm glad you're here to take care of me, y_c. You're a much better medicine cat than r_m-dislike.",
             "[t_c stiffens suddenly and looks around, as if r-m_dislike will emerge from the shadows. {PRONOUN/t_c/subject/CAP} {VERB/t_c/chuckle/chuckles} nervously, but {VERB/t_c/don't/doesn't} say anything else for the rest of the checkup.]"
         ]
     },
