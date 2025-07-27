@@ -3334,6 +3334,9 @@
         "y_c": {
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "kitten"
             ]
         },
         "t_c": {
