@@ -3893,7 +3893,7 @@
         "t_c": {
             "status": [
                 "medicine_cat",
-                "medicine_cat_apprentice"
+                "medicine cat apprentice"
             ],
             "cluster": [
                 "neurotic"
@@ -3921,7 +3921,7 @@
         "t_c": {
             "status": [
                 "medicine_cat",
-                "medicine_cat_apprentice"
+                "medicine cat apprentice"
             ],
             "condition": [
                 "blind:any:false"
@@ -3948,7 +3948,7 @@
         },
         "t_c": {
             "status": [
-                "medicine_cat_apprentice"
+                "medicine cat apprentice"
             ],
             "cluster": [
                 "neurotic"
@@ -3994,7 +3994,7 @@
         "t_c": {
             "status": [
                 "medicine_cat",
-                "medicine_cat_apprentice"
+                "medicine cat apprentice"
             ],
             "cluster": [
                 "neurotic"
@@ -4077,7 +4077,7 @@
             "status": ["not_medicine_cat", "not_medicine_cat_apprentice"]
         },
         "t_c": {
-"status": ["medicine_cat", "medicine_cat_apprentice"],
+"status": ["medicine cat", "medicine cat apprentice"],
             "cluster": ["brooding"]
 },
         "relationship": ["max_dislike_5", "max_platonic_30"],
