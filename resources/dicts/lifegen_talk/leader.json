@@ -4665,18 +4665,12 @@
     },
     "headda_sam1": {
         "y_c": {
-            "status": [
-                "medicine cat apprentice",
-                "medicine cat"
-            ]
+            "status": ["medicine cat apprentice", "medicine cat"]
         },
         "t_c": {
-            "status": [
-                "leader"
-            ],
-            "cluster": [
-                "brooding"
-            ]
+            "status": ["leader"],
+            "cluster": ["brooding"],
+            "condition": ["head damage"]
         },
         "intro": [
             "Oh, t_m!",
@@ -4686,7 +4680,8 @@
             "|t_m|Dear, you need to go lay back down. You're going to fall over.",
             "But you just look soo amazing!",
             "[t_c sways on {PRONOUN/t_c/poss} paws and t_m gently nudges {PRONOUN/t_c/object} back into {PRONOUN/t_c/poss} nest.]",
-            "[Yeah... You're definitely keeping t_c in the medicine den. d_n can take over leading the Clan until t_c is better.]"
+            "[Yeah... You're definitely keeping t_c in the medicine den. d_n can take over leading the clan until t_c is better.]"
         ]
     }
+
 }
