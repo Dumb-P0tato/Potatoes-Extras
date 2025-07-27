@@ -1848,14 +1848,14 @@ class TalkScreen(Screens):
         """ gets the current cat speaking for multi-character dialogue """
         if "|" in text_string:
             fragments = text_string.split("|")
-            # try:
-            # print("fragments:", fragments)
-            cat = self.cat_dict[fragments[1]]
-            # print("Speaking:", cat.name)
-            # except KeyError as e:
-            #     print("No", fragments[1], "in cat_dict")
-            #     print(self.cat_dict)
-            #     cat = self.the_cat
+            if fragments[1] in self.cat_dict:
+                cat = self.cat_dict[fragments[1]]
+            else:
+                self.get_adjusted_txt([fragments[1]], self.the_cat)
+                if fragments[1] in self.cat_dict:
+                    cat = self.cat_dict[fragments[1]]
+                else:
+                    cat = self.the_cat
         else:
             cat = self.the_cat
         return text_string, cat
