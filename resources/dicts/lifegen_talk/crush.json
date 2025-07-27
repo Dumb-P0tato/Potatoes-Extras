@@ -177,10 +177,10 @@
             "min_platonic_50"
         ],
         "intro": [
-            "Ah - maybe I just gotta face it, y_c. There's no way I'm gonna end up with rlike-r_c, not in a million moons.",
-            "Why would a cat like {PRONOUN/t_c/object} ever settle down with a cat like me? It just wouldn't make any sense.",
-            "Maybe I just gotta move on and -- Oh, hang on, {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} coming over here!",
-            "Oh - Oh, hey, rlike-r_c! Yeah, sure, I can come on a walk with you tonight, when are you free?",
+            "Ah - maybe I just gotta face it, y_c. There's no way I'm gonna end up with their_crush, not in a million moons.",
+            "Why would a cat like {PRONOUN/their_crush/object} ever settle down with a cat like me? It just wouldn't make any sense.",
+            "Maybe I just gotta move on and -- Oh, hang on, {PRONOUN/their_crush/subject}{VERB/their_crush/'re/'s} coming over here!",
+            "Oh - Oh, hey, their_crush! Yeah, sure, I can come on a walk with you tonight, when are you free?",
             "[You roll your eyes. t_c is hopeless!]"
         ]
     },
