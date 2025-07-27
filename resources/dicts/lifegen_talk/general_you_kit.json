@@ -9754,7 +9754,7 @@
             "status": ["kitten"]
         },
         "t_c": {
-"status": ["medicine_cat", "medicine_cat_apprentice"],
+"status": ["medicine cat", "medicine cat apprentice"],
             "cluster": ["brooding"],
             "condition": ["blind:any:false"]
 },
@@ -9772,7 +9772,7 @@
             "condition": ["illness:none"]
         },
         "t_c": {
-"status": ["medicine_cat", "medicine_cat_apprentice"],
+"status": ["medicine cat", "medicine cat apprentice"],
             "cluster": ["brooding"],
 	"min_max_faith": [0,9]
 },
@@ -9791,7 +9791,7 @@
             "condition": ["deaf:any:false"]
         },
         "t_c": {
-"status": ["medicine_cat", "medicine_cat_apprentice"],
+"status": ["medicine cat", "medicine cat apprentice"],
             "cluster": ["brooding"],
             "condition": ["blind:any:false", "deaf:any:false"]
 },
@@ -9807,7 +9807,7 @@
             "status": ["kitten"]
         },
         "t_c": {
-"status": ["medicine_cat", "medicine_cat_apprentice"],
+"status": ["medicine cat", "medicine cat apprentice"],
             "cluster": ["brooding"],
             "condition": ["blind:any:false"]
 },
@@ -9826,7 +9826,7 @@
             "condition": ["blind:any:false"]
         },
         "t_c": {
-"status": ["apprentice", "medicine_cat_apprentice", "queen's_apprentice", "mediator_apprentice"],
+"status": ["apprentice", "medicine cat apprentice", "queen's apprentice", "mediator apprentice"],
             "cluster": ["brooding"],
             "condition": ["blind:any:false"]
 },
@@ -9843,7 +9843,7 @@
             "condition": ["deaf:any:false"]
         },
         "t_c": {
-"status": ["apprentice", "medicine_cat_apprentice", "queen's_apprentice", "mediator_apprentice"],
+"status": ["apprentice", "medicine cat apprentice", "queen's apprentice", "mediator apprentice"],
             "cluster": ["brooding"],
             "condition": ["blind:any:false", "deaf:any:false"]
 },
@@ -9913,7 +9913,7 @@
             "condition": ["blind:any:false"]
         },
         "t_c": {
-"status": ["queen", "queen's_apprentice"],
+"status": ["queen", "queen's apprentice"],
             "cluster": ["brooding"],
             "condition": ["blind:any:false"]
 },

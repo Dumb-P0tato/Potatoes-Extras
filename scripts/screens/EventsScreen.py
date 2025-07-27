@@ -945,19 +945,19 @@ class EventsScreen(Screens):
         # ----------------------------------------------------------------
 
         self.ceremony_events = [
-            x for x in game.cur_events_list if "ceremony" in x.types
+            x for x in game.cur_events_list if "ceremony" in x.types and x.text
         ]
         self.birth_death_events = [
-            x for x in game.cur_events_list if "birth_death" in x.types
+            x for x in game.cur_events_list if "birth_death" in x.types and x.text
         ]
         self.relation_events = [
-            x for x in game.cur_events_list if "relation" in x.types
+            x for x in game.cur_events_list if "relation" in x.types and x.text
         ]
-        self.health_events = [x for x in game.cur_events_list if "health" in x.types]
+        self.health_events = [x for x in game.cur_events_list if "health" in x.types and x.text]
         self.other_clans_events = [
             x for x in game.cur_events_list if "other_clans" in x.types
         ]
-        self.misc_events = [x for x in game.cur_events_list if "misc" in x.types]
+        self.misc_events = [x for x in game.cur_events_list if "misc" in x.types and x.text]
 
     def update_events_display(self):
         """

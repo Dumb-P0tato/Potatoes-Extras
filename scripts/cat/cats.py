@@ -3406,7 +3406,10 @@ class Cat:
                     if kitty in failed_cats:
                         continue
                     cat_choices.append(kitty)
-            random_cat = choice(cat_choices)
+            if cat_choices:
+                random_cat = choice(cat_choices)
+            else:
+                random_cat = choice(cats)
             count = "mult"
         # ---
 
