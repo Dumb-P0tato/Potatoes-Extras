@@ -4071,5 +4071,23 @@
             "All right. Those look like they'll heal on their own, but let me know if they start hurting more.",
             "I'd prefer to not use herbs on small scrapes, but I will if there's an infection risk."
         ]
-    }
+    },
+    "medicine_cat_brooding_SQ1": {
+        "y_c": {
+            "status": ["not_medicine_cat", "not_medicine_cat_apprentice"]
+        },
+        "t_c": {
+"status": ["medicine_cat", "medicine_cat_apprentice"],
+            "cluster": ["brooding"]
+},
+        "relationship": ["max_dislike_5", "max_platonic_30"],
+        "intro": [
+            "*grumble* Everyone's been visiting the medicine den today with all kinds of trivial injuries.",
+            "Scrapes, aches, being sore from training...",
+            "Yes, I'm a medicine cat, but that doesn't mean everyone should come crying to me for help with every little thing!",
+            "...",
+            "You better not be here to ask me to look at a tiny scratch too, y_c."
+]
+}
+
 }

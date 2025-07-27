@@ -1553,7 +1553,7 @@
             "Taking first one step ... And then another step ...",
             "And as the disgusting stench of rabbit filled y_c's nostrils, the pit in {PRONOUN/y_c/poss} stomach grew larger, and larger ... UNTIL --",
             "[t_c suddenly taps your shoulder with {PRONOUN/t_c/poss} tail, making you jump.]",
-            "It GOT {PRONOUN/y_c/subject}!!! Hahaha!",
+            "It GOT {PRONOUN/y_c/object}!!! Hahaha!",
             "Better sleep with one eye open tonight, y_c! That rabbit's gonna want its foot back! Ahahahaha!"
         ]
     },
@@ -9748,5 +9748,298 @@
             "Ah... Ah-choo!",
             "... Sorry, kit. Try giving it to r_c. Maybe {PRONOUN/r_c/subject}'ll be able to appreciate it more."
         ]
-    }
+    },
+    "you_kit_brooding_SQ1~1": {
+        "y_c": {
+            "status": ["kitten"]
+        },
+        "t_c": {
+"status": ["medicine_cat", "medicine_cat_apprentice"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["max_platonic_20"],
+        "intro": [
+            "I'm sorting herbs in here. Move.",
+            "No, you can't watch. I'll turn my back and the next thing I know, you'll be playing in my marigold.",
+            "Seriously. Leave."
+]
+},
+
+ "you_kit_brooding_SQ2": {
+        "y_c": {
+            "status": ["kitten"],
+            "condition": ["illness:none"]
+        },
+        "t_c": {
+"status": ["medicine_cat", "medicine_cat_apprentice"],
+            "cluster": ["brooding"],
+	"min_max_faith": [0,9]
+},
+        "relationship": ["max_platonic_20"],
+        "intro": [
+            "You want what? Honey? Absolutely not.",
+            "[t_c rolls {PRONOUN/t_c/poss} eyes.]",
+            "Who told you to ask me for that? r_w-silly? StarClan, of course {PRONOUN/r_w-silly/subject} did...",
+            "[t_c grumbles to {PRONOUN/t_c/self} for a bit before chasing you out of the medicine den.]"
+]
+},
+
+ "you_kit_brooding_SQ3": {
+        "y_c": {
+            "status": ["kitten"],
+            "condition": ["deaf:any:false"]
+        },
+        "t_c": {
+"status": ["medicine_cat", "medicine_cat_apprentice"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false", "deaf:any:false"]
+},
+        "relationship": ["max_platonic_20"],
+        "intro": [
+            "[You hover behind t_c, watching as {PRONOUN/t_c/subject} {VERB/t_c/sort/sorts} through strong-smelling leaves. They all look so strange! And they seem so crunchy...]",
+            "[As soon as you get within reach of their herbs, t_c suddenly grabs you by the scruff, drops you unceremoniously outside the den, and returns to {PRONOUN/t_c/poss} work with a huff.]"
+]
+},
+
+ "you_kit_brooding_SQ4": {
+        "y_c": {
+            "status": ["kitten"]
+        },
+        "t_c": {
+"status": ["medicine_cat", "medicine_cat_apprentice"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["max_platonic_20"],
+        "intro": [
+            "[You creep over to the medicine den. t_c sits inside with {PRONOUN/t_c/poss} back to you, tending to r_s.]",
+            "[Mustering all of your stealth skills, you take one step into the den, and...]",
+            "y_c. Leave.",
+            "[How did {PRONOUN/t_c/subject} even know you were there??]"
+]
+},
+
+ "you_kit_brooding_SQ5": {
+        "y_c": {
+            "status": ["kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+"status": ["apprentice", "medicine_cat_apprentice", "queen's_apprentice", "mediator_apprentice"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["max_platonic_20"],
+        "intro": [
+            "No, I won't show you what tm_n taught me today. Wait until you're an apprentice.",
+            "[You follow t_c around camp, hoping {PRONOUN/t_c/subject}'ll relent, but {PRONOUN/t_c/subject} pointedly {VERB/t_c/ignore/ignores} you.]"
+]
+},
+
+ "you_kit_brooding_SQ6": {
+        "y_c": {
+            "status": ["kitten"],
+            "condition": ["deaf:any:false"]
+        },
+        "t_c": {
+"status": ["apprentice", "medicine_cat_apprentice", "queen's_apprentice", "mediator_apprentice"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false", "deaf:any:false"]
+},
+        "relationship": ["max_platonic_25"],
+        "intro": [
+            "[t_c always seems so grumpy, especially for such a young cat, so you're startled when plike-r_a launches {PRONOUN/plike-r_a/self} at {PRONOUN/t_c/object} with a play-swipe. You freeze. Won't t_c snap at {PRONOUN/plike-r_a/object}?]",
+            "[To your surprise, t_c dodges the swipe and retaliates with a gentle bat of their own. You glimpse {PRONOUN/t_c/poss} genuine, momentary smile.]",
+            "[...Huh. Weird.]"
+]
+},
+
+ "you_kit_brooding_SQ7": {
+        "y_c": {
+            "status": ["kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+"status": ["apprentice"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["max_platonic_20"],
+        "intro": [
+            "I'm practicing, y_c. Move before I trip on you.",
+            "Seriously. If you <i>need</i> to bother an apprentice, go get in dislike-r_a's way."
+]
+},
+
+ "you_kit_brooding_SQ8": {
+        "y_c": {
+            "status": ["kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+"status": ["apprentice"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["max_platonic_20", "max_dislike_10"],
+        "intro": [
+            "[You ask t_c what {PRONOUN/t_c/subject} and tm_n did today! You expect the apprentice to brush you off like usual, but instead {PRONOUN/t_c/subject} {VERB/t_c/pause/pauses}.]",
+            "We... went hunting. Close to the stream. I caught a mouse.",
+            "...tm_n said I did a good job."
+]
+},
+
+ "you_kit_brooding_SQ9": {
+        "y_c": {
+            "status": ["kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+"age": ["not_kitten", "not_adolescent"],
+            "cluster": ["strict", "grumpy"],
+	"min_max_faith": [-1,9]
+},
+        "relationship": ["max_platonic_20"],
+        "intro": [
+            "Don't track mud into the dens, y_c!",
+            "StarClan, it's hard enough to keep things tidy around here without kits bouncing around..."
+]
+},
+
+ "you_kit_brooding_SQ10": {
+        "y_c": {
+            "status": ["kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+"status": ["queen", "queen's_apprentice"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["max_platonic_20", "max_dislike_20"],
+        "intro": [
+            "Time for sleep, y_c. Come over here.",
+            "No, you don't get five more minutes of mossball. If you stay up any longer you'll be a pain tomorrow.",
+            "[Despite your protests, t_c grabs you by the scruff and plops you firmly in your nest.]",
+            "Quiet down, now. I'm not going to tell you again."
+]
+},
+
+ "you_kit_brooding_SQ11": {
+        "y_c": {
+            "status": ["kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+"status": ["deputy"],
+            "cluster": ["brooding", "upstanding"]
+},
+        "relationship": ["max_platonic_30", "max_dislike_20"],
+        "intro": [
+            "[t_c is announcing patrol assignments! You stand amid the warriors, hoping t_c might play along and call your name.]",
+            "...And finally, r_w1 and r_w2 will be hunting with me this evening. That's all. Dismissed.",
+            "[Aw. No luck.]"
+]
+},
+
+ "you_kit_brooding_SQ12": {
+        "y_c": {
+            "status": ["kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+"status": ["not_queen", "not_queen's_apprentice"],
+            "age": ["not_kitten", "not_adolescent"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["max_platonic_15"],
+        "intro": [
+            "Move aside, y_c. If I wanted kits hanging off of me every minute, I would've become a queen.",
+            "Leave me alone before I call r_q."
+]
+},
+
+ "you_kit_brooding_SQ13": {
+        "y_c": {
+            "status": ["kitten"]
+        },
+        "t_c": {
+            "age": ["not_kitten", "not_adolescent"],
+            "cluster": ["brooding", "upstanding"]
+},
+        "relationship": ["from_your_parent", "from_adopted_parent"],
+        "intro": [
+            "y_c? What are you still doing up?",
+            "[Your {PRONOUN/t_c/parent} looks down at you sternly.]",
+            "It's dark. That means it's bedtime. Now close your eyes and try to fall asleep."
+]
+},
+"upstanding_general_you_kitten_SQ1": {
+    "y_c": {
+        "status": ["kitten"],
+        "condition": ["blind:any:false"]
+    },
+    "t_c": {
+        "status": ["warrior", "deputy", "leader"],
+        "cluster": ["upstanding"]
+},
+    "relationship": ["max_dislike_10"],
+    "intro": [
+       "[t_c is teaching r_a a battle move on the edge of camp. You creep closer, watching t_c run the apprentice through the exercise again and again.]",
+       "No, you're letting yourself get too unbalanced. An enemy will take advantage of that. Try once more... oh. Hello, y_c. Make sure you stay out of the way.",
+       "Yes, you can watch, but stay at least one tail-length behind me."
+]
+},
+
+"upstanding_general_you_kitten_SQ2": {
+    "y_c": {
+        "status": ["kitten"],
+        "condition": ["blind:any:false"]
+    },
+    "t_c": {
+        "age": ["adult", "senior adult", "senior"],
+        "cluster": ["upstanding", "stable"],
+        "condition": ["blind:any:false"]
+},
+    "intro": [
+       "[d_n and l_n are talking with an unfamiliar cat by l_n's den. You sneak closer to hear what they're saying, but are scooped up by t_c.]",
+       "Don't eavesdrop, y_c. And that conversation isn't for kits' ears, anyhow.",
+       "[t_c takes you back to the nursery and blocks your further escape attempts. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} no fun..."
+]
+},
+
+"upstanding_general_you_kitten_SQ3": {
+    "y_c": {
+        "status": ["kitten"],
+        "condition": ["blind:any:false"]
+    },
+    "t_c": {
+        "status": ["warrior", "deputy"],
+        "cluster": ["upstanding"],
+        "condition": ["blind:any:false"]
+},
+    "intro": [
+       "No, you can't come on our patrol! That's not what kits do.",
+       "My job is patrolling, hunting, and defending the Clan. Your job is to stay in camp and play games. That's just how things work. Can you do that for me?"
+]
+},
+
+"upstanding_general_you_kitten_SQ4": {
+    "y_c": {
+        "status": ["kitten"]
+    },
+    "t_c": {
+        "status": ["warrior", "deputy"],
+        "cluster": ["upstanding"]
+},
+    "intro": [
+       "It's important to be on time, y_c. Punctuality is what keeps this Clan running.",
+       "[t_c eyes the members of {PRONOUN/t_c/poss} patrol, who are loitering by the fresh-kill pile. They don't seem in any hurry to head out.]",
+       "*sigh* When you're an apprentice, I hope you'll care more about punctuality than <i>some</i> of our Clanmates do."
+]
+}
+
+
 }

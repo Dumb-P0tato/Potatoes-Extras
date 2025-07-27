@@ -16862,63 +16862,102 @@
             "y_c? How much longer will it be until my burn heals? I wanna play more mossball!"
         ]
     },
-    "recovering_from_birth_SQ1": {
+    "upstanding_kitten_SQ1": {
         "y_c": {
-            "status": [
-                "kitten"
-            ]
+            "age": ["newborn"],
+            "cluster": ["assertive", "silly", "unlawful"],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
-            "status": [
-                "not_kitten"
-            ],
-            "cluster": [
-                "stable"
-            ],
-            "condition": [
-                "recovering from birth",
-                "blind:any:false"
-            ]
-        },
-        "relationship": [
-            "max_dislike_10"
-        ],
+"status": ["kitten"],
+            "cluster": ["upstanding"],
+            "condition": ["blind:any:false"]
+},
         "intro": [
-            "[You and r_k run up to t_c, hoping {PRONOUN/t_c/subject}'ll play mossball with you! Your excitement dissipates as t_c shakes {PRONOUN/t_c/poss} head.]",
-            "Sorry, you two. I still need to rest! Jumping around wouldn't be good for me right now.",
-            "|r_k|Why not? Are you sick? You don't <i>seem</i> sick.",
-            "I just had kittens, remember? I was carrying them around inside me for a long time, and that takes a lot of energy. So now it's important for me to rest.",
-            "I hope I can play with you soon, though!"
-        ]
-    },
-    "recovering_from_birth_SQ2": {
+           "Newborns are s'posed to stay in their nests. You're not allowed to wander around yet!",
+           "[Ignoring your mews of protest, t_c nudges you back into your moss-lined bed.]"
+]
+},
+
+ "upstanding_kitten_SQ2": {
+        "t_c": {
+"status": ["kitten"],
+            "cluster": ["upstanding"]
+},
+        "relationship": ["min_platonic_5", "max_dislike_10"],
+        "intro": [
+           "I wonder who's gonna be my mentor. There's a lot of good cats...",
+           "[t_c scans the camp, {PRONOUN/t_c/poss} gaze lingering on plike-r_w1 and plike-r_w2.]",
+           "I just want someone who's serious about teaching me! And isn't, like, a pushover...",
+           "l_n better choose someone good."
+]
+},
+
+ "upstanding_kitten_SQ3": {
+        "t_c": {
+"status": ["kitten"],
+            "cluster": ["upstanding"]
+},
+        "relationship": ["min_platonic_5", "max_dislike_10"],
+        "intro": [
+           "Did you see r_k-assertive running after l_n, begging {PRONOUN/l_n/object} to make {PRONOUN/r_k-assertive/object} an apprentice early?",
+           "[t_c heaves a dramatic sigh.]",
+           "We have the six-moon rule for a reason! And of course I want to be an apprentice, too, but that doesn't mean I'm gonna ask cats to break the rules for me!"
+]
+},
+
+ "upstanding_kitten_SQ4": {
         "y_c": {
-            "status": [
-                "kitten"
-            ],
-            "condition": [
-                "blind:any:false"
-            ]
+            "status": ["kitten"],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
-            "status": [
-                "not_kitten"
-            ],
-            "cluster": [
-                "upstanding"
-            ],
-            "condition": [
-                "recovering from birth",
-                "blind:any:false"
-            ]
-        },
-        "relationship": [
-            "max_platonic_20"
-        ],
+"status": ["kitten"],
+            "cluster": ["upstanding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["max_dislike_5"],
         "intro": [
-            "No, t_c, I'm not going to run around with you. I need to rest and recover.",
-            "See, for a while, my job was to take care of myself and carry kits, and now my job is to get better so I can return to my usual tasks.",
-            "Things have fallen behind enough already without my help."
-        ]
-    }
+           "y_c! y_c! I decided we should have a schedule, just like the adults do!",
+           "So I made one. First, we're gonna have breakfast, and then we're gonna go watch d_n organize patrols, and then we're gonna clean the nursery...",
+           "[You try to interject, but t_c talks over you.]",
+           "...And then we're gonna ask if anyone needs help, and then we'll patrol the elders' den, and then...",
+           "[StarClan, you're going to be busy if t_c gets {PRONOUN/t_c/poss} way!]"
+]
+},
+
+ "upstanding_kitten_SQ5": {
+        "y_c": {
+            "condition": ["illness:any", "injury:any"]
+        },
+        "t_c": {
+"status": ["kitten"],
+            "cluster": ["upstanding"]
+},
+        "relationship": ["max_dislike_5"],
+        "intro": [
+           "r_m said you aren't feeling well. Why aren't you asleep?",
+           "[t_c draws {PRONOUN/t_c/self} up and looks sternly down at you.]",
+           "r_m also said it's important that you sleep, so you get better! So come on, close your eyes and take a nap!"
+]
+},
+
+ "upstanding_kitten_SQ6": {
+        "y_c": {
+            "status": ["kitten"],
+            "cluster": ["assertive", "cool", "upstanding", "silly", "unabashed"]
+        },
+        "t_c": {
+            "status": ["kitten"],
+            "cluster": ["upstanding"],
+            "condition": ["illness:any", "injury:any"]
+},
+        "relationship": ["max_dislike_5"],
+        "intro": [
+           "[t_c turns away when you begin inviting {PRONOUN/t_c/object} to play.]",
+           "I'm s'posed to rest so I get better. r_m's orders.",
+           "No, don't argue! You've gotta leave me alone now."
+]
+}
+
 }
