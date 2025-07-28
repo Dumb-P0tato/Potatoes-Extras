@@ -1910,7 +1910,7 @@ def pronoun_repl(m, cat_pronouns_dict, raise_exception=False):
             if "-" in abbrev:
                 fragments = abbrev.split("-")
                 for f in fragments:
-                    if "_" in f or f == "theircrush":
+                    if "_" in f or f in ["theircrush", "yourcrush"]:
                         # print("RAISE EXC-- CHANGING:", abbrev, "=>", f)
                         inner_details[1] = f
                         break
