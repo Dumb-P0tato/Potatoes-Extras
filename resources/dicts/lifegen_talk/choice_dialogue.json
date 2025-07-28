@@ -6253,11 +6253,11 @@
             "min_trust_15"
         ],
         "intro": [
-            "I feel like rlike-r_c-neurotic understands me like not many cats do, you know?",
+            "I feel like theircrush-neurotic understands me like not many cats do, you know?",
             "Like, we were on a walk yesterday, and a branch fell out of nowhere, and both of us jumped! And usually, I'd be super embarrassed, but because we were both scared, it was easier to laugh it off...",
-            "It <i>was</i> pretty funny! And I think {PRONOUN/rlike-r_c-neurotic/subject} felt more relaxed afterwards, too... we had a good conversation, and {PRONOUN/rlike-r_c-neurotic/subject} told some really good jokes.",
-            "[t_c gazes across the camp at rlike-r_c-neurotic, who's napping in a sunbeam. t_c sighs.]",
-            "I've wanted to ask them to be my mate for a while now, but I'm not sure if {PRONOUN/rlike-r_c-neurotic/subject} {VERB/rlike-r_c-neurotic/like/likes} me that way. And even if {PRONOUN/rlike-r_c-neurotic/subject} {VERB/rlike-r_c-neurotic/do/does}, I still feel {PRONOUN/rlike-r_c-neurotic/subject} {VERB/rlike-r_c-neurotic/deserve/deserves} someone braver."
+            "It <i>was</i> pretty funny! And I think {PRONOUN/theircrush-neurotic/subject} felt more relaxed afterwards, too... we had a good conversation, and {PRONOUN/theircrush-neurotic/subject} told some really good jokes.",
+            "[t_c gazes across the camp at theircrush-neurotic, who's napping in a sunbeam. t_c sighs.]",
+            "I've wanted to ask them to be my mate for a while now, but I'm not sure if {PRONOUN/theircrush-neurotic/subject} {VERB/theircrush-neurotic/like/likes} me that way. And even if {PRONOUN/theircrush-neurotic/subject} {VERB/theircrush-neurotic/do/does}, I still feel {PRONOUN/theircrush-neurotic/subject} {VERB/theircrush-neurotic/deserve/deserves} someone braver."
         ],
         "intro_choices": {
             "choice1": {
@@ -6269,26 +6269,26 @@
                 "next_scene": "try"
             },
             "choice3": {
-                "text": "Yeah, {PRONOUN/rlike-r_c-neurotic/subject} {VERB/rlike-r_c-neurotic/do/does}.",
+                "text": "Yeah, {PRONOUN/theircrush-neurotic/subject} {VERB/theircrush-neurotic/do/does}.",
                 "next_scene": "criticize"
             }
         },
         "brave": [
             "[You agree that many things scare t_c, but those fears don't stop {PRONOUN/t_c/object} from being a valuable member of the Clan.]",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/face/faces} the things that {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} frightened of, and {VERB/t_c/push/pushes} forward despite {PRONOUN/t_c/poss} worries. Isn't that the definition of bravery?]",
-            "[You imagine that rlike-r_c-neurotic sees that, too. In fact, {PRONOUN/rlike-r_c-neurotic/subject} probably {VERB/rlike-r_c-neurotic/admire/admires} t_c for it.]",
+            "[You imagine that theircrush-neurotic sees that, too. In fact, {PRONOUN/theircrush-neurotic/subject} probably {VERB/theircrush-neurotic/admire/admires} t_c for it.]",
             "[t_c looks away self-consciously, but you see {PRONOUN/t_c/object} smiling. {PRONOUN/t_c/subject/CAP} {VERB/t_c/nod/nods} hesitantly.]",
-            "O-okay, y_c. Maybe I'll tell rlike-r_c-neurotic how I feel, or at least I'll think about it...",
+            "O-okay, y_c. Maybe I'll tell theircrush-neurotic how I feel, or at least I'll think about it...",
             "Thanks. I think you're being nicer than I deserve but... Thanks."
         ],
         "try": [
-            "[Maybe t_c isn't the bravest cat around, but there are many other things for rlike-r_c-neurotic to love about {PRONOUN/t_c/object}. You list a few. t_c looks embarrassed.]",
-            "[You remind t_c that the worst rlike-r_c-neurotic could do is say no, and while that might be awkward, at least t_c can say that {PRONOUN/t_c/subject} tried. t_c nods slowly.]",
+            "[Maybe t_c isn't the bravest cat around, but there are many other things for theircrush-neurotic to love about {PRONOUN/t_c/object}. You list a few. t_c looks embarrassed.]",
+            "[You remind t_c that the worst theircrush-neurotic could do is say no, and while that might be awkward, at least t_c can say that {PRONOUN/t_c/subject} tried. t_c nods slowly.]",
             "I'll... I'll think about it. Maybe I'll say something the next time I feel just a bit impulsive... which might be a while.",
             "Thanks, y_c."
         ],
         "criticize": [
-            "[You tell t_c that no one wants a mate who hides during thunderstorms, especially someone like rlike-r_c-neurotic who's already so nervous {PRONOUN/rlike-r_c-neurotic/self}. t_c's shoulders slump.]",
+            "[You tell t_c that no one wants a mate who hides during thunderstorms, especially someone like theircrush-neurotic who's already so nervous {PRONOUN/theircrush-neurotic/self}. t_c's shoulders slump.]",
             "You're right. Maybe I can work on it. I can... yeah, I can definitely get braver...",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/sigh/sighs}. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} definitely not convincing {PRONOUN/t_c/self}.]"
         ]

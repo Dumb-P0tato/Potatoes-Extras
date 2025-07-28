@@ -424,7 +424,7 @@ class MoonplaceScreen(Screens):
                     text = text.replace("yourcrush", str(crush.name))
                 else:
                     return ""
-            if "rlike-r_c" in text:
+            if "theircrush" in text:
                 if len(cat.mates) > 0 or cat.no_mates:
                     return ""
                 crush = None
@@ -438,7 +438,7 @@ class MoonplaceScreen(Screens):
                         crush = c
                         break
                 if crush:
-                    text = text.replace("rlike-r_c", str(crush.name))
+                    text = text.replace("theircrush", str(crush.name))
                 else:
                     return ""
 

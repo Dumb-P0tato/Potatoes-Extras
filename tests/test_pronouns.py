@@ -83,7 +83,7 @@ def test():
         "r_k": _r,
         "r_e": _r,
         "crush1": _r,
-        "rlike-r_c": _r,
+        "theircrush": _r,
         "yourcrush": _r,
         "mate1": _r,
         "r_w": _r,
