@@ -1910,7 +1910,7 @@ def pronoun_repl(m, cat_pronouns_dict, raise_exception=False):
             if "-" in abbrev:
                 fragments = abbrev.split("-")
                 for f in fragments:
-                    if "_" in f:
+                    if "_" in f or f in ["theircrush", "yourcrush"]:
                         # print("RAISE EXC-- CHANGING:", abbrev, "=>", f)
                         inner_details[1] = f
                         break
@@ -1934,7 +1934,7 @@ def pronoun_repl(m, cat_pronouns_dict, raise_exception=False):
         return "error1"
     except (KeyError, IndexError) as e:
         if raise_exception:
-            # print("ERROR HERE:", e)
+            print("ERROR HERE:", e)
             raise
 
         logger.exception("Failed to find pronoun: " + m.group(1))
