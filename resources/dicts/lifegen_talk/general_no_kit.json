@@ -41188,10 +41188,10 @@
             "min_platonic_30"
         ],
         "intro": [
-            "So... last night, rlike-r_c-brooding and I were up late talking. It was warm out, so we were just lying outside of camp, watching the fireflies.",
+            "So... last night, theircrush-brooding and I were up late talking. It was warm out, so we were just lying outside of camp, watching the fireflies.",
             "It was... really nice. I think we ended up falling asleep there, even though I know it's dangerous to fall asleep outside of camp...",
-            "But, um, this morning, {PRONOUN/rlike-r_c-brooding/subject}'d disappeared. And now, {PRONOUN/rlike-r_c-brooding/subject}{VERB/rlike-r_c-brooding/'re/'s} back to {PRONOUN/rlike-r_c-brooding/poss} grumpy self.",
-            "I'm trying to decide if I should try to talk to {PRONOUN/rlike-r_c-brooding/object} at all. I hope I didn't do anything wrong."
+            "But, um, this morning, {PRONOUN/theircrush-brooding/subject}'d disappeared. And now, {PRONOUN/theircrush-brooding/subject}{VERB/theircrush-brooding/'re/'s} back to {PRONOUN/theircrush-brooding/poss} grumpy self.",
+            "I'm trying to decide if I should try to talk to {PRONOUN/theircrush-brooding/object} at all. I hope I didn't do anything wrong."
         ]
     },
     "neurotic_abouttheircrush_SQ10": {
@@ -41216,11 +41216,11 @@
         ],
         "intro": [
             "[t_c creeps into camp with a mouthful of colorful, crunchy leaves. {PRONOUN/t_c/subject/CAP} {VERB/t_c/glance/glances} around with the expression of someone about to commit a terrible crime, and {VERB/t_c/stiffen/stiffens} when {PRONOUN/t_c/subject} {VERB/t_c/see/sees} you.]",
-            "Um... hi, y_c! Is rlike-r_c around?",
-            "[t_c's voice is muffled by the leaves. You tell {PRONOUN/t_c/object} that rlike-r_c left to take a walk several minutes ago, and t_c brightens.]",
-            "Oh! Perfect. Um, okay, I want to decorate {PRONOUN/rlike-r_c/poss} nest with these leaves, unless you think that's a bad idea? Could you keep watch and, like, make a bird sound if rlike-r_c comes back?",
-            "[You agree, and sit outside of rlike-r_c's den while t_c sneaks inside. Several minutes later {PRONOUN/t_c/subject} {VERB/t_c/dash/dashes} back out, leaf-free, with the wide eyes of someone fleeing a murder scene.]",
-            "[Hopefully, rlike-r_c's surprise is worth t_c's stress!]"
+            "Um... hi, y_c! Is theircrush around?",
+            "[t_c's voice is muffled by the leaves. You tell {PRONOUN/t_c/object} that theircrush left to take a walk several minutes ago, and t_c brightens.]",
+            "Oh! Perfect. Um, okay, I want to decorate {PRONOUN/theircrush/poss} nest with these leaves, unless you think that's a bad idea? Could you keep watch and, like, make a bird sound if theircrush comes back?",
+            "[You agree, and sit outside of theircrush's den while t_c sneaks inside. Several minutes later {PRONOUN/t_c/subject} {VERB/t_c/dash/dashes} back out, leaf-free, with the wide eyes of someone fleeing a murder scene.]",
+            "[Hopefully, theircrush's surprise is worth t_c's stress!]"
         ]
     },
     "neurotic_abouttheircrush_SQ11": {
@@ -41241,7 +41241,7 @@
             "min_platonic_40"
         ],
         "intro": [
-            "y_c! I just invited rlike-r_c to watch the sunset tomorrow. I know it's kind of what everyone does for a date, but I thought maybe {PRONOUN/rlike-r_c/subject}'d enjoy it anyways...",
+            "y_c! I just invited theircrush to watch the sunset tomorrow. I know it's kind of what everyone does for a date, but I thought maybe {PRONOUN/theircrush/subject}'d enjoy it anyways...",
             "Um, the problem is that I was really nervous, so I ended up saying that I knew a special spot to watch the sunset.",
             "But... I don't actually know a good spot. I don't know why I said that.",
             "Could you come look for a place with me?"
@@ -41265,11 +41265,11 @@
             "min_platonic_30"
         ],
         "intro": [
-            "[t_c has been talking with rlike-r_c-introspective just outside of camp for a while now. Occasionally, t_c nods seriously, but otherwise you can't tell what their conversation's about.]",
-            "[When the two finally part ways, you ask t_c what they were discussing with rlike-r_c-introspective. t_c laughs nervously.]",
-            "Um... honestly, I'm not too sure. We started talking about our days, but then rlike-r_c-introspective moved on to musing about the... weather, I guess? And after that I was lost.",
-            "{PRONOUN/rlike-r_c-introspective/subject/CAP}{VERB/rlike-r_c-introspective/'re/'s} too smart for me, but I just... really like listening to {PRONOUN/rlike-r_c-introspective/object} anyways.",
-            "And I still can't believe rlike-r_c-introspective wants to spend any time at all with me, so please don't tell {PRONOUN/rlike-r_c-introspective/object} I barely understood a thing {PRONOUN/rlike-r_c-introspective/subject} said."
+            "[t_c has been talking with theircrush-introspective just outside of camp for a while now. Occasionally, t_c nods seriously, but otherwise you can't tell what their conversation's about.]",
+            "[When the two finally part ways, you ask t_c what they were discussing with theircrush-introspective. t_c laughs nervously.]",
+            "Um... honestly, I'm not too sure. We started talking about our days, but then theircrush-introspective moved on to musing about the... weather, I guess? And after that I was lost.",
+            "{PRONOUN/theircrush-introspective/subject/CAP}{VERB/theircrush-introspective/'re/'s} too smart for me, but I just... really like listening to {PRONOUN/theircrush-introspective/object} anyways.",
+            "And I still can't believe theircrush-introspective wants to spend any time at all with me, so please don't tell {PRONOUN/theircrush-introspective/object} I barely understood a thing {PRONOUN/theircrush-introspective/subject} said."
         ]
     },
     "neurotic_skillclairvoyant_SQ1": {
