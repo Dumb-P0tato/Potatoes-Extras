@@ -59,34 +59,6 @@
             "text_horiz_alignment": "center"
         }
     },
-    "#image_button": {
-        "colours": {
-            "normal_bg": "#00000000",
-            "hovered_bg": "#00000000",
-            "disabled_bg": "#00000000",
-            "selected_bg": "#00000000",
-            "active_bg": "#00000000",
-            "normal_text": "#EFE5CE",
-            "hovered_text": "#EFE5CE",
-            "selected_text": "#EFE5CE",
-            "disabled_text": "#EFE5CE",
-            "link_text": "#00000000",
-            "link_hover": "#00000000",
-            "link_selected": "#00000000",
-            "text_shadow": "#00000000",
-            "normal_border": "#00000000",
-            "hovered_border": "#00000000",
-            "disabled_border": "#00000000",
-            "active_border": "#00000000",
-            "selected_border": "#00000000",
-            "normal_text_shadow": "#00000000"
-        },
-        "misc": {
-            "shadow_width": "0",
-            "tool_tip_delay": "0",
-            "text_horiz_alignment": "center"
-        }
-    },
     "#search_entry_box": {
         "font": {
             "name": "notosans",
