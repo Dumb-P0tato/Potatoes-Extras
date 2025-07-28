@@ -38259,8 +38259,8 @@
             ]
         },
         "intro": [
-            "[t_c watches r-k_neutral play by the nursery. {PRONOUN/t_c/subject/CAP} {VERB/t_c/sigh/sighs}.]",
-            "[You wonder if {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} hoping to be r-k_neutral's mentor one day, or if {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} afraid of the possibility, but t_c gets up and leaves before you get a chance to ask.]"
+            "[t_c watches r_k-neutral play by the nursery. {PRONOUN/t_c/subject/CAP} {VERB/t_c/sigh/sighs}.]",
+            "[You wonder if {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} hoping to be r_k-neutral's mentor one day, or if {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} afraid of the possibility, but t_c gets up and leaves before you get a chance to ask.]"
         ]
     },
     "neurotic_general_SQ21": {
