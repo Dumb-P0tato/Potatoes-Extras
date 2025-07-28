@@ -5368,7 +5368,7 @@
         "t_c": {
             "status": [
                 "medicine_cat",
-                "medicine_cat_apprentice"
+                "medicine cat apprentice"
             ],
             "cluster": [
                 "neurotic"
@@ -5396,7 +5396,7 @@
         "t_c": {
             "status": [
                 "medicine_cat",
-                "medicine_cat_apprentice"
+                "medicine cat apprentice"
             ],
             "condition": [
                 "blind:any:false"
@@ -5414,7 +5414,7 @@
     "cracked_pads_SQ2": {
         "y_c": {
             "status": [
-                "medicine_cat_apprentice"
+                "medicine cat apprentice"
             ]
         },
         "t_c": {
@@ -5526,7 +5526,7 @@
         "t_c": {
             "status": [
                 "medicine_cat",
-                "medicine_cat_apprentice"
+                "medicine cat apprentice"
             ],
             "cluster": [
                 "neurotic"
@@ -5605,10 +5605,10 @@
     },
     "you_kit_brooding_SQ1~2": {
         "y_c": {
-            "status": ["apprentice", "queen's_apprentice", "mediator_apprentice"]
+            "status": ["apprentice", "queen's apprentice", "mediator apprentice"]
         },
         "t_c": {
-"status": ["medicine_cat"],
+"status": ["medicine cat"],
             "cluster": ["brooding"]
 },
         "relationship": ["max_dislike_5"],
@@ -5625,7 +5625,7 @@
             "status": ["not_medicine_cat", "not_medicine_cat_apprentice"]
         },
         "t_c": {
-"status": ["medicine_cat", "medicine_cat_apprentice"],
+"status": ["medicine cat", "medicine cat apprentice"],
             "cluster": ["brooding"]
 },
         "relationship": ["max_dislike_5", "max_platonic_30"],
@@ -5641,7 +5641,7 @@
  "medicine_cat_brooding_SQ2": {
         "season": ["leafbare"],
         "t_c": {
-"status": ["medicine_cat"],
+"status": ["medicine cat"],
             "cluster": ["brooding"]
 },
         "intro": [
