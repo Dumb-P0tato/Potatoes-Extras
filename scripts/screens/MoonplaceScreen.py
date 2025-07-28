@@ -424,7 +424,7 @@ class MoonplaceScreen(Screens):
                     text = text.replace("yourcrush", str(crush.name))
                 else:
                     return ""
-            if "rlike-r_c" in text:
+            if "theircrush" in text:
                 if len(cat.mates) > 0 or cat.no_mates:
                     return ""
                 crush = None
@@ -438,7 +438,7 @@ class MoonplaceScreen(Screens):
                         crush = c
                         break
                 if crush:
-                    text = text.replace("rlike-r_c", str(crush.name))
+                    text = text.replace("theircrush", str(crush.name))
                 else:
                     return ""
 
@@ -821,7 +821,7 @@ class MoonplaceScreen(Screens):
     def get_other_med_greeting(self, possible_texts):
         """Handles other medicine cat greetings at the Moonplace."""
         
-        def format_greeting(template: str, clan_name: str, med_names: list[str]) -> str:
+        def format_greeting(template, clan_name, med_names):
             formatted_names = ", ".join(med_names[:-1]) + f", and {med_names[-1]}" if len(med_names) > 2 else \
                             " and ".join(med_names) if len(med_names) == 2 else \
                             med_names[0]

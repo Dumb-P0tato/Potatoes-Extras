@@ -83,7 +83,7 @@ def test():
         "r_k": _r,
         "r_e": _r,
         "crush1": _r,
-        "rlike-r_c": _r,
+        "theircrush": _r,
         "yourcrush": _r,
         "mate1": _r,
         "r_w": _r,
@@ -128,7 +128,7 @@ def test():
         "yg_c": _r,
         "n_r1": _r,
         "n_r2": _r,
-
+        "theircrush": _r,
         "insert_siblings": _r,
         "o_c1": _r
     }

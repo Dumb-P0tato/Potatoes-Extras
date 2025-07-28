@@ -1910,7 +1910,7 @@ def pronoun_repl(m, cat_pronouns_dict, raise_exception=False):
             if "-" in abbrev:
                 fragments = abbrev.split("-")
                 for f in fragments:
-                    if "_" in f:
+                    if "_" in f or f in ["theircrush", "yourcrush"]:
                         # print("RAISE EXC-- CHANGING:", abbrev, "=>", f)
                         inner_details[1] = f
                         break
@@ -1934,7 +1934,7 @@ def pronoun_repl(m, cat_pronouns_dict, raise_exception=False):
         return "error1"
     except (KeyError, IndexError) as e:
         if raise_exception:
-            # print("ERROR HERE:", e)
+            print("ERROR HERE:", e)
             raise
 
         logger.exception("Failed to find pronoun: " + m.group(1))
@@ -3280,6 +3280,19 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         (chosen_cat in you.relationships and you.relationships[chosen_cat.ID].romantic_love < 20)
     ) else True
 
+    theircrush = False if (
+        chosen_cat.ID == cat.ID or
+        chosen_cat.ID == cat.ID or
+        chosen_cat.ID in cat.mates or
+        chosen_cat.ID in cat.mates or
+        chosen_cat.age != you.age or
+        len(cat.mates) > 0 or
+        chosen_cat.outside or
+        chosen_cat.dead or
+        chosen_cat not in cat.relationships or
+        (chosen_cat in cat.relationships and cat.relationships[chosen_cat.ID].romantic_love < 20)
+    ) else True
+
     # Random statuses
     r_c = False if (
         chosen_cat.ID == you.ID or
@@ -3853,6 +3866,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
     # make sure to add new abbrevs here, or they won't get replaced!!!
     abbrevs = {
         "yourcrush": yourcrush,
+        "theircrush": theircrush,
         "r_k": r_k,
         "r_c": r_c,
         "r_w": r_w,

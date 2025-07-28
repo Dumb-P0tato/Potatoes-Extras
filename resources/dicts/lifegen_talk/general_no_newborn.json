@@ -1381,7 +1381,7 @@
             "Look, I know I haven't exactly been the best cat ... But I could really use some help. Or, guidance, or whatever.",
             "Um ... Well, I guess my whole life I always swore that I would never get too attached to anyone. It just seemed easier that way. Easier to protect what was mine.",
             "But, now, ah ...",
-            "You see, there's this cat called rlike-r_c. {PRONOUN/rlike-r_c/subject/CAP}{VERB/rlike-r_c/'re/'s} ... Oh, how can I even describe {PRONOUN/rlike-r_c/object}? {PRONOUN/rlike-r_c/subject/CAP}{VERB/rlike-r_c/'re/'s} like this perfect thing. {PRONOUN/rlike-r_c/subject/CAP} make me happy.",
+            "You see, there's this cat called theircrush. {PRONOUN/theircrush/subject/CAP}{VERB/theircrush/'re/'s} ... Oh, how can I even describe {PRONOUN/theircrush/object}? {PRONOUN/theircrush/subject/CAP}{VERB/theircrush/'re/'s} like this perfect thing. {PRONOUN/theircrush/subject/CAP} make me happy.",
             "Not glibly sardonic, or ironically hedonistic, or any half-sincere thing like that. Actually happy.",
             "And ... I don't know. I guess I'm just scared. I don't know what to do. I haven't felt this way in years. What if I do something wrong?",
             "Could I get a little guidance? Advice from the other side? Hello? Is anyone listening? Is anyone even there ...?",
@@ -4520,7 +4520,7 @@
             ]
         },
         "tags": [
-            "murdered_them"
+            "murderedthem"
         ],
         "intro": [
             "[Though dead, t_c pretends to sleep - ignoring your presence.]"
@@ -4635,7 +4635,7 @@
             ]
         },
         "tags": [
-            "murdered_them"
+            "murderedthem"
         ],
         "intro": [
             "[t_c, once catching sight of your presence, turns tail and goes off to disappear within the surrounding mist.]"
