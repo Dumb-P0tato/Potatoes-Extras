@@ -3492,7 +3492,6 @@ class Cat:
             if "o_c_n" in string:
                 if not other_clan:
                     other_clan = choice(game.clan.all_clans)
-                    print(game.clan.all_clans)
             new_string = event_text_adjust(
                 Cat,
                 text=string,
