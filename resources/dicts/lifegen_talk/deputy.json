@@ -5995,7 +5995,7 @@
         "intro": [
            "[You ask t_c if, when {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} the leader, {PRONOUN/t_c/subject}'ll make you deputy. {PRONOUN/t_c/subject/CAP} {VERB/t_c/stare/stares} at you.]",
            "That's not how it works, y_c. You need to <i>earn</i> the deputy position.",
-           "For example, I was a diligent hunter and patroller... I demonstrated strong fighting skills... my loyalty to c_nClan was unquestionable...",
+           "For example, I was a diligent hunter and patroller... I demonstrated strong fighting skills... my loyalty to c_n was unquestionable...",
            "[t_c continues listing {PRONOUN/t_c/poss} credentials for a while. It seems like becoming deputy is harder than you realized...]"
 ]
 },
