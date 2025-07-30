@@ -1199,7 +1199,10 @@ class TalkScreen(Screens):
             # ---
 
             if "war" in TAGS:
-                if game.clan.war.get("at_war", False):
+                if "at_war" in game.clan.war:
+                    if not game.clan.war["at_war"]:
+                        continue
+                else:
                     continue
 
             if "clan_has_kits" in TAGS:
@@ -1502,12 +1505,20 @@ class TalkScreen(Screens):
         if "not_kitten" in BLOCK["age"] and cat.status == "newborn":
             return False
 
-        if "younger" in BLOCK["age"] and not (cat.moons < game.clan.your_cat.moons):
-            return False
-        if "sameage" in BLOCK["age"] and not (cat.age == game.clan.your_cat.age):
-            return False
-        if "older" in BLOCK["age"] and not (cat.moons > game.clan.your_cat.moons):
-            return False
+        if cat == game.clan.your_cat:
+            if "younger" in BLOCK["age"] and cat.moons >= self.the_cat.moons:
+                return False
+            if "sameage" in BLOCK["age"] and cat.age != self.the_cat.age:
+                return False
+            if "older" in BLOCK["age"] and cat.moons <= self.the_cat.moons:
+                return False
+        else:
+            if "younger" in BLOCK["age"] and cat.moons >= game.clan.your_cat.moons:
+                return False
+            if "sameage" in BLOCK["age"] and cat.age != game.clan.your_cat.age:
+                return False
+            if "older" in BLOCK["age"] and cat.moons <= game.clan.your_cat.moons:
+                return False
 
         if any(st in [
             "newborn", "kitten", "adolescent", "young adult",

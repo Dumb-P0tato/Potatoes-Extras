@@ -2596,17 +2596,17 @@
         ]
     },
     "sevhache_sam1": {
-            "y_c": {
-                "status": ["not_kitten"],
-                "condition": ["blind:any:false"]
-            },
-            "t_c": {
-                "condition": ["severe headache", "blind:any:false"],
-                "status": ["mediator", "mediator apprentice"]
-            },
-            "intro": [
-                "Ugh... My headache is messing with my ability to mediate arguments.",
-                "How have I never noticed how loud arguments are?"
-            ]
-        }
+        "y_c": {
+            "status": ["not_kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "condition": ["severe headache", "blind:any:false"],
+            "status": ["mediator", "mediator apprentice"]
+        },
+        "intro": [
+            "Ugh... My headache is messing with my ability to mediate arguments.",
+            "How have I never noticed how loud arguments are?"
+        ]
+    }
 }

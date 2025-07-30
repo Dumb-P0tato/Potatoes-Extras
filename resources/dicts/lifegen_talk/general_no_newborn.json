@@ -5199,19 +5199,19 @@
     "no_newborn_brooding_SQ1": {
         "season": ["newleaf", "greenleaf"],
         "t_c": {
-"status": ["not_kitten"],
+            "status": ["not_kitten"],
             "cluster": ["brooding"],
             "skill": ["ARTISTAN,1"]
-},
+        },
         "relationship": ["max_platonic_30"],
         "intro": [
             "[There are new flowers decorating the warriors' den! You walk over to inspect them, but hear t_c snap from behind you.]",
             "Don't touch those flowers, y_c. I've spent ages arranging them.",
             "[t_c narrows {PRONOUN/t_c/poss} eyes at you until you back away from {PRONOUN/t_c/poss} precious decoration.]"
-]
-},
+        ]
+    },
 
- "no_newborn_brooding_SQ2": {
+    "no_newborn_brooding_SQ2": {
         "y_c": {
             "condition": ["blind:any:false"]
         },
@@ -5219,12 +5219,11 @@
             "status": ["not_kitten"],
             "cluster": ["brooding"],
             "condition": ["blind:any:false"]
-},
+        },
         "relationship": ["max_platonic_30"],
         "intro": [
             "I can't help you right now. Ask neutral-r_w or somecat.",
             "...No, I'm not busy. I just want to spend some time alone."
-]
-}
-
+        ]
+    }
 }
