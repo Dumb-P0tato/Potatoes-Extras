@@ -4284,7 +4284,7 @@
         "other": [
             "[You decide to tell neutral-r_w about t_c's predicament.]",
             "[As night falls, the warrior approaches t_c and ... Starts arguing with {PRONOUN/t_c/object}? Wait, this isn't what you wanted!]",
-            "[t_c hisses and swats r-w_neutral away, incensed, then rushes back to the grave, curling up even more tightly than before.]",
+            "[t_c hisses and swats r_w-neutral away, incensed, then rushes back to the grave, curling up even more tightly than before.]",
             "[Seems like no one's gonna be able to tear {PRONOUN/t_c/object} away until {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} absolutely ready.]"
         ],
         "leave": [
@@ -4613,7 +4613,11 @@
         ]
     },
     "sleepy_choicesAJ": {
-        "y_c": {},
+        "y_c": {
+            "status": [
+                "not_newborn"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "stable",
