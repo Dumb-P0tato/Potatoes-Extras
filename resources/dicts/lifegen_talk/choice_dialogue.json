@@ -4178,7 +4178,7 @@
         ],
         "tattle": [
             "[You tug on r_q's tail and insist that t_c be punished for stealing your moss-ball from you.]",
-            "|r_q|t_c, it's not okay to stea. Here's your moss-ball back, y_c.",
+            "|r_q|t_c, it's not okay to steal. Here's your moss-ball back, y_c.",
             "[t_c's attention stays fixed squarely on you, gaze steely and resentful.]",
             "Some warrior you are. Can't even fight your own battles ...",
             "[It seems this is a moment t_c won't soon forget.]",
