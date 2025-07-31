@@ -249,7 +249,6 @@ class Cat:
         self.flirted = False
         self.joined_df = False
         self.forgiven = 0
-        self.inventory = []
         self.revives = 0
         self.no_kits = False
         self.no_mates = False
