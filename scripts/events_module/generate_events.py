@@ -130,6 +130,8 @@ class GenerateEvents:
                             new_event["event_id"] = f"{count}faith_{faith_event['event_id']}"
                             new_events_dict.append(new_event)
 
+                if not new_events_dict:
+                    new_events_dict = events_dict
                 for event in new_events_dict:
                     event_text = event["event_text"] if "event_text" in event else None
                     if not event_text:
