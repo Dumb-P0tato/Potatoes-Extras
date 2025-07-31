@@ -835,12 +835,13 @@ class Events:
                                                 age=random.randint(15,120),
                                                 outside=True)[0]
                     parent1.backstory = random.choice(["refugee2", "refugee3", "refugee4"])
+                    parent2_age = max(parent1.moons + random.randint(-10,10), 15)
                     parent2 = create_new_cat(Cat,
                                                 loner=True,
                                                 status=random.choice(["loner", "kittypet"]),
                                                 alive=False,
                                                 thought=thought,
-                                                age=random.randint(15,120),
+                                                age=parent2_age,
                                                 outside=True)[0]
                     if not game.clan.clan_settings["same sex birth"]:
                         if parent1.gender == parent2.gender:
@@ -873,13 +874,16 @@ class Events:
                                                 thought=thought,
                                                 age=random.randint(15,120),
                                                 outside=True)[0]
+                    
                     parent1.backstory = random.choice(["refugee2", "refugee3", "refugee4"])
+                    parent2_age = max(parent1.moons + random.randint(-10,10), 15)
+
                     parent2 = create_new_cat(Cat,
                                                 loner=True,
                                                 status=random.choice(["loner", "kittypet"]),
                                                 alive=False,
                                                 thought=thought,
-                                                age=random.randint(15,120),
+                                                age=parent2_age,
                                                 outside=True)[0]
                     if not game.clan.clan_settings["same sex birth"]:
                         if parent1.gender == parent2.gender:
