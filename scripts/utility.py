@@ -3277,7 +3277,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.ID in cat.mates or
         chosen_cat.ID in you.mates or
-        chosen_cat.age != you.age or
+        not chosen_cat.is_dateable(you) or
         len(you.mates) > 0 or
         chosen_cat.outside or
         chosen_cat.dead or
@@ -3288,15 +3288,15 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
 
     theircrush = False if (
         chosen_cat.ID == cat.ID or
-        chosen_cat.ID == cat.ID or
+        chosen_cat.ID == you.ID or
         chosen_cat.ID in cat.mates or
-        chosen_cat.ID in cat.mates or
-        chosen_cat.age != you.age or
+        chosen_cat.ID in you.mates or
+        not chosen_cat.is_dateable(cat) or
         len(cat.mates) > 0 or
         chosen_cat.outside or
         chosen_cat.dead or
         chosen_cat not in cat.relationships or
-        (chosen_cat in cat.relationships and cat.relationships[chosen_cat.ID].romantic_love < 20) or
+        (chosen_cat in cat.relationships and cat.relationships[chosen_cat.ID].romantic_love < 15) or
         chosen_cat in current_cat_objects
     ) else True
 

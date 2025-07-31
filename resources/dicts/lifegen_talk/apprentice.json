@@ -7905,5 +7905,49 @@
            "Why does everycat act like learning the warrior code is some kind of huge chore? I memorized it right after I became an apprentice.",
            "It's the rules that guide our lives! They're not hard to remember if you live by them!"
         ]
+    },
+    "multichar_J6": {
+        "y_c": {
+            "status": ["apprentice"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "status": ["apprentice"],
+            "cluster": [
+                "brooding", "unlawful", "cool", "assertive"
+            ],
+            "condition": ["blind:any:false"]
+        },
+        "relationship": ["max_platonic_10"],
+        "intro": [
+            "[After a group training session, t_c is sharing tongues with neutral-r_a. You wander up to the two to try and join the conversation.]",
+            "... tm_n was in such a bad mood today. Don't you think I deserved more praise than what {PRONOUN/tm_n/subject} gave me?",
+            "|neutral-r_a|Yeah, maybe that's true...",
+            "It's definitely true. I was practically--",
+            "Um. Hi, y_c. Can I help you?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Nevermind",
+                "next_scene": "nevermind"
+            },
+            "choice2": {
+                "text": "Join them",
+                "next_scene": "jointhem"
+            }
+        },
+        "nevermind": [
+            "Okay... heh.",
+            "Can you leave, then? You're blocking the sun."
+        ],
+        "jointhem": [
+            "I don't think there's any room for you... and we're almost finished with this rabbit, so...",
+            "|neutral-r_a|No, no, you can sit, y_c! I can't finish this leg. Here.",
+            "[neutral-r_a nudges a rabbit leg in your direction as you sit down. You thank {PRONOUN/neutral-r_a/object}.]",
+            "[Before you can take a bite, t_c abruptly stands up.]",
+            "Take mine, too. I'm full.",
+            "[t_c stalks away, tail twitching. Did you do something wrong..?]",
+            "|neutral-r_a|Don't worry about {PRONOUN/t_c/object}. Bad training day."
+        ]
     }
 }

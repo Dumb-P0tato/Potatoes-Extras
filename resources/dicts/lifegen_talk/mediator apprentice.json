@@ -2271,7 +2271,8 @@
             ]
         },
         "intro": [
-            "[The mediator apprentice has been walking around all day in some sort of disguise, decorating {PRONOUN/t_c/self} in leaves and twigs that seem to have at least some rhyme or reason. Intrigued, you come up to {PRONOUN/t_c/object} to ask why {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} decorated {PRONOUN/t_c/poss} pelt today.]",
+            "[The mediator apprentice has been walking around all day in some sort of disguise, decorating {PRONOUN/t_c/self} in leaves and twigs that seem to have at least some rhyme or reason.]",
+            "[Intrigued, you come up to {PRONOUN/t_c/object} to ask why {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} decorated {PRONOUN/t_c/poss} pelt today.]",
             "Oh! Well, y_c, r_c was feeling down, so I wanted to cheer {PRONOUN/r_c/object} up by dressing myself up!",
             "{PRONOUN/r_c/subject/CAP} told somecat else about... uh...",
             "...Nevermind, I can't say that! I refuse to admit that I'm nosy! Bye, y_c!",
