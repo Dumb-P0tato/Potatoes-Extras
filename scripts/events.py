@@ -3548,7 +3548,7 @@ class Events:
                                              freshkill_pile=game.clan.freshkill_pile)
             return True
         # max age has been indicated to be 300, so if a cat reaches that age, they die of old age
-        elif cat.moons >= 300:
+        if cat.moons >= 300:
             handle_short_events.handle_event(event_type="birth_death",
                                              main_cat=cat,
                                              random_cat=random_cat,
