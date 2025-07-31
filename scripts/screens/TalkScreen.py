@@ -1832,7 +1832,10 @@ class TalkScreen(Screens):
             tags = item["tags"] if "tags" in item else []
             weights.append(len(tags))
         
-        text_chosen_key = choices(list(texts_list.keys()), weights=weights)[0]
+        if len(list(texts_list.keys())) == len(weights) and list(_accumulate(weights))[-1] + 0.0 > 0:
+                text_chosen_key = choices(list(texts_list.keys()), weights=weights)[0]
+        else:
+            text_chosen_key = choice(list(texts_list.keys()))
         text = texts_list[text_chosen_key]["intro"] if "intro" in texts_list[text_chosen_key] else texts_list[text_chosen_key][1]
         if text is None:
             text = self.load_and_replace_placeholders(f"{self.resource_dir}general.json", cat, you)[1]
@@ -1841,7 +1844,10 @@ class TalkScreen(Screens):
         for _ in range(MAX_RETRIES):
             if new_text:
                 break
-            text_chosen_key = choices(list(texts_list.keys()), weights=weights)[0]
+            if len(list(texts_list.keys())) == len(weights) and list(_accumulate(weights))[-1] + 0.0 > 0:
+                text_chosen_key = choices(list(texts_list.keys()), weights=weights)[0]
+            else:
+                text_chosen_key = choice(list(texts_list.keys()))
             text = texts_list[text_chosen_key]["intro"] if "intro" in texts_list[text_chosen_key] else texts_list[text_chosen_key][1]
             new_text = self.get_adjusted_txt(text, cat)
         else:

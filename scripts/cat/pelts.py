@@ -221,7 +221,7 @@ class Pelt:
         self.points = points
         self.accessory = accessory
         self.accessories = accessories if accessories is not None else []
-        self.inventory = inventory
+        self.inventory = inventory if inventory is not None else []
         self.paralyzed = paralyzed
         self.opacity = opacity
         self.scars = scars if isinstance(scars, list) else []

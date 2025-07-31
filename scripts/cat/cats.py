@@ -249,7 +249,6 @@ class Cat:
         self.flirted = False
         self.joined_df = False
         self.forgiven = 0
-        self.inventory = []
         self.revives = 0
         self.no_kits = False
         self.no_mates = False
@@ -3492,7 +3491,6 @@ class Cat:
             if "o_c_n" in string:
                 if not other_clan:
                     other_clan = choice(game.clan.all_clans)
-                    print(game.clan.all_clans)
             new_string = event_text_adjust(
                 Cat,
                 text=string,
