@@ -4519,7 +4519,7 @@
                 "max_they_deadfor_5"
             ]
         },
-        "tags": [
+        "relationship": [
             "murderedthem"
         ],
         "intro": [
@@ -4634,7 +4634,7 @@
                 "max_they_deadfor_5"
             ]
         },
-        "tags": [
+        "relationship": [
             "murderedthem"
         ],
         "intro": [
@@ -5199,7 +5199,7 @@
     "no_newborn_brooding_SQ1": {
         "season": ["newleaf", "greenleaf"],
         "t_c": {
-        "status": ["not_kitten"],
+            "status": ["not_kitten"],
             "cluster": ["brooding"],
             "skill": ["ARTISTAN,1"]
         },
@@ -5297,5 +5297,4 @@
             "But it's cool!"
         ]
     }
-
 }

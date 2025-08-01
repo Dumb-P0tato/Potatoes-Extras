@@ -16951,13 +16951,12 @@
             "status": ["kitten"],
             "cluster": ["upstanding"],
             "condition": ["illness:any", "injury:any"]
-},
+        },
         "relationship": ["max_dislike_5"],
         "intro": [
            "[t_c turns away when you begin inviting {PRONOUN/t_c/object} to play.]",
            "I'm s'posed to rest so I get better. r_m's orders.",
            "No, don't argue! You've gotta leave me alone now."
-]
-}
-
+        ]
+    }
 }
