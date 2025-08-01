@@ -3625,11 +3625,11 @@
                 "introspective"
             ],
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "heartbroken"
             ]
         },
         "tags": [
-            "heartbroken",
             "accept"
         ],
         "intro": [
@@ -3650,11 +3650,11 @@
                 "upstanding"
             ],
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "heartbroken"
             ]
         },
         "tags": [
-            "heartbroken",
             "accept"
         ],
         "intro": [
@@ -3673,11 +3673,11 @@
                 "introspective"
             ],
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "heartbroken"
             ]
         },
         "tags": [
-            "heartbroken",
             "accept"
         ],
         "intro": [
@@ -3697,11 +3697,11 @@
                 "upstanding"
             ],
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "heartbroken"
             ]
         },
         "tags": [
-            "heartbroken",
             "accept"
         ],
         "intro": [
@@ -3722,11 +3722,11 @@
                 "upstanding"
             ],
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "heartbroken"
             ]
         },
         "tags": [
-            "heartbroken",
             "accept"
         ],
         "intro": [
@@ -3745,11 +3745,11 @@
                 "brooding"
             ],
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "heartbroken"
             ]
         },
         "tags": [
-            "heartbroken",
             "accept"
         ],
         "intro": [
@@ -3767,11 +3767,11 @@
                 "neurotic"
             ],
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "heartbroken"
             ]
         },
         "tags": [
-            "heartbroken",
             "accept"
         ],
         "intro": [
@@ -3790,11 +3790,11 @@
                 "unlawful"
             ],
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "heartbroken"
             ]
         },
         "tags": [
-            "heartbroken",
             "accept"
         ],
         "intro": [
@@ -3814,11 +3814,11 @@
                 "silly"
             ],
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "heartbroken"
             ]
         },
         "tags": [
-            "heartbroken",
             "accept"
         ],
         "intro": [
@@ -3837,11 +3837,11 @@
                 "cool"
             ],
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "heartbroken"
             ]
         },
         "tags": [
-            "heartbroken",
             "accept"
         ],
         "intro": [
@@ -3860,11 +3860,11 @@
                 "brooding"
             ],
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "heartbroken"
             ]
         },
         "tags": [
-            "heartbroken",
             "accept"
         ],
         "intro": [
@@ -3884,11 +3884,11 @@
                 "introspective"
             ],
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "heartbroken"
             ]
         },
         "tags": [
-            "heartbroken",
             "accept"
         ],
         "intro": [
@@ -3908,11 +3908,11 @@
                 "upstanding"
             ],
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "heartbroken"
             ]
         },
         "tags": [
-            "heartbroken",
             "accept"
         ],
         "intro": [
@@ -3932,11 +3932,11 @@
                 "upstanding"
             ],
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "heartbroken"
             ]
         },
         "tags": [
-            "heartbroken",
             "accept"
         ],
         "intro": [
@@ -3956,11 +3956,11 @@
                 "neurotic"
             ],
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "heartbroken"
             ]
         },
         "tags": [
-            "heartbroken",
             "accept"
         ],
         "intro": [
@@ -3980,11 +3980,11 @@
                 "neurotic"
             ],
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "heartbroken"
             ]
         },
         "tags": [
-            "heartbroken",
             "accept"
         ],
         "intro": [
@@ -3994,14 +3994,12 @@
     "flirt_sh_J25": {
         "y_c": {
             "condition": [
-                "blind:any:false",
                 "blind:any:false"
             ],
             "shunned": true
         },
         "t_c": {
             "condition": [
-                "blind:any:false",
                 "blind:any:false"
             ]
         },
@@ -5617,12 +5615,12 @@
         },
         "t_c": {
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "heartbroken"
             ],
             "shunned": true
         },
         "tags": [
-            "heartbroken",
             "reject"
         ],
         "intro": [
@@ -6050,11 +6048,19 @@
         ]
     },
     "flirt_reject_H14": {
-        "y_c": {},
-        "t_c": {},
+        "y_c": {
+            "shunned": "any"
+        },
+        "t_c": {
+            "condition": [
+                "deaf:any:false",
+                "blind:any:false",
+                "heartbroken"
+            ],
+            "shunned": "any"
+        },
         "tags": [
-            "reject",
-            "heartbroken"
+            "reject"
         ],
         "intro": [
             "[t_c's tail lashes angrily and {PRONOUN/t_c/subject} {VERB/t_c/turn/turns} the other way.]",

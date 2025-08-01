@@ -3903,6 +3903,12 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat in current_cat_objects
     ) else True
 
+    r_c_sc = False if (
+        not chosen_cat.dead or
+        chosen_cat.df or
+        chosen_cat.outside
+    ) else True
+
     # now the abbrevs dict!
     # make sure to add new abbrevs here, or they won't get replaced!!!
     abbrevs = {
@@ -3966,7 +3972,8 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         "e_c": e_c,
         "fc_c": fc_c,
         "tg_c": tg_c,
-        "yg_c": yg_c
+        "yg_c": yg_c,
+        "r_c_sc": r_c_sc
     }
 
     return abbrevs
@@ -4012,9 +4019,14 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 continue
             if abbrev_string == "r_w" and "r_w1" in text:
                 continue
-            if abbrev_string == "t_k" and ("t_ka" in text or "t_kk" in text):
+            if abbrev_string == "t_k" and "t_ka" in text:
+                continue
+            if abbrev_string == "t_k" and "t_kk" in text:
                 continue
             if abbrev_string == "m_n" and "tm_n" in text:
+                continue
+
+            if abbrev_string == "r_c" and "r_c_sc" in text:
                 continue
 
             # find cluster and rel addons if theyre there
