@@ -40,6 +40,7 @@ jobs:
             
           - os: macos-13
             artifact_name: PotatoesExtrasCg_macOS64.dmg
+            artifact_name: Clangen_macOS64.dmg
             python_version: "3.11"
             python_arch: "x64"
             itch_channel: osx64
@@ -151,6 +152,7 @@ jobs:
         if: startsWith(matrix.os, 'macos')
         run: |
           rm -r dist/PotatoesExtrasCg
+          rm -r dist/Clangen
           npm install -g archanyhm/node-appdmg
           appdmg appdmg.json ${{ matrix.artifact_name }}
       - uses: actions/upload-artifact@v4
