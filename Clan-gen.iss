@@ -1,7 +1,7 @@
 ; Clan-gen Installer Script
 
-#define ApplicationBaseName "Clan-gen"
-#define ApplicationFullName "Clan-gen (fan edit) by Sablesteel"
+#define ApplicationBaseName "PotatoesExtrasLg"
+#define ApplicationFullName "Potatoes Extras: A lifegen mod"
 
 ; Update this line to the date of the latest Clan-gen (fan edit) by Sablesteel release 
 ; (or choose your own version-numbering scheme)
@@ -68,3 +68,4 @@ Name: {commondesktop}\Clan-gen (fan edit); Filename: {app}\main.exe; Comment: "C
 
 ; Uninstall program Comment out to disable shortcut 
 ;Name: {group}\Uninstall {#ApplicationFullName}; Filename: {uninstallexe}
+
