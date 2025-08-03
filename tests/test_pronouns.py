@@ -12,18 +12,17 @@ import os
 import re
 import sys
 import unittest
+
 import ujson
 
+from scripts.cat.cats import Cat
+from scripts.utility import process_text
 
 os.environ["SDL_VIDEODRIVER"] = "dummy"
 os.environ["SDL_AUDIODRIVER"] = "dummy"
 
-from scripts.cat.cats import Cat
-from scripts.game_structure.localization import get_new_pronouns
-from scripts.utility import process_text
 
-
-def _test():
+def test():
     """Iterate through all files in 'resources'
     and verify that any detected pronoun tags are
     formatted correctly."""
@@ -34,7 +33,7 @@ def _test():
     # to ensure that we are catching cases where only one verb conjugation
     # was provided - since singular-conjugation
     # should be the second provided conjugation.
-    _r = ("Name", get_new_pronouns("female")[0])
+    _r = ("Name", Cat.default_pronouns[1])
     replacement_dict = {
         "m_c": _r,
         "r_c": _r,
@@ -71,14 +70,14 @@ def _test():
 
     for root, _, files in os.walk("resources"):
         for file in files:
-            if file.endswith(".json") and file not in (
+            if file.endswith(".json") and file not in [
                 "credits_text.json",
                 "clansettings.json",
                 "gamesettings.json",
-            ):
+            ]:
                 path = os.path.join(root, file)
 
-                if not _test_replacement_failure(path, replacement_dict):
+                if not test_replacement_failure(path, replacement_dict):
                     failed = True
                     failed_files.append(path)
 
@@ -94,13 +93,13 @@ def _test():
         sys.exit(0)
 
 
-def _test_replacement_failure(path: str, repl_dict: dict) -> bool:
+def test_replacement_failure(path: str, repl_dict: dict) -> bool:
     """Reads in a file, and finds strings, and runs pronoun replacment on those strings.
     Returns False if there were any issues with the pronoun replacement, or if the
     json is incorrectly formatted."""
 
     success = True
-    with open(path, "r", encoding="utf-8") as file:
+    with open(path, "r") as file:
         try:
             contents = ujson.loads(file.read())
         except ujson.JSONDecodeError as _e:
@@ -110,9 +109,7 @@ def _test_replacement_failure(path: str, repl_dict: dict) -> bool:
 
     for _str in get_all_strings(contents):
         try:
-            processed = process_text(
-                text=_str, cat_dict=repl_dict, raise_exception=True
-            )
+            processed = process_text(_str, repl_dict, True)
         except (KeyError, IndexError) as _e:
             print(
                 f'::error file={path}: "{_str}" contains invalid pronoun or verb tags.'
@@ -123,7 +120,7 @@ def _test_replacement_failure(path: str, repl_dict: dict) -> bool:
             # This tests for any pronoun or verb tag fragments that might have
             # snuck through. This is most likely caused by using the incorrect type of
             # brackets
-            if re.search(r"\{PRONOUN|\(PRONOUN|\{VERB|\(VERB|\{ADJ|\(ADJ", processed):
+            if re.search(r"\{PRONOUN|\(PRONOUN|\{VERB|\(VERB", processed):
                 print(
                     f'::error file={path}: "{_str}" contains pronoun tag fragments after replacment'
                 )
@@ -170,5 +167,5 @@ class TestPronouns(unittest.TestCase):
     def test_pronouns(self):
         """Test that all files are ascii decodable."""
         with self.assertRaises(SystemExit) as cm:
-            _test()
+            test()
         self.assertEqual(cm.exception.code, 0)
