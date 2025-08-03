@@ -1,1 +1,1 @@
-start %LocalAppData%\PotatoesExtrasLg\PotatoesExtrasLg
+start %LocalAppData%\ClanGen\ClanGen

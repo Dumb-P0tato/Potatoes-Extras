@@ -35,7 +35,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='PotatoesExtrasLg',
+    name='Lifegen',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -56,11 +56,11 @@ coll = COLLECT(
     strip=False,
     upx=False,
     upx_exclude=[],
-    name='PotatoesExtrasLg',
+    name='Lifegen',
 )
 app = BUNDLE(
     coll,
-    name='PotatoesExtrasLg.app',
+    name='Lifegen.app',
     icon='resources/images/icon.png',
     bundle_identifier='com.sablesteel.clangen',
     version='0.7.5' # imo we should give dev builds .5

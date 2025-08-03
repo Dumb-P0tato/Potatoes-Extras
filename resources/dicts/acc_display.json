@@ -1125,11 +1125,6 @@
     "plural": "ladybug",
     "singular": "ladybugs"
   },
-  "LADYBUG": {
-    "default": "ladybugs",
-    "plural": "ladybug",
-    "singular": "ladybugs"
-  },
   "MUD PAWS": {
     "default": "muddy paws",
     "plural": "muddy paws",
@@ -1753,7 +1748,7 @@
   "CORKHAT": {
     "default": "cork hat",
     "plural": "cork hats",
-    "singluar": "cork hat"
+    "singular": "cork hat"
   },
   "RAINBOWLORIKEET": {
     "default": "rainbow lorikeet",
@@ -1763,11 +1758,16 @@
   "BILBY": {
     "default": "bilby",
     "plural": "bilbies",
-    "singluar": "bilby"
+    "singular": "bilby"
   },
   "ZOOKEEPER": {
     "default": "zookeeper outfit",
     "plural": "zookeeper outfits",
     "singular": "zookeeper outfit"
+  },
+  "MOONHAT": {
+    "default": "moonhat",
+    "plural": "moonhats",
+    "singular": "moonhat"
   }
 }

@@ -15,7 +15,8 @@ from scripts.game_structure.ui_elements import (
 from scripts.utility import (
     get_text_box_theme,
     ui_scale,
-    ui_scale_offset
+    ui_scale_offset,
+    ui_scale_dimensions
 )
 from ..ui.generate_box import get_box, BoxStyles
 from ..ui.generate_button import get_button_dict, ButtonStyles
@@ -68,7 +69,7 @@ class ChooseRebornScreen(Screens):
 
                 # self.update_buttons()
             elif event.ui_element == self.back_button:
-                self.change_screen('events screen')
+                self.change_screen('profile screen')
                 game.switches['continue_after_death'] = False
             elif event.ui_element == self.next_cat_button:
                 if isinstance(Cat.fetch_cat(self.next_cat), Cat):
@@ -316,6 +317,10 @@ class ChooseRebornScreen(Screens):
         self.unknown_tab.kill()
         del self.unknown_tab
 
+        if self.cant_switch_warning:
+            self.cant_switch_warning.kill()
+            del self.cant_switch_warning
+
         self.list_frame.kill()
 
     def find_next_previous_cats(self):
@@ -378,10 +383,12 @@ class ChooseRebornScreen(Screens):
         if self.selected_cat:
 
             self.selected_details["selected_image"] = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((325, 150), (150, 150))),
-                pygame.transform.scale(
-                    self.selected_cat.sprite,
-                    (150, 150)), manager=MANAGER)
+                    ui_scale(pygame.Rect((325, 150), (150, 150))),
+                    pygame.transform.scale(
+                        self.selected_cat.sprite, ui_scale_dimensions((150, 150))
+                    ),
+                    manager=MANAGER,
+                )
 
             info = self.selected_cat.status + "\n" + \
                    self.selected_cat.genderalign + "\n" + self.selected_cat.personality.trait + "\n"
@@ -499,7 +506,8 @@ class ChooseRebornScreen(Screens):
                         not cat.outside and
                         not cat.ID == game.clan.your_cat.ID and
                         not cat.ID == game.clan.instructor.ID and
-                        not cat.ID == game.clan.demon.ID
+                        not cat.ID == game.clan.demon.ID and
+                        not cat.faded
                         ):
                         valid_mentors.append(cat)
                 elif self.current_sublist == "starclan":
@@ -509,7 +517,8 @@ class ChooseRebornScreen(Screens):
                         not cat.outside and
                         not cat.ID == game.clan.your_cat.ID and
                         not cat.ID == game.clan.instructor.ID and
-                        not cat.ID == game.clan.demon.ID
+                        not cat.ID == game.clan.demon.ID and
+                        not cat.faded
                         ):
                         valid_mentors.append(cat)
                 elif self.current_sublist == "unknown":
@@ -519,7 +528,8 @@ class ChooseRebornScreen(Screens):
                         cat.outside and
                         not cat.ID == game.clan.your_cat.ID and
                         not cat.ID == game.clan.instructor.ID and
-                        not cat.ID == game.clan.demon.ID
+                        not cat.ID == game.clan.demon.ID and 
+                        not cat.faded
                         ):
                         valid_mentors.append(cat)
 

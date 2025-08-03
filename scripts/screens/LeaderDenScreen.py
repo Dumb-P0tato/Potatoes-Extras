@@ -152,7 +152,7 @@ class LeaderDenScreen(Screens):
         # This is here incase the leader comes back
         self.no_leader = False
 
-        if not game.clan.leader or game.clan.leader.dead or game.clan.leader.exiled:
+        if not game.clan.leader or game.clan.leader.dead or game.clan.leader.exiled or game.clan.leader.outside:
             self.no_leader = True
 
         # LEADER DEN BG AND LEADER SPRITE
@@ -191,7 +191,7 @@ class LeaderDenScreen(Screens):
         self.helper_cat = None
         if self.no_leader or game.clan.leader.not_working():
             if game.clan.deputy:
-                if not game.clan.deputy.not_working() and not game.clan.deputy.dead:
+                if not game.clan.deputy.not_working() and not game.clan.deputy.dead and not game.clan.deputy.outside:
                     self.helper_cat = game.clan.deputy  # if lead is sick, dep helps
             if not self.helper_cat:  # if dep is sick, med cat helps
                 meds = get_alive_status_cats(
@@ -931,7 +931,7 @@ class LeaderDenScreen(Screens):
             self.screen_elements["clan_notice_text"].hide()
 
             self.clan_rep = game.clan.reputation
-            if 1 <= int(self.clan_rep) <= 30:
+            if 0 <= int(self.clan_rep) <= 30:
                 reputation = "hostile"
             elif 31 <= int(self.clan_rep) <= 70:
                 reputation = "neutral"
@@ -1002,11 +1002,11 @@ class LeaderDenScreen(Screens):
         for cat in display_cats:
             if game.clan.clan_settings["show fav"] and cat.favourite != 0:
                 self.fav[str(i)] = pygame_gui.elements.UIImage(
-                    ui_scale(pygame.Rect((10 + pos_x, 0 + pos_y), (100, 100))),
+                    ui_scale(pygame.Rect((10 + pos_x, 0 + pos_y), (50, 50))),
                     pygame.transform.scale(
                         pygame.image.load(
                             f"resources/images/fav_marker_{cat.favourite}.png").convert_alpha(),
-                        (100, 100)),
+                        (50, 50)),
                         container=self.outsider_cat_list_container
                 )
                 self.fav[str(i)].disable()
