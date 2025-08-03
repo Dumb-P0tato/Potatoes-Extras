@@ -150,6 +150,8 @@ class Sprites:
             "agouticolours",
             "singlestripecolours",
             "maskedcolours",
+            "meteorcolours",
+            "pseudotortcolours",
             "shadersnewwhite",
             "lightingnew",
             "whitepatches",
@@ -194,16 +196,16 @@ class Sprites:
 
         # Define eye colors
         eye_colors = [
-            ['YELLOW', 'AMBER', 'HAZEL', 'PALEGREEN', 'GREEN', 'BLUE', 'DARKBLUE', 'GREY', 'CYAN', 'EMERALD',
-             'HEATHERBLUE', 'SUNLITICE'],
-            ['COPPER', 'SAGE', 'COBALT', 'PALEBLUE', 'BRONZE', 'SILVER', 'PALEYELLOW', 'GOLD', 'GREENYELLOW',
-             'SUNSET', 'RED', 'ORANGE'],
-            ['PURPLE', 'PINK', 'LILAC', 'LAVENDER', 'VIOLET', 'ROSE', 'BLUSH',
-            'HOTPINK', 'SALMON', 'CORAL', 'SCARLET', 'SUNRISE'],
-            ['MIDNIGHT', 'PALE', 'LIGHTRED', 'LIGHTORANGE', 'DARKORANGE', 'DARKPURPLE',
-            'LIGHTPURPLE', 'DARKPINK', 'LIGHTPINK', 'DARKGREEN', 'DARKYELLOW', 'FIRE'],
-            ['BLURPLE', 'DARKHAZEL', 'LUNAR', 'MINTCHOCOLATE', 'FLOWERFROST', 'SEAGREEN',
-            'BLOOM', 'MINT', 'REDROSE', 'DARKRED', 'COOLBOW', 'WARMBOW']
+            ["YELLOW", "AMBER", "HAZEL", "PALEGREEN", "GREEN", "BLUE", "DARKBLUE", "GREY", "CYAN", "EMERALD",
+             "HEATHERBLUE", "SUNLITICE"],
+            ["COPPER", "SAGE", "COBALT", "PALEBLUE", "BRONZE", "SILVER", "PALEYELLOW", "GOLD", "GREENYELLOW",
+             "SUNSET", "RED", "ORANGE"],
+            ["PURPLE", "PINK", "LILAC", "LAVENDER", "VIOLET", "ROSE", "BLUSH",
+            "HOTPINK", "SALMON", "CORAL", "SCARLET", "SUNRISE"],
+            ["MIDNIGHT", "PALE", "LIGHTRED", "LIGHTORANGE", "DARKORANGE", "DARKPURPLE",
+            "LIGHTPURPLE", "DARKPINK", "LIGHTPINK", "DARKGREEN", "DARKYELLOW", "FIRE"],
+            ["BLURPLE", "DARKHAZEL", "LUNAR", "MINTCHOCOLATE", "FLOWERFROST", "SEAGREEN",
+            "BLOOM", "MINT", "REDROSE", "DARKRED", "COOLBOW", "WARMBOW"]
         ]
 
         for row, colors in enumerate(eye_colors):
@@ -366,27 +368,27 @@ class Sprites:
 
         # Define colors and categories
         color_categories = [
-        ['WHITE', 'PALEGREY', 'SILVER', 'GREY', 'DARKGREY', 'GHOST', 'BLACK', 'MIDNIGHT', 'AZUL', 'SKY', 'RED', 'ORANGE',
-         'LIGHTRED', 'PASTELBOW', 'DEEPWINKLE', 'SUNLIGHT', 'MIDNIGHTGREEN', 'WINKLE'],
-        ['CREAM', 'PALEGINGER', 'GOLDEN', 'GINGER', 'DARKGINGER', 'SIENNA', 'ROSE', 'CHERRY', 'CORNFLOWER', 'THISTLE',
-         'LIGHTORANGE', 'LEMON', 'OLIVE', 'RAINBOW', 'MIDNIGHTBLUE', 'CORALS', 'MIDNIGHTCYAN', 'UNICORN'],
-        ['LIGHTBROWN', 'LILAC', 'BROWN', 'GOLDEN-BROWN', 'DARKBROWN', 'CHOCOLATE', 'HEATHER', 'LAVENDER', 'FADEDSKY',
-         'DEEPTHISTLE', 'PALEYELLOW', 'GOLD', 'RUSTY', 'PLINK', 'DEEPSEA', 'PALEWINKLE', 'BRIGHTERNIGHT', 'PALEROSES'],
-        ['BROWNGOLD', 'DARKHEATHER', 'FLARE', 'SEAFOAM', 'ORCHID', 'VIOLET', 'FADEDGREEN', 'OAK', 'PALEGREEN', 'PERIWINKLE',
-         'CRIMSON', 'BURNTORANGE', 'GARNET', 'BRIGHTERTHYST', 'SWAMP', 'MIDNIGHTPURPLE', 'PURPLEISH', 'CLOUDRIVER'],
-        ['RUBY', 'TINTEDROSE', 'DARKLEAF', 'RUST', 'GREENMINT', 'PITCHNIGHT', 'ROSENIGHT', 'BLACKWHITE', 'GOLDSUN',
-         'DEEPFLARE', 'PINK', 'PALEPURPLE', 'BLOSSOMS', 'BLOOMS', 'MOSSES', 'MIDNIGHTRED', 'EVERGREEN', 'MYTHICAL'],
-        ['LEAF', 'COOLGREEN', 'PITCHLEAF', 'MINT', 'WARMWHITE', 'DARKMINT', 'NAVY', 'DARKPURPLE', 'BRIGHTPURPLE', 'BLUE',
-         'FADEDBLUE', 'SKYBLUE', 'LOLIPOP', 'BUBBLEGUM', 'MEADOWS', 'MIDNIGHTPINK', 'OCEAN', 'SUNCLOUD'],
-        ['FADEDMAGENTA', 'ROSETINT', 'DEEPROSE', 'HOTPINK', 'SILVERROSE', 'FADEDROSE', 'PLATINUM', 'METAL', 'METALIC', 'STONE',
-         'STORM', 'PITCHBLACK', 'GREEN', 'MAGENTA', 'DARKYELLOW', 'MIDNIGHTYELLOW', 'DEEPCARAMEL', 'SUNRISES']
+        ["WHITE", "PALEGREY", "SILVER", "GREY", "DARKGREY", "GHOST", "BLACK", "MIDNIGHT", "AZUL", "SKY", "RED", "ORANGE",
+         "LIGHTRED", "PASTELBOW", "DEEPWINKLE", "SUNLIGHT", "MIDNIGHTGREEN", "WINKLE"],
+        ["CREAM", "PALEGINGER", "GOLDEN", "GINGER", "DARKGINGER", "SIENNA", "ROSE", "CHERRY", "CORNFLOWER", "THISTLE",
+         "LIGHTORANGE", "LEMON", "OLIVE", "RAINBOW", "MIDNIGHTBLUE", "CORALS", "MIDNIGHTCYAN", "UNICORN"],
+        ["LIGHTBROWN", "LILAC", "BROWN", "GOLDEN-BROWN", "DARKBROWN", "CHOCOLATE", "HEATHER", "LAVENDER", "FADEDSKY",
+         "DEEPTHISTLE", "PALEYELLOW", "GOLD", "RUSTY", "PLINK", "DEEPSEA", "PALEWINKLE", "BRIGHTERNIGHT", "PALEROSES"],
+        ["BROWNGOLD", "DARKHEATHER", "FLARE", "SEAFOAM", "ORCHID", "VIOLET", "FADEDGREEN", "OAK", "PALEGREEN", "PERIWINKLE",
+         "CRIMSON", "BURNTORANGE", "GARNET", "BRIGHTERTHYST", "SWAMP", "MIDNIGHTPURPLE", "PURPLEISH", "CLOUDRIVER"],
+        ["RUBY", "TINTEDROSE", "DARKLEAF", "RUST", "GREENMINT", "PITCHNIGHT", "ROSENIGHT", "BLACKWHITE", "GOLDSUN",
+         "DEEPFLARE", "PINK", "PALEPURPLE", "BLOSSOMS", "BLOOMS", "MOSSES", "MIDNIGHTRED", "EVERGREEN", "MYTHICAL"],
+        ["LEAF", "COOLGREEN", "PITCHLEAF", "MINT", "WARMWHITE", "DARKMINT", "NAVY", "DARKPURPLE", "BRIGHTPURPLE", "BLUE",
+         "FADEDBLUE", "SKYBLUE", "LOLIPOP", "BUBBLEGUM", "MEADOWS", "MIDNIGHTPINK", "OCEAN", "SUNCLOUD"],
+        ["FADEDMAGENTA", "ROSETINT", "DEEPROSE", "HOTPINK", "SILVERROSE", "FADEDROSE", "PLATINUM", "METAL", "METALIC", "STONE",
+         "STORM", "PITCHBLACK", "GREEN", "MAGENTA", "DARKYELLOW", "MIDNIGHTYELLOW", "DEEPCARAMEL", "SUNRISES"]
         ]
 
         color_types = [
-            'singlecolours', 'tabbycolours', 'marbledcolours', 'rosettecolours',
-            'smokecolours', 'tickedcolours', 'speckledcolours', 'bengalcolours',
-            'mackerelcolours', 'classiccolours', 'sokokecolours', 'agouticolours',
-            'singlestripecolours', 'maskedcolours', 'meteorcolours', 'pseudotortcolours'
+            "singlecolours", "tabbycolours", "marbledcolours", "rosettecolours",
+            "smokecolours", "tickedcolours", "speckledcolours", "bengalcolours",
+            "mackerelcolours", "classiccolours", "sokokecolours", "agouticolours",
+            "singlestripecolours", "maskedcolours", "meteorcolours", "pseudotortcolours"
         ]
 
         for row, colors in enumerate(color_categories):
