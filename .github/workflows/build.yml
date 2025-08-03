@@ -39,7 +39,7 @@ jobs:
             api_artifact_name: win10+
             
           - os: macos-13
-            artifact_name: Clangen_macOS64.dmg
+            artifact_name: PotatoesExtrasCg_macOS64.dmg
             python_version: "3.11"
             python_arch: "x64"
             itch_channel: osx64
