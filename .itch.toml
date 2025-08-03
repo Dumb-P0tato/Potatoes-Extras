@@ -1,11 +1,11 @@
 [[actions]]
 name = "play"
 platform = "windows"
-path = "Clangen/Clangen.exe"
+path = "PotatoesExtrasLg/PotatoesExtrasLg.exe"
 args = ["--launched-through-itch"]
 
 [[actions]]
 name = "play"
 platform = "linux"
-path = "Clangen/Clangen"
+path = "PotatoesExtrasLg/PotatoesExtrasLg"
 args = ["--launched-through-itch"]
